@@ -3,4 +3,15 @@
     <declare-styleable name="EditTextWithClear">
         <attr name="clearIcon" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="RectView">
+        <attr name="rect_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyTitleBar">
+        <attr name="title_bg_color" format="color"/>
+        <attr name="title_text_color" format="color"/>
+        <attr name="title_text" format="string"/>
+    </declare-styleable>
+
 </resources>

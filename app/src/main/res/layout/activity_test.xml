@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <cn.kk.customview.widget.MyTitleBar xmlns:my_title_bar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/my_title_bar"
+        my_title_bar:title_bg_color="@color/green"
+        my_title_bar:title_text="自定义组合控件"
+        my_title_bar:title_text_color="#aaa" />
+
+    <cn.kk.customview.widget.MyTextView
+        android:id="@+id/my_text_view"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/grey"
+        android:gravity="center"
+        android:text="中间有一条线"
+        android:textColor="@color/green"
+        android:textSize="32sp" />
+
+    <cn.kk.customview.widget.RectView
+        android:layout_width="240dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/my_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:rect_color="@color/grey" />
+
+</RelativeLayout>

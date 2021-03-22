@@ -1,4 +1,4 @@
-package cn.kk.customeview
+package cn.kk.customview
 
 import org.junit.Test
 

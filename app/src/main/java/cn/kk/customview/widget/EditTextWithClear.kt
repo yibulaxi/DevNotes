@@ -1,4 +1,4 @@
-package cn.kk.customeview.widget
+package cn.kk.customview.widget
 
 import android.content.Context
 import android.graphics.Rect
@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
-import cn.kk.customeview.R
+import cn.kk.customview.R
 
 class EditTextWithClear @JvmOverloads constructor(
 
