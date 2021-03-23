@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.kk.customview.widget.HorizontalView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<TextView
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:background="@color/grey_e"
+        android:gravity="center"
+        android:text="one"
+        android:textColor="@color/blue"
+        android:textSize="38sp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:background="@color/grey_d"
+        android:gravity="center"
+        android:text="two"
+        android:textColor="@color/blue"
+        android:textSize="38sp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:background="@color/grey_c"
+        android:gravity="center"
+        android:text="three"
+        android:textColor="@color/blue"
+        android:textSize="38sp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:background="@color/grey_b"
+        android:gravity="center"
+        android:text="four"
+        android:textColor="@color/blue"
+        android:textSize="38sp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:background="@color/grey_a"
+        android:gravity="center"
+        android:text="five"
+        android:textColor="@color/blue"
+        android:textSize="38sp" />-->
+
+    <ListView
+        android:id="@+id/list_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/list_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/list_view_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</cn.kk.customview.widget.HorizontalView>
