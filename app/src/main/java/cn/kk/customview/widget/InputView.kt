@@ -335,6 +335,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
                 currentFocusEditText = v as EditText
                 currentWord = wordList.get(tag as Int)
                 mCurrentFocusKeyWordAnswer = wordList.get(tag as Int).spellPart!!
+                resetState()
             } else {
                 // 上一个失去焦点了, 不再提示了
                 (v as EditText).hint = ""
@@ -550,6 +551,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         currentSpellState = STATE_NORMAL
         currentFocusEditText?.setTextColor(COLOR_NORMAL)
         lastErrorTip = ""
+        mCurrentUserInput = currentFocusEditText?.text.toString()
     }
 
     fun removeAlertView(){
