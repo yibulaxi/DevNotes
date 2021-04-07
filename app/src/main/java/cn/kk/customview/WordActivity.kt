@@ -24,8 +24,8 @@ class WordActivity : AppCompatActivity(), InputView.OnSpellFinishListener {
         setContentView(R.layout.activity_word)
 
         inputView.inflateSentence(MyData.SENTENCES)
-
         inputView.mOnSpellFinishListener = this
+
     }
 
     override fun onSuccess() {
@@ -39,8 +39,8 @@ class WordActivity : AppCompatActivity(), InputView.OnSpellFinishListener {
         showToast("全部完成!")
     }
 
-    fun showToast(msg: String){
-        Toast.makeText(applicationContext,msg,Toast.LENGTH_SHORT).show()
+    fun showToast(msg: String) {
+        Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
     }
 
 }

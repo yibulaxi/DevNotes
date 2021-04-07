@@ -1,10 +1,10 @@
 package cn.kk.customview.widget
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
+import android.text.*
+import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -13,7 +13,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import cn.kk.customview.R
 import cn.kk.customview.bean.Word
 import cn.kk.customview.utils.ParseSentenceUtil
 import java.util.*
@@ -29,18 +32,24 @@ const val STATE_HELP = 3
 val COLOR_CORRECT = Color.parseColor("#8EC552")
 val COLOR_ERROR = Color.parseColor("#D87380")
 val COLOR_HELP = Color.parseColor("#C4F7C6")
+val COLOR_NORMAL = Color.parseColor("#232323")
+
+val DEFAULT_HORIZONTAL_SPACING = 5
+val DEFAULT_VERTICAL_SPACING = 5
 
 class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, attrs) {
 
     var inputViewWidth = 0
-    var mVerticalSpacing = 0
+    var mVerticalSpacing = DEFAULT_VERTICAL_SPACING
         set(value) {
             field = value
         }
         get() {
             return field
         }
-    var mHorizontalSpacing = 6
+
+    // 水平方向两个子 view 之间的间隔
+    var mHorizontalSpacing = DEFAULT_HORIZONTAL_SPACING
         set(value) {
             field = value
         }
@@ -64,14 +73,23 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
     var currentSpellState = STATE_NORMAL
     var mCurrentUserInput = ""
     var currentFocusEditText: EditText? = null
-    var currentFocusKeyWordStr = "" // 当前焦点框的单词答案
+    var mCurrentFocusKeyWordAnswer = "" // 当前焦点框的单词答案
+    var lastErrorTip: String = ""
+    lateinit var alertView: TextView
 
     init {
         inputViewWidth = width
-        setPadding(16, 10, 16, 0)
+        alertView = TextView(context).apply {
+
+        }
+        // 设置水平方向的 padding 会导致最后几个 view 显示不出来，不知道为什么，因此先不设置 padding
+//        setPadding(16, 10, 16, 0)
     }
 
 
+    /**
+     * 填充句子
+     */
     fun inflateSentence(sentence: String) {
 
         // 解析句子
@@ -83,11 +101,13 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         }
 
         wordList.clear()
+        wordViewList.clear()
+        /*for (i in 0 until 5) {
+            Log.d(TAG, "inflateSentence: 模拟添加：${i}")
+            createNormalView("one two three four five six seven eight nine ten.")
+        }*/
         for (childSentence in childSentences) {
-            Log.d(
-                TAG,
-                "inflateSentence: childSentence: ${if (childSentence.isWord()) childSentence.spellPart else childSentence.normalPart}"
-            )
+
 
             if (childSentence.isWord()) {
                 wordList.add(childSentence)
@@ -104,11 +124,17 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
      * 一个单词一个 TextView
      */
     private fun createNormalView(normal: String) {
-        for (word in normal.split(" ")) {
+        Log.d(TAG, "createNormalView: normal: ${normal} =>")
+        val elementWord = normal.split(" ")
+        for (i in elementWord.indices) {
             val tv = TextView(context)
             tv.height = dp2px(38)
             tv.textSize = 18f
-            tv.text = word + " "
+            if (i != elementWord.size - 1) {
+                tv.text = elementWord[i].plus(" ")
+            } else {
+                tv.text = elementWord[i]
+            }
             tv.isClickable = false
             tv.gravity = Gravity.CENTER_VERTICAL
 
@@ -122,20 +148,18 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
      * 创建 EditView 提供用户拼写单词
      */
     private fun createWordView(word: String) {
-
-        wordViewList.clear()
+        Log.d(TAG, "createWordView: word: ${word}")
 
         val et = EditText(context)
         et.height = dp2px(38)
         et.textSize = 15f
         et.minWidth = (et.paint.measureText("_") * 1.5f * word.length).toInt()
-        // 限制最大宽度，不能超过父亲控件
-        et.maxWidth = width
         et.gravity = Gravity.BOTTOM
         et.addTextChangedListener(mTextWatcher)
-        et.setOnFocusChangeListener(mFocusChangeListener)
+        et.onFocusChangeListener = mFocusChangeListener
         et.setOnEditorActionListener(mOnEditorActionListener)
 
+        // 给单词所在的 EditText 加上 tag，tag 是在 wordViewList 中的索引
         et.tag = wordViewList.size
         addView(et)
 
@@ -155,23 +179,35 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         var childTop = paddingTop
 
         var lineHeight = 0
+        var lineCount = 1
 
         for (i in 0 until childCount) {
-            var child = getChildAt(i)
+            val child = getChildAt(i)
             if (child.visibility != View.GONE) {
                 measureChild(child, widthMeasureSpec, heightMeasureSpec)
+
             } else {
                 continue
             }
 
-            lineHeight = Math.max(child.measuredHeight, lineHeight)
+            val childWidth = child.measuredWidth
+            val childHeight = child.measuredHeight
 
-            if (childLeft + child.measuredWidth + paddingRight > myWidth) {
+            // 计算出本行最高的 child view 高度
+            lineHeight = Math.max(childHeight, lineHeight)
+
+            if (childLeft + childWidth + paddingRight > myWidth) {
+                // 换行
                 childLeft = paddingLeft
                 childTop += mVerticalSpacing + lineHeight
-                lineHeight = child.measuredHeight
+                lineHeight = childHeight
+
+                lineCount++
+
+                Log.d(TAG, "onMeasure: 换行: ${lineCount}")
             } else {
-                childLeft += child.measuredWidth + mHorizontalSpacing
+                childLeft += childWidth + mHorizontalSpacing
+                Log.d(TAG, "onMeasure: childLeft: $childLeft")
             }
         }
 
@@ -182,6 +218,8 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             myWidth,
             View.resolveSize(wantedHeight, heightMeasureSpec)
         )
+
+        Log.d(TAG, "onMeasure: lineCount: ${lineCount}")
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -241,25 +279,50 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         /**
          * 拼写全部完成
          */
-        fun onComplete(): Unit
+        fun onComplete()
 
     }
 
     val mTextWatcher: TextWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable) {
+
+            mCurrentUserInput = s.toString()
             // 自动判断输入正确
-            if (currentFocusKeyWordStr.length == s.length) {
-                if (currentFocusKeyWordStr == s.toString()) {
-                    showCorrect()
+            if (mCurrentFocusKeyWordAnswer.length == s.length) {
+                if (mCurrentFocusKeyWordAnswer == s.toString()) {
+                    if (isNormal()) {
+                        showCorrect()
+                    }
+                }
+            } else if (TextUtils.isEmpty(s.toString())) {
+                cancelShowHelp()
+            }
+        }
+
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            if (isError()) {
+                if (mCurrentFocusKeyWordAnswer.equals(s.toString())) {
+                    lastErrorTip = s.toString()
+                    Log.d(TAG, "beforeTextChanged: 输错了，重试=> s: ${lastErrorTip}")
+
                 }
             }
         }
 
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-        }
-
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            if (isError()) {
+                if (mCurrentFocusKeyWordAnswer.equals(lastErrorTip)) {
+                    // 输错了后，第一次输入内容
+                    val inputAfterLastError = s?.subSequence(start, start + count)
+                    Log.d(TAG, "onTextChanged: inputAfterLastError: ${inputAfterLastError}")
+                    resetState()
+                    currentFocusEditText?.setText(SpannableStringBuilder(inputAfterLastError))
+                    currentFocusEditText?.setText(inputAfterLastError)
+                    currentFocusEditText?.setSelection(inputAfterLastError!!.length)
+                }
+            }
+
         }
 
     }
@@ -271,10 +334,15 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
                 Log.d(TAG, "onFocusChange: tag=${tag}")
                 currentFocusEditText = v as EditText
                 currentWord = wordList.get(tag as Int)
-                currentFocusKeyWordStr = wordList.get(tag as Int).spellPart!!
+                mCurrentFocusKeyWordAnswer = wordList.get(tag as Int).spellPart!!
             } else {
                 // 上一个失去焦点了, 不再提示了
-                (v as EditText).setHint("")
+                (v as EditText).hint = ""
+                if (isError()) {
+                    // 如果上一个输入错了，又失去焦点了，那么清空
+                    v.setText("")
+                    resetState()
+                }
             }
         }
 
@@ -314,9 +382,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
                         if (TextUtils.isEmpty(mCurrentUserInput)) {
                             showHelp()
                         } else {
-                            if (currentSpellState != STATE_HELP) {
-                                showError()
-                            }
+                            showError(currentFocusEditText?.text.toString().trim().toLowerCase())
                         }
                     } else {
                         //
@@ -329,8 +395,91 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
 
     /**
      * 提示输入错误
+     * 1. 先检查
+     * 2. 提示错误
+     * 3. 弹出框，提示输入的错误答案
      */
-    private fun showError() {
+    private fun showError(inputWord: String) {
+        Log.d(TAG, "showError: 检查错误")
+        currentSpellState = STATE_ERROR
+        // 1. 检查
+        val checkResult = IntArray(mCurrentFocusKeyWordAnswer.length)
+        // 计算比对次数，比对次数最多为答案的长度
+        val maxLoop = Math.min(mCurrentUserInput.length, mCurrentFocusKeyWordAnswer.length)
+        var index = 0
+
+        val inputChars = mCurrentUserInput.toCharArray()
+        val answerChars = mCurrentFocusKeyWordAnswer.toCharArray()
+        while (true) {
+            if (inputChars[index] == answerChars[index]) {
+                // 如果相等，则标记为 1，否则为 0
+                checkResult[index] = 1
+            }
+            index++
+            if (index >= maxLoop) break
+        }
+
+        // 2. 提示错误
+        val ssb = SpannableStringBuilder(mCurrentFocusKeyWordAnswer)
+        for (index in checkResult.indices) {
+
+            // 正确
+            if (checkResult[index] == 1) {
+                ssb.setSpan(
+                    ForegroundColorSpan(COLOR_CORRECT),
+                    index,
+                    index + 1,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                )
+            } else {
+                ssb.setSpan(
+                    ForegroundColorSpan(COLOR_ERROR),
+                    index,
+                    index + 1,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                )
+            }
+        }
+
+        currentFocusEditText?.text = ssb
+
+        var alertMsg = ""
+        if (inputWord.length > mCurrentFocusKeyWordAnswer.length) {
+            alertMsg =
+                inputWord.substring(0, mCurrentFocusKeyWordAnswer.length - 1).plus("...")
+        } else {
+            alertMsg = inputWord
+        }
+
+        // 3. 弹出框，提示输入的错误答案
+        // 计算出 当前输入框的中间点坐标
+        // 得到光标点所在的挖空部分的下划线区域中间的坐标（相对于本 EditText，该区域认为是单词的长度，而不是实际填写错误的单词长度）
+        val posX: Float = currentFocusEditText!!.x + currentFocusEditText!!.width / 2
+        val posY: Float = currentFocusEditText!!.y + currentFocusEditText!!.height
+
+
+        ((context as Activity).window.decorView as ViewGroup).addView(alertView.apply {
+            val alertMsg = "你的答案：${alertMsg}"
+            setText(alertMsg)
+            val alertViewStartX = posX - paint.textSize * text.length / 2
+            setX(alertViewStartX)
+            setY(posY + currentFocusEditText!!.height - 20) // 不知道为什么高度不够，所以再加一次
+            background = ContextCompat.getDrawable(context!!, R.drawable.ic_alert_word)
+            gravity = Gravity.CENTER
+            val myLayoutParams = LayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT
+            )
+            val targetWidth = (paint.textSize * text.length).toInt()
+            Log.d(TAG, "onError: targetWidth= ${targetWidth}")
+            myLayoutParams.height = (lineHeight * 2)
+
+            myLayoutParams.width = targetWidth
+            maxLines = 1
+
+            layoutParams = myLayoutParams
+
+        })
 
     }
 
@@ -339,8 +488,14 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
      */
     fun showHelp() {
         currentFocusEditText?.apply {
-            setHint(currentFocusKeyWordStr)
-            setHintTextColor(Color.parseColor("#C4F7C6"))
+            setHint(mCurrentFocusKeyWordAnswer)
+            setHintTextColor(COLOR_HELP)
+        }
+    }
+
+    fun cancelShowHelp() {
+        currentFocusEditText?.apply {
+            setHint("")
         }
     }
 
@@ -348,6 +503,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         // 输入正确了
         // 1. 显示正确的颜色
         currentFocusEditText?.setTextColor(COLOR_CORRECT)
+//        currentFocusEditText?.setText(mCurrentFocusKeyWordAnswer)
 
         // 2. 更新该单词输入状态
         wordList.get(currentWord!!.wordIndex).spellSuccess = true
@@ -377,5 +533,26 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         currentFocusEditText?.requestFocus()
         currentWord = wordList.get(nextWordIndex)
 
+    }
+
+    fun isError(): Boolean {
+        return currentSpellState == STATE_ERROR
+    }
+
+    fun isNormal(): Boolean {
+        return currentSpellState == STATE_NORMAL
+    }
+
+    fun resetState() {
+        if (isError()) {
+            removeAlertView()
+        }
+        currentSpellState = STATE_NORMAL
+        currentFocusEditText?.setTextColor(COLOR_NORMAL)
+        lastErrorTip = ""
+    }
+
+    fun removeAlertView(){
+        ((context as Activity).window.decorView as ViewGroup).removeView(alertView)
     }
 }

@@ -63,7 +63,7 @@ object ParseSentenceUtil {
                 ""
             )
 
-            // 保持解析的单词和非拼写单词部分
+            // 保存解析的单词和非拼写单词部分
             words.add(Word(normalWordPart, null, partCount, null, moveIndex, -1,-1))
             partCount++
             words.add(Word(null, tempWordData, null, partCount, -1, currWordStartIndex,wordCount))

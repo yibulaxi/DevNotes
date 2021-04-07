@@ -7,8 +7,13 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.List;
 
 import cn.kk.customview.R;
+import cn.kk.customview.bean.Word;
+import cn.kk.customview.utils.ParseSentenceUtil;
 
 /**
  * FlowLayout is much more like a {@link android.widget.LinearLayout}, but it can automatically
@@ -42,23 +47,6 @@ public class FlowLayout extends ViewGroup {
             a.recycle();
         }
     }
-
-    TextWatcher textWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
 
 
     public void setHorizontalSpacing(int pixelSize) {
@@ -146,5 +134,44 @@ public class FlowLayout extends ViewGroup {
             childView.layout(childLeft, childTop, childLeft + childWidth, childTop + childHeight);
             childLeft += childWidth + mHorizontalSpacing;
         }
+    }
+
+    public void addData(String data){
+
+        // 解析句子
+
+        List<Word> wordList = ParseSentenceUtil.INSTANCE.parse(data);
+
+        // 根据解析的句子，动态生成一组 view
+        if (wordList.isEmpty()) {
+            return;
+        }
+
+        for (Word word : wordList) {
+            if (word.isWord()){
+
+            } else {
+                createNormalView(word.getNormalPart());
+            }
+        }
+
+        for (String word : data.split(" ")) {
+            TextView wordView = new TextView(getContext());
+            wordView.setText(word + " ");
+            wordView.setTextSize(18);
+            wordView.setHeight(dp2px(38));
+            addView(wordView);
+        }
+    }
+
+    private void createNormalView(String normalPart) {
+        for (String word : normalPart.split(" ")) {
+
+        }
+    }
+
+
+    private int dp2px(int dp){
+        return (int) (dp * getResources().getDisplayMetrics().density);
     }
 }
