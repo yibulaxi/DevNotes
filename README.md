@@ -17,6 +17,11 @@
   - [继承 ViewGroup](app/src/main/java/cn/kk/customview/widget/HorizontalView.java)
 - [自定义组合控件](app/src/main/java/cn/kk/customview/widget/MyTitleBar.java)
 
+---
+
+#### 流式布局
+[InputView](./app/src/main/java/cn/kk/customview/widget/InputView.kt)
+[参考](https://github.com/liangfeidotme/AndroidFlowLayout)
 
 
 
