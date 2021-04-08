@@ -2,6 +2,7 @@ package cn.kk.customview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -18,7 +19,7 @@ import cn.kk.customview.utils.ParseSentenceUtil;
 /**
  * FlowLayout is much more like a {@link android.widget.LinearLayout}, but it can automatically
  * separate the widgets wrapped in it into multiple lines just like the water flow.
- *
+ * <p>
  * Inspired by {@see http://hzqtc.github.io/2013/12/android-custom-layout-flowlayout.html}
  *
  * @author liangfeizc {@see http://www.liangfeizc.com}
@@ -30,7 +31,7 @@ public class FlowLayout extends ViewGroup {
 
     private int mVerticalSpacing;
     private int mHorizontalSpacing;
-    
+
     public FlowLayout(Context context) {
         super(context);
     }
@@ -136,7 +137,7 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
-    public void addData(String data){
+    public void addData(String data) {
 
         // 解析句子
 
@@ -148,14 +149,18 @@ public class FlowLayout extends ViewGroup {
         }
 
         for (Word word : wordList) {
-            if (word.isWord()){
-
+            if (word.isWord()) {
+                createWordView(word.getSpellPart());
             } else {
                 createNormalView(word.getNormalPart());
             }
         }
 
-        for (String word : data.split(" ")) {
+    }
+
+
+    private void createNormalView(String normalPart) {
+        for (String word : normalPart.split(" ")) {
             TextView wordView = new TextView(getContext());
             wordView.setText(word + " ");
             wordView.setTextSize(18);
@@ -164,14 +169,18 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
-    private void createNormalView(String normalPart) {
-        for (String word : normalPart.split(" ")) {
-
-        }
+    private void createWordView(String word) {
+        TextView wordView = new TextView(getContext());
+        wordView.setText(word);
+        wordView.setTextSize(18);
+        wordView.setTextColor(Color.RED);
+        wordView.setHeight(dp2px(38));
+        addView(wordView);
     }
 
 
-    private int dp2px(int dp){
+
+    private int dp2px(int dp) {
         return (int) (dp * getResources().getDisplayMetrics().density);
     }
 }

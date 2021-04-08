@@ -36,6 +36,7 @@ val COLOR_NORMAL = Color.parseColor("#232323")
 
 val DEFAULT_HORIZONTAL_SPACING = 5
 val DEFAULT_VERTICAL_SPACING = 5
+val DEFAULT_WORD_SPACE_MAX_WIDTH_TIMES = 2 // 挖空单词填空的最大宽度相对于最小宽度的倍数
 
 class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, attrs) {
 
@@ -152,8 +153,11 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
 
         val et = EditText(context)
         et.height = dp2px(38)
-        et.textSize = 15f
-        et.minWidth = (et.paint.measureText("_") * 1.5f * word.length).toInt()
+        et.textSize = 18f
+
+        // 限制最大和最小宽度(最小宽度就是单词的长度)
+        et.minWidth = (et.paint.measureText(word)).toInt()
+        et.maxWidth = et.minWidth * DEFAULT_WORD_SPACE_MAX_WIDTH_TIMES
         et.gravity = Gravity.BOTTOM
         et.addTextChangedListener(mTextWatcher)
         et.onFocusChangeListener = mFocusChangeListener
