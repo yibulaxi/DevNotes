@@ -14,7 +14,7 @@ object MyData {
         "Android is a mobile operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets."
 
     val SENTENCES =
-        "Android is a " + PRE_WORD_KEY_STR +
+        "Android is a operating system based on " + PRE_WORD_KEY_STR +
                 "mobile" + SUFFIX_WORD_KEY_STR +
                 " operating system based on a modified version of the " + PRE_WORD_KEY_STR +
                 "Linux" + SUFFIX_WORD_KEY_STR +

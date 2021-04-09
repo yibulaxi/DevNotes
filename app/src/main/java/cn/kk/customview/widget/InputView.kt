@@ -13,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import cn.kk.customview.R
@@ -41,7 +40,7 @@ val DEFAULT_WORD_SPACE_MAX_WIDTH_TIMES = 2 // 挖空单词填空的最大宽度�
 class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, attrs) {
 
     var inputViewWidth = 0
-    var mVerticalSpacing = DEFAULT_VERTICAL_SPACING
+    var mVerticalSpacing = DEFAULT_VERTICAL_SPACING // 行间距
         set(value) {
             field = value
         }
@@ -49,7 +48,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             return field
         }
 
-    // 水平方向两个子 view 之间的间隔
+    // 水平方向两个子 view 之间的间距
     var mHorizontalSpacing = DEFAULT_HORIZONTAL_SPACING
         set(value) {
             field = value
@@ -174,20 +173,24 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val myWidth = View.resolveSize(0, widthMeasureSpec)
 
+        MeasureSpec.UNSPECIFIED
         val paddingLeft = paddingLeft
         val paddingTop = paddingTop
         val paddingRight = paddingRight
         val paddingBottom = paddingBottom
 
-        var childLeft = paddingLeft
-        var childTop = paddingTop
+        var containerWidth = paddingLeft // 父容器宽
+        var containerHeight = paddingTop // 父容器高
 
-        var lineHeight = 0
+        var lineHeight = 0  // 记录每一行高度
+        var lineWidth = 0  // 记录每一行宽度
+
         var lineCount = 1
 
         for (i in 0 until childCount) {
             val child = getChildAt(i)
             if (child.visibility != View.GONE) {
+                // 测量 子view
                 measureChild(child, widthMeasureSpec, heightMeasureSpec)
 
             } else {
@@ -200,24 +203,34 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             // 计算出本行最高的 child view 高度
             lineHeight = Math.max(childHeight, lineHeight)
 
-            if (childLeft + childWidth + paddingRight > myWidth) {
+            if (lineWidth + childWidth + paddingRight > myWidth) {
                 // 换行
-                childLeft = paddingLeft
-                childTop += mVerticalSpacing + lineHeight
+                containerWidth = Math.max(lineWidth,childWidth + paddingLeft)
+                containerHeight += mVerticalSpacing + lineHeight
                 lineHeight = childHeight
+                lineWidth = paddingLeft + childWidth
 
                 lineCount++
 
                 Log.d(TAG, "onMeasure: 换行: ${lineCount}")
             } else {
-                childLeft += childWidth + mHorizontalSpacing
-                Log.d(TAG, "onMeasure: childLeft: $childLeft")
+//                containerWidth += childWidth + mHorizontalSpacing
+                lineWidth += childWidth + mHorizontalSpacing
+                lineHeight = Math.max(lineHeight,childHeight)
+                Log.d(TAG, "onMeasure: childLeft: $containerWidth")
+            }
+
+            // 单独处理最后一行
+            if (i == childCount - 1){
+                containerHeight += mVerticalSpacing + lineHeight
+                containerWidth = Math.max(containerWidth,lineWidth)
             }
         }
 
 
-        val wantedHeight = childTop + lineHeight + paddingBottom
+        val wantedHeight = containerHeight + lineHeight + paddingBottom
 
+        // 测量完成后，设置给系统
         setMeasuredDimension(
             myWidth,
             View.resolveSize(wantedHeight, heightMeasureSpec)
