@@ -9,23 +9,21 @@ import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import android.util.Log
-import android.view.Gravity
-import android.view.KeyEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.text.getSpans
 import cn.kk.customview.R
-import cn.kk.customview.bean.Word
-import cn.kk.customview.utils.ParseSentenceUtil
 import cn.kk.customview.utils.ValueUtil
-import kotlinx.android.synthetic.main.activity_word.view.*
 import java.util.*
 
 private const val TAG = "InputView"
+// 要隐藏（默写）的单词标签前半部分
+val PRE_WORD_KEY_STR = "<span class=\"key\">"
+
+// 要隐藏（默写）的单词标签后半部分
+val SUFFIX_WORD_KEY_STR = "</span>"
 
 val CHILD_VIEW_HEIGHT = ValueUtil.dp2pxInt(35f)
 val TEXT_SZIE_OF_NORMAL_WORD = 24f
@@ -98,7 +96,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
     val wordViewList = mutableListOf<EditText>()
 
     // 存放单词的集合
-    val wordList = mutableListOf<Word>()
+    val wordList = mutableListOf<InputView.Word>()
     var currentWord: Word? = null
     var currentSpellState = STATE_NORMAL
     var mCurrentUserInput = ""
@@ -106,7 +104,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
     var mCurrentFocusKeyWordAnswer = "" // 当前焦点框的单词答案
     var lastErrorTip: String = ""
     var alertView: TextView
-    val tempSSB = SpannableStringBuilder()
+    var inputmethodmanager: InputMethodManager? = null
 
     init {
         inputView = this
@@ -123,6 +121,9 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         // ViewGroup 默认不会调用 onDraw() 所以，调用这个方法，让其调用 onDraw()
         setWillNotDraw(false)
 
+        inputmethodmanager =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
     }
 
 
@@ -132,7 +133,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
     fun inflateSentence(sentence: String) {
 
         // 解析句子
-        val childSentences = ParseSentenceUtil.parse(sentence)
+        val childSentences = parse(sentence)
 
         // 根据解析的句子，动态生成一组 view
         if (childSentences.isEmpty()) {
@@ -143,7 +144,6 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         wordViewList.clear()
 
         for (childSentence in childSentences) {
-
 
             if (childSentence.isWord()) {
                 wordList.add(childSentence)
@@ -201,12 +201,14 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         et.addTextChangedListener(mTextWatcher)
         et.onFocusChangeListener = mFocusChangeListener
         et.maxLines = 1
+        et.setSingleLine()
         et.setOnEditorActionListener(mOnEditorActionListener)
         et.background = null // 不使用系统自带的下划线
         et.setPadding(0, 0, 0, WORD_SPACE_PADDING_BOTTOM) // 设置字体 padding bottom，如果不设置，默认会很大
 
         // 给单词所在的 EditText 加上 tag，tag 是在 wordViewList 中的索引
         et.tag = wordViewList.size
+
         addView(et)
 
         wordViewList.add(et)
@@ -365,7 +367,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
 
             mCurrentUserInput = s.toString()
             // 自动判断输入正确
-            if (mCurrentFocusKeyWordAnswer.length == s.length) {
+            if (!TextUtils.isEmpty(mCurrentFocusKeyWordAnswer) && mCurrentFocusKeyWordAnswer.length == s.length) {
                 if (mCurrentFocusKeyWordAnswer.toLowerCase() == s.toString().toLowerCase()) {
                     // 比较时，忽略大小写
                     if (isNormal()) {
@@ -432,6 +434,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
                 mCurrentFocusKeyWordAnswer = wordList.get(tag as Int).spellPart!!
                 mCurrentUserInput = currentFocusEditText?.text.toString()
                 resetState()
+
             } else {
                 // 上一个失去焦点了, 不再提示了
                 (v as EditText).hint = ""
@@ -638,8 +641,11 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
 
         // 输入正确了
         // 1. 显示正确的颜色
-//        currentFocusEditText?.setText(mCurrentFocusKeyWordAnswer)
+        currentSpellState = STATE_CORRECT
+        currentFocusEditText?.setText(mCurrentFocusKeyWordAnswer)
         currentFocusEditText?.setTextColor(COLOR_CORRECT)
+//        currentFocusEditText?.hint = mCurrentFocusKeyWordAnswer
+//        currentFocusEditText?.setHintTextColor(COLOR_CORRECT)
         Log.d(TAG, "showCorrect: ${currentFocusEditText?.text.toString()}")
 
 
@@ -662,11 +668,20 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
 
             if (isComplete) {
                 mOnSpellFinishListener?.onComplete()
+
+                // 全部完成后，最后一个单词填空位置，清空焦点 + 不可点击 + 光标不可见 + 不可触摸
+                currentFocusEditText?.clearFocus()
+                currentFocusEditText?.isClickable = false
+                currentFocusEditText?.isCursorVisible = false
+                currentFocusEditText?.isFocusableInTouchMode = false
             }
             return
         }
 
-        // 下一个单词的 view 获取焦点, 并更新当前单词 currentWord
+        // 当前的控件设置为不可点击,下一个单词的 view 获取焦点, 并更新当前单词 currentWord
+        currentFocusEditText?.isClickable = false
+        currentFocusEditText?.isCursorVisible = false
+        currentFocusEditText?.isFocusableInTouchMode = false
         postDelayed(object : Runnable {
             override fun run() {
                 currentFocusEditText = wordViewList.get(nextWordIndex)
@@ -686,6 +701,10 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         return currentSpellState == STATE_NORMAL
     }
 
+    fun isCorrect(): Boolean {
+        return currentSpellState == STATE_CORRECT
+    }
+
     /**
      * 重置状态，
      * 三个地方调用：beforeTextChanged(), 焦点变化时
@@ -697,7 +716,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         if (!mCurrentUserInput.toUpperCase().equals(mCurrentFocusKeyWordAnswer.toUpperCase())) {
             currentFocusEditText?.setTextColor(COLOR_NORMAL)
             currentSpellState = STATE_NORMAL
-        } else { // 这里可以连续跳转，凡事拼写正确的都跳过
+        } else { // 这里可以连续跳转，凡是拼写正确的都跳过
             showCorrect()
         }
         lastErrorTip = ""
@@ -708,5 +727,159 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
 
     fun removeAlertView() {
         ((context as Activity).window.decorView as ViewGroup).removeView(alertView)
+    }
+
+    /**
+     * 显示键盘
+     * 不生效
+     */
+    fun showKeyboard() {
+        if (!isNormal() && !isError()) {
+            return
+        }
+
+        if (!currentFocusEditText?.isFocused!!) {
+            currentFocusEditText?.isFocusable = true
+            currentFocusEditText?.isFocusableInTouchMode = true
+            currentFocusEditText?.requestFocus()
+            (context as Activity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+
+    }
+
+    /**
+     * 解析句子。
+     * 如果句子中没有挖空的单词，
+     */
+    fun parse(sentence: String): MutableList<Word> {
+        // 先找第一个 <span class="key">，如果找到了，记下 index，切割前面的部分
+
+        var localSentence = sentence
+        var currWordStartIndex: Int
+        var currWordEndIndex: Int
+        var words: MutableList<Word> = ArrayList()
+        var moveIndex = 0
+        var partCount = 0
+        var wordCount = 0
+
+        do {
+            // 当前最新部分的，第一个 <span class="key"> 的 '<' 在的索引
+            currWordStartIndex = localSentence.indexOf(PRE_WORD_KEY_STR)
+            // 当前最新部分的，第一个 </span> 的 '<' 在的索引
+            currWordEndIndex = localSentence.indexOf(SUFFIX_WORD_KEY_STR)
+
+            var normalWordPart: String = ""
+            if (currWordStartIndex == -1 && currWordEndIndex == -1) {
+                // 把最后的部分取出来
+                normalWordPart = localSentence.substring(moveIndex)
+                words.add(
+                    Word(
+                        normalWordPart,
+                        null,
+                        (partCount + 1),
+                        null,
+                        moveIndex,
+                        -1,
+                        -1
+                    )
+                )
+                break
+            }
+
+
+
+            if (currWordStartIndex > 0) {
+                // 切割拼写单词前面的内容
+                normalWordPart = localSentence.substring(moveIndex, currWordStartIndex)
+
+            }
+            // 切割单词
+            val tempWordData = localSentence.substring(
+                currWordStartIndex + PRE_WORD_KEY_STR.length,
+                currWordEndIndex
+            )
+
+            // 把标签去掉, 先去掉后面的再去掉前面的
+            localSentence = localSentence.replaceRange(
+                currWordEndIndex,
+                currWordEndIndex + SUFFIX_WORD_KEY_STR.length,
+                ""
+            )
+            localSentence = localSentence.replaceRange(
+                currWordStartIndex,
+                currWordStartIndex + PRE_WORD_KEY_STR.length,
+                ""
+            )
+
+            // 保存解析的单词和非拼写单词部分
+            words.add(
+                Word(
+                    normalWordPart,
+                    null,
+                    partCount,
+                    null,
+                    moveIndex,
+                    -1,
+                    -1
+                )
+            )
+            partCount++
+            words.add(
+                Word(
+                    null,
+                    tempWordData,
+                    null,
+                    partCount,
+                    -1,
+                    currWordStartIndex,
+                    wordCount
+                )
+            )
+            partCount++
+            wordCount++
+            moveIndex = currWordStartIndex + tempWordData.length
+
+
+        } while (true)
+
+
+        return words
+    }
+
+    inner class Word(
+        var normalPart: String?,
+        var spellPart: String?,
+        var normalPartOrder: Int?,
+        var spellPartOrder: Int?,
+        var normalPartStartIndex: Int,
+        var spellPartStartIndex: Int,
+        var wordIndex: Int
+    ) {
+
+        /**
+         * 用户输入内容
+         */
+        var tempInput: String? = null
+            set(value) {
+                field = value
+            }
+            get() {
+                return field
+            }
+
+        /**
+         * 用户输入状态
+         */
+        var spellSuccess = false
+            set(value) {
+                field = value
+            }
+            get() {
+                return field
+            }
+
+        fun isWord(): Boolean{
+            return spellPart != null
+        }
     }
 }
