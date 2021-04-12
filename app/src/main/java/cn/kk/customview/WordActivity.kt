@@ -26,8 +26,6 @@ class WordActivity : AppCompatActivity(), InputView.OnSpellFinishListener {
         inputView.inflateSentence(MyData.SENTENCES)
         inputView.mOnSpellFinishListener = this
 
-        flowLayout.addData(MyData.SENTENCES)
-
     }
 
     override fun onSuccess() {

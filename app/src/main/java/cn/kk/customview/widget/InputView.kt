@@ -2,7 +2,9 @@ package cn.kk.customview.widget
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Paint
 import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
@@ -15,29 +17,54 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.text.getSpans
 import cn.kk.customview.R
 import cn.kk.customview.bean.Word
 import cn.kk.customview.utils.ParseSentenceUtil
+import cn.kk.customview.utils.ValueUtil
+import kotlinx.android.synthetic.main.activity_word.view.*
 import java.util.*
 
 private const val TAG = "InputView"
-val TEXT_SZIE = 26f
-val TEXT_COLOR = Color.parseColor("#BBCCBB")
+
+val CHILD_VIEW_HEIGHT = ValueUtil.dp2pxInt(35f)
+val TEXT_SZIE_OF_NORMAL_WORD = 24f
+val TEXT_SZIE_OF_SPACE_WORD = 24f
 const val STATE_NORMAL = 0
 const val STATE_ERROR = 1
 const val STATE_CORRECT = 2
 const val STATE_HELP = 3
 
-val COLOR_CORRECT = Color.parseColor("#8EC552")
-val COLOR_ERROR = Color.parseColor("#D87380")
-val COLOR_HELP = Color.parseColor("#C4F7C6")
+val WORD_SPACE_PADDING_BOTTOM = ValueUtil.dp2pxInt(1f)
+val WORD_NORMAL_PADDING_BOTTOM = ValueUtil.dp2pxInt(1f)
+
+val WORD_SPACE_UNDER_LINE_THIN = ValueUtil.dp2px(1f)
+
+// （拼写正确和拼写错误的颜色透明度都为 0.6, 转化成十六进制：99），且和要获取当前主题下面对应的颜色
+
+val COLOR_CORRECT = Color.parseColor("#9991DC60")
+val COLOR_ERROR = Color.parseColor("#99FF897F")
+val COLOR_HELP = COLOR_CORRECT
+
+// 这个是跟着主题颜色的，集成到项目里面就在初始化的时候获取主题对应的字体颜色
 val COLOR_NORMAL = Color.parseColor("#232323")
+val COLOR_SHOW_WORD = Color.parseColor("#987654")
+val COLOR_SPACE_WORD = Color.parseColor("#456789")
+val COLOR_SPACE_WORD_UNDER_LINE = COLOR_NORMAL
+val TEXT_COLOR = COLOR_NORMAL
 
 val DEFAULT_HORIZONTAL_SPACING = 5
 val DEFAULT_VERTICAL_SPACING = 5
 val DEFAULT_WORD_SPACE_MAX_WIDTH_TIMES = 2 // 挖空单词填空的最大宽度相对于最小宽度的倍数
 
-class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, attrs) {
+/**
+ * 1. 某个单词输入错误后，重新输入时，首字母是红色的，应显示为黑色（ok）
+ * 2. 输入框中字母的高度和普通文本的高度没对齐（ok）
+ * 3. 「你的答案」提示框的样式、提示框在边缘时的位置需要和 UI 联调下
+ * 4. 单词拼写后，答对答错的提示颜色需要确认是否和 iOS 统一
+ */
+
+class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(context, attributeSet) {
 
     var inputViewWidth = 0
     var mVerticalSpacing = DEFAULT_VERTICAL_SPACING // 行间距
@@ -57,12 +84,15 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             return field
         }
 
-    constructor(context: Context?) : this(context, null)
+    val wordUnderLinePaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
 
     var mOnSpellFinishListener: OnSpellFinishListener? = null
         set(value) {
             field = value
         }
+
+    val inputView: InputView
 
     // 存放单词的 view 集合
     val wordViewList = mutableListOf<EditText>()
@@ -75,15 +105,24 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
     var currentFocusEditText: EditText? = null
     var mCurrentFocusKeyWordAnswer = "" // 当前焦点框的单词答案
     var lastErrorTip: String = ""
-    lateinit var alertView: TextView
+    var alertView: TextView
+    val tempSSB = SpannableStringBuilder()
 
     init {
+        inputView = this
         inputViewWidth = width
         alertView = TextView(context).apply {
-
+            setBackgroundColor(Color.WHITE)
+            elevation = ValueUtil.dp2px(4f)
         }
+        wordUnderLinePaint.setColor(COLOR_SPACE_WORD_UNDER_LINE)
+        wordUnderLinePaint.strokeWidth = WORD_SPACE_UNDER_LINE_THIN
         // 设置水平方向的 padding 会导致最后几个 view 显示不出来，不知道为什么，因此先不设置 padding
 //        setPadding(16, 10, 16, 0)
+
+        // ViewGroup 默认不会调用 onDraw() 所以，调用这个方法，让其调用 onDraw()
+        setWillNotDraw(false)
+
     }
 
 
@@ -102,10 +141,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
 
         wordList.clear()
         wordViewList.clear()
-        /*for (i in 0 until 5) {
-            Log.d(TAG, "inflateSentence: 模拟添加：${i}")
-            createNormalView("one two three four five six seven eight nine ten.")
-        }*/
+
         for (childSentence in childSentences) {
 
 
@@ -128,15 +164,18 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         val elementWord = normal.split(" ")
         for (i in elementWord.indices) {
             val tv = TextView(context)
-            tv.height = dp2px(38)
-            tv.textSize = 18f
+            tv.height = CHILD_VIEW_HEIGHT
+            tv.textSize = TEXT_SZIE_OF_NORMAL_WORD
+            tv.setTextColor(TEXT_COLOR)
             if (i != elementWord.size - 1) {
                 tv.text = elementWord[i].plus(" ")
             } else {
                 tv.text = elementWord[i]
             }
             tv.isClickable = false
-            tv.gravity = Gravity.CENTER_VERTICAL
+            tv.gravity = Gravity.BOTTOM
+
+            tv.setPadding(0, 0, 0, WORD_NORMAL_PADDING_BOTTOM)
 
             addView(tv)
         }
@@ -151,8 +190,9 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         Log.d(TAG, "createWordView: word: ${word}")
 
         val et = EditText(context)
-        et.height = dp2px(38)
-        et.textSize = 18f
+        et.height = CHILD_VIEW_HEIGHT
+        et.textSize = TEXT_SZIE_OF_SPACE_WORD
+        et.setTextColor(TEXT_COLOR)
 
         // 限制最大和最小宽度(最小宽度就是单词的长度)
         et.minWidth = (et.paint.measureText(word)).toInt()
@@ -160,7 +200,10 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         et.gravity = Gravity.BOTTOM
         et.addTextChangedListener(mTextWatcher)
         et.onFocusChangeListener = mFocusChangeListener
+        et.maxLines = 1
         et.setOnEditorActionListener(mOnEditorActionListener)
+        et.background = null // 不使用系统自带的下划线
+        et.setPadding(0, 0, 0, WORD_SPACE_PADDING_BOTTOM) // 设置字体 padding bottom，如果不设置，默认会很大
 
         // 给单词所在的 EditText 加上 tag，tag 是在 wordViewList 中的索引
         et.tag = wordViewList.size
@@ -205,7 +248,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
 
             if (lineWidth + childWidth + paddingRight > myWidth) {
                 // 换行
-                containerWidth = Math.max(lineWidth,childWidth + paddingLeft)
+                containerWidth = Math.max(lineWidth, childWidth + paddingLeft)
                 containerHeight += mVerticalSpacing + lineHeight
                 lineHeight = childHeight
                 lineWidth = paddingLeft + childWidth
@@ -216,14 +259,14 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             } else {
 //                containerWidth += childWidth + mHorizontalSpacing
                 lineWidth += childWidth + mHorizontalSpacing
-                lineHeight = Math.max(lineHeight,childHeight)
+                lineHeight = Math.max(lineHeight, childHeight)
                 Log.d(TAG, "onMeasure: childLeft: $containerWidth")
             }
 
             // 单独处理最后一行
-            if (i == childCount - 1){
+            if (i == childCount - 1) {
                 containerHeight += mVerticalSpacing + lineHeight
-                containerWidth = Math.max(containerWidth,lineWidth)
+                containerWidth = Math.max(containerWidth, lineWidth)
             }
         }
 
@@ -274,6 +317,23 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         }
     }
 
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        for (i in 0 until childCount) {
+            if (getChildAt(i) is EditText) {
+                val curEditText = getChildAt(i) as EditText
+                canvas.drawLine(
+                    curEditText.left.toFloat(), curEditText.bottom.toFloat(),
+                    curEditText.right.toFloat(), curEditText.bottom.toFloat(), wordUnderLinePaint
+                )
+
+                // 查看 padding bottom
+                Log.d(TAG, "onDraw: padding bottom: ${curEditText.paddingBottom}")
+            }
+        }
+    }
+
+
     fun dp2px(dpValue: Int): Int {
         return (dpValue * resources.displayMetrics.density).toInt()
     }
@@ -306,39 +366,57 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             mCurrentUserInput = s.toString()
             // 自动判断输入正确
             if (mCurrentFocusKeyWordAnswer.length == s.length) {
-                if (mCurrentFocusKeyWordAnswer == s.toString()) {
+                if (mCurrentFocusKeyWordAnswer.toLowerCase() == s.toString().toLowerCase()) {
+                    // 比较时，忽略大小写
                     if (isNormal()) {
                         showCorrect()
                     }
                 }
             } else if (TextUtils.isEmpty(s.toString())) {
                 cancelShowHelp()
+            } else {
+
             }
         }
 
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             if (isError()) {
-                if (mCurrentFocusKeyWordAnswer.equals(s.toString())) {
+                if (mCurrentFocusKeyWordAnswer.equals(currentFocusEditText?.hint.toString())) {
                     lastErrorTip = s.toString()
                     Log.d(TAG, "beforeTextChanged: 输错了，重试=> s: ${lastErrorTip}")
-
+                    resetState()
                 }
             }
         }
 
+
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            if (isError()) {
+            /*if (isError()) {
+                Log.d(TAG, "onTextChanged: isError!")
                 if (mCurrentFocusKeyWordAnswer.equals(lastErrorTip)) {
                     // 输错了后，第一次输入内容
                     val inputAfterLastError = s?.subSequence(start, start + count)
                     Log.d(TAG, "onTextChanged: inputAfterLastError: ${inputAfterLastError}")
+
+                    if (TextUtils.isEmpty(inputAfterLastError)) { // 输入错误后，第二次输入，但是没有输入完，切换到其他挖空部分，这个值会是空，所以进行判断
+                        return
+                    }
+
                     resetState()
-                    currentFocusEditText?.setText(SpannableStringBuilder(inputAfterLastError))
-                    currentFocusEditText?.setText(inputAfterLastError)
+                    // 使得，错误之后第一个输入的字符为正常颜色：COLOR_NORMAL
+                    currentFocusEditText?.text = SpannableStringBuilder(inputAfterLastError).apply {
+                        setSpan(
+                            ForegroundColorSpan(COLOR_NORMAL),
+                            0,
+                            1,
+                            Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                        )
+                    }
+
                     currentFocusEditText?.setSelection(inputAfterLastError!!.length)
                 }
-            }
+            }*/
 
         }
 
@@ -352,6 +430,7 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
                 currentFocusEditText = v as EditText
                 currentWord = wordList.get(tag as Int)
                 mCurrentFocusKeyWordAnswer = wordList.get(tag as Int).spellPart!!
+                mCurrentUserInput = currentFocusEditText?.text.toString()
                 resetState()
             } else {
                 // 上一个失去焦点了, 不再提示了
@@ -418,6 +497,9 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
      * 3. 弹出框，提示输入的错误答案
      */
     private fun showError(inputWord: String) {
+        if (isError()) {
+            return
+        }
         Log.d(TAG, "showError: 检查错误")
         currentSpellState = STATE_ERROR
         // 1. 检查
@@ -459,7 +541,8 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
             }
         }
 
-        currentFocusEditText?.text = ssb
+        currentFocusEditText?.setText("")
+        currentFocusEditText?.hint = ssb
 
         var alertMsg = ""
         if (inputWord.length > mCurrentFocusKeyWordAnswer.length) {
@@ -472,33 +555,67 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         // 3. 弹出框，提示输入的错误答案
         // 计算出 当前输入框的中间点坐标
         // 得到光标点所在的挖空部分的下划线区域中间的坐标（相对于本 EditText，该区域认为是单词的长度，而不是实际填写错误的单词长度）
-        val posX: Float = currentFocusEditText!!.x + currentFocusEditText!!.width / 2
+        postDelayed(object : Runnable {
+            override fun run() {
+                showAlertView(alertMsg)
+            }
+        }, 16) // 方式 EditText 跳回到原来位置，而 alertView 直接出现在跳转前的位置
+
+    }
+
+    /**
+     * 展示答案提示框
+     */
+    private fun showAlertView(alertMsg: String) {
+        val posX: Float = currentFocusEditText!!.x + currentFocusEditText!!.minWidth / 2
         val posY: Float = currentFocusEditText!!.y + currentFocusEditText!!.height
 
 
         ((context as Activity).window.decorView as ViewGroup).addView(alertView.apply {
-            val alertMsg = "你的答案：${alertMsg}"
-            setText(alertMsg)
-            val alertViewStartX = posX - paint.textSize * text.length / 2
+            val pre_str = "你的答案："
+            val alertMsg = "$pre_str${alertMsg}"
+            text = SpannableStringBuilder(alertMsg).apply {
+
+                setSpan(
+                    ForegroundColorSpan(COLOR_ERROR),
+                    pre_str.length,
+                    alertMsg.length,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE
+                )
+            }
+            val paddingLeft = ValueUtil.dp2px(5f).toInt()
+            val paddingRight = ValueUtil.dp2px(5f).toInt()
+            val paddingBottom = ValueUtil.dp2px(5f).toInt()
+            setPadding(paddingLeft, 0, paddingRight, 0)
+            val targetWidth = this.paint.measureText(alertMsg) + paddingLeft + paddingRight
+            Log.d(TAG, "onError: targetWidth= ${targetWidth}")
+
+            var alertViewStartX = posX - targetWidth / 2
+            // 限制起点坐标左边界
+            alertViewStartX = Math.max(0f, alertViewStartX)
+
+            //限制起点坐标右边界: alertViewStartX + targetWidth <= inputView width
+            alertViewStartX = Math.min(alertViewStartX, this@InputView.right.toFloat())
+
             setX(alertViewStartX)
-            setY(posY + currentFocusEditText!!.height - 20) // 不知道为什么高度不够，所以再加一次
-            background = ContextCompat.getDrawable(context!!, R.drawable.ic_alert_word)
-            gravity = Gravity.CENTER
+            setY(posY + currentFocusEditText!!.height + ValueUtil.dp2px(10f)) // 不知道为什么高度不够，所以再加一次
+//            setBackgroundResource(R.drawable.ic_alert_word_error)
+            setBackgroundResource(R.drawable.rectange_corner)
+            gravity = Gravity.CENTER_VERTICAL
+
             val myLayoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
             )
-            val targetWidth = (paint.textSize * text.length).toInt()
-            Log.d(TAG, "onError: targetWidth= ${targetWidth}")
+
             myLayoutParams.height = (lineHeight * 2)
 
-            myLayoutParams.width = targetWidth
+            myLayoutParams.width = targetWidth.toInt()
             maxLines = 1
 
             layoutParams = myLayoutParams
 
         })
-
     }
 
     /**
@@ -518,10 +635,13 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
     }
 
     fun showCorrect() {
+
         // 输入正确了
         // 1. 显示正确的颜色
-        currentFocusEditText?.setTextColor(COLOR_CORRECT)
 //        currentFocusEditText?.setText(mCurrentFocusKeyWordAnswer)
+        currentFocusEditText?.setTextColor(COLOR_CORRECT)
+        Log.d(TAG, "showCorrect: ${currentFocusEditText?.text.toString()}")
+
 
         // 2. 更新该单词输入状态
         wordList.get(currentWord!!.wordIndex).spellSuccess = true
@@ -547,9 +667,14 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         }
 
         // 下一个单词的 view 获取焦点, 并更新当前单词 currentWord
-        currentFocusEditText = wordViewList.get(nextWordIndex)
-        currentFocusEditText?.requestFocus()
-        currentWord = wordList.get(nextWordIndex)
+        postDelayed(object : Runnable {
+            override fun run() {
+                currentFocusEditText = wordViewList.get(nextWordIndex)
+                currentFocusEditText?.requestFocus()
+                currentWord = wordList.get(nextWordIndex)
+            }
+        }, 20)
+
 
     }
 
@@ -561,17 +686,27 @@ class InputView(context: Context?, attrs: AttributeSet?) : ViewGroup(context, at
         return currentSpellState == STATE_NORMAL
     }
 
+    /**
+     * 重置状态，
+     * 三个地方调用：beforeTextChanged(), 焦点变化时
+     */
     fun resetState() {
         if (isError()) {
             removeAlertView()
         }
-        currentSpellState = STATE_NORMAL
-        currentFocusEditText?.setTextColor(COLOR_NORMAL)
+        if (!mCurrentUserInput.toUpperCase().equals(mCurrentFocusKeyWordAnswer.toUpperCase())) {
+            currentFocusEditText?.setTextColor(COLOR_NORMAL)
+            currentSpellState = STATE_NORMAL
+        } else { // 这里可以连续跳转，凡事拼写正确的都跳过
+            showCorrect()
+        }
         lastErrorTip = ""
         mCurrentUserInput = currentFocusEditText?.text.toString()
+        currentFocusEditText?.hint = ""
     }
 
-    fun removeAlertView(){
+
+    fun removeAlertView() {
         ((context as Activity).window.decorView as ViewGroup).removeView(alertView)
     }
 }

@@ -24,4 +24,9 @@ object MyData {
                 "smartphones" + SUFFIX_WORD_KEY_STR +
                 " and tablets."
 
+    val TEST_1 = PRE_WORD_KEY_STR + "one" + SUFFIX_WORD_KEY_STR
+    val TEST_2 = PRE_WORD_KEY_STR + "one" + SUFFIX_WORD_KEY_STR +
+            PRE_WORD_KEY_STR + "two" + SUFFIX_WORD_KEY_STR
+    val TEST_3 = "One two three"
+
 }
