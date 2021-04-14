@@ -2,6 +2,7 @@ package cn.kk.customview.widget
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -9,23 +10,26 @@ import android.text.*
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
 import android.util.Log
+import android.util.TypedValue
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import cn.kk.customview.R
-import cn.kk.customview.utils.ValueUtil
+import cn.kk.customview.widget.WordInputViewNew.Companion.dp2px
+import cn.kk.customview.widget.WordInputViewNew.Companion.dp2pxInt
 import java.util.*
 
 private const val TAG = "InputView"
+
 // 要隐藏（默写）的单词标签前半部分
 val PRE_WORD_KEY_STR = "<span class=\"key\">"
 
 // 要隐藏（默写）的单词标签后半部分
 val SUFFIX_WORD_KEY_STR = "</span>"
 
-val CHILD_VIEW_HEIGHT = ValueUtil.dp2pxInt(35f)
+val CHILD_VIEW_HEIGHT = dp2pxInt(35f)
 val TEXT_SZIE_OF_NORMAL_WORD = 24f
 val TEXT_SZIE_OF_SPACE_WORD = 24f
 const val STATE_NORMAL = 0
@@ -33,10 +37,10 @@ const val STATE_ERROR = 1
 const val STATE_CORRECT = 2
 const val STATE_HELP = 3
 
-val WORD_SPACE_PADDING_BOTTOM = ValueUtil.dp2pxInt(1f)
-val WORD_NORMAL_PADDING_BOTTOM = ValueUtil.dp2pxInt(1f)
+val WORD_SPACE_PADDING_BOTTOM = dp2pxInt(1f)
+val WORD_NORMAL_PADDING_BOTTOM = dp2pxInt(1f)
 
-val WORD_SPACE_UNDER_LINE_THIN = ValueUtil.dp2px(1f)
+val WORD_SPACE_UNDER_LINE_THIN = dp2px(1f)
 
 // （拼写正确和拼写错误的颜色透明度都为 0.6, 转化成十六进制：99），且和要获取当前主题下面对应的颜色
 
@@ -62,7 +66,8 @@ val DEFAULT_WORD_SPACE_MAX_WIDTH_TIMES = 2 // 挖空单词填空的最大宽度�
  * 4. 单词拼写后，答对答错的提示颜色需要确认是否和 iOS 统一
  */
 
-class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(context, attributeSet) {
+class WordInputViewNew(context: Context?, attributeSet: AttributeSet?) :
+    ViewGroup(context, attributeSet) {
 
     var inputViewWidth = 0
     var mVerticalSpacing = DEFAULT_VERTICAL_SPACING // 行间距
@@ -90,13 +95,13 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
             field = value
         }
 
-    val inputView: InputView
+    val inputView: WordInputViewNew
 
     // 存放单词的 view 集合
     val wordViewList = mutableListOf<EditText>()
 
     // 存放单词的集合
-    val wordList = mutableListOf<InputView.Word>()
+    val wordList = mutableListOf<WordInputViewNew.Word>()
     var currentWord: Word? = null
     var currentSpellState = STATE_NORMAL
     var mCurrentUserInput = ""
@@ -111,12 +116,10 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         inputViewWidth = width
         alertView = TextView(context).apply {
             setBackgroundColor(Color.WHITE)
-            elevation = ValueUtil.dp2px(4f)
+            elevation = dp2px(4f)
         }
         wordUnderLinePaint.setColor(COLOR_SPACE_WORD_UNDER_LINE)
         wordUnderLinePaint.strokeWidth = WORD_SPACE_UNDER_LINE_THIN
-        // 设置水平方向的 padding 会导致最后几个 view 显示不出来，不知道为什么，因此先不设置 padding
-//        setPadding(16, 10, 16, 0)
 
         // ViewGroup 默认不会调用 onDraw() 所以，调用这个方法，让其调用 onDraw()
         setWillNotDraw(false)
@@ -550,7 +553,7 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
         var alertMsg = ""
         if (inputWord.length > mCurrentFocusKeyWordAnswer.length) {
             alertMsg =
-                inputWord.substring(0, mCurrentFocusKeyWordAnswer.length - 1).plus("...")
+                inputWord.substring(0, mCurrentFocusKeyWordAnswer.length).plus("...")
         } else {
             alertMsg = inputWord
         }
@@ -576,21 +579,20 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
 
         ((context as Activity).window.decorView as ViewGroup).addView(alertView.apply {
             val pre_str = "你的答案："
-            val alertMsg = "$pre_str${alertMsg}"
-            text = SpannableStringBuilder(alertMsg).apply {
+            val alertMsgStr = "$pre_str${alertMsg}"
+            text = SpannableStringBuilder(alertMsgStr).apply {
 
                 setSpan(
                     ForegroundColorSpan(COLOR_ERROR),
                     pre_str.length,
-                    alertMsg.length,
+                    alertMsgStr.length,
                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE
                 )
             }
-            val paddingLeft = ValueUtil.dp2px(5f).toInt()
-            val paddingRight = ValueUtil.dp2px(5f).toInt()
-            val paddingBottom = ValueUtil.dp2px(5f).toInt()
+            val paddingLeft = dp2px(8f).toInt()
+            val paddingRight = dp2px(8f).toInt()
             setPadding(paddingLeft, 0, paddingRight, 0)
-            val targetWidth = this.paint.measureText(alertMsg) + paddingLeft + paddingRight
+            val targetWidth = this.paint.measureText(alertMsgStr) + paddingLeft + paddingRight
             Log.d(TAG, "onError: targetWidth= ${targetWidth}")
 
             var alertViewStartX = posX - targetWidth / 2
@@ -598,12 +600,12 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
             alertViewStartX = Math.max(0f, alertViewStartX)
 
             //限制起点坐标右边界: alertViewStartX + targetWidth <= inputView width
-            alertViewStartX = Math.min(alertViewStartX, this@InputView.right.toFloat())
+            alertViewStartX = Math.min(alertViewStartX, this@WordInputViewNew.right.toFloat())
 
             setX(alertViewStartX)
-            setY(posY + currentFocusEditText!!.height + ValueUtil.dp2px(10f)) // 不知道为什么高度不够，所以再加一次
-//            setBackgroundResource(R.drawable.ic_alert_word_error)
-            setBackgroundResource(R.drawable.rectange_corner)
+            setY(posY + currentFocusEditText!!.height + dp2px(10f)) // 不知道为什么高度不够，所以再加一次
+//            setBackgroundResource(R.drawable.rectange_corner)
+            setBackgroundResource(R.drawable.ic_alert_word_error_big) // 用这个背景，第一次没有文字，找不到原因
             gravity = Gravity.CENTER_VERTICAL
 
             val myLayoutParams = LayoutParams(
@@ -878,8 +880,26 @@ class InputView(context: Context?, attributeSet: AttributeSet?) : ViewGroup(cont
                 return field
             }
 
-        fun isWord(): Boolean{
+        fun isWord(): Boolean {
             return spellPart != null
+        }
+    }
+
+    companion object {
+        fun dp2px(value: Float): Float {
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                value,
+                Resources.getSystem().displayMetrics
+            )
+        }
+
+        fun dp2pxInt(value: Float): Int {
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                value,
+                Resources.getSystem().displayMetrics
+            ).toInt()
         }
     }
 }

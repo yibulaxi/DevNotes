@@ -21,32 +21,57 @@ private const val TAG = "AlertView"
 class AlertView(context: Context?, attrs: AttributeSet?) : TextView(context, attrs) {
     val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     val rect: RectF = RectF()
+    val roundRX = ValueUtil.dp2px(8f)
+    val roundRY = ValueUtil.dp2px(8f)
 
     constructor(context: Context?) : this(context, null)
 
     init {
         paint.apply {
             style = Paint.Style.STROKE
+            setShadowLayer(10f,8f,8f,Color.BLACK)
         }
-        setPadding(ValueUtil.dp2pxInt(4f))
+        setPadding(ValueUtil.dp2pxInt(10f),ValueUtil.dp2pxInt(12f),ValueUtil.dp2pxInt(10f),ValueUtil.dp2pxInt(4f))
         elevation = ValueUtil.dp2px(20f)
         gravity = Gravity.START
-        setBackgroundColor(Color.WHITE)
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val width = paint.measureText(text.toString())
-
+//        setBackgroundColor(Color.WHITE)
 
     }
+
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        /* // 绘制边框形状
-         rect.right = width - 5f
-         rect.bottom = height - 5f
-         canvas.drawRoundRect(rect,8f,8f,paint)*/
+        canvas.drawARGB(0, 255, 255, 255)
+
+        // 绘制边框形状
+        rect.left = 8f
+        rect.right = width.toFloat() - 8
+        rect.top = ValueUtil.dp2px(10f)
+        rect.bottom = height.toFloat() - 8f
+
+        paint.style = Paint.Style.STROKE
+        paint.color = Color.WHITE
+        canvas.drawRoundRect(rect, roundRX, roundRY, paint)
+
+
+        // 绘制三角形
+        val path = Path()
+        val siderSize = ValueUtil.dp2px(16f)
+
+        val startAPX = width / 2f - siderSize / 2f
+        val startAPY = rect.top
+
+
+
+        path.moveTo(startAPX,startAPY)
+        path.lineTo(width / 2f,0f)
+        path.lineTo(startAPX + siderSize,startAPY)
+        path.close()
+
+        canvas.drawPath(path,paint)
+
+
 
     }
 }
