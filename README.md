@@ -1,5 +1,19 @@
 ## 自定义控件
 
+### Gradle 环境说明
+
+- 公司电脑 gradle
+    - Plugin Version: 4.1.3
+    - Gradle Version: 6.5
+
+- 自己电脑 gradle
+    - Plugin Version: 4.0.1
+    - Gradle Version: 6.1.1
+
+### 入门
+
+[笔记](./elementary/README.md)
+
 ### 知识储备
 
 - View 的层次
@@ -20,8 +34,8 @@
 ---
 
 #### 流式布局
-[InputView](./app/src/main/java/cn/kk/customview/widget/InputView.kt)
-[参考](https://github.com/liangfeidotme/AndroidFlowLayout)
+- [InputView](./app/src/main/java/cn/kk/customview/widget/InputView.kt)
+- [参考](https://github.com/liangfeidotme/AndroidFlowLayout)
 
 
 

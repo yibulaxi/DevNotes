@@ -115,8 +115,9 @@ class WordInputViewNew(context: Context?, attributeSet: AttributeSet?) :
         inputView = this
         inputViewWidth = width
         alertView = TextView(context).apply {
-            setBackgroundColor(Color.WHITE)
+//            setBackgroundColor(Color.WHITE)
             elevation = dp2px(4f)
+            setBackgroundResource(R.drawable.ic_alert_word_error_big)
         }
         wordUnderLinePaint.setColor(COLOR_SPACE_WORD_UNDER_LINE)
         wordUnderLinePaint.strokeWidth = WORD_SPACE_UNDER_LINE_THIN
@@ -605,7 +606,7 @@ class WordInputViewNew(context: Context?, attributeSet: AttributeSet?) :
             setX(alertViewStartX)
             setY(posY + currentFocusEditText!!.height + dp2px(10f)) // 不知道为什么高度不够，所以再加一次
 //            setBackgroundResource(R.drawable.rectange_corner)
-            setBackgroundResource(R.drawable.ic_alert_word_error_big) // 用这个背景，第一次没有文字，找不到原因
+//            setBackgroundResource(R.drawable.ic_alert_word_error_big) // 用这个背景，第一次没有文字，找不到原因
             gravity = Gravity.CENTER_VERTICAL
 
             val myLayoutParams = LayoutParams(

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <cn.kk.elementary.chapter1.path.BasicTriangleView
+    <cn.kk.elementary.chapter1.path.BasicArcView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

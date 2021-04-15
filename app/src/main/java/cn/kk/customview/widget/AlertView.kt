@@ -21,20 +21,22 @@ private const val TAG = "AlertView"
 class AlertView(context: Context?, attrs: AttributeSet?) : TextView(context, attrs) {
     val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     val rect: RectF = RectF()
-    val roundRX = ValueUtil.dp2px(8f)
-    val roundRY = ValueUtil.dp2px(8f)
+    val roundRX = ValueUtil.dp2px(4f)
+    val roundRY = ValueUtil.dp2px(4f)
 
     constructor(context: Context?) : this(context, null)
 
     init {
         paint.apply {
             style = Paint.Style.STROKE
-            setShadowLayer(10f,8f,8f,Color.BLACK)
         }
-        setPadding(ValueUtil.dp2pxInt(10f),ValueUtil.dp2pxInt(12f),ValueUtil.dp2pxInt(10f),ValueUtil.dp2pxInt(4f))
-        elevation = ValueUtil.dp2px(20f)
+        setPadding(ValueUtil.dp2pxInt(15f),
+            ValueUtil.dp2pxInt(10f),
+            ValueUtil.dp2pxInt(15f),
+            ValueUtil.dp2pxInt(4f))
+
         gravity = Gravity.START
-//        setBackgroundColor(Color.WHITE)
+        setBackgroundColor(Color.GREEN)
 
     }
 
@@ -47,11 +49,11 @@ class AlertView(context: Context?, attrs: AttributeSet?) : TextView(context, att
         // 绘制边框形状
         rect.left = 8f
         rect.right = width.toFloat() - 8
-        rect.top = ValueUtil.dp2px(10f)
+        rect.top = ValueUtil.dp2px(7f)
         rect.bottom = height.toFloat() - 8f
 
-        paint.style = Paint.Style.STROKE
-        paint.color = Color.WHITE
+        paint.style = Paint.Style.FILL_AND_STROKE
+        paint.color = Color.argb(100,200,200,200)
         canvas.drawRoundRect(rect, roundRX, roundRY, paint)
 
 
