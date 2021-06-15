@@ -13,37 +13,53 @@ import android.widget.TextView
 import cn.kk.customview.R
 
 
-open class ExplainView : ViewGroup {
+open class ExpandView : ViewGroup {
 
     // 展开状态，默认不展开
     var explainState = false
     val MAXLINES_BEFORE_EXPLAIN = 3
     val textView by lazy {
         TextView(context).apply {
-            maxLines = MAXLINES_BEFORE_EXPLAIN
+            maxLines = maxLinesBeforeExplain
+            setBackgroundColor(bgColor)
+            setTextColor(textViewColor)
+            textSize = textViewSize.toFloat()
         }
     }
     val imageButton by lazy {
         ImageButton(context).apply {
-            setImageResource(R.drawable.icon_explain)
+            setImageResource(R.drawable.icon_expand)
 
             val params = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
             params.height = dp2pxInt(16f)
             layoutParams = params
+            setPadding(dp2pxInt(15f), 0, 0, 0)
 
-            setPadding(dp2pxInt(5f), 0, 0, 0)
-
-            setBackgroundColor(Color.WHITE)
+            setBackgroundColor(bgColor)
         }
     }
 
+    private var textViewSize: Int = 0
+    private var textViewColor = Color.BLACK
+    private var bgColor = Color.WHITE
+    private var maxLinesBeforeExplain = 0
+
     constructor(context: Context?) : super(context)
 
-    constructor(context: Context?, attributeSet: AttributeSet) : super(context, attributeSet) {
+    constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
+        val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.ExplainView)
 
-    }
+        maxLinesBeforeExplain = typedArray.getInteger(
+            R.styleable.ExplainView_max_collapse_lines,
+            MAXLINES_BEFORE_EXPLAIN
+        )
+        val textViewSizePx = typedArray.getInteger(R.styleable.ExplainView_text_size, dp2pxInt(14f))
+        textViewColor = typedArray.getColor(R.styleable.ExplainView_text_color, Color.BLACK)
+        bgColor = typedArray.getColor(R.styleable.ExplainView_bg_color, Color.WHITE)
 
-    init {
+
+        textViewSize = px2sp(textViewSizePx.toFloat())
+        typedArray.recycle()
 
         addView(textView)
         addView(imageButton.apply {
@@ -52,8 +68,8 @@ open class ExplainView : ViewGroup {
                 // 点击事件
 
                 if (explainState) {
-                    textView.maxLines = MAXLINES_BEFORE_EXPLAIN
-                    setImageResource(R.drawable.icon_explain)
+                    textView.maxLines = maxLinesBeforeExplain
+                    setImageResource(R.drawable.icon_expand)
                 } else {
                     textView.maxLines = textView.lineCount
                     setImageResource(R.drawable.icon_collapse)
@@ -61,6 +77,9 @@ open class ExplainView : ViewGroup {
                 explainState = !explainState
 
             }
+        })
+        addView(View(context).apply {
+            setBackgroundColor(Color.RED)
         })
     }
 
@@ -84,9 +103,6 @@ open class ExplainView : ViewGroup {
                 containerWidth = childView.measuredWidth + paddingLeft + paddingRight
                 containerHeight = childView.measuredHeight + paddingTop + paddingBottom
 
-                if ((childView as TextView).lineCount > MAXLINES_BEFORE_EXPLAIN) {
-
-                }
             } else {
 
             }
@@ -98,8 +114,10 @@ open class ExplainView : ViewGroup {
             if (measureHeightMode == MeasureSpec.EXACTLY) measureHeightSize else containerHeight
 
         // 行数不超过限制，就不限时
-        if (textView.lineCount <= MAXLINES_BEFORE_EXPLAIN){
+        if (textView.lineCount <= maxLinesBeforeExplain) {
             imageButton.visibility = View.GONE
+        } else {
+
         }
         setMeasuredDimension(finalWidth, finalHeight)
     }
@@ -109,11 +127,28 @@ open class ExplainView : ViewGroup {
         for (index in 0 until childCount) {
             val childView = getChildAt(index)
             if (childView is TextView) {
-                childView.layout(l + paddingLeft, t + paddingTop, r - paddingRight, b - paddingBottom)
-            } else {
-                val left = r - childView.measuredWidth - childView.paddingLeft + paddingLeft
-                val top = b - childView.measuredHeight + paddingTop
-                childView.layout(left, top, r - paddingRight, b - paddingBottom)
+                childView.layout(
+                    l + paddingLeft ,
+                    t + paddingTop ,
+                    r - paddingRight ,
+                    b - paddingBottom
+                )
+            } else  if (childView is ImageButton){
+                val left = r - childView.measuredWidth - paddingRight - childView.paddingLeft
+                val top = b - childView.measuredHeight - paddingBottom
+                childView.layout(
+                    left,
+                    top,
+                    r - paddingRight,
+                    b - paddingBottom
+                )
+            } else if (childView is View){
+                childView.layout(
+                    left,
+                    top,
+                    50,
+                    50
+                )
             }
         }
     }
@@ -122,6 +157,11 @@ open class ExplainView : ViewGroup {
         super.onDraw(canvas)
         explainState = textView.lineCount <= textView.maxLines
 
+        if (!explainState) {
+            val lineEnd = textView.layout.getLineEnd(maxLinesBeforeExplain - 1)
+
+            val subSequence = textView.text.toString().subSequence(0, lineEnd)
+        }
     }
 
     fun setData(data: String) {
@@ -143,6 +183,10 @@ open class ExplainView : ViewGroup {
                 value,
                 Resources.getSystem().displayMetrics
             ).toInt()
+        }
+
+        fun px2sp(value: Float): Int {
+            return (value / Resources.getSystem().displayMetrics.scaledDensity).toInt()
         }
     }
 }
