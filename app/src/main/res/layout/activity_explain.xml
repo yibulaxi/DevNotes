@@ -17,4 +17,13 @@
             app:max_collapse_lines="4"
             app:text_color="@color/red" />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:translationZ="10dp"
+        android:elevation="30dp"
+        android:background="@color/grey"
+        android:outlineProvider="bounds"
+        android:layout_centerInParent="true"
+        android:layout_width="200dp"
+        android:layout_height="300dp"/>
 </RelativeLayout>

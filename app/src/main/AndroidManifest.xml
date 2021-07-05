@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
-        <activity android:name=".ExplainActivity">
+        <activity android:name=".ScrollbarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

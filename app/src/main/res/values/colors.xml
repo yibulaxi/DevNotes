@@ -24,4 +24,17 @@
     <color name="red">#a22</color>
     <color name="blue">#26f</color>
     <color name="grey">#888</color>
+
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="vip_card_color_1">#12C290</color>
+    <color name="vip_card_color_2">#608AC5</color>
+    <color name="vip_card_color_3">#0094FF</color>
+    <color name="vip_card_color_4">#7175DD</color>
+    <color name="vip_card_color_5">#0CBDDC</color>
+    <color name="vip_card_color_6">#08C0B1</color>
+    <color name="vip_card_color_7">#F77373</color>
+    <color name="vip_card_color_8">#449CE1</color>
+    <color name="vip_text_body_gray">#BABABA</color>
 </resources>
