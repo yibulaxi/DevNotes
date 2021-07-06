@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BasicCircleRingView">
+        <attr name="circle_color" format="color"/>
+        <attr name="circle_raidus" format="dimension"/>
+        <attr name="stroke_width" format="dimension"/>
+        <attr name="fill_type">
+            <enum name="fill" value="1"/>
+            <enum name="stroke" value="2"/>
+            <enum name="fill_and_stroke" value="3"/>
+        </attr>
+
+    </declare-styleable>
+</resources>

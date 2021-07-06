@@ -99,14 +99,14 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
             val curAnchorP = PointF(selectedPointMargin + intervalAnchorMargin * index, height / 2f)
             Log.d(TAG, "onDraw: curAnchorP.x: ${curAnchorP.x}")
             anchorsArray[index] = curAnchorP
-            canvas.drawOval(getOvalRegion(curAnchorP),paintAnchorNormal)
+            canvas.drawCircle(curAnchorP.x, curAnchorP.y, levelAnchorRadius, paintAnchorNormal)
         }
-        canvas.drawOval(getOvalRegion(anchorFirstP),paintAnchorNormal)
+        canvas.drawCircle(anchorFirstP.x, anchorFirstP.y,levelAnchorRadius,paintAnchorNormal)
 
         // 3. 绘制选中区间的端点
-        val ringWidth = (selectedLevelRingRadius - levelAnchorRadius) / 2
-        paintAnchorSelected.strokeWidth = 1f
-        canvas.drawCircle(anchorsArray[0]!!.x,anchorsArray[0]!!.y,levelAnchorRadius, paintAnchorSelected)
+        paintAnchorSelected.strokeWidth = (height / 2f - levelAnchorRadius)
+        paintAnchorSelected.style = Paint.Style.STROKE
+        canvas.drawCircle(anchorFirstP.x, anchorFirstP.y, levelAnchorRadius + (paintAnchorSelected.strokeWidth / 2),paintAnchorSelected)
 
     }
 

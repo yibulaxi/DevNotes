@@ -15,5 +15,6 @@
 
 ### 绘图基础
 
-1. [Path 之弧线](./docs/path_arc.md)
+- 1-1 [基本图形绘制](./docs/chapter1/1-1.md)   
+- 1-2. [Path 之弧线](./docs/chapter1/path_arc.md)
 

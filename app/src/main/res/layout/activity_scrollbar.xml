@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <cn.kk.customview.widget.VocabularyLevelBar
+        android:id="@+id/vocab"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
@@ -12,4 +13,25 @@
         android:layout_marginRight="10dp"
         android:layout_height="30dp"/>
 
+
+    <cn.kk.elementary.chapter1.BasicCircleRingView
+        android:layout_centerVertical="true"
+        app:fill_type="fill"
+        app:circle_raidus="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <cn.kk.elementary.chapter1.BasicCircleRingView
+        android:layout_centerInParent="true"
+        app:fill_type="stroke"
+        app:stroke_width="20dp"
+        app:circle_raidus="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <cn.kk.elementary.chapter1.BasicCircleRingView
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        app:fill_type="stroke"
+        app:circle_raidus="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
 </RelativeLayout>

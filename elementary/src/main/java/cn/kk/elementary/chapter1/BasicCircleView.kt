@@ -13,7 +13,7 @@ import android.view.View
  * 2. Paint 基本设置
  *  1. style: Paint.Style.STROKE, Paint.Style.FILL, Paint.Style.FILL_AND_STROKE
  *  2. color
- *  3. strokeWidth
+ *  3. strokeWidth: 这个宽度在描边时，时里外平分宽度的。
  */
 class BasicCircleView : View {
 
@@ -42,12 +42,12 @@ class BasicCircleView : View {
         val centX = 190f
         val centY = 200f
         val radius = 150f
-        canvas.drawCircle(centX, centY, 150f, paint)
+        canvas.drawCircle(centX, centY, radius, paint)
 
         // 画实心圆
         val radius2 = 100f
         paint.style = Paint.Style.FILL  // 填充样式, 填充
         paint.color = Color.argb(0x7e, 0xff, 0x00, 0x00)
-        canvas.drawCircle(centX, centY, 150f, paint)
+        canvas.drawCircle(centX, centY, radius, paint)
     }
 }
