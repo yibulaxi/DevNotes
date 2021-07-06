@@ -13,8 +13,8 @@ import cn.kk.customview.utils.ValueUtil
  * 单词等级拖动条
  * 1. 绘制背景 ok
  * 2. 绘制单词等级锚点 ok
- * 3. 绘制选中区域端点. 默认是一星（第一个）ok
- * 4. 绘制选中区域背景
+ * 3. 绘制选中区域背景
+ * 4. 绘制选中区域端点. 默认是一星（第一个）ok
  * 5. 支持拖拽
  * 6. 支持放手后修正
  */
@@ -24,7 +24,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 未选中背景颜色
     var normalBgColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.grey_c,null)
     // 选中背景颜色
-    var selectBgColor: Int = Color.BLUE
+    var selectBgColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.ting_color_alpha20,null)
     // 未选中的单词等级导航点颜色
     var normalVocabularyAnchorColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.grey_8,null)
     // 选中的单词等级导航点颜色
@@ -35,6 +35,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 画笔
     // 画笔- 背景
     val paintNormalBg = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = normalBgColor }
+    val paintSelectedBg = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = selectBgColor }
     // 画笔- 锚点未选中
     val paintAnchorNormal = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = normalVocabularyAnchorColor
@@ -106,7 +107,18 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         }
         canvas.drawCircle(anchorFirstP.x, anchorFirstP.y,levelAnchorRadius,paintAnchorNormal)
 
-        // 3. 绘制选中区间的端点
+
+        // 3. 绘制选中区域背景
+        val selectAreaPath = Path().apply {
+            moveTo(anchorsArray[1]!!.x, 0f)
+            lineTo(anchorsArray[3]!!.x, 0f)
+            lineTo(anchorsArray[3]!!.x,height.toFloat())
+            lineTo(anchorsArray[1]!!.x, height.toFloat())
+            close()
+        }
+        canvas.drawPath(selectAreaPath,paintSelectedBg)
+
+        // 4. 绘制选中锚点区间的端点
         drawSelectAnchor(1,canvas)
         drawSelectAnchor(3,canvas)
 
