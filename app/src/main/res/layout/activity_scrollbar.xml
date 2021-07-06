@@ -13,25 +13,4 @@
         android:layout_marginRight="10dp"
         android:layout_height="30dp"/>
 
-
-    <cn.kk.elementary.chapter1.BasicCircleRingView
-        android:layout_centerVertical="true"
-        app:fill_type="fill"
-        app:circle_raidus="40dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-    <cn.kk.elementary.chapter1.BasicCircleRingView
-        android:layout_centerInParent="true"
-        app:fill_type="stroke"
-        app:stroke_width="20dp"
-        app:circle_raidus="40dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-    <cn.kk.elementary.chapter1.BasicCircleRingView
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        app:fill_type="stroke"
-        app:circle_raidus="40dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
 </RelativeLayout>

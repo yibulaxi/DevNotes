@@ -1,6 +1,5 @@
 package cn.kk.customview.widget
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -14,7 +13,7 @@ import cn.kk.customview.utils.ValueUtil
  * 单词等级拖动条
  * 1. 绘制背景 ok
  * 2. 绘制单词等级锚点 ok
- * 3. 绘制选中区域端点. 默认是一星（第一个）
+ * 3. 绘制选中区域端点. 默认是一星（第一个）ok
  * 4. 绘制选中区域背景
  * 5. 支持拖拽
  * 6. 支持放手后修正
@@ -31,7 +30,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 选中的单词等级导航点颜色
     var selectedAnchorColor: Int = Color.WHITE
     // 选中的单词等级端点圆环颜色
-    var selectedAnchorRingColor: Int = Color.GREEN
+    var selectedAnchorRingColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.ting_color,null)
 
     // 画笔
     // 画笔- 背景
@@ -43,6 +42,11 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     }
     // 画笔- 锚点选中
     val paintAnchorSelected = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = selectedAnchorColor
+        style = Paint.Style.FILL
+    }
+    // 画笔- 锚点选中圆环
+    val paintAnchorRingSelected = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = selectedAnchorRingColor
         style = Paint.Style.STROKE
     }
@@ -54,10 +58,10 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 2. 单词等级数量
     val levelCount = 5
     // 3. 单词等级锚点，半径
-    val levelAnchorRadius = ValueUtil.dp2px(8f)
-    // 4. 单词等级区间，头和尾圆环，半径
+    val levelAnchorRadius = ValueUtil.dp2px(5f)
+    // 4. 单词等级区间，头和尾圆环，半径.
     val selectedLevelRingRadius by lazy {
-        height / 2f
+        levelAnchorRadius + (paintAnchorRingSelected.strokeWidth / 2)
     }
     val startLevel = 0
 
@@ -66,10 +70,9 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
 
     init {
 
-
         viewTreeObserver.addOnGlobalLayoutListener {
-            paintAnchorSelected.apply {
-                strokeWidth = selectedLevelRingRadius - levelAnchorRadius
+            paintAnchorRingSelected.apply { // 初始化圆环画笔的宽度
+                strokeWidth = height / 2 - levelAnchorRadius
             }
         }
 
@@ -104,37 +107,27 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         canvas.drawCircle(anchorFirstP.x, anchorFirstP.y,levelAnchorRadius,paintAnchorNormal)
 
         // 3. 绘制选中区间的端点
-        paintAnchorSelected.strokeWidth = (height / 2f - levelAnchorRadius)
-        paintAnchorSelected.style = Paint.Style.STROKE
-        canvas.drawCircle(anchorFirstP.x, anchorFirstP.y, levelAnchorRadius + (paintAnchorSelected.strokeWidth / 2),paintAnchorSelected)
+        drawSelectAnchor(1,canvas)
+        drawSelectAnchor(3,canvas)
 
     }
 
     /**
-     * 获取绘制圆形的区域
+     * 绘制选中区域锚点
+     * 1. 内部实心圆形：白色
+     * 2. 外部是圆环，蓝色，充满了拖动条高度
+     * 固定的位置
      */
-    private fun getOvalRegion(anchorFirstP: PointF): RectF {
-        val anchorFirstRectF = RectF(
-            anchorFirstP.x - levelAnchorRadius / 2f,
-            anchorFirstP.y - levelAnchorRadius / 2f,
-            anchorFirstP.x + levelAnchorRadius / 2f,
-            anchorFirstP.y + levelAnchorRadius / 2f
-        )
-        return anchorFirstRectF
+    fun drawSelectAnchor(index: Int, canvas: Canvas){
+        val curP = anchorsArray[index]
+        //  绘制圆环
+        canvas.drawCircle(curP!!.x, curP!!.y, selectedLevelRingRadius,paintAnchorRingSelected)
+        // 3-2 重新绘制小圆
+        canvas.drawCircle(curP!!.x, curP!!.y, levelAnchorRadius, paintAnchorSelected)
     }
 
-    private fun getOvalRingRegion(anchorFirstP: PointF): RectF {
-        val diffR = (selectedLevelRingRadius - levelAnchorRadius)
-        val anchorFirstRectF = RectF(
-            anchorFirstP.x - selectedLevelRingRadius + diffR,
-            anchorFirstP.y - selectedLevelRingRadius + diffR,
-            anchorFirstP.x + selectedLevelRingRadius - diffR ,
-            anchorFirstP.y + selectedLevelRingRadius - diffR
-        )
-        return anchorFirstRectF
-    }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+    /*override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         setMeasuredDimension(measureMyWidth(widthMeasureSpec),measureMyHeight(heightMeasureSpec))
     }
 
@@ -159,6 +152,6 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
             MeasureSpec.EXACTLY -> specWidth
             else -> 0
         }
-    }
+    }*/
 
 }
