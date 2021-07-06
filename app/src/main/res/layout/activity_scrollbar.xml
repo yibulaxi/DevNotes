@@ -13,4 +13,15 @@
         android:layout_marginRight="10dp"
         android:layout_height="30dp"/>
 
+
+    <Button
+        android:id="@+id/btn_get_level"
+        android:textColor="@color/white"
+        android:background="@color/grey"
+        android:text="查看等级"
+        android:textSize="26sp"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>

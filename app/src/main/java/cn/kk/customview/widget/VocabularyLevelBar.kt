@@ -16,13 +16,17 @@ import cn.kk.customview.utils.ValueUtil
  * 2. 绘制单词等级锚点 ok
  * 3. 绘制选中区域背景 ok
  * 4. 绘制选中区域端点. 默认是一星（第一个）ok
- * 5. 支持拖拽
- * 6. 支持放手后修正
- * 7. 支持按下后更新区间，抬起手后修正区间
+ * 5. 支持拖拽 ok
+ * 6. 支持放手后修正 ok
+ * 7. 支持按下后更新区间，抬起手后修正区间 ok
  */
 
 // 单词等级默认 5个 级别
 val DEFAULT_VOCABULARY_LEVEL_COUNT = 5
+// 单词等级锚点圆环起点标记
+val ANCHOR_RING_START_FLAG = 0
+// 单词等级锚点圆环终点标记
+val ANCHOR_RING_END_FLAG = 1
 
 class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): View(mContext,attributeSet) {
     val TAG = this::class.java.simpleName
@@ -127,35 +131,64 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         }
         canvas.drawCircle(anchorFirstP.x, anchorFirstP.y,levelAnchorRadius,paintAnchorNormal)
 
-
-        // 3. 绘制选中区域背景
-
+        // 修正等级范围，避免超过正常范围
         correctLevelRegion()
 
-        if (startLevel != endLevel) {
-            canvas.drawPath(Path().apply {
-                moveTo(anchorsArray[startLevel]!!.x, 0f)
-                lineTo(anchorsArray[endLevel]!!.x, 0f)
-                lineTo(anchorsArray[endLevel]!!.x, height.toFloat())
-                lineTo(anchorsArray[startLevel]!!.x, height.toFloat())
-                close()
-            }, paintSelectedBg)
+        // 3. 绘制选中区域背景.
+        // 3-1. 计算出最新的两个圆环区间。
+
+        if (nextChangeRingFlag == ANCHOR_RING_START_FLAG){ // endLevel 圆环固定不动
+            // 如果时按下或者拖动，则用 currentPressP 坐标数据，如果时抬起手指了，则用新的锚点 closestAnchorIndex 坐标数据
+            val startX = if (pressEvent || moveEvent) currentPressP.x else getAnchorCenterP(closestAnchorIndex).x
+            val endX = getAnchorCenterP(endLevel).x
+            drawRingIntervalBg(startX, endX, canvas)
+        } else if (nextChangeRingFlag == ANCHOR_RING_END_FLAG) { // startLevel 圆环固定不动
+            val startX = getAnchorCenterP(startLevel).x
+            // 如果时按下或者拖动，则用 currentPressP 坐标数据，如果时抬起手指了，则用新的锚点 closestAnchorIndex 坐标数据
+            val endX = if (pressEvent || moveEvent) currentPressP.x else getAnchorCenterP(closestAnchorIndex).x
+            drawRingIntervalBg(startX, endX, canvas)
+        } else {
+            // 4. 绘制选中锚点区间的端点圆环
+            drawSelectAnchor(startLevel, canvas)
+            if (startLevel != endLevel) {
+                val startX = anchorsArray[startLevel]!!.x
+                val endX = anchorsArray[endLevel]!!.x
+                drawRingIntervalBg(startX, endX, canvas)
+            }
         }
 
-        // 4. 绘制选中锚点区间的端点
-        drawSelectAnchor(startLevel, canvas)
-        if (startLevel != endLevel) {
-            drawSelectAnchor(endLevel, canvas)
+
+        // 4. 绘制固定不动的圆环
+        if (nextChangeRingFlag == ANCHOR_RING_START_FLAG){ // endLevel 圆环固定不动
+            drawSelectAnchor(endLevel,canvas)
+        } else if (nextChangeRingFlag == ANCHOR_RING_END_FLAG) { // startLevel 圆环固定不动
+            drawSelectAnchor(startLevel,canvas)
+        } else {
+            // 4. 绘制选中锚点区间的端点圆环
+            drawSelectAnchor(startLevel, canvas)
+            if (startLevel != endLevel) {
+                drawSelectAnchor(endLevel, canvas)
+            }
         }
 
-        // 5. 绘制临时圆环
-        if (pressEvent || moveEvent){
+
+        // 5. 绘制临时（拖动的）圆环.
+        if (pressEvent || moveEvent){ // 按下或者拖拽
             drawRing(currentPressP.x,canvas)
         } else {
-            if (closestAnchorIndex != -1) {
+            if (closestAnchorIndex != -1) { // 手指抬起
                 val anchorCenterPWhenUP = getAnchorCenterP(closestAnchorIndex)
                 drawRing(anchorCenterPWhenUP.x, canvas)
-            } 
+
+                // 更新 startLevel 或者 endLevel
+                if (nextChangeRingFlag == ANCHOR_RING_START_FLAG) {
+                    startLevel = closestAnchorIndex
+                    correctLevelRegion()
+                } else if (nextChangeRingFlag == ANCHOR_RING_END_FLAG){
+                    endLevel = closestAnchorIndex
+                    correctLevelRegion()
+                }
+            }
         }
 
     }
@@ -167,7 +200,11 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         endLevel = Math.max(0, endLevel)
         endLevel = Math.min(endLevel, levelCount - 1)
         startLevel = Math.max(0, startLevel)
-        startLevel = Math.min(startLevel, endLevel)
+        if (startLevel > endLevel){
+            val tempLevel = startLevel
+            startLevel = endLevel
+            endLevel = tempLevel
+        }
     }
 
     /**
@@ -208,6 +245,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
 
     // 手指抬起后，最近的锚点索引
     var closestAnchorIndex = -1
+    // 按下后，要改变的圆环端点标记。0: 左边起点端点 1: 右边终点端点
+    var nextChangeRingFlag = -1
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
@@ -247,6 +286,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                     x = event.x
                     y = height / 2f
                 }
+                // 计算最近的端点，找到按下后要更新的端点是哪个（startLevel 还是 endLevel）
+                nextChangeRingFlag = getNextRingStartOrEndLevel(event.x)
                 invalidate()
             }
             MotionEvent.ACTION_UP -> {
@@ -307,6 +348,24 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     }
 
     /**
+     * 计算最近的端点，找到按下后要更新的端点是哪个（startLevel 还是 endLevel）
+     *
+     * @param currentX 按下时的 x 坐标
+     * return 0: 更新低等级 startLevel, 1: 更新高等级 endLevel
+     */
+    private fun getNextRingStartOrEndLevel(currentX: Float): Int{
+        if (startLevel == endLevel){ // 如果只有一个等级，
+            if (currentX > getAnchorCenterP(startLevel).x){ // 更新 endLevel
+                return ANCHOR_RING_END_FLAG
+            }
+            return ANCHOR_RING_START_FLAG // 更新 startLevel
+        }
+        val diffStartLevel = Math.abs(currentX - getAnchorCenterP(startLevel).x)
+        val diffEndLevel = Math.abs(currentX - getAnchorCenterP(endLevel).x)
+        return if (diffStartLevel < diffEndLevel) ANCHOR_RING_START_FLAG else ANCHOR_RING_END_FLAG
+    }
+
+    /**
      * 绘制选中区域锚点
      * 1. 内部实心圆形：白色
      * 2. 外部是圆环，蓝色，充满了拖动条高度
@@ -323,9 +382,22 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     /**
      * 绘制圆环(里面是白色小圆)
      */
-    fun drawRing(x: Float, canvas: Canvas) {
-        canvas.drawCircle(x, height / 2f, selectedLevelRingRadius, paintAnchorRingSelected)
-        canvas.drawCircle(x, height / 2f, levelAnchorRadius, paintAnchorSelected)
+    fun drawRing(centerPX: Float, canvas: Canvas) {
+        canvas.drawCircle(centerPX, height / 2f, selectedLevelRingRadius, paintAnchorRingSelected)
+        canvas.drawCircle(centerPX, height / 2f, levelAnchorRadius, paintAnchorSelected)
+    }
+
+    /**
+     * 绘制圆环区间的背景
+     */
+    fun drawRingIntervalBg(startX: Float, endX: Float, canvas: Canvas){
+        canvas.drawPath(Path().apply {
+            moveTo(startX, 0f)
+            lineTo(endX, 0f)
+            lineTo(endX, height.toFloat())
+            lineTo(startX, height.toFloat())
+            close()
+        }, paintSelectedBg)
     }
 
 
