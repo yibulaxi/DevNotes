@@ -149,7 +149,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         }
 
         // 5. 绘制临时实心球
-        if (pressEvent){
+        if (pressEvent || moveEvent){
             canvas.drawCircle(currentPressP.x, currentPressP.y,10f,paintPressTemp)
         } else {
             if (closestAnchorIndex != -1) {
@@ -157,6 +157,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 canvas.drawCircle(anchorCenterPWhenUP.x, anchorCenterPWhenUP.y, 10f, paintPressTemp)
             }
         }
+        
     }
 
     /**
@@ -200,6 +201,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     var canDraft = false
     var lastTouchX = -1f
     var pressEvent = false
+    var moveEvent = false
 
     // 当前手机按下的点
     var currentPressP = PointF()
@@ -240,6 +242,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
 
                 // 处理按下后，选中圆环的最新位置（临时，手指离开屏幕后需要规正）
                 pressEvent = true
+
                 currentPressP.apply {
                     x = event.x
                     y = height / 2f
@@ -249,6 +252,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
             MotionEvent.ACTION_UP -> {
                 canDraft = false
                 pressEvent = false
+                moveEvent = false
                 // todo 离开屏幕，寻找最近的
                 printLog("离开屏幕：${event.x}, ${event.x}")
 
@@ -256,6 +260,13 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 invalidate()
             }
             MotionEvent.ACTION_MOVE -> {
+                moveEvent = true
+                currentPressP.apply {
+                    x = event.x
+                    y = height / 2f
+                }
+                invalidate()
+
                 printLog("拖动：${event.x}, ${event.x}")
                 if (!canDraft){
                     return false
