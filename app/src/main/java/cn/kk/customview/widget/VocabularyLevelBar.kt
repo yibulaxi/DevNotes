@@ -84,7 +84,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     var startLevel = 0
 
     // 选中的最高等级. 默认是 1星
-    var endLevel = 0
+    var endLevel = 3
 
     // 锚点数组
     val anchorsArray = arrayOfNulls<PointF>(levelCount)
@@ -148,16 +148,16 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
             drawSelectAnchor(endLevel, canvas)
         }
 
-        // 5. 绘制临时实心球
+        // 5. 绘制临时圆环
         if (pressEvent || moveEvent){
-            canvas.drawCircle(currentPressP.x, currentPressP.y,10f,paintPressTemp)
+            drawRing(currentPressP.x,canvas)
         } else {
             if (closestAnchorIndex != -1) {
                 val anchorCenterPWhenUP = getAnchorCenterP(closestAnchorIndex)
-                canvas.drawCircle(anchorCenterPWhenUP.x, anchorCenterPWhenUP.y, 10f, paintPressTemp)
-            }
+                drawRing(anchorCenterPWhenUP.x, canvas)
+            } 
         }
-        
+
     }
 
     /**
@@ -318,6 +318,14 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         canvas.drawCircle(curP!!.x, curP!!.y, selectedLevelRingRadius,paintAnchorRingSelected)
         // 3-2 重新绘制小圆
         canvas.drawCircle(curP!!.x, curP!!.y, levelAnchorRadius, paintAnchorSelected)
+    }
+
+    /**
+     * 绘制圆环(里面是白色小圆)
+     */
+    fun drawRing(x: Float, canvas: Canvas) {
+        canvas.drawCircle(x, height / 2f, selectedLevelRingRadius, paintAnchorRingSelected)
+        canvas.drawCircle(x, height / 2f, levelAnchorRadius, paintAnchorSelected)
     }
 
 
