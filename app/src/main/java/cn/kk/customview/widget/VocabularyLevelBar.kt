@@ -19,6 +19,8 @@ import cn.kk.customview.utils.ValueUtil
  * 5. 支持拖拽 ok
  * 6. 支持放手后修正 ok
  * 7. 支持按下后更新区间，抬起手后修正区间 ok
+ * 8. 请求父控件不要拦截触摸事件 ok
+ * 9. 支持 padding 属性
  */
 
 // 单词等级默认 5个 级别
@@ -74,7 +76,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 2. 单词等级数量
     val levelCount = DEFAULT_VOCABULARY_LEVEL_COUNT
     // 3. 单词等级锚点，半径
-    val levelAnchorRadius = ValueUtil.dp2px(5f)
+    val levelAnchorRadius = ValueUtil.dp2px(3f)
     // 4. 单词等级区间，选中圆环，半径（绘制时的半径）.
     val selectedLevelRingRadius by lazy {
         levelAnchorRadius + (paintAnchorRingSelected.strokeWidth / 2)
@@ -106,10 +108,10 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // 1. 绘制基本背景形状. 两头是半圆的矩形
-        val t = 0f
-        val b = height.toFloat()
-        val l = 0f
-        val r = width.toFloat()
+        val t = 0f + paddingTop
+        val b = height.toFloat() - paddingBottom
+        val l = 0f + paddingLeft
+        val r = width.toFloat() - paddingRight
         val rectBg = RectF(l, t, r, b)
         val radiusBg: Float = (height / 2).toFloat()
         canvas.drawRoundRect(rectBg,radiusBg,radiusBg,paintNormalBg)
@@ -248,6 +250,12 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 按下后，要改变的圆环端点标记。0: 左边起点端点 1: 右边终点端点
     var nextChangeRingFlag = -1
 
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        // 请求父控件不要拦截触摸事件
+        parent.requestDisallowInterceptTouchEvent(true)
+        return super.dispatchTouchEvent(event)
+    }
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
 
@@ -312,7 +320,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 if (!canDraft){
                     return false
                 }
-                // 计算水平移动距离，屏蔽掉 y 轴的拖动
+               /* // 计算水平移动距离，屏蔽掉 y 轴的拖动
                 val moveDistanceX = event!!.x - lastTouchX
                 printLog("水平移动：${moveDistanceX}")
                 // 绘制临时圆环
@@ -322,7 +330,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                     x = closestRingPoint.x + moveDistanceX
                     y = closestRingPoint.y
                 }
-//                drawSelectAnchor(startLevel,)
+//                drawSelectAnchor(startLevel,)*/
             }
 
         }
