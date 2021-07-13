@@ -99,7 +99,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
 
         viewTreeObserver.addOnGlobalLayoutListener {
             paintAnchorRingSelected.apply { // 初始化圆环画笔的宽度
-                strokeWidth = height / 2 - levelAnchorRadius
+                strokeWidth = getCorrectHeight() / 2 - levelAnchorRadius
             }
         }
 
@@ -400,14 +400,21 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
      */
     fun drawRingIntervalBg(startX: Float, endX: Float, canvas: Canvas){
         canvas.drawPath(Path().apply {
-            moveTo(startX, 0f)
-            lineTo(endX, 0f)
-            lineTo(endX, height.toFloat())
-            lineTo(startX, height.toFloat())
+            moveTo(startX, paddingTop.toFloat())
+            lineTo(endX, paddingTop.toFloat())
+            lineTo(endX, height.toFloat() - paddingBottom.toFloat())
+            lineTo(startX, height.toFloat() - paddingBottom.toFloat())
             close()
         }, paintSelectedBg)
     }
 
+
+    /**
+     * 计算能绘制区域的高度
+     */
+    fun getCorrectHeight(): Int{
+        return height - paddingTop - paddingBottom
+    }
 
     /**
      * 打印日志
