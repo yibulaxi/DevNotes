@@ -7,12 +7,16 @@ import androidx.viewpager2.widget.ViewPager2
 import cn.kk.customview.adpater.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_scrollbar.*
 
-class ScrollbarActivity: AppCompatActivity() {
 
+
+
+/**
+ * 等级拖动条
+ */
+class DraftBarActivity: AppCompatActivity() {
     var fakeSize: Int = 0
     var realSize: Int = 0
     var currentPosition = -1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrollbar)
