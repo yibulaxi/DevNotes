@@ -13,4 +13,14 @@
         <attr name="horizontal_spacing" format="dimension" />
         <attr name="vertical_spacing" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="CountIndicatorView">
+        <attr name="numberOfItems" format="integer"/>
+        <attr name="numberSelected" format="integer"/>
+        <attr name="radius" format="integer"/>
+        <attr name="itemSpacing2" format="integer"/>
+        <attr name="selectedColor" format="color"/>
+        <attr name="unSelectedColor" format="color"/>
+        <attr name="android:padding"/>
+    </declare-styleable>
 </resources>

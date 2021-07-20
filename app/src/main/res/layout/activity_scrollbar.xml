@@ -4,26 +4,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <cn.kk.customview.widget.VocabularyLevelBar
-        android:id="@+id/vocab"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+
+    <cn.kk.customview.widget.CountIndicatorView
+        android:id="@+id/indicatorView"
+        android:layout_marginTop="15dp"
+        app:selectedColor="@color/green"
+        app:radius="8"
+        app:itemSpacing2="10"
+        app:unSelectedColor="@color/grey_a"
+        android:layout_below="@id/viewPager"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_height="38dp"/>
-
-
-    <Button
-        android:id="@+id/btn_get_level"
-        android:textColor="@color/white"
-        android:background="@color/grey"
-        android:text="查看等级"
-        android:textSize="26sp"
-        android:layout_centerVertical="true"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+
 
 </RelativeLayout>
