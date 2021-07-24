@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply from: 'version.gradle'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -10,8 +12,8 @@ android {
         applicationId "cn.kk.customeview"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode appVersionCode
+        versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,6 +28,32 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "google"
+
+    productFlavors {
+        google {
+            dimension "google"
+            applicationIdSuffix ".google"
+            versionNameSuffix "-google"
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if ('release'.equals(variant.buildType.name)) {
+                def apkFileName = "custom-view_${flavorName}_${variant.versionName}_${buildTime()}.apk"
+                outputFileName = apkFileName
+            }
+
+        }
+    }
+}
+
+def buildTime(){
+    def date = new Date()
+    def fmtDate = date.format('yyyyMMdd-HH:MM:SS')
+    return fmtDate
 }
 
 dependencies {
