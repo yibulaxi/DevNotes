@@ -36,8 +36,8 @@ class DraftBarActivity: AppCompatActivity() {
         val simpleAdapter = ViewPagerAdapter(tempList)
 
         val defaultIndex = 2
-        indicatorView.numberSelected = defaultIndex
-        indicatorView.numberOfItems = fakeSize
+        indicatorView.numberSelected = 0
+        indicatorView.numberOfItems = fakeSize - 2
 
         viewPager.apply {
             adapter = simpleAdapter
@@ -48,7 +48,17 @@ class DraftBarActivity: AppCompatActivity() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
 
-                    indicatorView.numberSelected = position
+
+                    if (position >= 2){
+                        indicatorView.numberSelected = position - 2
+                    } else {
+                        if (position == 1){
+                            indicatorView.numberSelected = realSize -1
+                        }
+                        if (position == 0){
+                            indicatorView.numberSelected = realSize -2
+                        }
+                    }
                     currentPosition = position
 
                     printLog(position.toString())
@@ -66,12 +76,12 @@ class DraftBarActivity: AppCompatActivity() {
                     super.onPageScrollStateChanged(state)
                     if (state == ViewPager2.SCROLL_STATE_IDLE) {
                         if (currentPosition == 0) {
-                            viewPager.setCurrentItem(fakeSize - 2, false);
+                            viewPager.setCurrentItem(fakeSize - 2, false)
                         } else if (currentPosition == fakeSize - 1) {
+                            // 滑动到了最后一个了
                             viewPager.setCurrentItem(1, false)
                         }
                     } else if (state == ViewPager2.SCROLL_STATE_DRAGGING && currentPosition == fakeSize) {
-                        //we scroll too fast and miss the state SCROLL_STATE_IDLE for the previous item
                         viewPager.setCurrentItem(2, false)
                     }
                 }
