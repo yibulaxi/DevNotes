@@ -4,3 +4,5 @@
 - [1.4.2 Canvas 的保存与恢复](./1.4.2.md)
 
 ---
+
+[完整版](../book_chapter1and11.pdf)
