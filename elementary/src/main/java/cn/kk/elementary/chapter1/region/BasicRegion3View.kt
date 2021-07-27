@@ -77,11 +77,11 @@ class BasicRegion3View(context: Context?) : BaseRegion(context) {
         val regH = Region(rectHorizontal)
         regV.op(regH, when(mode){
             0 ->  Region.Op.INTERSECT
-            2 ->  Region.Op.DIFFERENCE
-            3 ->  Region.Op.REPLACE
-            4 ->  Region.Op.REVERSE_DIFFERENCE
-            5 ->  Region.Op.UNION
-            6 ->  Region.Op.XOR
+            1 ->  Region.Op.DIFFERENCE
+            2 ->  Region.Op.REPLACE
+            3 ->  Region.Op.REVERSE_DIFFERENCE
+            4 ->  Region.Op.UNION
+            5 ->  Region.Op.XOR
             else -> Region.Op.INTERSECT
         })
 

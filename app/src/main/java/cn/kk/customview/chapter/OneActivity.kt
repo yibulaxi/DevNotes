@@ -7,6 +7,10 @@ import androidx.viewpager2.widget.ViewPager2
 import cn.kk.customview.R
 import cn.kk.customview.adpater.BasicViewViewPagerAdapter
 import cn.kk.elementary.chapter1.*
+import cn.kk.elementary.chapter1.canvas.CanvasAndScreen
+import cn.kk.elementary.chapter1.canvas.CanvasClipView
+import cn.kk.elementary.chapter1.canvas.CanvasStateView
+import cn.kk.elementary.chapter1.canvas.Trans
 import cn.kk.elementary.chapter1.path.BasicArcView
 import cn.kk.elementary.chapter1.region.BasicRegion1View
 import cn.kk.elementary.chapter1.region.BasicRegion2View
@@ -33,11 +37,17 @@ class OneActivity: AppCompatActivity() {
         viewList.add(BasicRegion1View(this))
         viewList.add(BasicRegion2View(this))
         viewList.add(BasicRegion3View(this))
+        viewList.add(Trans(this))
+        viewList.add(CanvasAndScreen(this))
+        viewList.add(CanvasClipView(this))
+        viewList.add(CanvasStateView(this))
 
         one_viewpager.apply {
             adapter = BasicViewViewPagerAdapter(viewList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
+        one_viewpager.setCurrentItem(viewList.size - 1, true)
+
 
     }
 }
