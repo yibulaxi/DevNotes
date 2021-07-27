@@ -53,7 +53,11 @@ class BasicCircleRingView : View {
         super.onDraw(canvas)
 
         // 画布颜色
-        canvas.drawARGB(200,120,140,180)
+        val aColor = 200
+        val rColor = 120
+        val gColor = 140
+        val bColor = 180
+        canvas.drawARGB(aColor,rColor,gColor,bColor)
 
         // 设置画笔
         paint.apply {
@@ -66,16 +70,12 @@ class BasicCircleRingView : View {
             bodyRadius = Math.min(width, height) / 2f
         }
 
-        /*// 画圆环
-        val centX = width / 2f
-        val centY = height / 2f
-        val radius = Math.min(width, height) / 2f
-//        canvas.drawCircle(centX, centY, radius, paint)*/
+        // 画圆环
+        val radius = Math.min(width, height) / 2f - 200
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 80f
+        canvas.drawCircle(centX, centY, radius, paint)
 
-        // 画实心圆
-        val radius2 = 100f
-//        paint.style = Paint.Style.FILL  // 填充样式, 填充
-        paint.color = Color.argb(0x7e, 0xff, 0x00, 0x00)
-        canvas.drawCircle(centX, centY, bodyRadius, paint)
+
     }
 }

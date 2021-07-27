@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_scrollbar.*
 /**
  * 等级拖动条
  */
-class DraftBarActivity: AppCompatActivity() {
+class ViewPagerLoopActivity: AppCompatActivity() {
     var fakeSize: Int = 0
     var realSize: Int = 0
     var currentPosition = -1
