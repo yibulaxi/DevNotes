@@ -28,3 +28,29 @@ Android 的视图动画由 5 种类型组成：alpha + scale + translate + rotat
 访问时：``R.anim.xxx``
 
 ### 3. 使用动画文件
+```kotlin
+// 播放按钮点击事件
+btn_scale_play.setOnClickListener {
+            // 播放伸缩动画
+            val anim = AnimationUtils.loadAnimation(this, R.anim.scale_anim)
+            // tv_scale_anim 是要播放动画的目标 view
+            tv_scale_anim.startAnimation(anim)
+        }
+```
+
+---
+
+### Animation 继承属性
+
+所有的动画都继承自 Animation 类。 Animation 没有自己的标签，但是内部实现了公用的动画属性，所有派生类都可以使用。
+
+#### 公用属性：
+```xml
+android:duration
+android:fillAfter       // true => 动画结束时，保持结束时状态
+android:fillBefore      // true => 动画结束时，还原到初始化状态
+android:fillEnabled     // 同 fillBefore
+android:repeatCount     // 重复次数，infinite 时，无限循环
+android:repeatMode      // 重复类型：reverse、restart
+android:interpolator    // 设定插值器
+```
