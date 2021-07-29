@@ -1,17 +1,9 @@
 ## 自定义控件入门
 
 - [绘图基础](./docs/chapter1/readme.md)
-- 视图动画
-- 属性动画
-- 动画进阶
-- Paint 基本使用
-- 绘图进阶
-- 混合模式
-- Canvas 与图层
-- Android 画布
-- Matrix 与坐标变换
-- 封装控件
-- 控件高级属性
+- [动画](./docs/chapter_anim/readme.md)
+- [绘图篇](./docs/chapter_draw_view/readme.md)  
+- [视图篇](./docs/chapter_views/readme.md)  
 
 
 

@@ -4,12 +4,13 @@ import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_anim.*
+import kotlinx.android.synthetic.main.activity_anim_temp.*
 
-class AnimActivity: AppCompatActivity() {
+class AnimTempActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anim)
+        setContentView(R.layout.activity_anim_temp)
 
        btnRight.setOnClickListener {
            playRight()

@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <ImageView
-        android:background="@drawable/bg_shape_1"
-        android:id="@+id/iv_anim"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+    <TextView
+        android:id="@+id/tv_scale_anim"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="scale anim"
+        android:background="@color/grey_5"
+        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginBottom="50dp"
+    <Button
+        android:id="@+id/btn_scale_play"
+        android:textSize="20sp"
+        android:textColor="@color/green"
+        android:textAllCaps="false"
+        android:text="start anim"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_alignParentBottom="true"
+        android:background="?attr/selectableItemBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnRight"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/vip_card_color_1"
-            android:text="右"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/btnLeft"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/vip_card_color_2"
-            android:text="左"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-    </LinearLayout>
-
+        android:layout_height="50dp"/>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package cn.kk.customview.adpater
 
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.customview.R
+import cn.kk.customview.utils.NormalUtil
 
 /**
  * 绘图基础
@@ -35,6 +37,7 @@ class BasicViewViewPagerAdapter(val viewList: MutableList<View>): RecyclerView.A
         }
         holder.title.text = viewList[position].javaClass.simpleName
         holder.index.text = (position + 1).toString()
+
     }
 
     override fun getItemCount(): Int = viewList.size
