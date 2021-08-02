@@ -60,6 +60,7 @@ class AnimActivity: AppCompatActivity() {
         setAnim.duration = 2500
         setAnim.fillAfter = true
 
+        // 添加动画
         animList.add(AnimBean(animScale, "scale anim xml"))
         animList.add(AnimBean(scaleAnimation1, "scale anim code 1"))
         animList.add(AnimBean(scaleAnimation2, "scale anim code 2"))

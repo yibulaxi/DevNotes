@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
-        <activity android:name=".chapter.AnimActivity">
+        <activity android:name=".chapter.AnimInterpolatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
