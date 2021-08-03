@@ -11,6 +11,10 @@ import kotlinx.android.synthetic.main.activity_anim_interpolator.*
 
 /**
  * 动画插值器
+ *
+ * 两种使用方式：
+ * 1. 在 xml 文件中引用
+ * 2. 用 setInterpolator() 方法
  */
 class AnimInterpolatorActivity: AppCompatActivity() {
 
@@ -21,12 +25,14 @@ class AnimInterpolatorActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anim_interpolator)
 
+        // 1.
         val alphaInterpolatorAnim = AnimationUtils.loadAnimation(this, R.anim.alpha_linear_interpolator_anim)
         val transInterpolatorAnim = AnimationUtils.loadAnimation(this, R.anim.trans_interpolator_anim)
 
         val transInterpolatorAnim2 = TranslateAnimation(0f, 900f, 0f, 0f).apply {
             duration = 1000
             fillAfter = true
+            // 2.
             interpolator = AccelerateDecelerateInterpolator()
         }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_scale"
+        android:src="@drawable/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:text="镜头由远及近"
+        android:textSize="28sp"
+        android:background="#77119922"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+</RelativeLayout>
