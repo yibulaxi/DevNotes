@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+ android:oneshot="false">
+<!--    oneshot 为 true 就是执行一次，false 就是一直循环执行-->
+
+<!--    引用图片，每一个图片作为一帧动画-->
+    <item android:drawable="@drawable/ic_arrow_up"
+          android:duration="600"/>
+    <item android:drawable="@drawable/ic_arrow_right"
+          android:duration="600"/>
+    <item android:drawable="@drawable/ic_arrow_down"
+          android:duration="600"/>
+    <item android:drawable="@drawable/ic_arrow_left"
+          android:duration="600"/>
+</animation-list>

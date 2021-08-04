@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.*
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import cn.kk.elementary.R
 
@@ -13,7 +14,7 @@ import cn.kk.elementary.R
  * 动画示例：
  * 加载框效果
  */
-class RotateAnimFragment: Fragment() {
+class RotateAnimFragment(animTitle: String): BaseFragment(animTitle) {
      lateinit  var fragmentView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,5 +35,9 @@ class RotateAnimFragment: Fragment() {
 
         val ivRotate = fragmentView.findViewById<ImageView>(R.id.iv_rotate)
         ivRotate.startAnimation(rotateAnim)
+    }
+
+    override fun animTitle(title: String) {
+        fragmentView.findViewById<TextView>(R.id.tv_anim_title).text = title
     }
 }

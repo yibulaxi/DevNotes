@@ -8,7 +8,10 @@ import kotlinx.android.synthetic.main.activity_anim_samples.*
 
 /**
  * 动画示例：
- * 镜头由远及近效果
+ * 1. 镜头由远及近效果
+ * 2. 加载动画
+ * 3. 水波纹动画
+ * 4. 逐帧动画
  */
 class AnimSampleActivity: FragmentActivity() {
 

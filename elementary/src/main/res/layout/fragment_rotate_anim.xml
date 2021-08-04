@@ -3,14 +3,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <TextView
-        android:text="加载框"
-        android:textSize="28sp"
-        android:background="#77119922"
-        android:gravity="center"
-        android:textColor="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"/>
 
     <ImageView
         android:layout_centerInParent="true"
@@ -18,5 +10,7 @@
         android:src="@drawable/icon_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <include layout="@layout/anim_title"/>
 
 </RelativeLayout>

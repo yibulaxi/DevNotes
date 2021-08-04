@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.BounceInterpolator
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import cn.kk.elementary.R
 
@@ -15,7 +16,7 @@ import cn.kk.elementary.R
  * 动画示例：
  * 镜头由远及近效果
  */
-class ScaleAnimFragment: Fragment() {
+class ScaleAnimFragment(animTitle: String): BaseFragment(animTitle) {
      lateinit  var fragmentView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,5 +37,9 @@ class ScaleAnimFragment: Fragment() {
 
         val ivScale = fragmentView.findViewById<ImageView>(R.id.iv_scale)
         ivScale.startAnimation(scaleAnimation)
+    }
+
+    override fun animTitle(title: String) {
+        fragmentView.findViewById<TextView>(R.id.tv_anim_title).text = title
     }
 }

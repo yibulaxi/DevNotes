@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.*
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import cn.kk.elementary.R
 
@@ -13,7 +14,7 @@ import cn.kk.elementary.R
  * 动画示例：
  * 微波效果
  */
-class WaveAnimFragment: Fragment() {
+class WaveAnimFragment(animName: String): BaseFragment(animName) {
      lateinit  var fragmentView: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,5 +48,9 @@ class WaveAnimFragment: Fragment() {
 
         waveAnim4.startOffset = delay
         ivCircle4.startAnimation(waveAnim4)
+    }
+
+    override fun animTitle(title: String) {
+        fragmentView.findViewById<TextView>(R.id.tv_anim_title).text = title
     }
 }
