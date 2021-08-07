@@ -1,6 +1,6 @@
 ## 属性动画
 
-- [3.1 ValueAnimator 的基本使用]()
+- [3.1 ValueAnimator 的基本使用](./property_anim/3.1.md)
 - [3.2 自定义差值器与 Evaluator]()
 - [3.3 ValueAnimator 进阶——ofObject]()
 - [3.4 ObjectAnimator]()
