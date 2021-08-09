@@ -65,7 +65,7 @@ class PropertyAnimationActivity: BaseActivity() {
             } else {
                 // region 2.2 取消播放
                 valueAnimator.cancel()
-               
+
                 // endregion 2.2 取消播放
             }
         }
