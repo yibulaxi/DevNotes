@@ -1,9 +1,10 @@
-package cn.kk.elementary.anim.property
+package cn.kk.elementary.anim.property.value
 
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.os.Bundle
 import android.renderscript.Sampler
+import android.widget.Button
 import android.widget.ViewAnimator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.*
@@ -34,13 +35,14 @@ import kotlinx.android.synthetic.main.activity_anim_property.*
  *
  *
  */
-class PropertyAnimationActivity: BaseActivity() {
+class ValueAnimationActivity: BaseActivity() {
 
     val viewBlockY by lazy {
         viewBlock.y
     }
 
     lateinit var valueAnimator: ValueAnimator
+    lateinit var btn_play: Button
 
     // 媒体播放帮助类
     lateinit var mediaHelper: MediaHelper
@@ -53,6 +55,7 @@ class PropertyAnimationActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anim_property)
 
+        btn_play = findViewById<Button>(R.id.btn_play)
 
         mediaHelper = MediaHelper(this)
 

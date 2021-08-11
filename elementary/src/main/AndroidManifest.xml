@@ -3,6 +3,6 @@
     package="cn.kk.elementary">
 
     <application>
-        <activity android:name=".chapter1.ViewActivity"/>
+        <activity android:name="cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity"/>
     </application>
 </manifest>

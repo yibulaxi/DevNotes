@@ -22,15 +22,5 @@
         android:layout_width="30dp"
         android:layout_height="30dp"/>
 
-    <Button
-        android:id="@+id/btn_play"
-        android:textAllCaps="false"
-        android:text="Play"
-        android:textColor="@color/white"
-        android:layout_marginBottom="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/btn_circle"
-        android:layout_width="80dp"
-        android:layout_height="80dp"/>
+    <include layout="@layout/btn_circle"/>
 </RelativeLayout>

@@ -5,6 +5,10 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.elementary.R
 import kotlinx.android.synthetic.main.activity_anim_json.*
 
+/**
+ * 动画
+ * 使用 LottieAnimationView 播放 Json 格式的 After Effects 动画
+ */
 class JsonAnimActivity: BaseActivity() {
 
     var count = 0
@@ -15,13 +19,11 @@ class JsonAnimActivity: BaseActivity() {
 
         setContentView(R.layout.activity_anim_json)
 
-//        lottieAnim.setAnimation("articleLoading.json")
-//        lottieAnim.loop(true)
 
         btn_play.setOnClickListener {
 
             lottieAnim.setAnimation(anims[count++ % 4])
-            
+
             lottieAnim.playAnimation()
 
         }
