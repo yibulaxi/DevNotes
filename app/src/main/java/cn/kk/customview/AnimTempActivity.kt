@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_anim.*
 import kotlinx.android.synthetic.main.activity_anim_temp.*
 
+/**
+ * 播放渐变动画
+ */
 class AnimTempActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -2,7 +2,9 @@ package cn.kk.customview.chapter
 
 import android.os.Bundle
 import android.view.animation.*
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_anim.*
 
@@ -11,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_anim.*
  * 1. 视图动画，xml 方式
  * 2. 视图动画，代码方式
  */
-class AnimActivity: AppCompatActivity() {
+class AnimActivity: BaseActivity() {
 
     val animList = arrayListOf<AnimBean>()
     var count = 0
@@ -19,6 +21,9 @@ class AnimActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anim)
+
+        val tvTitle = findViewById<TextView>(R.id.tv_anim_title)
+        tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         // 1. 视图动画，xml 方式
         // 播放伸缩动画

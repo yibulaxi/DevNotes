@@ -10,6 +10,9 @@ import kotlinx.android.synthetic.main.activity_word.*
 val SENTENCES =
     "Android is a mobile operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets."
 
+/**
+ * 挖空句子单词的控件
+ */
 class WordActivity : AppCompatActivity(), WordInputViewNew.OnSpellFinishListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {

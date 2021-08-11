@@ -2,8 +2,10 @@ package cn.kk.customview.chapter
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.BasicViewViewPagerAdapter
 import cn.kk.elementary.chapter1.*
@@ -21,10 +23,13 @@ import kotlinx.android.synthetic.main.activity_one.*
  * 第一章，
  * 显示第一章的自定义 View 视图
  */
-class OneActivity: AppCompatActivity() {
+class DrawBasicActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one)
+
+        val tvTitle = findViewById<TextView>(R.id.tv_draw_basic_title)
+        tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         val viewList = mutableListOf<View>()
         viewList.add(BasicBackgroundView(this))

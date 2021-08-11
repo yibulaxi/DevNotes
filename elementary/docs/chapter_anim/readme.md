@@ -6,6 +6,6 @@ Android 中动画有两种类型：**View Animation** 和 **Property Animation**
 - Property Animation: 属性动画 = ValueAnimator + ObjectAnimator
 ---
 
-- [视图动画](./view_animation.md)
-- [属性动画](./property_anim.md)
+- [视图动画 ok](./view_animation.md)
+- [属性动画 ...](./property_anim.md)
 - [动画进阶](./anim_advance.md)

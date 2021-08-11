@@ -1,7 +1,7 @@
 ## 属性动画
 
-- [3.1 ValueAnimator 的基本使用](./property_anim/3.1.md)
-- [3.2 自定义差值器与 Evaluator](./property_anim/3.2.md)
+- [3.1 ValueAnimator 的基本使用 ok](./property_anim/3.1.md)
+- [3.2 自定义差值器与 Evaluator ok](./property_anim/3.2.md)
 - [3.3 ValueAnimator 进阶——ofObject](./property_anim/3.3.md)
 - [3.4 ObjectAnimator]()
 - [3.5 组合动画]()
