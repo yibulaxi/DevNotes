@@ -1,21 +1,18 @@
 package cn.kk.customview.ui
 
 import android.content.Intent
-import android.os.Bundle
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import cn.kk.customview.adpater.HomeAdapter
+import cn.kk.customview.adpater.ListAdapter
 import cn.kk.customview.chapter.AnimActivity
-import cn.kk.customview.chapter.ViewAnimActivity
 import cn.kk.customview.chapter.DrawBasicActivity
 import kotlinx.android.synthetic.main.activity_book_tutorial.*
 
 /**
  * 「系统学习」导航页面
  */
-class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
+class BookTutorialActivity : BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun getLayout(): Int = R.layout.activity_book_tutorial
 
@@ -31,7 +28,7 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
         super.doWhenOnCreate()
 
         // region 设置适配器
-        val homeAdapter = HomeAdapter(itemList).apply {
+        val homeAdapter = ListAdapter(itemList).apply {
             itemClickListener = this@BookTutorialActivity
         }
 
@@ -45,21 +42,17 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
     override fun onItemClick(position: Int) {
         when(position){
             // region 1. 绘图基础
-            0 -> startActivity(Intent(this, DrawBasicActivity::class.java).apply {
-                putExtra(INTENT_TITLE_KEY, itemList[position])
-            })
+            0 -> openNextUI(DrawBasicActivity::class.java, itemList[position])
             // endregion
             // region 2. 动画篇
-            1 -> startActivity(Intent(this, AnimActivity::class.java).apply {
-                putExtra(INTENT_TITLE_KEY, itemList[position])
-            })
+            1 -> openNextUI(AnimActivity::class.java, itemList[position])
             // endregion
         }
     }
     // endregion
 
-    override fun finish() {
+    /*override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.in_left, R.anim.out_right)
-    }
+    }*/
 }

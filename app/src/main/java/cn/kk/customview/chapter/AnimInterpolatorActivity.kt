@@ -6,6 +6,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import androidx.appcompat.app.AppCompatActivity
+import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_anim_interpolator.*
 
@@ -16,15 +17,15 @@ import kotlinx.android.synthetic.main.activity_anim_interpolator.*
  * 1. 在 xml 文件中引用
  * 2. 用 setInterpolator() 方法
  */
-class AnimInterpolatorActivity: AppCompatActivity() {
+class AnimInterpolatorActivity: BaseActivity() {
 
     val animList = arrayListOf<Animation>()
     var count = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anim_interpolator)
+    override fun getLayout(): Int = R.layout.activity_anim_interpolator
 
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
         // 1.
         val alphaInterpolatorAnim = AnimationUtils.loadAnimation(this, R.anim.alpha_linear_interpolator_anim)
         val transInterpolatorAnim = AnimationUtils.loadAnimation(this, R.anim.trans_interpolator_anim)

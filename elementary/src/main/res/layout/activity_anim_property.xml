@@ -4,16 +4,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
 
     <TextView
+        android:layout_marginTop="1dp"
+        android:layout_below="@id/title"
         android:id="@+id/tv_value"
         android:textStyle="bold"
-        android:textSize="36sp"
+        android:textSize="26sp"
         android:textColor="@color/Wheat"
         android:gravity="center"
         android:background="@color/DarkOrange"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="60dp"/>
 
     <View
         android:id="@+id/viewBlock"

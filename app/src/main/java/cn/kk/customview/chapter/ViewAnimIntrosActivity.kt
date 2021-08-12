@@ -1,22 +1,21 @@
 package cn.kk.customview.chapter
 
 import android.view.animation.*
-import android.widget.TextView
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import kotlinx.android.synthetic.main.activity_view_anim.*
+import kotlinx.android.synthetic.main.activity_view_anim_intros.*
 
 /**
  * 动画的一些例子
  * 1. 视图动画，xml 方式
  * 2. 视图动画，代码方式
  */
-class ViewAnimActivity: BaseActivity() {
+class ViewAnimIntrosActivity: BaseActivity() {
 
     val animList = arrayListOf<AnimBean>()
     var count = 0
 
-    override fun getLayout(): Int = R.layout.activity_view_anim
+    override fun getLayout(): Int = R.layout.activity_view_anim_intros
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()

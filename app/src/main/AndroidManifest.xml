@@ -20,7 +20,14 @@
 
         <activity android:name=".chapter.DrawBasicActivity"/>
         <activity android:name=".chapter.AnimActivity"/>
-        <activity android:name=".chapter.ViewAnimActivity"/>
+        <activity android:name=".chapter.ViewAnimHomeActivity"/>
+        <activity android:name="cn.kk.elementary.anim.view.AnimSampleActivity"/>
+        <activity android:name=".chapter.ViewAnimIntrosActivity"/>
+        <activity android:name=".chapter.AnimInterpolatorActivity"/>
+
+        <activity android:name=".chapter.PropertyAnimHomeActivity"/>
+        <activity android:name="cn.kk.elementary.anim.property.value.ValueAnimationActivity"/>
+        <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity"/>
     </application>
 
 </manifest>

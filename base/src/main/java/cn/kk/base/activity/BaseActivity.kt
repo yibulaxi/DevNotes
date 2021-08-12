@@ -1,5 +1,7 @@
 package cn.kk.base.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -18,6 +20,7 @@ abstract class BaseActivity: AppCompatActivity() {
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
     }
+    private var slideAnimExit = false
 
     /**
      * 具体的子类，要用到的 item 列表
@@ -43,6 +46,13 @@ abstract class BaseActivity: AppCompatActivity() {
         clickTitleBack()
     }
 
+    override fun finish() {
+        super.finish()
+        if (slideAnimExit){
+            overridePendingTransition(R.anim.in_left, R.anim.out_right)
+        }
+    }
+
     /**
      * 要加载的布局
      */
@@ -57,6 +67,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     protected  open fun getItemNameList(): MutableList<String>{
+        // 如果子类不重写，默认就返回空的集合。
         return mutableListOf()
     }
 
@@ -98,5 +109,17 @@ abstract class BaseActivity: AppCompatActivity() {
 
         // 状态栏透明
         window.statusBarColor = Color.TRANSPARENT
+    }
+
+    protected fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String){
+        startActivity(Intent(this, targetActivity).apply {
+            putExtra(INTENT_TITLE_KEY, title)
+        })
+        slideAnimEnter()
+    }
+
+    private fun slideAnimEnter(){
+        slideAnimExit = true
+        overridePendingTransition(R.anim.in_right, R.anim.out_left)
     }
 }

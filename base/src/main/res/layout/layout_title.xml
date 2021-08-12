@@ -14,25 +14,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        标题栏的返回按钮-->
+        <!--        标题栏的返回按钮-->
         <ImageButton
             android:scaleType="fitXY"
             android:id="@+id/btn_title_back"
             android:layout_centerVertical="true"
             android:src="@drawable/icon_back"
-            android:layout_width="22dp"
+            android:layout_width="44dp"
+            android:padding="10dp"
             android:background="@null"
-            android:layout_height="22dp"/>
+            android:layout_height="44dp"/>
 
-<!--        标题栏的标题-->
+        <!--        标题栏的标题-->
         <TextView
             android:textColor="@color/Gainsboro"
             android:textStyle="bold"
-            android:textSize="32sp"
+            android:textSize="28sp"
+            android:focusable="true"
             android:id="@+id/tv_page_title"
             android:layout_centerHorizontal="true"
+            android:scrollHorizontally="true"
+            android:marqueeRepeatLimit="marquee_forever"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:maxWidth="260dp"
+            android:singleLine="true"
+            android:focusableInTouchMode="true"
+            android:ellipsize="marquee"
+            android:layout_height="wrap_content">
+            <requestFocus/>
+        </TextView>
     </RelativeLayout>
 </RelativeLayout>

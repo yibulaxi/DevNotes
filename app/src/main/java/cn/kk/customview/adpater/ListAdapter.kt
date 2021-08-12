@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.kk.customview.R
 
 /**
- * 首页列表适配器
+ * 列表适配器
  */
-class HomeAdapter(val list: MutableList<String>): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class ListAdapter(val list: MutableList<String>): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     var itemClickListener: ItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
