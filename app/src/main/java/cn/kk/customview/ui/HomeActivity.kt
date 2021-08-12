@@ -40,9 +40,12 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
     override fun onItemClick(position: Int) {
         when(position){
             // region 1. 打开「系统学习」
-            0 -> startActivity(Intent(this, BookTutorialActivity::class.java).apply {
-                putExtra(INTENT_TITLE_KEY, list[position])
-            })
+            0 ->{
+                startActivity(Intent(this, BookTutorialActivity::class.java).apply {
+                    putExtra(INTENT_TITLE_KEY, list[position])
+                })
+                overridePendingTransition(R.anim.in_right, R.anim.out_left)
+            }
             // endregion
             // region 2. 打开「其他练习」
             1 -> showToast(getString(R.string.feature_right_now))

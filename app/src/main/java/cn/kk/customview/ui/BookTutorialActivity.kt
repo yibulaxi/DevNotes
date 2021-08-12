@@ -52,4 +52,9 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
         }
     }
     // endregion
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.in_left, R.anim.out_right)
+    }
 }
