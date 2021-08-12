@@ -14,17 +14,13 @@ import kotlinx.android.synthetic.main.activity_home.*
  */
 class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
 
-    val list = mutableListOf<String>(
-        "系统学习",
-        "其他练习"
-    )
     override fun getLayout(): Int = R.layout.activity_home
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
         // region 设置适配器
-        val homeAdapter = HomeAdapter(list).apply {
+        val homeAdapter = HomeAdapter(itemList).apply {
             itemClickListener = this@HomeActivity
         }
 
@@ -32,6 +28,13 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
         rv_home.layoutManager = layoutManager
         rv_home.adapter = homeAdapter
         // endregion
+    }
+
+    override fun getItemNameList(): MutableList<String> {
+        return mutableListOf<String>(
+            "系统学习",
+            "其他练习"
+        )
     }
 
     override fun showTitle() {
@@ -45,7 +48,7 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
             // region 1. 打开「系统学习」
             0 ->{
                 startActivity(Intent(this, BookTutorialActivity::class.java).apply {
-                    putExtra(INTENT_TITLE_KEY, list[position])
+                    putExtra(INTENT_TITLE_KEY, itemList[position])
                 })
                 overridePendingTransition(R.anim.in_right, R.anim.out_left)
             }

@@ -18,6 +18,14 @@ abstract class BaseActivity: AppCompatActivity() {
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
     }
+
+    /**
+     * 具体的子类，要用到的 item 列表
+     */
+    protected val itemList: MutableList<String> by lazy {
+        getItemNameList()
+    }
+
     init {
         LogHelper.tag = this.javaClass.simpleName
     }
@@ -46,6 +54,10 @@ abstract class BaseActivity: AppCompatActivity() {
     protected open fun doWhenOnCreate(){
 
        showTitle()
+    }
+
+    protected  open fun getItemNameList(): MutableList<String>{
+        return mutableListOf()
     }
 
     protected open fun showTitle(){
