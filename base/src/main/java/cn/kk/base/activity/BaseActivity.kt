@@ -3,9 +3,11 @@ package cn.kk.base.activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.kk.base.LogHelper
+import cn.kk.base.R
 
 /**
  * Activity 基类
@@ -19,6 +21,17 @@ abstract class BaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        clickTitleBack()
+    }
+
+    protected fun clickTitleBack(){
+        findViewById<ImageButton>(R.id.btn_title_back).setOnClickListener {
+            finish()
+        }
     }
 
     /**

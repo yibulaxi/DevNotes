@@ -28,7 +28,7 @@ class DrawBasicActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one)
 
-        val tvTitle = findViewById<TextView>(R.id.tv_draw_basic_title)
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         val viewList = mutableListOf<View>()
@@ -51,7 +51,7 @@ class DrawBasicActivity: BaseActivity() {
             adapter = BasicViewViewPagerAdapter(viewList)
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
-        one_viewpager.setCurrentItem(viewList.size - 1, true)
+        one_viewpager.setCurrentItem(0, true)
 
 
     }

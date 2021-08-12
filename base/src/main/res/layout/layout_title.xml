@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/Peru"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        标题栏的返回按钮-->
+        <ImageButton
+            android:scaleType="fitXY"
+            android:id="@+id/btn_title_back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_back"
+            android:layout_width="22dp"
+            android:background="@null"
+            android:layout_height="22dp"/>
+
+<!--        标题栏的标题-->
+        <TextView
+            android:textColor="@color/Gainsboro"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:id="@+id/tv_page_title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</RelativeLayout>

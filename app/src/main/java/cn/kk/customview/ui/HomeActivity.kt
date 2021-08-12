@@ -22,7 +22,7 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val tvTitle = findViewById<TextView>(R.id.tv_home_title)
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle.text = getString(R.string.app_name_cn)
 
         // region 设置适配器

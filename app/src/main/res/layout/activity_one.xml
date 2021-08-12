@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/tv_draw_basic_title"
         layout="@layout/layout_title"/>
 
     <androidx.viewpager2.widget.ViewPager2

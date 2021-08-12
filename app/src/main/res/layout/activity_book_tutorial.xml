@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/tv_book_title"
         layout="@layout/layout_title"/>
 
     <androidx.recyclerview.widget.RecyclerView

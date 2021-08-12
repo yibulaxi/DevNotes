@@ -4,7 +4,6 @@
                 android:layout_height="match_parent">
 
     <include
-        android:id="@+id/tv_anim_title"
         layout="@layout/layout_title"/>
 
     <TextView

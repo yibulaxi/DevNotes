@@ -22,7 +22,7 @@ class AnimActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anim)
 
-        val tvTitle = findViewById<TextView>(R.id.tv_anim_title)
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         // 1. 视图动画，xml 方式

@@ -26,7 +26,7 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_tutorial)
 
-        val tvTitle = findViewById<TextView>(R.id.tv_book_title)
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         // region 设置适配器
