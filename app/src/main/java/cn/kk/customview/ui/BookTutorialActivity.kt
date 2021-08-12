@@ -8,6 +8,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.HomeAdapter
 import cn.kk.customview.chapter.AnimActivity
+import cn.kk.customview.chapter.ViewAnimActivity
 import cn.kk.customview.chapter.DrawBasicActivity
 import kotlinx.android.synthetic.main.activity_book_tutorial.*
 
@@ -22,12 +23,10 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
         "视图篇"
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_book_tutorial)
+    override fun getLayout(): Int = R.layout.activity_book_tutorial
 
-        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
-        tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
 
         // region 设置适配器
         val homeAdapter = HomeAdapter(sections).apply {
@@ -43,12 +42,16 @@ class BookTutorialActivity : BaseActivity(), HomeAdapter.ItemClickListener {
     // region Recyclerview 的 item 点击事件
     override fun onItemClick(position: Int) {
         when(position){
+            // region 1. 绘图基础
             0 -> startActivity(Intent(this, DrawBasicActivity::class.java).apply {
                 putExtra(INTENT_TITLE_KEY, sections[position])
             })
+            // endregion
+            // region 2. 动画篇
             1 -> startActivity(Intent(this, AnimActivity::class.java).apply {
                 putExtra(INTENT_TITLE_KEY, sections[position])
             })
+            // endregion
         }
     }
     // endregion

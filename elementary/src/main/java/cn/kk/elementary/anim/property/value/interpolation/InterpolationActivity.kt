@@ -36,12 +36,10 @@ class InterpolationActivity : BaseActivity() {
     }
     // endregion 颜色动画 ArgbEvaluator
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun getLayout(): Int = R.layout.activity_interpolation
 
-        setContentView(R.layout.activity_interpolation)
-
-
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
         btn_play = findViewById(R.id.btn_play)
 
         window.decorView.viewTreeObserver.addOnGlobalLayoutListener {

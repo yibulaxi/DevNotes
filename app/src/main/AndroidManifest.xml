@@ -20,6 +20,7 @@
 
         <activity android:name=".chapter.DrawBasicActivity"/>
         <activity android:name=".chapter.AnimActivity"/>
+        <activity android:name=".chapter.ViewAnimActivity"/>
     </application>
 
 </manifest>

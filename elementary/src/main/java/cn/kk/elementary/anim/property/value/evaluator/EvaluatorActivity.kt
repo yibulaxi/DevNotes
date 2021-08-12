@@ -16,11 +16,11 @@ import kotlinx.android.synthetic.main.activity_evaluator.*
 class EvaluatorActivity: BaseActivity() {
 
     lateinit var btnPlay: Button
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_evaluator)
+    override fun getLayout(): Int = R.layout.activity_evaluator
 
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
         btnPlay = findViewById(R.id.btn_play)
 
         val anim = ValueAnimator.ofObject(LetterEvaluator(), 'A', 'Z').apply {

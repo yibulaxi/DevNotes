@@ -18,12 +18,10 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
         "系统学习",
         "其他练习"
     )
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+    override fun getLayout(): Int = R.layout.activity_home
 
-        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
-        tvTitle.text = getString(R.string.app_name_cn)
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
 
         // region 设置适配器
         val homeAdapter = HomeAdapter(list).apply {
@@ -34,6 +32,11 @@ class HomeActivity: BaseActivity(), HomeAdapter.ItemClickListener {
         rv_home.layoutManager = layoutManager
         rv_home.adapter = homeAdapter
         // endregion
+    }
+
+    override fun showTitle() {
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
+        tvTitle.text = getString(R.string.app_name_cn)
     }
 
     // region Recyclerview 的 item 点击事件

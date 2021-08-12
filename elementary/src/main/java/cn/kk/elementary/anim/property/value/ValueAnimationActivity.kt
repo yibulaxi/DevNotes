@@ -51,16 +51,15 @@ class ValueAnimationActivity: BaseActivity() {
     // 动画播放状态
     var playState = false
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anim_property)
+
+    override fun getLayout(): Int = R.layout.activity_anim_property
+
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
 
         btn_play = findViewById<Button>(R.id.btn_play)
-
         mediaHelper = MediaHelper(this)
-
         btn_play.setOnClickListener {
-
             if (!playState) {
                 valueAnimator = createAnim()
                 setAnimMoreOperation()

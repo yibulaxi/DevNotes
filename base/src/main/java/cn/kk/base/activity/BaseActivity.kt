@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.kk.base.LogHelper
@@ -14,6 +15,9 @@ import cn.kk.base.R
  */
 abstract class BaseActivity: AppCompatActivity() {
     protected val INTENT_TITLE_KEY = "title"
+    private val title by lazy {
+        intent.getStringExtra(INTENT_TITLE_KEY)
+    }
     init {
         LogHelper.tag = this.javaClass.simpleName
     }
@@ -21,6 +25,9 @@ abstract class BaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
+        setContentView(getLayout())
+
+        doWhenOnCreate()
     }
 
     override fun onStart() {
@@ -28,7 +35,28 @@ abstract class BaseActivity: AppCompatActivity() {
         clickTitleBack()
     }
 
-    protected fun clickTitleBack(){
+    /**
+     * 要加载的布局
+     */
+    abstract fun getLayout(): Int
+
+    /**
+     * onCreate() 中的操作
+     */
+    protected open fun doWhenOnCreate(){
+
+       showTitle()
+    }
+
+    protected open fun showTitle(){
+        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
+        tvTitle.text = title
+    }
+
+    /**
+     * 返回按钮点击
+     */
+    private fun clickTitleBack(){
         findViewById<ImageButton>(R.id.btn_title_back).setOnClickListener {
             finish()
         }

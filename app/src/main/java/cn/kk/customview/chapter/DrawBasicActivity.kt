@@ -24,12 +24,13 @@ import kotlinx.android.synthetic.main.activity_one.*
  * 显示第一章的自定义 View 视图
  */
 class DrawBasicActivity: BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one)
 
-        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
-        tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
+    override fun getLayout(): Int = R.layout.activity_one
+
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
+//        val tvTitle = findViewById<TextView>(R.id.tv_page_title)
+//        tvTitle.text = intent.getStringExtra(INTENT_TITLE_KEY)
 
         val viewList = mutableListOf<View>()
         viewList.add(BasicBackgroundView(this))
@@ -52,7 +53,5 @@ class DrawBasicActivity: BaseActivity() {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
         one_viewpager.setCurrentItem(0, true)
-
-
     }
 }

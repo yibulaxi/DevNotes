@@ -14,16 +14,13 @@ class JsonAnimActivity: BaseActivity() {
     var count = 0
     val anims = arrayOf("home.json", "ting.json", "learn.json", "account.json")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun getLayout(): Int = R.layout.activity_anim_json
 
-        setContentView(R.layout.activity_anim_json)
-
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
 
         btn_play.setOnClickListener {
-
             lottieAnim.setAnimation(anims[count++ % 4])
-
             lottieAnim.playAnimation()
 
         }
