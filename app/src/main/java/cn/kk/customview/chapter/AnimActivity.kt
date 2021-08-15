@@ -30,7 +30,6 @@ class AnimActivity: BaseActivity(), ListAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        showToast("click: ${itemList[position]}")
         when(position){
             // region 打开视图动画
             0 -> openNextUI(ViewAnimHomeActivity::class.java, itemList[position])

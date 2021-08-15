@@ -35,7 +35,7 @@ class ViewAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun onItemClick(position: Int) {
         when(position){
             0 -> openNextUI(ViewAnimIntrosActivity::class.java, itemList[position])
-            1 -> openNextUI(InterpolationActivity::class.java, itemList[position])
+            1 -> openNextUI(AnimSampleActivity::class.java, itemList[position])
             2 -> openNextUI(AnimInterpolatorActivity::class.java, itemList[position])
         }
     }

@@ -4,5 +4,7 @@
 
     <application>
         <activity android:name="cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity"/>
+        <activity android:name=".anim.property.object.ObjectAnimActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetActivity"/>
     </application>
 </manifest>

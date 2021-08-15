@@ -4,6 +4,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
+import cn.kk.elementary.anim.property.`object`.AnimatorSetActivity
+import cn.kk.elementary.anim.property.`object`.ObjectAnimActivity
 import cn.kk.elementary.anim.property.value.ValueAnimationActivity
 import cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity
 import cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity
@@ -35,10 +37,13 @@ class PropertyAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        val itemName = itemList[position]
         when(position){
-            0 -> openNextUI(ValueAnimationActivity::class.java, itemList[position])
-            1 -> openNextUI(InterpolationActivity::class.java, itemList[position])
-            2 -> openNextUI(EvaluatorActivity::class.java, itemList[position])
+            0 -> openNextUI(ValueAnimationActivity::class.java, itemName)
+            1 -> openNextUI(InterpolationActivity::class.java, itemName)
+            2 -> openNextUI(EvaluatorActivity::class.java, itemName)
+            3 -> openNextUI(ObjectAnimActivity::class.java, itemName)
+            4 -> openNextUI(AnimatorSetActivity::class.java, itemName)
         }
     }
 }

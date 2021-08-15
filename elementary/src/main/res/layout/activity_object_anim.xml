@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
     <include
         android:id="@+id/title"
         layout="@layout/layout_title"/>
+
+    <cn.kk.elementary.anim.property.object.widget.FallingBallImageView
+        android:id="@+id/circle"
+        android:layout_below="@id/title"
+        android:src="@drawable/shape_circle_red"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
     <TextView
+        android:text="A"
         android:id="@+id/tvLetter"
         android:gravity="center"
         android:textSize="88sp"
@@ -17,12 +26,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"/>
 
-    <ImageView
-        android:id="@+id/circle"
-        android:layout_below="@id/title"
-        android:src="@drawable/shape_circle_red"
-        android:layout_width="40dp"
-        android:layout_height="40dp"/>
-
     <include layout="@layout/btn_circle"/>
+
 </RelativeLayout>
