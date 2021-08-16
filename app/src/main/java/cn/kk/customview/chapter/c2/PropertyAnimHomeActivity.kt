@@ -1,4 +1,4 @@
-package cn.kk.customview.chapter
+package cn.kk.customview.chapter.c2
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
@@ -9,7 +9,6 @@ import cn.kk.elementary.anim.property.`object`.ObjectAnimActivity
 import cn.kk.elementary.anim.property.value.ValueAnimationActivity
 import cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity
 import cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity
-import cn.kk.elementary.anim.view.AnimSampleActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 /**

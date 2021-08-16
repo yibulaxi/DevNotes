@@ -1,58 +1,50 @@
 package cn.kk.elementary.anim.property.`object`
 
-import android.animation.Animator
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import androidx.core.animation.addListener
-import androidx.core.animation.doOnEnd
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.adapter.ListAdapter
 import cn.kk.elementary.R
-import kotlinx.android.synthetic.main.activity_animator_set.*
-import kotlinx.android.synthetic.main.btn_circle.*
 
 /**
- * 组合动画
+ * 组合动画——AnimatorSet
  */
-class AnimatorSetActivity: BaseActivity() {
-    override fun getLayout(): Int = R.layout.activity_animator_set
-    var viewsState = true
+class AnimatorSetActivity: BaseActivity(), ListAdapter.ItemClickListener {
+    override fun getLayout(): Int = R.layout.activity_base_list
 
+    override fun getItemNameList(): MutableList<String> {
+        return resources.getStringArray(R.array.animator_set_types).toMutableList()
+    }
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
-        // region 1. 定义多个动画
-        val animCircle1Trans = ObjectAnimator.ofFloat(circle1, "translationY", 0f, 1200f)
-        val animCircle2Trans = ObjectAnimator.ofFloat(circle2, "translationY", 0f, 1200f)
-        val animCircle3Trans = ObjectAnimator.ofFloat(circle3, "translationY", 0f, 1200f)
-
-        val animSet = AnimatorSet().apply {
-            playSequentially(animCircle1Trans, animCircle2Trans, animCircle3Trans)
-            duration = 500
-            doOnEnd { viewsState = false }
-
+        // region 设置适配器
+        val homeAdapter = ListAdapter(itemList).apply {
+            itemClickListener = this@AnimatorSetActivity
         }
-
-        val animCircle1TransR = ObjectAnimator.ofFloat(circle1, "translationY", 1200f, 0f)
-        val animCircle2TransR = ObjectAnimator.ofFloat(circle2, "translationY", 1200f, 0f)
-        val animCircle3TransR = ObjectAnimator.ofFloat(circle3, "translationY", 1200f, 0f)
-        val animSetTogether = AnimatorSet().apply {
-            playTogether(animCircle1TransR, animCircle2TransR, animCircle3TransR)
-            duration = 200
-            doOnEnd { viewsState = true }
-        }
-
-         // endregion
-
-
-        // region 点击，播放动画
-        btn_play.setOnClickListener {
-            if (viewsState) {
-                animSet.start()
-            } else {
-                animSetTogether.start()
-            }
-
-        }
+        val layoutManager = LinearLayoutManager(this)
+        val rvHome = findViewById<RecyclerView>(R.id.rv_home)
+        rvHome.layoutManager = layoutManager
+        rvHome.adapter = homeAdapter
         // endregion
+
+    }
+
+    override fun onItemClick(position: Int) {
+        val title = itemList[position]
+        when(position){
+            // region 3.5.1 playSequentially() 与 playTogether() 函数
+            0 -> openNextUI(AnimatorSetDualPlayFunActivity::class.java, title)
+            // endregion
+            // region 3.5.2 AnimatorSet.Builder
+            1 -> openNextUI(AnimatorSetBuilderActivity::class.java, title)
+            // endregion
+            // region 3.5.3 AnimatorSet 监听
+            2 -> openNextUI(AnimatorSetListenerActivity::class.java, title)
+            // endregion
+            // region 3.5.4 AnimatorSet 监听
+            3 -> openNextUI(AnimatorSetCommonFuncsActivity::class.java, title)
+            // endregion
+        }
     }
 }

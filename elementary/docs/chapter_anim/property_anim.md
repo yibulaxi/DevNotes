@@ -5,7 +5,7 @@
 - [3.3 ValueAnimator 进阶——ofObject](./property_anim/3.3.md)
 - [3.4 ObjectAnimator](./property_anim/3.4.md)
 - [3.5 组合动画](./property_anim/3.5.md)
-- [3.6 Animator 动画的 XML 实现]()
+- [3.6 Animator 动画的 XML 实现](./property_anim/3.6.md)
 
 ### 进阶
 

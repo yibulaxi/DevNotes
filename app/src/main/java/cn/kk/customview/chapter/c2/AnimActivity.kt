@@ -1,4 +1,4 @@
-package cn.kk.customview.chapter
+package cn.kk.customview.chapter.c2
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
@@ -35,6 +35,7 @@ class AnimActivity: BaseActivity(), ListAdapter.ItemClickListener {
             0 -> openNextUI(ViewAnimHomeActivity::class.java, itemList[position])
             // endregion
             1 -> openNextUI(PropertyAnimHomeActivity::class.java, itemList[position])
+            2 -> openNextUI(AnimAdvanceHomeActivity::class.java, itemList[position])
         }
     }
 

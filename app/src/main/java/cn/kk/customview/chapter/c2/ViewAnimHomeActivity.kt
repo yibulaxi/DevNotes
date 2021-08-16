@@ -1,10 +1,11 @@
-package cn.kk.customview.chapter
+package cn.kk.customview.chapter.c2
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
-import cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity
+import cn.kk.customview.chapter.AnimInterpolatorActivity
+import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.elementary.anim.view.AnimSampleActivity
 import kotlinx.android.synthetic.main.activity_home.*
 

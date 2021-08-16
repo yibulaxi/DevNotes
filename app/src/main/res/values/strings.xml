@@ -4,25 +4,5 @@
     <string name="name">Name</string>
     <string name="feature_right_now">敬请期待...</string>
 
-<!--    String 数组-->
-    <string-array name="anim_types">
-        <item>视图动画</item>
-        <item>属性动画</item>
-        <item>动画进阶</item>
-    </string-array>
 
-    <string-array name="view_anim_types">
-        <item>概览</item>
-        <item>综合示例</item>
-        <item>插值器初探</item>
-    </string-array>
-
-    <string-array name="property_anim_types">
-        <item>3.1 ValueAnimator 的基本使用</item>
-        <item>3.2 自定义差值器与 Evaluator</item>
-        <item>3.3 ValueAnimator 进阶——ofObject</item>
-        <item>3.4 ObjectAnimator</item>
-        <item>3.5 组合动画</item>
-        <item>3.6 Animator 动画的 XML 实现</item>
-    </string-array>
 </resources>

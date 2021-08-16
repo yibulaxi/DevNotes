@@ -1,12 +1,13 @@
 package cn.kk.customview.ui
 
-import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
-import cn.kk.customview.chapter.AnimActivity
-import cn.kk.customview.chapter.DrawBasicActivity
+import cn.kk.customview.chapter.c2.AnimActivity
+import cn.kk.customview.chapter.c1.DrawBasicActivity
+import cn.kk.customview.chapter.c3.DrawHomeActivity
+import cn.kk.customview.chapter.c4.ViewHomeActivity
 import kotlinx.android.synthetic.main.activity_book_tutorial.*
 
 /**
@@ -40,13 +41,21 @@ class BookTutorialActivity : BaseActivity(), ListAdapter.ItemClickListener {
 
     // region Recyclerview 的 item 点击事件
     override fun onItemClick(position: Int) {
+        val title = itemList[position]
         when(position){
             // region 1. 绘图基础
-            0 -> openNextUI(DrawBasicActivity::class.java, itemList[position])
+            0 -> openNextUI(DrawBasicActivity::class.java, title)
             // endregion
             // region 2. 动画篇
-            1 -> openNextUI(AnimActivity::class.java, itemList[position])
+            1 -> openNextUI(AnimActivity::class.java, title)
             // endregion
+            // region 3. 绘图篇
+            2 -> openNextUI(DrawHomeActivity::class.java, title)
+            // endregion
+            // region 4. 视图篇
+            3 -> openNextUI(ViewHomeActivity::class.java, title)
+            // endregion
+
         }
     }
     // endregion

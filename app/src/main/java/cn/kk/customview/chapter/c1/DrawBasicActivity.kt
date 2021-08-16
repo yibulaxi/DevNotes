@@ -1,9 +1,6 @@
-package cn.kk.customview.chapter
+package cn.kk.customview.chapter.c1
 
-import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R

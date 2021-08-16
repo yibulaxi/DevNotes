@@ -6,5 +6,9 @@
         <activity android:name="cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity"/>
         <activity android:name=".anim.property.object.ObjectAnimActivity"/>
         <activity android:name=".anim.property.object.AnimatorSetActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetDualPlayFunActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetBuilderActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetListenerActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetCommonFuncsActivity"/>
     </application>
 </manifest>

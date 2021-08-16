@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    String 数组-->
+
+    <string-array name="anim_types">
+        <item>视图动画</item>
+        <item>属性动画</item>
+        <item>动画进阶</item>
+    </string-array>
+
+
+    <string-array name="draw_sections">
+        <item>Paint 基本使用</item>
+        <item>绘图进阶</item>
+        <item>混合模式</item>
+        <item>Canvas 与涂层</item>
+        <item>Android 画布</item>
+        <item>Matrix 与坐标变换</item>
+    </string-array>
+
+    <string-array name="view_sections">
+        <item>封装控件</item>
+        <item>控件高级属性</item>
+    </string-array>
+
+    <string-array name="view_anim_types">
+        <item>概览</item>
+        <item>综合示例</item>
+        <item>插值器初探</item>
+    </string-array>
+
+    <string-array name="property_anim_types">
+        <item>3.1 ValueAnimator 的基本使用</item>
+        <item>3.2 自定义差值器与 Evaluator</item>
+        <item>3.3 ValueAnimator 进阶——ofObject</item>
+        <item>3.4 ObjectAnimator</item>
+        <item>3.5 组合动画——AnimatorSet</item>
+        <item>3.6 Animator 动画的 XML 实现</item>
+    </string-array>
+
+    <string-array name="anim_advance_sections">
+        <item>4.1 PropertyValueHolder 与 Keyframe</item>
+        <item>4.2 ViewPropertyAnimator</item>
+        <item>4.3 为 ViewGroup 内的组件添加动画</item>
+        <item>4.4 开源动画 NineOldAndroids</item>
+        <item>5.1 利用 PathMeasure 实现路径动画</item>
+        <item>5.2 SVG动画</item>
+    </string-array>
+
+    <string-array name="animator_set_types">
+        <item>3.5.1 playSequentially() 与 playTogether() 函数</item>
+        <item>3.5.2 AnimatorSet.Builder</item>
+        <item>3.5.3 AnimatorSet 监听器</item>
+        <item>3.5.4 常用函数</item>
+        <item>3.5.5 示例：路径动画</item>
+    </string-array>
+
+<!--    AnimatorSet 常用函数-->
+    <string-array name="animator_set_common_funs">
+        <item>setDuration()</item>
+        <item>setInterpolator()</item>
+        <item>setTarget()</item>
+        <item>setStartDelay()</item>
+    </string-array>
+</resources>

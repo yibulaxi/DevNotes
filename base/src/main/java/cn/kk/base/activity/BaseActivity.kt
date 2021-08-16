@@ -99,6 +99,10 @@ abstract class BaseActivity: AppCompatActivity() {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
+    protected fun showToastLong(msg: String){
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
     /**
      * 设置状态栏透明，且独自占用空间
      */
