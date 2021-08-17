@@ -42,8 +42,11 @@ class AnimatorSetActivity: BaseActivity(), ListAdapter.ItemClickListener {
             // region 3.5.3 AnimatorSet 监听
             2 -> openNextUI(AnimatorSetListenerActivity::class.java, title)
             // endregion
-            // region 3.5.4 AnimatorSet 监听
+            // region 3.5.4 AnimatorSet 常用函数
             3 -> openNextUI(AnimatorSetCommonFuncsActivity::class.java, title)
+            // endregion
+            // region 3.5.5 示例：路径动画
+            4 -> openNextUI(AnimatorSetPathSampleActivity::class.java, title)
             // endregion
         }
     }

@@ -31,11 +31,15 @@ class AnimActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun onItemClick(position: Int) {
         when(position){
-            // region 打开视图动画
+            // region 1. 打开视图动画
             0 -> openNextUI(ViewAnimHomeActivity::class.java, itemList[position])
             // endregion
+            // region 2. 打开属性动画
             1 -> openNextUI(PropertyAnimHomeActivity::class.java, itemList[position])
+            // endregion
+            // region 3. 打开动画进阶
             2 -> openNextUI(AnimAdvanceHomeActivity::class.java, itemList[position])
+            // endregion
         }
     }
 

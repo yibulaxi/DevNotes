@@ -10,5 +10,6 @@
         <activity android:name=".anim.property.object.AnimatorSetBuilderActivity"/>
         <activity android:name=".anim.property.object.AnimatorSetListenerActivity"/>
         <activity android:name=".anim.property.object.AnimatorSetCommonFuncsActivity"/>
+        <activity android:name=".anim.property.object.AnimatorSetPathSampleActivity"/>
     </application>
 </manifest>
