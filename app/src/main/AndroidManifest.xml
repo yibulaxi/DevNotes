@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.BookTutorialActivity"/>
+        <activity android:name=".ui.RecyclerActivity"/>
 
         <activity android:name=".chapter.c1.DrawBasicActivity"/>
         <activity android:name=".chapter.c2.AnimActivity"/>
@@ -31,6 +32,7 @@
         <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity"/>
 
         <activity android:name=".chapter.c3.DrawHomeActivity"/>
+        <activity android:name=".chapter.c3.PaintActivity"/>
 
         <activity android:name=".chapter.c4.ViewHomeActivity"/>
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:text="概述"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:id="@+id/tv_content"
+                android:textSize="20sp"
+                android:textColor="@color/teal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+           <View
+               android:background="@color/DimGray"
+               android:layout_marginTop="20dp"
+               android:layout_marginBottom="25dp"
+               android:layout_width="match_parent"
+               android:layout_height="1dp"/>
+
+           <TextView
+               android:text="软件绘制与硬件加速的区别"
+               android:textStyle="bold"
+               android:textSize="28sp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+           <TextView
+                android:textColor="@color/teal"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tv_diff"
+               android:textSize="20sp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
