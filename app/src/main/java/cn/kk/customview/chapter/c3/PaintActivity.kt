@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_paint.*
 
 /**
  * Paint 基本使用
+ * TabLayout 改变下划线宽度，[参考：](https://www.jianshu.com/p/83922d08250b)
  */
 class PaintActivity: BaseActivity() {
     val sections = arrayOf("硬件加速", "文字", "Paint 常用函数")
