@@ -8,6 +8,16 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    // 配置签名信息
+    signingConfigs {
+        release {
+            keyAlias 'app'
+            keyPassword '1  23456'
+            storeFile file('./app.jks')
+            storePassword '123456'
+        }
+    }
+
     defaultConfig {
         applicationId "cn.kk.customeview"
         minSdkVersion 21
@@ -24,18 +34,31 @@ android {
 
     buildTypes {
         release {
+            // 引用配置的签名信息
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+
+        }
     }
 
-    flavorDimensions "google"
+    // flavors 维度
+    flavorDimensions "size", "google"
 
     productFlavors {
         google {
             dimension "google"
             applicationIdSuffix ".google"
             versionNameSuffix "-google"
+        }
+        big {
+            dimension "size"
+        }
+        small {
+            dimension "size"
         }
     }
 
