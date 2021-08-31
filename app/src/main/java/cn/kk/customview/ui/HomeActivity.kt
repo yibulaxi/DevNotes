@@ -1,6 +1,9 @@
 package cn.kk.customview.ui
 
 import android.content.Intent
+import android.os.Build
+import android.view.View
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
@@ -17,6 +20,9 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
+        showAppInfo()
+
+        tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
         // region 设置适配器
         val homeAdapter = ListAdapter(itemList).apply {
@@ -49,9 +55,14 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             // endregion
 
             // region 2. 打开「其他练习」
-            1 -> showToast(getString(R.string.feature_right_now))
+            1 -> openNextUI(RecyclerActivity::class.java, itemList[position])
             // endregion
         }
     }
     // endregion
+
+    fun showAppInfo(){
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        tv_app_info.text = "V".plus(packageInfo.versionName)
+    }
 }

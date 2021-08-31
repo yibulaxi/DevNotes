@@ -9,7 +9,6 @@ import android.view.animation.BounceInterpolator
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import cn.kk.elementary.R
 
 /**

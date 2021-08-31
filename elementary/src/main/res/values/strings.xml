@@ -62,4 +62,30 @@
         <item>setTarget()</item>
         <item>setStartDelay()</item>
     </string-array>
+
+<!--    Paint 常用函数-->
+    <string-array name="paint_common_funs">
+        <item>reset()</item>
+        <item>setColor()</item>
+        <item>setARGB()</item>
+        <item>setAlpha()</item>
+        <item>setStyle()</item>
+        <item>setStrokeWidth(): 设置画笔宽度</item>
+        <item>setAntiAlias(boolean aa): 设置画笔是否抗锯齿</item>
+        <item>setStrokeMiter(float miter): 设置画笔倾斜度</item>
+        <item>setPathEffect(PathEffect effect): 设置路径样式</item>
+        <item>setStrokeCap(Paint.Cap cap): 设置线帽样式。</item>
+        <item>setStrokeJoin(Paint.Join join): 设置路径转角样式：锐角、圆弧、直线</item>
+        <item>setDither(boolean dither): 设置绘制图像时的抗抖动效果</item>
+        <item>文字相关函数：</item>
+        <item>setTextSize()</item>
+        <item>setFakeBoldText(): 设置是否为粗体文字</item>
+        <item>setStrikeThruText(): 设置带有删除线效果</item>
+        <item>setUnderlineText(): 设置下画线</item>
+        <item>setTextAlign(Paint.Align align): 设置开始绘图点位置</item>
+        <item>setTextScaleX(float scaleX): 设置水平拉伸</item>
+        <item>setTextSkewX(float skewX): 设置字体水平倾斜度。普通斜体字设置为 -0.25, 往右倾斜</item>
+        <item>setTypeFace(): 设置字体样式</item>
+        <item>setLinearText(): 设置是否打开线性文本标识</item>
+    </string-array>
 </resources>

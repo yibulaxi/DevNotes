@@ -8,12 +8,19 @@ import cn.kk.customview.adpater.ListAdapter
 
 /**
  * 「绘图篇」页面
+ *   第 6 章 Paint 的基本使用
+ *   第 7 章 绘图进阶
+ *   第 8 章 混合模式
+ *   第 9 章 Canvas 与图层
+ *   第 10 章 Android 画布
+ *   第 11 章 Matrix 与坐标变换
  */
-class DrawHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
+class DrawHomeActivity : BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun getLayout(): Int = R.layout.activity_base_list
 
-    override fun getItemNameList(): MutableList<String> = resources.getStringArray(R.array.draw_sections).toMutableList()
+    override fun getItemNameList(): MutableList<String> =
+        resources.getStringArray(R.array.draw_sections).toMutableList()
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -32,8 +39,11 @@ class DrawHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        when(position){
+        val nextTitle = itemList[position]
+        when (position) {
             // region 打开视图动画
+            0 -> openNextUI(PaintActivity::class.java, nextTitle)
+            // endregion
         }
     }
 

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-apply from: 'version.gradle'
+apply from: '../version.gradle'
 
 android {
     compileSdkVersion 30
@@ -36,23 +36,33 @@ android {
         release {
             // 引用配置的签名信息
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
         debug {
-
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     // flavors 维度
-    flavorDimensions "size", "google"
+    flavorDimensions "size", "google", "baidu"
 
     productFlavors {
         google {
             dimension "google"
             applicationIdSuffix ".google"
             versionNameSuffix "-google"
+            buildConfigField 'String','HOME_URL','"http://www.google.com"'
+            // 添加自定义资源
+            resValue 'string','channel_tips','"Google 欢迎你"'
+        }
+
+        baidu {
+            dimension "baidu"
+            buildConfigField 'String','HOME_URL','"http://www.baidu.com"'
+            // 添加自定义资源
+            resValue 'string','channel_tips','"Baidu 欢迎你"'
         }
         big {
             dimension "size"
@@ -90,6 +100,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
 
     api project(path: ':base')
 }

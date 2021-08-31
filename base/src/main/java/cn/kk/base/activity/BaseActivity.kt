@@ -16,6 +16,7 @@ import cn.kk.base.R
  * Activity 基类
  */
 abstract class BaseActivity: AppCompatActivity() {
+    val TAG = this.javaClass.simpleName
     protected val INTENT_TITLE_KEY = "title"
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
@@ -74,6 +75,13 @@ abstract class BaseActivity: AppCompatActivity() {
     protected open fun showTitle(){
         val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle.text = title
+        tvTitle.setOnLongClickListener(object : View.OnLongClickListener{
+            override fun onLongClick(v: View?): Boolean {
+               showToast(TAG)
+                return true
+            }
+
+        })
     }
 
     /**
