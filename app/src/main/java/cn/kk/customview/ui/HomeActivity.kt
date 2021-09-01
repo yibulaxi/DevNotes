@@ -1,12 +1,15 @@
 package cn.kk.customview.ui
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.ViewHelper
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 import kotlinx.android.synthetic.main.activity_home.*
@@ -64,5 +67,6 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     fun showAppInfo(){
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         tv_app_info.text = "V".plus(packageInfo.versionName)
+        ViewHelper.setShapeDualSemicircle(tv_app_info, Color.parseColor("#33000000"))
     }
 }
