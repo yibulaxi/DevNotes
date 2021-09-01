@@ -67,6 +67,6 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     fun showAppInfo(){
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         tv_app_info.text = "V".plus(packageInfo.versionName)
-        ViewHelper.setShapeDualSemicircle(tv_app_info, Color.parseColor("#33000000"))
+        ViewHelper.setShapeDualSemicircle(tv_app_info, Color.BLACK, 0.6f)
     }
 }
