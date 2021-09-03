@@ -43,6 +43,7 @@ class DrawHomeActivity : BaseActivity(), ListAdapter.ItemClickListener {
         when (position) {
             // region 打开视图动画
             0 -> openNextUI(PaintActivity::class.java, nextTitle)
+            1 -> openNextUI(DrawAdvanceActivity::class.java, nextTitle)
             // endregion
         }
     }

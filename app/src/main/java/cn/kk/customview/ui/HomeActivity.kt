@@ -25,6 +25,9 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         super.doWhenOnCreate()
         showAppInfo()
 
+        switch.isChecked
+        switch.isSelected
+
         tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
         // region 设置适配器
@@ -69,4 +72,5 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         tv_app_info.text = "V".plus(packageInfo.versionName)
         ViewHelper.setShapeDualSemicircle(tv_app_info, Color.BLACK, 0.6f)
     }
+
 }

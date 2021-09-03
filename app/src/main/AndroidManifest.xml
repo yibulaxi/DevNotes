@@ -33,6 +33,7 @@
 
         <activity android:name=".chapter.c3.DrawHomeActivity"/>
         <activity android:name=".chapter.c3.PaintActivity"/>
+        <activity android:name=".chapter.c3.DrawAdvanceActivity"/>
 
         <activity android:name=".chapter.c4.ViewHomeActivity"/>
 

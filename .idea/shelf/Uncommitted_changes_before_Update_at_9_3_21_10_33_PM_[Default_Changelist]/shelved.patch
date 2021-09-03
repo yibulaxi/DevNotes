@@ -1,0 +1,300 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"delegatedBuild\" value=\"false\" />\n        <option name=\"testRunner\" value=\"PLATFORM\" />\n        <option name=\"distributionType\" value=\"LOCAL\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n            <option value=\"$PROJECT_DIR$/base\" />\n            <option value=\"$PROJECT_DIR$/elementary\" />\n            <option value=\"$PROJECT_DIR$/utils\" />\n          </set>\n        </option>\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ .idea/gradle.xml	(date 1630422817000)
+@@ -18,6 +18,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: app/src/main/java/cn/kk/customview/chapter/c3/DrawAdvanceActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/kk/customview/chapter/c3/DrawAdvanceActivity.kt	(date 1630335139000)
++++ app/src/main/java/cn/kk/customview/chapter/c3/DrawAdvanceActivity.kt	(date 1630335139000)
+@@ -0,0 +1,42 @@
++package cn.kk.customview.chapter.c3
++
++import androidx.fragment.app.Fragment
++import androidx.viewpager2.widget.ViewPager2
++import cn.kk.base.activity.BaseActivity
++import cn.kk.customview.R
++import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
++import cn.kk.elementary.drawview.fragment.BezierFragment
++import cn.kk.elementary.drawview.fragment.HardwareAccelerateFragment
++import cn.kk.elementary.drawview.fragment.PaintFunsFragment
++import cn.kk.elementary.drawview.fragment.PaintTextFragment
++import com.google.android.material.tabs.TabLayoutMediator
++import kotlinx.android.synthetic.main.activity_draw_advance.*
++import kotlinx.android.synthetic.main.activity_paint.*
++
++/**
++ * 绘图进阶
++ * 7.1 贝塞尔曲线
++ * 7.2 setShadowLayer 与阴影效果
++ * 7.3 BlurMaskFilter 发光效果与图片阴影
++ * 7.4 Shader 与 BitmapShader
++ * 7.5 Shader 之 LinearGradient
++ * 7.6 Shader 之 RadialGradient
++ */
++class DrawAdvanceActivity: BaseActivity() {
++    val sections = arrayOf("贝塞尔曲线", "setShadowLayer 与阴影效果", "BlurMaskFilter 发光效果与图片阴影", "Shader")
++    override fun getLayout(): Int = R.layout.activity_draw_advance
++
++    override fun doWhenOnCreate() {
++        super.doWhenOnCreate()
++
++        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
++
++        // 适配器，添加 Fragment
++        viewPager.adapter = BaseFragmentAdapter(this, mutableListOf<Fragment>().apply {
++            add(BezierFragment())
++        })
++
++        TabLayoutMediator(tl_title, viewPager) { tab, position -> tab.text = sections[position] }.attach()
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"cn.kk.customview\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@drawable/icon_cat\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@drawable/app_icon\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/NoTitle\">\n        <activity android:name=\".ui.HomeActivity\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity android:name=\".ui.BookTutorialActivity\"/>\n        <activity android:name=\".ui.RecyclerActivity\"/>\n\n        <activity android:name=\".chapter.c1.DrawBasicActivity\"/>\n        <activity android:name=\".chapter.c2.AnimActivity\"/>\n        <activity android:name=\".chapter.c2.ViewAnimHomeActivity\"/>\n        <activity android:name=\".chapter.c2.AnimAdvanceHomeActivity\"/>\n        <activity android:name=\"cn.kk.elementary.anim.view.AnimSampleActivity\"/>\n        <activity android:name=\".chapter.ViewAnimIntrosActivity\"/>\n        <activity android:name=\".chapter.AnimInterpolatorActivity\"/>\n\n        <activity android:name=\".chapter.c2.PropertyAnimHomeActivity\"/>\n        <activity android:name=\"cn.kk.elementary.anim.property.value.ValueAnimationActivity\"/>\n        <activity android:name=\"cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity\"/>\n\n        <activity android:name=\".chapter.c3.DrawHomeActivity\"/>\n        <activity android:name=\".chapter.c3.PaintActivity\"/>\n\n        <activity android:name=\".chapter.c4.ViewHomeActivity\"/>\n\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ app/src/main/AndroidManifest.xml	(date 1630335063000)
+@@ -33,6 +33,7 @@
+ 
+         <activity android:name=".chapter.c3.DrawHomeActivity"/>
+         <activity android:name=".chapter.c3.PaintActivity"/>
++        <activity android:name=".chapter.c3.DrawAdvanceActivity"/>
+ 
+         <activity android:name=".chapter.c4.ViewHomeActivity"/>
+ 
+Index: elementary/src/main/java/cn/kk/elementary/drawview/fragment/HardwareAccelerateFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cn.kk.elementary.drawview.fragment\n\nimport android.os.Bundle\nimport android.view.LayoutInflater\nimport android.view.View\nimport cn.kk.base.fragment.BaseFragment\nimport cn.kk.elementary.R\nimport kotlinx.android.synthetic.main.fragment_hardware_accelerate.*\n\nclass HardwareAccelerateFragment: BaseFragment() {\n    val intros_1 = \"GPU 是图形处理器，与 CPU 不同，GPU 是专门为处理图形任务而产生的芯片。\\n\\t对于 Android 来讲，API 11 之前没有 GPU 概念；\" +\n            \"在 API 11 之后加入了对 GPU 加速对支持；在 API 14 之后，硬件加速功能是默认开启的。\"\n\n    val intros_2 = \"在 GPU 加速时，实际上是使用 OpenGL 的相关函数来完成绘制。因此硬件加速提高了 Android 系统显示和刷新的速度；但是也有缺点：兼容性问题、内存消耗问题、电量消耗问题\"\n    override fun getLayoutId(): Int = R.layout.fragment_hardware_accelerate\n\n    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {\n        super.onViewCreated(view, savedInstanceState)\n\n        tv_content.text = intros_1\n        tv_diff.text = intros_2\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- elementary/src/main/java/cn/kk/elementary/drawview/fragment/HardwareAccelerateFragment.kt	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ elementary/src/main/java/cn/kk/elementary/drawview/fragment/HardwareAccelerateFragment.kt	(date 1630335063000)
+@@ -1,7 +1,6 @@
+ package cn.kk.elementary.drawview.fragment
+ 
+ import android.os.Bundle
+-import android.view.LayoutInflater
+ import android.view.View
+ import cn.kk.base.fragment.BaseFragment
+ import cn.kk.elementary.R
+Index: app/src/main/res/layout/activity_draw_advance.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_draw_advance.xml	(date 1630334057000)
++++ app/src/main/res/layout/activity_draw_advance.xml	(date 1630334057000)
+@@ -0,0 +1,27 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    xmlns:app="http://schemas.android.com/apk/res-auto">
++
++    <include
++        android:id="@+id/title"
++        layout="@layout/layout_title"/>
++
++    <com.google.android.material.tabs.TabLayout
++        android:id="@+id/tl_title"
++        app:layout_constraintTop_toBottomOf="@id/title"
++        android:layout_width="match_parent"
++        android:layout_height="40dp"/>
++
++
++    <androidx.viewpager2.widget.ViewPager2
++        android:id="@+id/viewPager"
++        app:layout_constraintTop_toBottomOf="@id/tl_title"
++        app:layout_constraintBottom_toBottomOf="parent"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"/>
++
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/res/layout/activity_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\">\n\n    <include\n        android:id=\"@+id/home_title\"\n        layout=\"@layout/layout_title\"/>\n\n    <androidx.recyclerview.widget.RecyclerView\n        android:layout_marginTop=\"50dp\"\n        android:paddingLeft=\"10dp\"\n        android:id=\"@+id/rv_home\"\n        android:layout_below=\"@id/home_title\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"/>\n\n    <TextView\n        android:layerType=\"software\"\n        android:id=\"@+id/tv_app_info\"\n        android:textColor=\"@color/colorPrimary\"\n        android:layout_marginBottom=\"50dp\"\n        android:layout_alignParentBottom=\"true\"\n        android:layout_centerHorizontal=\"true\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"/>\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_home.xml	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ app/src/main/res/layout/activity_home.xml	(date 1630506990000)
+@@ -24,4 +24,9 @@
+         android:layout_centerHorizontal="true"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"/>
++
++    <androidx.appcompat.widget.SwitchCompat
++        android:id="@+id/switch"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"/>
+ </RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/java/cn/kk/customview/chapter/c3/DrawHomeActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cn.kk.customview.chapter.c3\n\nimport androidx.recyclerview.widget.LinearLayoutManager\nimport androidx.recyclerview.widget.RecyclerView\nimport cn.kk.base.activity.BaseActivity\nimport cn.kk.customview.R\nimport cn.kk.customview.adpater.ListAdapter\n\n/**\n * 「绘图篇」页面\n *   第 6 章 Paint 的基本使用\n *   第 7 章 绘图进阶\n *   第 8 章 混合模式\n *   第 9 章 Canvas 与图层\n *   第 10 章 Android 画布\n *   第 11 章 Matrix 与坐标变换\n */\nclass DrawHomeActivity : BaseActivity(), ListAdapter.ItemClickListener {\n\n    override fun getLayout(): Int = R.layout.activity_base_list\n\n    override fun getItemNameList(): MutableList<String> =\n        resources.getStringArray(R.array.draw_sections).toMutableList()\n\n    override fun doWhenOnCreate() {\n        super.doWhenOnCreate()\n\n        // region 设置适配器\n        val homeAdapter = ListAdapter(itemList).apply {\n            itemClickListener = this@DrawHomeActivity\n        }\n\n        val layoutManager = LinearLayoutManager(this)\n\n        val rvDraw = findViewById<RecyclerView>(R.id.rv_home)\n        rvDraw.layoutManager = layoutManager\n        rvDraw.adapter = homeAdapter\n        // endregion\n    }\n\n    override fun onItemClick(position: Int) {\n        val nextTitle = itemList[position]\n        when (position) {\n            // region 打开视图动画\n            0 -> openNextUI(PaintActivity::class.java, nextTitle)\n            // endregion\n        }\n    }\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/kk/customview/chapter/c3/DrawHomeActivity.kt	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ app/src/main/java/cn/kk/customview/chapter/c3/DrawHomeActivity.kt	(date 1630335063000)
+@@ -43,6 +43,7 @@
+         when (position) {
+             // region 打开视图动画
+             0 -> openNextUI(PaintActivity::class.java, nextTitle)
++            1 -> openNextUI(DrawAdvanceActivity::class.java, nextTitle)
+             // endregion
+         }
+     }
+Index: elementary/src/main/java/cn/kk/elementary/drawview/fragment/BezierFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- elementary/src/main/java/cn/kk/elementary/drawview/fragment/BezierFragment.kt	(date 1630335063000)
++++ elementary/src/main/java/cn/kk/elementary/drawview/fragment/BezierFragment.kt	(date 1630335063000)
+@@ -0,0 +1,17 @@
++package cn.kk.elementary.drawview.fragment
++
++import android.os.Bundle
++import cn.kk.base.fragment.BaseFragment
++import cn.kk.elementary.R
++
++/**
++ * 贝塞尔曲线
++ */
++class BezierFragment: BaseFragment() {
++    override fun getLayoutId(): Int = R.layout.fragment_bezier
++
++    override fun onActivityCreated(savedInstanceState: Bundle?) {
++        super.onActivityCreated(savedInstanceState)
++
++    }
++}
+\ No newline at end of file
+Index: elementary/src/main/res/layout/fragment_bezier.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- elementary/src/main/res/layout/fragment_bezier.xml	(date 1630335063000)
++++ elementary/src/main/res/layout/fragment_bezier.xml	(date 1630335063000)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:padding="15dp"
++    xmlns:app="http://schemas.android.com/apk/res-auto">
++
++
++    <cn.kk.elementary.drawview.advance.BezierView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"/>
++
++</RelativeLayout>
+\ No newline at end of file
+Index: elementary/src/main/java/cn/kk/elementary/drawview/advance/BezierView.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- elementary/src/main/java/cn/kk/elementary/drawview/advance/BezierView.kt	(date 1630336780000)
++++ elementary/src/main/java/cn/kk/elementary/drawview/advance/BezierView.kt	(date 1630336780000)
+@@ -0,0 +1,42 @@
++package cn.kk.elementary.drawview.advance
++
++import android.content.Context
++import android.graphics.Canvas
++import android.graphics.Color
++import android.graphics.Paint
++import android.graphics.Path
++import android.util.AttributeSet
++import android.view.View
++
++/**
++ * 贝塞尔曲线
++ * 相关函数：quadTo(float x1, float y1, float x2, float y2), rQuadTo(), cubicTo(), rCubicTo()
++ *
++ * (x1, y1) 是控制点
++ * (x2, y2) 是终点
++ *
++ */
++class BezierView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
++
++    override fun onDraw(canvas: Canvas) {
++        super.onDraw(canvas)
++        canvas.drawRGB(200, 200, 200)
++
++        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
++            color = Color.RED
++        }
++        val path = Path().apply {
++
++        }
++        // 1. 先走到起点
++        path.moveTo(100f, 300f)
++
++        // 2. 绘制第一段曲线
++        path.quadTo(200f, 200f, 300f, 300f)
++
++        // 3. 绘制第二段曲线
++        path.quadTo(400f, 400f, 500f, 300f)
++
++        canvas.drawPath(path, paint)
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/cn/kk/customview/ui/HomeActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cn.kk.customview.ui\n\nimport android.content.Intent\nimport android.os.Build\nimport android.view.View\nimport android.view.WindowManager\nimport android.widget.TextView\nimport androidx.recyclerview.widget.LinearLayoutManager\nimport cn.kk.base.activity.BaseActivity\nimport cn.kk.customview.R\nimport cn.kk.customview.adpater.ListAdapter\nimport kotlinx.android.synthetic.main.activity_home.*\n\n/**\n * 首页\n */\nclass HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {\n\n    override fun getLayout(): Int = R.layout.activity_home\n\n    override fun doWhenOnCreate() {\n        super.doWhenOnCreate()\n        showAppInfo()\n\n        tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)\n\n        // region 设置适配器\n        val homeAdapter = ListAdapter(itemList).apply {\n            itemClickListener = this@HomeActivity\n        }\n\n        val layoutManager = LinearLayoutManager(this)\n        rv_home.layoutManager = layoutManager\n        rv_home.adapter = homeAdapter\n        // endregion\n    }\n\n    override fun getItemNameList(): MutableList<String> {\n        return mutableListOf<String>(\n            \"系统学习\",\n            \"其他练习\"\n        )\n    }\n\n    override fun showTitle() {\n        val tvTitle = findViewById<TextView>(R.id.tv_page_title)\n        tvTitle.text = getString(R.string.app_name_cn)\n    }\n\n    // region Recyclerview 的 item 点击事件\n    override fun onItemClick(position: Int) {\n        when(position){\n            // region 1. 打开「系统学习」\n            0 -> openNextUI(BookTutorialActivity::class.java, itemList[position])\n            // endregion\n\n            // region 2. 打开「其他练习」\n            1 -> openNextUI(RecyclerActivity::class.java, itemList[position])\n            // endregion\n        }\n    }\n    // endregion\n\n    fun showAppInfo(){\n        val packageInfo = packageManager.getPackageInfo(packageName, 0)\n        tv_app_info.text = \"V\".plus(packageInfo.versionName)\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/kk/customview/ui/HomeActivity.kt	(revision 2e4f014d6b58893ec60d02e5de3fad865f9b3287)
++++ app/src/main/java/cn/kk/customview/ui/HomeActivity.kt	(date 1630506990000)
+@@ -22,6 +22,9 @@
+         super.doWhenOnCreate()
+         showAppInfo()
+ 
++        switch.isChecked
++        switch.isSelected
++
+         tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
+ 
+         // region 设置适配器
+@@ -65,4 +68,5 @@
+         val packageInfo = packageManager.getPackageInfo(packageName, 0)
+         tv_app_info.text = "V".plus(packageInfo.versionName)
+     }
++
+ }
+\ No newline at end of file

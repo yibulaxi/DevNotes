@@ -1,7 +1,6 @@
 package cn.kk.elementary.drawview.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.elementary.R
