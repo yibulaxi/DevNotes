@@ -15,8 +15,7 @@ import cn.kk.base.R
 /**
  * Activity 基类
  */
-abstract class BaseActivity: AppCompatActivity() {
-    val TAG = this.javaClass.simpleName
+abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
@@ -93,23 +92,6 @@ abstract class BaseActivity: AppCompatActivity() {
         }
     }
 
-    /**
-     * 输出日志
-     */
-    protected fun printLog(log: String){
-        LogHelper.print(log)
-    }
-
-    /**
-     * 弹出信息，Toast 方式
-     */
-    protected fun showToast(msg: String){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    protected fun showToastLong(msg: String){
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-    }
 
     /**
      * 设置状态栏透明，且独自占用空间

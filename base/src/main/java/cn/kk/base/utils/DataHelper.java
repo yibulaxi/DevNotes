@@ -29,9 +29,6 @@ public class DataHelper {
 
     public static void main(String[] args) {
 
-        System.out.println("en: " + localizeMonthDay("en", new Date()));
-        System.out.println("fr: " + localizeMonthDay("fr", new Date()));
-        System.out.println("de: " + localizeMonthDay("de", new Date()));
-        System.out.println("es: " + localizeMonthDay("es", new Date()));
+
     }
 }

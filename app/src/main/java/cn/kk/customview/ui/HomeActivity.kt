@@ -25,8 +25,6 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         super.doWhenOnCreate()
         showAppInfo()
 
-        switch.isChecked
-        switch.isSelected
 
         tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
@@ -61,7 +59,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             // endregion
 
             // region 2. 打开「其他练习」
-            1 -> openNextUI(RecyclerActivity::class.java, itemList[position])
+            1 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
             // endregion
         }
     }
