@@ -19,6 +19,7 @@
         <activity android:name=".ui.BookTutorialActivity"/>
         <activity android:name=".ui.RecyclerActivity"/>
         <activity android:name=".ui.ZhihuQuestionActivity"/>
+        <activity android:name=".ui.TempActivity"/>
 
         <activity android:name=".chapter.c1.DrawBasicActivity"/>
         <activity android:name=".chapter.c2.AnimActivity"/>

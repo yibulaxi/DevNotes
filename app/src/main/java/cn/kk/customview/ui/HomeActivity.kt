@@ -42,7 +42,8 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun getItemNameList(): MutableList<String> {
         return mutableListOf<String>(
             "系统学习",
-            "其他练习"
+            "其他练习",
+            "temp"
         )
     }
 
@@ -60,6 +61,10 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
             // region 2. 打开「其他练习」
             1 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
+            // endregion
+
+            // region 3. 打开「temp」
+            2 -> openNextUI(TempActivity::class.java, itemList[position])
             // endregion
         }
     }
