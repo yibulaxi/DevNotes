@@ -1,7 +1,9 @@
 package cn.kk.customview.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,35 +13,41 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import cn.kk.base.UIHelper;
+
 /**
- * 项目: CustomeView
  * 类描述: This is ...
  * 创建人: kk
  * 创建时间: 9/8/21
  */
 public class MoveFloatingActionButton extends FloatingActionButton implements View.OnTouchListener {
     private final static float CLICK_DRAG_TOLERANCE = 10; // Often, there will be a slight, unintentional, drag when the user taps the FAB, so we need to account for this.
-
+    private static final String TAG = "MoveFloatingActionButton";
     private float downRawX, downRawY;
+    private float marginX, marginY;
     private float dX, dY;
+    private int screenWidth = 0;
 
     public MoveFloatingActionButton(@NonNull Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public MoveFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public MoveFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(@NonNull Context context) {
         setOnTouchListener(this);
+        screenWidth = UIHelper.INSTANCE.getScreenSize((Activity) context).x;
+        marginX = 100;
+        marginY = 100;
     }
 
     @Override
@@ -95,6 +103,12 @@ public class MoveFloatingActionButton extends FloatingActionButton implements Vi
                 return performClick();
             }
             else { // A drag
+                // 判断手指抬起后，水平位置是屏幕左边还是右边。
+                if (upRawX < screenWidth / 2){
+                    view.animate().x(marginX).setDuration(150).start();
+                } else {
+                    view.animate().x(screenWidth - view.getWidth() - marginX).setDuration(150).start();
+                }
                 return true; // Consumed
             }
 

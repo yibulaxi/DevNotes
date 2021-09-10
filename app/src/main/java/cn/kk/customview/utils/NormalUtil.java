@@ -60,4 +60,13 @@ public class NormalUtil {
         }
         return codeStr;
     }
+
+    public static float convert(float alpha){
+        return Math.min(Math.max(0f, alpha), 1.0f) * 255;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(convert(0.6f));
+    }
 }

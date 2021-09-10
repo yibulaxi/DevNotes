@@ -43,6 +43,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         return mutableListOf<String>(
             "系统学习",
             "其他练习",
+            "页面跳转",
             "temp"
         )
     }
@@ -63,8 +64,12 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             1 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
             // endregion
 
+            // region 3. 打开「页面跳转」
+            2 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
+            // endregion
+
             // region 3. 打开「temp」
-            2 -> openNextUI(TempActivity::class.java, itemList[position])
+            3 -> openNextUI(TempActivity::class.java, itemList[position])
             // endregion
         }
     }
