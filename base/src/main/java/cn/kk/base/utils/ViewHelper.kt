@@ -17,7 +17,7 @@ object ViewHelper {
      * @param color 背景 shape 颜色
      */
     fun setShapeDualSemicircle(target: View, color: Int, alpha: Float){
-        val correctAlpha = Math.max(Math.min(0f, alpha), 1.0f)
+        val correctAlpha = Math.min(Math.max(0f, alpha), 1.0f)
         target.post {
             target.background = GradientDrawable().apply {
                 cornerRadius = target.measuredHeight / 2f

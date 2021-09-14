@@ -1,6 +1,7 @@
 package cn.kk.customview.ui
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
@@ -78,7 +79,14 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     fun showAppInfo(){
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         tv_app_info.text = "V".plus(packageInfo.versionName)
-        ViewHelper.setShapeDualSemicircle(tv_app_info, Color.BLACK, 0.6f)
+        ViewHelper.setShapeDualSemicircle(tv_app_info, Color.BLACK, 0.1f)
+
+        // todo 读取 AndroidManifest.xml 的渠道信息
+        val appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+        val channel = appInfo.metaData.getString("MTA_CHANNEL")
+        if (channel != null){
+            showToast(channel)
+        }
     }
 
 }

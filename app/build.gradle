@@ -12,7 +12,7 @@ android {
     signingConfigs {
         release {
             keyAlias 'app'
-            keyPassword '1  23456'
+            keyPassword '123456'
             storeFile file('./app.jks')
             storePassword '123456'
         }
@@ -46,11 +46,24 @@ android {
     }
 
     // flavors 维度
-    flavorDimensions "size", "google", "baidu"
+    flavorDimensions "channel"
 
     productFlavors {
-        google {
-            dimension "google"
+
+        baidu {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "baidu"]
+        }
+
+        xiaomi {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "xiaomi"]
+        }
+
+        huawei {
+            manifestPlaceholders = [MTA_CHANNEL_VALUE: "huawei"]
+        }
+
+        /*google {
+            dimension "market"
             applicationIdSuffix ".google"
             versionNameSuffix "-google"
             buildConfigField 'String','HOME_URL','"http://www.google.com"'
@@ -59,10 +72,13 @@ android {
         }
 
         baidu {
-            dimension "baidu"
+            dimension "market"
             buildConfigField 'String','HOME_URL','"http://www.baidu.com"'
             // 添加自定义资源
             resValue 'string','channel_tips','"Baidu 欢迎你"'
+        }
+        xiaomi {
+            dimension "market"
         }
         big {
             dimension "size"
@@ -70,6 +86,13 @@ android {
         small {
             dimension "size"
         }
+        before {
+            dimension "history"
+        }
+
+        now {
+            dimension "history"
+        }*/
     }
 
     applicationVariants.all { variant ->
