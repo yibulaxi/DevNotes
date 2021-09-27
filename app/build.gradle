@@ -25,6 +25,10 @@ android {
         versionCode appVersionCode
         versionName appVersionName
 
+        // 配置测试 apk
+        testApplicationId "cn.kk.customview.test"
+        testFunctionalTest true
+        testHandleProfiling true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -62,37 +66,10 @@ android {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "huawei"]
         }
 
-        /*google {
-            dimension "market"
-            applicationIdSuffix ".google"
-            versionNameSuffix "-google"
-            buildConfigField 'String','HOME_URL','"http://www.google.com"'
-            // 添加自定义资源
-            resValue 'string','channel_tips','"Google 欢迎你"'
-        }
-
-        baidu {
-            dimension "market"
-            buildConfigField 'String','HOME_URL','"http://www.baidu.com"'
-            // 添加自定义资源
-            resValue 'string','channel_tips','"Baidu 欢迎你"'
-        }
-        xiaomi {
-            dimension "market"
-        }
-        big {
-            dimension "size"
-        }
-        small {
-            dimension "size"
-        }
-        before {
-            dimension "history"
-        }
-
-        now {
-            dimension "history"
-        }*/
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     applicationVariants.all { variant ->
@@ -119,11 +96,21 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
 
     api project(path: ':base')
+
+    // test lib
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:3.+"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestUtil 'androidx.test:orchestrator:1.1.0'
 }

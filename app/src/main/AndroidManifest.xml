@@ -9,10 +9,14 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
+        <activity
+            android:name=".ui.fragment.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/NoTitle.NoActionBar"/>
 
         <meta-data
             android:name="MTA_CHANNEL"
-            android:value="${MTA_CHANNEL_VALUE}"/>
+            android:value="${MTA_CHANNEL_VALUE}" />
 
         <activity android:name=".ui.HomeActivity">
             <intent-filter>
@@ -21,30 +25,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.BookTutorialActivity"/>
-        <activity android:name=".ui.RecyclerActivity"/>
-        <activity android:name=".ui.ZhihuQuestionActivity"/>
-        <activity android:name=".ui.TempActivity"/>
-        <activity android:name=".ui.SystemUIActivity"/>
+        <activity android:name=".ui.BookTutorialActivity" />
+        <activity android:name=".ui.RecyclerActivity" />
+        <activity android:name=".ui.ZhihuQuestionActivity" />
+        <activity android:name=".ui.TempActivity" />
+        <activity android:name=".ui.SystemUIActivity" />
+        <activity android:name=".chapter.c1.DrawBasicActivity" />
+        <activity android:name=".chapter.c2.AnimActivity" />
+        <activity android:name=".chapter.c2.ViewAnimHomeActivity" />
+        <activity android:name=".chapter.c2.AnimAdvanceHomeActivity" />
+        <activity android:name="cn.kk.elementary.anim.view.AnimSampleActivity" />
+        <activity android:name=".chapter.ViewAnimIntrosActivity" />
+        <activity android:name=".chapter.AnimInterpolatorActivity" />
+        <activity android:name=".chapter.c2.PropertyAnimHomeActivity" />
+        <activity android:name="cn.kk.elementary.anim.property.value.ValueAnimationActivity" />
+        <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity" />
+        <activity android:name=".chapter.c3.DrawHomeActivity" />
+        <activity android:name=".chapter.c3.PaintActivity" />
+        <activity android:name=".chapter.c3.DrawAdvanceActivity" />
+        <activity android:name=".chapter.c4.ViewHomeActivity" />
 
-        <activity android:name=".chapter.c1.DrawBasicActivity"/>
-        <activity android:name=".chapter.c2.AnimActivity"/>
-        <activity android:name=".chapter.c2.ViewAnimHomeActivity"/>
-        <activity android:name=".chapter.c2.AnimAdvanceHomeActivity"/>
-        <activity android:name="cn.kk.elementary.anim.view.AnimSampleActivity"/>
-        <activity android:name=".chapter.ViewAnimIntrosActivity"/>
-        <activity android:name=".chapter.AnimInterpolatorActivity"/>
-
-        <activity android:name=".chapter.c2.PropertyAnimHomeActivity"/>
-        <activity android:name="cn.kk.elementary.anim.property.value.ValueAnimationActivity"/>
-        <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity"/>
-
-        <activity android:name=".chapter.c3.DrawHomeActivity"/>
-        <activity android:name=".chapter.c3.PaintActivity"/>
-        <activity android:name=".chapter.c3.DrawAdvanceActivity"/>
-
-        <activity android:name=".chapter.c4.ViewHomeActivity"/>
-
+<!--        system ui-->
+        <activity android:name=".ui.system.ImageViewActivity"/>
+        <activity android:name=".ui.system.DialogActivity"/>
     </application>
 
 </manifest>

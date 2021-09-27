@@ -27,8 +27,10 @@ public class DataHelper {
     }
 
 
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        System.out.println(localizeMonthDay("es", new Date()));
 
     }
 }

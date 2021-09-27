@@ -26,22 +26,6 @@ class TempActivity: BaseActivity() {
             playAnim()
         }
 
-        piv.setProgressEnable(true)
-        piv.setProgressColor(Color.WHITE)
-        piv.setProgressStrokeWidth(150)
-        piv.setProgress(0f)
-
-        Handler().post(object : Runnable{
-            override fun run() {
-                while (true){
-                    loadProgress += 0.01f
-                    runOnUiThread { piv.setProgress(loadProgress) }
-
-                    SystemClock.sleep(300)
-                }
-            }
-
-        })
     }
 
     private fun playAnim(){
