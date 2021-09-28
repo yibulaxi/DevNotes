@@ -7,41 +7,10 @@
 
     <include layout="@layout/layout_title"/>
 
-    <ScrollView
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:background="@color/grey_2"
-                android:id="@+id/imageView"
-                android:scaleType="fitCenter"
-                android:minHeight="350dp"
-                android:src="@drawable/bg_1"
-                android:maxHeight="492dp"
-                android:layout_height="350dp"
-                android:layout_width="match_parent"/>
-
-
-            <Button
-                android:id="@+id/btn_next"
-                android:text="Next"
-                android:textAllCaps="false"
-                android:textColor="@color/Orange"
-                android:textStyle="bold"
-                android:background="@drawable/btn_circle"
-                android:layout_marginTop="100dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="80dp"
-                android:layout_height="80dp"/>
-        </LinearLayout>
-
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
