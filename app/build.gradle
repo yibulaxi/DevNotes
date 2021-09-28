@@ -46,7 +46,7 @@ android {
     }
 
     // flavors 维度
-    flavorDimensions "channel"
+   /* flavorDimensions "channel"
 
     productFlavors {
 
@@ -62,38 +62,8 @@ android {
             manifestPlaceholders = [MTA_CHANNEL_VALUE: "huawei"]
         }
 
-        /*google {
-            dimension "market"
-            applicationIdSuffix ".google"
-            versionNameSuffix "-google"
-            buildConfigField 'String','HOME_URL','"http://www.google.com"'
-            // 添加自定义资源
-            resValue 'string','channel_tips','"Google 欢迎你"'
-        }
 
-        baidu {
-            dimension "market"
-            buildConfigField 'String','HOME_URL','"http://www.baidu.com"'
-            // 添加自定义资源
-            resValue 'string','channel_tips','"Baidu 欢迎你"'
-        }
-        xiaomi {
-            dimension "market"
-        }
-        big {
-            dimension "size"
-        }
-        small {
-            dimension "size"
-        }
-        before {
-            dimension "history"
-        }
-
-        now {
-            dimension "history"
-        }*/
-    }
+    }*/
 
     applicationVariants.all { variant ->
         variant.outputs.all {
