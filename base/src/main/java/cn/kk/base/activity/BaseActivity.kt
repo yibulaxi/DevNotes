@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import cn.kk.base.LogHelper
 import cn.kk.base.R
+import cn.kk.base.UIHelper
 
 /**
  * Activity 基类
@@ -32,11 +33,19 @@ abstract class BaseActivity: BasicActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme()
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
         setContentView(getLayout())
 
         doWhenOnCreate()
+    }
+
+    fun setTheme(){
+        // 设置主体
+
+        val theme = UIHelper.getCurrentTheme(this)
+        super.setTheme(theme)
     }
 
     override fun onStart() {

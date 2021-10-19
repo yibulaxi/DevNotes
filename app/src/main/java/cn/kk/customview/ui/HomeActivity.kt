@@ -1,17 +1,13 @@
 package cn.kk.customview.ui
 
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
-import android.os.Build
 import android.view.View
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.ViewHelper
 import cn.kk.customview.R
+import cn.kk.base.activity.CommentActivity
 import cn.kk.customview.adpater.ListAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -46,6 +42,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             "其他练习",
             "系统 UI",
             "页面跳转",
+            "二级评论",
             "temp"
         )
     }
@@ -70,9 +67,10 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             // region 3. 打开「页面跳转」
             3 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
             // endregion
+            4 -> openNextUI(CommentActivity::class.java, itemList[position])
 
             // region 3. 打开「temp」
-            4 -> openNextUI(TempActivity::class.java, itemList[position])
+            5 -> openNextUI(TempActivity::class.java, itemList[position])
             // endregion
         }
     }

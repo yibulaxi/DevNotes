@@ -16,4 +16,27 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:windowBackground">#44000000</item>
     </style>
+
+
+    <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="Theme.Default" parent="Base.Theme">
+        <item name="body_text_1">@color/body_text_1</item>
+        <item name="base_bg">@color/white</item>
+
+    </style>
+
+    <style name="Theme.Night" parent="Base.Theme">
+        <item name="base_bg">@color/grey_3</item>
+        <item name="body_text_1">@color/body_text_1_n</item>
+
+    </style>
+
+    <style name="Theme.Black" parent="Base.Theme">
+        <item name="base_bg">@color/black</item>
+        <item name="body_text_1">@color/body_text_1_b</item>
+
+    </style>
 </resources>

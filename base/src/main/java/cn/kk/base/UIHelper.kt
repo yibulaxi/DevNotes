@@ -1,8 +1,10 @@
 package cn.kk.base
 
 import android.app.Activity
+import android.content.res.Configuration
 import android.graphics.Point
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 object UIHelper {
 
@@ -23,5 +25,12 @@ object UIHelper {
         val point = IntArray(2)
         edit.getLocationOnScreen(point)
         return getEditCursorY(edit) + point[1]
+    }
+
+    fun getCurrentTheme(activity: AppCompatActivity): Int{
+        if ((activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES){
+           return R.style.Theme_Night
+        }
+        return R.style.Theme_Default
     }
 }

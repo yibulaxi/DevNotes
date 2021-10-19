@@ -18,7 +18,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>-->
 
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +28,7 @@
         <activity android:name=".ui.BookTutorialActivity" />
         <activity android:name=".ui.RecyclerActivity" />
         <activity android:name=".ui.ZhihuQuestionActivity" />
+        <activity android:name="cn.kk.base.activity.CommentActivity" />
         <activity android:name=".ui.TempActivity" />
         <activity android:name=".ui.SystemUIActivity" />
         <activity android:name=".chapter.c1.DrawBasicActivity" />

@@ -176,4 +176,11 @@
     <color name="Black">#000000</color>
 
     <color name="red_1">#d81e06</color>
+
+
+<!--    主体相关颜色-->
+
+    <color name="body_text_1">@color/grey_5</color>
+    <color name="body_text_1_n">@color/grey_a</color>
+    <color name="body_text_1_b">@color/grey_e</color>
 </resources>
