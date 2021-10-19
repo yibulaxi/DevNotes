@@ -2,15 +2,15 @@ package cn.kk.customview.widget
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 
 class WeekView: ViewGroup {
 
     val WEEK_SIZE = 7
     val WEEKS = arrayOf("一","二","三","四","五","六","日")
-    val intervalLineSpace = 50
 
     constructor(context: Context): super(context){
         initView(context)
@@ -22,24 +22,17 @@ class WeekView: ViewGroup {
     }
 
     fun initView(context: Context){
-        // create 7 view
-        createUpperView(context)
-        createLowerView(context)
+        createDayView(context)
     }
 
-    fun createUpperView(context: Context){
+    private fun createDayView(context: Context) {
         for(index in 0 until WEEK_SIZE){
-            addView(TextView(context).apply { text = WEEKS[index] })
+            addView(DayView(context).apply {
+                setData(index, WEEKS[index], index % 2 == 0)
+            })
         }
     }
 
-    fun createLowerView(context: Context){
-        for(index in 0 until WEEK_SIZE){
-            val lowerView = FrameLayout(context)
-            lowerView.addView(TextView(context).apply { text = (index+1).toString() })
-            addView(lowerView)
-        }
-    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
@@ -50,19 +43,13 @@ class WeekView: ViewGroup {
         var containerHeight = 0
 
         for (index in 0 until childCount){
+
             val child = getChildAt(index)
             measureChild(child, widthMeasureSpec, heightMeasureSpec)
 
             val childHeight = child.measuredHeight
-            if (index < childCount / 2){
-                if (containerHeight < childHeight){
-                    containerHeight = childHeight
-                }
-            } else {
-                if (index == childCount / 2){
-                    // 换行
-                    containerHeight += intervalLineSpace + childHeight
-                }
+            if (containerHeight < childHeight){
+                containerHeight = childHeight
             }
         }
 
@@ -70,19 +57,42 @@ class WeekView: ViewGroup {
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        val lineCount = childCount / 2
-        val horizontalSpaceFirst = ((r - l) - lineCount * (getChildAt(0).measuredWidth)) / (lineCount - 1)
-        val horizontalSpaceSecond = ((r - l) - lineCount * (getChildAt(lineCount).measuredWidth)) / (lineCount - 1)
-        for(index in 0 until childCount){
-            val child = getChildAt(index)
+        val totalWidth = r - l - paddingLeft - paddingRight
+        val spaceSize = (totalWidth - getChildAt(0).measuredWidth * childCount) / (childCount - 1)
+        var lineLeft = 0 + paddingLeft
+        var lineTop = 0
 
-            val lineIndex = if (index < lineCount) index else index - lineCount
-            val left = lineIndex * (if (index < lineCount) horizontalSpaceFirst else horizontalSpaceSecond + child.measuredWidth)
-            val right = left + child.measuredWidth
-            val top = if (index < lineCount) 0 else getChildAt(0).measuredHeight + intervalLineSpace
-            val bottom = top + child.measuredHeight
+        for (index in 0 until  childCount){
+            val childView = getChildAt(index)
 
-            child.layout(left, top, right, bottom)
+            childView.layout(lineLeft, lineTop, lineLeft + childView.measuredWidth, lineTop + childView.measuredHeight)
+            lineLeft += (spaceSize + childView.measuredWidth)
         }
+    }
+
+    /**
+     * 播放动画
+     * @param 需要被动画覆盖的 DayView 索引
+     * @param animView 播放动画的控件（非 WeekView 中的控件，和 WeekView 在同一个容器中）
+     */
+    fun playAnim(index: Int, animView: View){
+       val flagView = (getChildAt(index) as DayView).getCheckInFlagView()
+
+        val left = flagView.left + (flagView.parent.parent as View).left
+        val top = flagView.top + top
+        val cenX = (left + flagView.width / 2)
+        val cenY = (top + flagView.height / 2)
+
+        val startLeft = cenX - animView.width / 2
+        val startTop = cenY - animView.height / 2
+        animView.layout(startLeft, startTop, startLeft + animView.width, startTop + animView.height)
+        animView.visibility = View.VISIBLE
+
+        val scaleAnim = ScaleAnimation(1f, 0.1f, 1f, 0.1f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        scaleAnim.duration = 500
+        scaleAnim.fillAfter = true
+
+        animView.startAnimation(scaleAnim)
     }
 }

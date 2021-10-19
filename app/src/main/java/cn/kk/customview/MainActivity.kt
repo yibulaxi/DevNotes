@@ -1,9 +1,8 @@
 package cn.kk.customview
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_horizontalview.*
+import kotlinx.android.synthetic.main.activity_weekview.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,5 +17,8 @@ class MainActivity : AppCompatActivity() {
         var weekViewLayout = R.layout.activity_weekview
         setContentView(weekViewLayout)
 
+        btn_checkin.setOnClickListener {
+            weekView.playAnim(1,iv_flag_out)
+        }
     }
 }
