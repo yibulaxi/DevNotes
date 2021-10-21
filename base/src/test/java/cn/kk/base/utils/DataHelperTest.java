@@ -6,6 +6,6 @@ import java.util.Date;
 public class DataHelperTest extends TestCase {
 
     public void testLocalizeMonthDay() {
-        assertEquals("19 sept.", DataHelper.localizeMonthDay("es", new Date()));
+        assertEquals("19 sept.", DateHelper.localizeMonthDay("es", new Date()));
     }
 }
