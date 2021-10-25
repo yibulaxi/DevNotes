@@ -48,18 +48,27 @@ public class DateHelper {
         cal.clear(Calendar.MILLISECOND);
 
         cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+        int todayInWeekDay = getWeekDay();
 
         LinkedHashMap<Integer, Integer> days = new LinkedHashMap<>();
         final int week_day_count = 7;
         for (int i = 1; i <= week_day_count; i++) {
             cal.add(Calendar.DAY_OF_WEEK, 1);
             days.put(i, cal.get(Calendar.DAY_OF_MONTH));
+
+            int diffDay = i - todayInWeekDay;
+            getDayOfMonth(diffDay);
+            days.put(i, getDayOfMonth(diffDay));
         }
         return days;
     }
 
 
-
+    public static int getDayOfMonth(int diffDay){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date(new Date().getTime() + 86400 * 1000L * diffDay));
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
 
 
     public static void main(String[] args) {
