@@ -1,6 +1,7 @@
 package cn.kk.customview.widget
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -24,13 +25,21 @@ class DayView(context: Context): RelativeLayout(context) {
        containerView = LayoutInflater.from(context).inflate(R.layout.day_view, this, true)
     }
 
-    fun setData(day: Int, weekDay: String,checkInState: Boolean){
+    fun setData(day: Int, weekDay: String,checkInState: Boolean, today: Int){
         val tvWeekDay = containerView.findViewById<TextView>(R.id.tv_week_day)
         val tvMonthDay = containerView.findViewById<TextView>(R.id.tv_month_day)
         val ivCheckIn = containerView.findViewById<ImageView>(R.id.iv_checkin_flag)
         if (checkInState) ivCheckIn.visibility = View.VISIBLE
         tvMonthDay.text = day.toString()
         tvWeekDay.text = weekDay
+
+        if (day < today){
+            tvMonthDay.setTextColor(Color.RED)
+        } else if (day == today) {
+            tvMonthDay.setTextColor(Color.GREEN)
+        } else {
+            tvMonthDay.setTextColor(Color.BLUE)
+        }
     }
 
     fun getCheckInFlagView(): ImageView{

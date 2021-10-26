@@ -40,25 +40,13 @@ public class DateHelper {
      * 获取当前一周的所有日期（day of month）
      * @return map key: 周几 value: day of month
      */
-    public static LinkedHashMap<Integer, Integer> getAllDaysOfWeek(){
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.clear(Calendar.MINUTE);
-        cal.clear(Calendar.SECOND);
-        cal.clear(Calendar.MILLISECOND);
-
-        cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+    public static HashMap<Integer, Integer> getAllDaysOfWeek(){
         int todayInWeekDay = getWeekDay();
 
         LinkedHashMap<Integer, Integer> days = new LinkedHashMap<>();
         final int week_day_count = 7;
         for (int i = 1; i <= week_day_count; i++) {
-            cal.add(Calendar.DAY_OF_WEEK, 1);
-            days.put(i, cal.get(Calendar.DAY_OF_MONTH));
-
-            int diffDay = i - todayInWeekDay;
-            getDayOfMonth(diffDay);
-            days.put(i, getDayOfMonth(diffDay));
+            days.put(i, getDayOfMonth(i - todayInWeekDay));
         }
         return days;
     }
@@ -73,7 +61,7 @@ public class DateHelper {
 
     public static void main(String[] args) {
 
-        LinkedHashMap<Integer, Integer> dayOfWeek = getAllDaysOfWeek();
+        HashMap<Integer, Integer> dayOfWeek = getAllDaysOfWeek();
         for (Map.Entry<Integer, Integer> entry : dayOfWeek.entrySet()) {
             System.out.println("星期 " + entry.getKey() + " -> " + entry.getValue());
         }

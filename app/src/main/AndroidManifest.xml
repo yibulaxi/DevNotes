@@ -18,7 +18,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>-->
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ImmersiveModeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

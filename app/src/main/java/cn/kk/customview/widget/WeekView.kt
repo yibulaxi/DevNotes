@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
+import cn.kk.base.utils.DateHelper
 
+/**
+ * 周日历打卡控件
+ */
 class WeekView: ViewGroup {
 
     val WEEK_SIZE = 7
@@ -26,9 +30,11 @@ class WeekView: ViewGroup {
     }
 
     private fun createDayView(context: Context) {
+        val weekDay = DateHelper.getWeekDay()
+        val allDaysOfWeek = DateHelper.getAllDaysOfWeek()
         for(index in 0 until WEEK_SIZE){
             addView(DayView(context).apply {
-                setData(index, WEEKS[index], index % 2 == 0)
+                setData(allDaysOfWeek.get(index +1)!!.toInt(), WEEKS[index], false, allDaysOfWeek.get(weekDay)!!)
             })
         }
     }
