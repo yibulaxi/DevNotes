@@ -1,19 +1,16 @@
 package cn.kk.customview.ui
 
-import android.graphics.Color
-import android.os.Handler
-import android.os.SystemClock
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import kotlinx.android.synthetic.main.activity_temp.*
+import kotlinx.android.synthetic.main.activity_lottie_anim.*
 
-class TempActivity: BaseActivity() {
+class LottieAnimActivity: BaseActivity() {
 
     val ANIM_LIKE = "ting_icon_knowledge_like.json"
     val ANIM_LIKE2 = "icon_like_2.json"
     var loadProgress = 0f
     override fun getLayout(): Int {
-      return  R.layout.activity_temp
+      return  R.layout.activity_lottie_anim
     }
 
     override fun doWhenOnCreate() {

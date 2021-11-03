@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.ViewHelper
 import cn.kk.customview.R
-import cn.kk.base.activity.CommentActivity
 import cn.kk.customview.adpater.ListAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -39,11 +38,8 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun getItemNameList(): MutableList<String> {
         return mutableListOf<String>(
             "系统学习",
-            "其他练习",
             "系统 UI",
-            "页面跳转",
-            "二级评论",
-            "temp"
+            "第三方 UI"
         )
     }
 
@@ -58,20 +54,8 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             // region 1. 打开「系统学习」
             0 -> openNextUI(BookTutorialActivity::class.java, itemList[position])
             // endregion
-
-            // region 2. 打开「其他练习」
-            1 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
-            // endregion
-
-            2 -> openNextUI(SystemUIActivity::class.java, itemList[position])
-            // region 3. 打开「页面跳转」
-            3 -> openNextUI(ZhihuQuestionActivity::class.java, itemList[position])
-            // endregion
-            4 -> openNextUI(CommentActivity::class.java, itemList[position])
-
-            // region 3. 打开「temp」
-            5 -> openNextUI(TempActivity::class.java, itemList[position])
-            // endregion
+            1 -> openNextUI(SystemUIActivity::class.java, itemList[position])
+            2 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
         }
     }
     // endregion

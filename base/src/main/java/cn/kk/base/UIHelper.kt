@@ -2,6 +2,7 @@ package cn.kk.base
 
 import android.app.Activity
 import android.content.res.Configuration
+import android.graphics.Color
 import android.graphics.Point
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity

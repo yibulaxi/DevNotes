@@ -1,4 +1,4 @@
-package cn.kk.customview
+package cn.kk.customview.ui.system
 
 import android.animation.Animator
 import android.animation.AnimatorSet
@@ -6,12 +6,8 @@ import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsetsController
-import android.view.animation.AnimationSet
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.addListener
-import androidx.core.animation.doOnEnd
+import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_immersive_mode.*
 
 /**

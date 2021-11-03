@@ -18,7 +18,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>-->
 
-        <activity android:name=".ImmersiveModeActivity">
+        <activity android:name=".ui.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,10 +27,10 @@
         </activity>
         <activity android:name=".ui.BookTutorialActivity" />
         <activity android:name=".ui.RecyclerActivity" />
-        <activity android:name=".ui.ZhihuQuestionActivity" />
         <activity android:name="cn.kk.base.activity.CommentActivity" />
-        <activity android:name=".ui.TempActivity" />
+        <activity android:name=".ui.LottieAnimActivity" />
         <activity android:name=".ui.SystemUIActivity" />
+        <activity android:name=".ui.ThirdPartActivity" />
         <activity android:name=".chapter.c1.DrawBasicActivity" />
         <activity android:name=".chapter.c2.AnimActivity" />
         <activity android:name=".chapter.c2.ViewAnimHomeActivity" />
@@ -49,6 +49,11 @@
 <!--        system ui-->
         <activity android:name=".ui.system.ImageViewActivity"/>
         <activity android:name=".ui.system.DialogActivity"/>
+        <activity android:name=".ui.system.ImmersiveModeActivity"/>
+        <activity android:name=".ui.system.CoordinatorLayoutActivity"/>
+        <activity android:name=".ui.system.CoordinatorLayoutAndCollapsingToolbarLayoutActivity"/>
+        <activity android:name=".ui.system.CustomBehaviorActivity"/>
+            android:theme="@style/Theme.Default"/>
     </application>
 
 </manifest>
