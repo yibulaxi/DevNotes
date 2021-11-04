@@ -1,5 +1,6 @@
 package cn.kk.customview.chapter
 
+import android.view.View
 import android.view.animation.*
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
@@ -47,8 +48,16 @@ class ViewAnimIntrosActivity: BaseActivity() {
         }
 
         // 2.4 平移动画
-        val transAnim = TranslateAnimation(0.03f, 0.9f, 0.2f, 0.8f).apply {
+        val transAnimOut = TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f,
+            Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF, -1.2f).apply {
             duration = 1500
+            fillAfter = true
+        }
+
+        val transAnimIn = TranslateAnimation(Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f,
+            Animation.RELATIVE_TO_SELF,2.2f,Animation.RELATIVE_TO_SELF, 0f).apply {
+            duration = 1500
+            fillAfter = true
         }
 
         // 2.5 动画集合
@@ -56,7 +65,7 @@ class ViewAnimIntrosActivity: BaseActivity() {
         setAnim.addAnimation(scaleAnimation1)
         setAnim.addAnimation(alphaAnim)
         setAnim.addAnimation(rotateAnim)
-        setAnim.addAnimation(transAnim)
+        setAnim.addAnimation(transAnimOut)
         setAnim.duration = 2500
         setAnim.fillAfter = true
 
@@ -68,7 +77,7 @@ class ViewAnimIntrosActivity: BaseActivity() {
         animList.add(AnimBean(animAlpha, "alpha anim xml"))
         animList.add(AnimBean(alphaAnim, "alpha anim code"))
         animList.add(AnimBean(animTrans, "trans anim xml"))
-        animList.add(AnimBean(transAnim, "trans anim code"))
+        animList.add(AnimBean(transAnimOut, "trans anim code"))
         animList.add(AnimBean(animRotate, "rotate anim xml"))
         animList.add(AnimBean(rotateAnim, "rotate anim code"))
         animList.add(AnimBean(animSet, "set anim xml"))
@@ -76,9 +85,57 @@ class ViewAnimIntrosActivity: BaseActivity() {
 
         btn_scale_play.setOnClickListener {
 
-            val animBean = animList[count % animList.size]
-            tv_scale_anim.startAnimation(animBean.anim)
+            playAnim(transAnimOut, transAnimIn)
 
+            val animBean = animList[count % animList.size]
+//            tv_scale_anim.startAnimation(animBean.anim)
+
+           /* if (count++ % 2 == 0) {
+                tv_scale_anim.startAnimation(transAnimOut)
+                ll_three.startAnimation(transAnimIn)
+            } else {
+                tv_scale_anim.startAnimation(transAnimIn)
+                ll_three.startAnimation(transAnimOut)
+            }
+            count++
+
+            transAnimIn.setAnimationListener(object : Animation.AnimationListener{
+                override fun onAnimationStart(animation: Animation?) {
+
+                }
+
+                override fun onAnimationEnd(animation: Animation?) {
+
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+
+                }
+
+            })
+
+            transAnimOut.setAnimationListener(object : Animation.AnimationListener{
+                override fun onAnimationStart(animation: Animation?) {
+
+                }
+
+                override fun onAnimationEnd(animation: Animation?) {
+                    *//*if (count % 2 == 0 ){
+                        tv_scale_anim.visibility = View.INVISIBLE
+                        transAnimOut.fillBefore = true
+                    } else {
+                        ll_three.visibility = View.INVISIBLE
+                        transAnimOut.fillBefore = true
+                    }*//*
+
+
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+                }
+
+            })
+*/
             animBean.anim.setAnimationListener(object : Animation.AnimationListener{
                 override fun onAnimationStart(animation: Animation?) {
                     btn_scale_play.text = animBean.name
@@ -94,8 +151,31 @@ class ViewAnimIntrosActivity: BaseActivity() {
 
             })
 
-            count++
         }
+    }
+
+    fun playAnim(aniOut: Animation, animIn: Animation){
+        if (count % 2 == 0) {
+            tv_scale_anim.startAnimation(aniOut)
+            ll_three.startAnimation(animIn)
+        } else {
+            tv_scale_anim.startAnimation(animIn)
+            ll_three.startAnimation(aniOut)
+        }
+        count++
+
+        animIn.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(animation: Animation?) {
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                ll_three.postDelayed({ playAnim(aniOut, animIn) }, 3000)
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+
+        })
     }
 
     class AnimBean(val anim: Animation, val name: String)

@@ -6,17 +6,51 @@
     <include
         layout="@layout/layout_title"/>
 
-    <TextView
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:id="@+id/tv_scale_anim"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="scale anim"
-        android:background="@color/grey_5"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"/>
+    <RelativeLayout
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/red_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/tv_scale_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@color/grey_5"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="scale anim"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/ll_three"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:background="@color/GreenYellow"
+                android:layout_width="30dp"
+                android:layout_height="100dp"/>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/GreenYellow"
+                android:layout_width="30dp"
+                android:layout_height="100dp"/>
+            <TextView
+                android:background="@color/GreenYellow"
+                android:layout_width="30dp"
+                android:layout_height="100dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/btn_scale_play"
