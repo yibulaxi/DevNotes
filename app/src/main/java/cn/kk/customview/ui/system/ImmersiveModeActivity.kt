@@ -6,7 +6,10 @@ import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsets
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import cn.kk.base.UIHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_immersive_mode.*
 
@@ -20,10 +23,20 @@ class ImmersiveModeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_immersive_mode)
         // 两个 Flag 结合使用，表示让应用主题内容占用系统状态栏的空间
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         // 设置系统状态栏颜色为透明
         window.statusBarColor = Color.TRANSPARENT
 
+        view_status_bar.setOnApplyWindowInsetsListener { v, insets ->
+            val barHeight = insets.systemWindowInsetTop // status bar height
+            view_status_bar.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT).apply {
+                height = barHeight + 44 *3
+            }
+            view_status_bar.setPadding(0, barHeight, 0, 0)
+
+
+            insets
+        }
 
         val anim1 = ObjectAnimator.ofFloat(iv_avatar, "rotationY", -10f, 10f)
         val anim2 = ObjectAnimator.ofFloat(iv_avatar, "rotationY", 10f, -10f)

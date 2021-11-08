@@ -1,6 +1,8 @@
 package cn.kk.customview.ui.system
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_coordinator_layout.toolbar
  * 1. CollapsingToolbarLayout 把 ImageView 和 Toolbar 包裹起来，作为一个可折叠的 Toolbar
  * 2. 再用 AppBarLayout 把 CollapsingToolbarLayout 包裹起来，作为一个 Appbar 的整体
  * 3. AppBarLayout 必须是第一个嵌套在 CoordinatorLayout 里面的子 view
- * 4. 需要定义 AppBarLayout 与滚动视图 RecyclerView 之间的练习，Design Support Library 包含了一个特殊的字符串资源 @string/appbar_scrolling_view_behavior
+ * 4. 需要定义 AppBarLayout 与滚动视图 RecyclerView 之间的联系，Design Support Library 包含了一个特殊的字符串资源 @string/appbar_scrolling_view_behavior
  *    它和 AppBarLayout.ScrollingViewBehavior 相匹配，用来通知 AppBarLayout 何时发生来滚动事件。这个 Behavior
  *    需要设置在触发事件的 View 之上，所以应该在 RecyclerView 或者任意支持嵌套滚动的 View 比如 NestedScrollView
  *    上添加 app:layout_behavior="@string/appbar_scrolling_view_behavior" 这个属性。当然 AppBarLayout 中
@@ -36,6 +38,8 @@ class CoordinatorLayoutAndCollapsingToolbarLayoutActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coordinator_collapsing_toolbar)
 
+        setStatusBarTrans()
+
         setSupportActionBar(toolbar)
 
         collapsing_toolbar.title = "Dragon Ball"
@@ -53,5 +57,17 @@ class CoordinatorLayoutAndCollapsingToolbarLayoutActivity: AppCompatActivity() {
             adapter = CommentAdapter(modelList, context)
         }
 
+    }
+
+    /**
+     * 设置状态栏透明，且独自占用空间
+     */
+    private fun setStatusBarTrans(){
+        // 表示让应用主题内容占据系统状态栏的空间
+        val option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.decorView.systemUiVisibility = option
+
+        // 状态栏透明
+        window.statusBarColor = Color.TRANSPARENT
     }
 }
