@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/rootView"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:text="隐藏状态栏"
+        android:textColor="@color/Green"
+        android:textSize="28sp"
+        android:id="@+id/btn_hide_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:text="显示状态栏"
+        android:textColor="@color/Blue"
+        android:textSize="28sp"
+        android:id="@+id/btn_show_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:text="隐藏状态栏部分图标"
+        android:textColor="@color/Green"
+        android:textSize="28sp"
+        android:id="@+id/btn_hide_status_bar_icons"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:text="显示状态栏全部图标"
+        android:textColor="@color/Blue"
+        android:textSize="28sp"
+        android:id="@+id/btn_show_status_bar_icons"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+    <Button
+        android:text="半透明状态栏"
+        android:textColor="@color/Green"
+        android:textSize="28sp"
+        android:id="@+id/btn_status_bar_trans"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+    <Button
+        android:text="设置状态栏背景色"
+        android:textColor="@color/Blue"
+        android:textSize="28sp"
+        android:id="@+id/btn_status_bar_color_change"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:text="背景图像扩展至状态栏"
+        android:textColor="@color/Blue"
+        android:textSize="28sp"
+        android:id="@+id/btn_extent_img_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+</LinearLayout>

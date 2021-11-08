@@ -19,6 +19,7 @@ class SystemUIActivity: BaseActivity() {
             add("CoordinatorLayout")
             add("CoordinatorLayout & CollapsingToolbarLayout")
             add("Custom Behavior")
+            add("Status Bar")
         }
     }
 
@@ -41,6 +42,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[3] -> openNextUI(CoordinatorLayoutActivity::class.java, itemList[position])
                 itemList[4] -> openNextUI(CoordinatorLayoutAndCollapsingToolbarLayoutActivity::class.java, itemList[position])
                 itemList[5] -> openNextUI(CustomBehaviorActivity::class.java, itemList[position])
+                itemList[6] -> openNextUI(StatusBarActivity::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter
