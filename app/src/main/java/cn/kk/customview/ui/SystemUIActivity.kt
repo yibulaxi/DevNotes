@@ -21,6 +21,7 @@ class SystemUIActivity: BaseActivity() {
             add("Custom Behavior")
             add("Status Bar")
             add("Line Height")
+            add("约束布局- TextView 长度可变")
         }
     }
 
@@ -45,6 +46,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[5] -> openNextUI(CustomBehaviorActivity::class.java, itemList[position])
                 itemList[6] -> openNextUI(StatusBarActivity::class.java, itemList[position])
                 itemList[7] -> openNextUI(LineHeightActivity::class.java, itemList[position])
+                itemList[8] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

@@ -59,6 +59,7 @@
         <activity android:name=".ui.system.StatusBarActivity"/>
             android:theme="@style/Theme.Default"/>
         <activity android:name=".ui.system.LineHeightActivity"/>
+        <activity android:name=".ui.system.TextViewWidthEnableChangeActivity"/>
     </application>
 
 </manifest>
