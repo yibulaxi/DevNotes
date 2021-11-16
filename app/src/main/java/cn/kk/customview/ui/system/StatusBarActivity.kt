@@ -6,7 +6,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import cn.kk.base.UIHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_status_bar.*
 

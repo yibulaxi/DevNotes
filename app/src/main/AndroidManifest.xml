@@ -58,6 +58,7 @@
             android:theme="@style/Theme.Default"/>
         <activity android:name=".ui.system.StatusBarActivity"/>
             android:theme="@style/Theme.Default"/>
+        <activity android:name=".ui.system.LineHeightActivity"/>
     </application>
 
 </manifest>
