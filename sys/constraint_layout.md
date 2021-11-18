@@ -79,6 +79,39 @@ layout_constraintDimensionRatio="H,2:3"
 19. Barrier   
 - 注意有的特殊混淆工具会把引用的 view id 混淆，导致到不到 view 了
 ![](../pics/img_13.png)   
+  
+20. Placeholder
+![](../pics/img_14.png)   
+在 代码中可以指定某个 view 替换到 placeholder 上面：
+![](../pics/img_15.png)   
+    
+21. 在 Java/Kotlin 动态约束
+```kotlin
+val view: View = View(context)
+val constraintLayout = view as ConstraintLayout
+val constraintSet = ConstraintSet().apply {
+    clone(constraintLayout)
+    connect(
+        R.id.xxx,
+        ConstraintSet.BOTTOM,
+        ConstraintSet.PARENT_ID,
+        ConstraintSet.BOTTOM
+    )
+}
+```
+22. 自定义 Helper
+
+- [代码， 但是不知道如何用](../elementary/src/main/java/cn/kk/elementary/constraint/Linear.kt)
+    
+    
+23. Flow   
+- 如果要加间隔，用属性：app:flow_verticalGap
+- 排列风格，用属性：app:flow_wrapMode
+![](../pics/img_16.png)   
+
+24. 代码中获取约束布局的整个约束集合
+constraintSet.clone(context, layoutId)。如下，可进行布局替换：
+![](../pics/img_17.png)   
     
     
 
