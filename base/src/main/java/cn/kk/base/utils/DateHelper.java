@@ -28,12 +28,23 @@ public class DateHelper {
 
     /**
      * 获取今天是周几
-     * @return
+     * @return 1 - 7
      */
     public static int getWeekDay(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        return calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        calendar.setFirstDayOfWeek(Calendar.MONDAY); // 这个设置后也没什么效果
+        // day 说明，因此需要转换
+        // 1  2  3 4  5  6 7
+        // 日 一 二 三 四 五 六
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        day = day - 1;
+        if (day == 0) day = 7; // 因为星期天会返回 1，经过上面的操作后，是 0，实际应该是 7 因此加了这行判断.
+
+        // 1  2  3 4  5  6 7
+        // 一 二 三 四 五 六 日
+
+        return day;
     }
 
     /**

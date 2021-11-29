@@ -32,9 +32,9 @@ class WeekView: ViewGroup {
     private fun createDayView(context: Context) {
         val weekDay = DateHelper.getWeekDay()
         val allDaysOfWeek = DateHelper.getAllDaysOfWeek()
-        for(index in 0 until WEEK_SIZE){
+        for (index in 0 until WEEK_SIZE) {
             addView(DayView(context).apply {
-                setData(allDaysOfWeek.get(index +1)!!.toInt(), WEEKS[index], false, allDaysOfWeek.get(weekDay)!!)
+                setData(allDaysOfWeek.get(index + 1)!!.toInt(), WEEKS[index], false, allDaysOfWeek.get(weekDay)!!)
             })
         }
     }

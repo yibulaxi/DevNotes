@@ -18,7 +18,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>-->
 
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".CheckinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,6 +60,7 @@
             android:theme="@style/Theme.Default"/>
         <activity android:name=".ui.system.LineHeightActivity"/>
         <activity android:name=".ui.system.TextViewWidthEnableChangeActivity"/>
+
     </application>
 
 </manifest>
