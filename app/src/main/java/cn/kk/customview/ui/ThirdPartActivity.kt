@@ -13,6 +13,10 @@ class ThirdPartActivity: BaseActivity() {
         return R.layout.activity_third_part
     }
 
+    override fun setListViewID(): Int {
+        return R.id.rv_list
+    }
+
     override fun getItemNameList(): MutableList<String> {
         return mutableListOf<String>().apply {
             add("LottieAnim")
@@ -25,9 +29,10 @@ class ThirdPartActivity: BaseActivity() {
         initAdapter()
 
     }
-    private fun initAdapter() {
-        rv_list.layoutManager = LinearLayoutManager(this)
-        val listAdapter = ListV2Adapter(itemList)
+     override fun initAdapter() {
+         super.initAdapter()
+//        rv_list.layoutManager = LinearLayoutManager(this)
+//        val listAdapter = ListV2Adapter(itemList)
         listAdapter.setOnItemClickListener { adapter, view, position ->
             when (itemList[position]) {
                 itemList[0] -> openNextUI(LottieAnimActivity::class.java, itemList[position])

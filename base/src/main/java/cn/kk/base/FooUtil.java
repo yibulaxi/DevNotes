@@ -1,7 +1,5 @@
 package cn.kk.base;
 
-import cn.kk.utils.DateHelper;
-
 /**
  * 项目: CustomeView
  * 类描述: This is ...

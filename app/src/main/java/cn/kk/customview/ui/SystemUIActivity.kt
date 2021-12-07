@@ -5,6 +5,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListV2Adapter
 import cn.kk.customview.R
 import cn.kk.customview.ui.system.*
+import cn.kk.customview.ui.system.material.MaterialActivity
 import kotlinx.android.synthetic.main.activity_system_ui.*
 
 class SystemUIActivity: BaseActivity() {
@@ -21,6 +22,7 @@ class SystemUIActivity: BaseActivity() {
             add("Custom Behavior")
             add("Status Bar")
             add("Line Height")
+            add("Material Design")
             add("约束布局- TextView 长度可变")
         }
     }
@@ -28,14 +30,17 @@ class SystemUIActivity: BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
-        initAdapter()
-
-
     }
 
-    private fun initAdapter() {
-        rv_list.layoutManager = LinearLayoutManager(this)
-        val listAdapter = ListV2Adapter(itemList)
+    override fun setListViewID(): Int {
+        return R.id.rv_list
+    }
+
+
+     override fun initAdapter() {
+         super.initAdapter()
+//        rv_list.layoutManager = LinearLayoutManager(this)
+//        val listAdapter = ListV2Adapter(itemList)
         listAdapter.setOnItemClickListener { adapter, view, position ->
             when (itemList[position]) {
                 itemList[0] -> openNextUI(ImageViewActivity::class.java, itemList[position])
@@ -46,7 +51,8 @@ class SystemUIActivity: BaseActivity() {
                 itemList[5] -> openNextUI(CustomBehaviorActivity::class.java, itemList[position])
                 itemList[6] -> openNextUI(StatusBarActivity::class.java, itemList[position])
                 itemList[7] -> openNextUI(LineHeightActivity::class.java, itemList[position])
-                itemList[8] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
+                itemList[8] -> openNextUI(MaterialActivity::class.java, itemList[position])
+                itemList[9] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

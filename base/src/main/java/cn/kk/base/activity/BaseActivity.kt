@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.LogHelper
 import cn.kk.base.R
 import cn.kk.base.UIHelper
+import cn.kk.base.adapter.ListV2Adapter
 
 /**
  * Activity 基类
@@ -21,11 +24,17 @@ abstract class BaseActivity: BasicActivity() {
     }
     private var slideAnimExit = false
 
+    protected  var rvList: RecyclerView? =null
+
     /**
      * 具体的子类，要用到的 item 列表
      */
     protected val itemList: MutableList<String> by lazy {
         getItemNameList()
+    }
+
+    protected val listAdapter: ListV2Adapter by lazy {
+        ListV2Adapter(itemList)
     }
 
     init {
@@ -37,6 +46,8 @@ abstract class BaseActivity: BasicActivity() {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
         setContentView(getLayout())
+
+        rvList = findViewById(setListViewID())
 
         doWhenOnCreate()
     }
@@ -65,12 +76,17 @@ abstract class BaseActivity: BasicActivity() {
      */
     abstract fun getLayout(): Int
 
+    protected open fun setListViewID(): Int{
+        return -1
+    }
+
     /**
      * onCreate() 中的操作
      */
     protected open fun doWhenOnCreate(){
-
        showTitle()
+
+        initAdapter()
     }
 
     protected  open fun getItemNameList(): MutableList<String>{
@@ -88,6 +104,15 @@ abstract class BaseActivity: BasicActivity() {
             }
 
         })
+    }
+
+    protected open fun initAdapter(){
+        if (rvList == null) {
+            return
+        }
+        rvList!!.layoutManager = LinearLayoutManager(this)
+
+        rvList!!.adapter = listAdapter
     }
 
     /**
