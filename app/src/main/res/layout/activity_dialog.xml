@@ -5,8 +5,22 @@
     android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <include layout="@layout/layout_title"/>
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
+
+    <Button
+        android:id="@+id/btn_show_simple_dialog"
+        android:layout_marginTop="10dp"
+        android:text="show simple dialog"
+        android:background="@color/YellowGreen"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
     <LinearLayout
+        android:background="@color/YellowGreen"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

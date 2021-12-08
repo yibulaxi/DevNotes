@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import cn.kk.base.R
 
-class CommendFragment: DialogFragment() {
+class CommentFragment: DialogFragment() {
 
     companion object{
-        fun showDialog(activity: AppCompatActivity): CommendFragment{
-            val dialogFragment = CommendFragment()
+        fun showDialog(activity: AppCompatActivity): CommentFragment{
+            val dialogFragment = CommentFragment()
             dialogFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogTheme)
             dialogFragment.show(activity.supportFragmentManager, "CommendFragment")
             return dialogFragment

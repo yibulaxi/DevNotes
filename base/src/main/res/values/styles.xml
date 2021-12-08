@@ -17,6 +17,13 @@
         <item name="android:windowBackground">#44000000</item>
     </style>
 
+    <style name="FullScreenDialogTheme2">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:navigationBarColor">@color/white</item>
+    </style>
+
 
     <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
 
@@ -38,5 +45,9 @@
         <item name="base_bg">@color/black</item>
         <item name="body_text_1">@color/body_text_1_b</item>
 
+    </style>
+
+    <style name="SimpleBottomDialogTheme">
+        <item name="android:navigationBarColor">@color/red_1</item>
     </style>
 </resources>

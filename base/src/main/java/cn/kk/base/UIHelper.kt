@@ -44,6 +44,10 @@ object UIHelper {
         return R.style.Theme_Default
     }
 
+    fun isLandscape(context: Context): Boolean {
+        return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+    }
+
 
     /**
      * 把颜色转换成 hex 字符串形式
