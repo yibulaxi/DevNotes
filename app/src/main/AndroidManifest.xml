@@ -60,6 +60,7 @@
             android:theme="@style/Theme.Default"/>
         <activity android:name=".ui.system.LineHeightActivity"/>
         <activity android:name=".ui.system.TextViewWidthEnableChangeActivity"/>
+        <activity android:name=".ui.system.TextViewWithDrawableActivity"/>
 
 <!--        Material design UI-->
         <activity android:name=".ui.system.material.MaterialActivity"/>

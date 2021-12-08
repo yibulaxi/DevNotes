@@ -1,6 +1,7 @@
 package cn.kk.base
 
 import android.app.Activity
+import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Point
@@ -20,6 +21,14 @@ object UIHelper {
         val ascent = edit.layout.getLineAscent(line)
         val cursorY = baseLine + ascent
         return cursorY
+    }
+
+    fun dip2px(context: Context?, dpValue: Double): Int {
+        if (context == null) {
+            return (dpValue * 2).toInt()
+        }
+        val scale: Float = context.getResources().getDisplayMetrics().density
+        return (dpValue * scale + 0.5f).toInt()
     }
 
     fun getEditCursorYOnScreen(edit: EditText): Int{

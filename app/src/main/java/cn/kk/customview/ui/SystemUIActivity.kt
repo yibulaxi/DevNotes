@@ -24,6 +24,7 @@ class SystemUIActivity: BaseActivity() {
             add("Line Height")
             add("Material Design")
             add("约束布局- TextView 长度可变")
+            add("TextView with drawable")
         }
     }
 
@@ -53,6 +54,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[7] -> openNextUI(LineHeightActivity::class.java, itemList[position])
                 itemList[8] -> openNextUI(MaterialActivity::class.java, itemList[position])
                 itemList[9] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
+                itemList[10] -> openNextUI(TextViewWithDrawableActivity::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter
