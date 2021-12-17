@@ -1,13 +1,32 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="KKTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="toolbarStyle">@style/KKToolbarStyle</item>
+
     </style>
 
     <style name="NoTitle" parent="Theme.AppCompat.Light.NoActionBar" />
+
+        <!--toolbar style-->
+    <style name="KKToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="navigationIcon">@drawable/icon_back</item>
+        <item name="titleTextAppearance">@style/KKToolbarTitleStyle</item>
+
+    </style>
+
+    <style name="KKToolbarTitleStyle">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
 
     <declare-styleable name="FlowLayout">
         <attr name="horizontal_spacing" format="dimension" />

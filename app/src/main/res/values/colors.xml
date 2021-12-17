@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#66bb6a</color>
+    <color name="colorPrimaryDark">#338a3e</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="ting_color">#4963FF</color>
     <color name="ting_color_alpha20">#514963FF</color>
@@ -11,6 +11,8 @@
     <color name="blue">#26f</color>
     <color name="grey">#888</color>
 
+    <color name="text_color_1">#4a4a4a</color>
+    <color name="text_color_2">#585858</color>
 
     <color name="white">#FFFFFF</color>
 

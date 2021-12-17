@@ -11,6 +11,7 @@ class MaterialActivity: BaseActivity() {
     override fun getItemNameList(): MutableList<String> {
         return mutableListOf<String>().apply {
             add("CardView")
+            add("Toolbar")
         }
     }
 
@@ -28,6 +29,7 @@ class MaterialActivity: BaseActivity() {
         listAdapter.setOnItemClickListener { adapter, view, position ->
             when(position){
                 0 -> openNextUI(CardViewActivity::class.java, "CardView")
+                1 -> openNextUI(ToolbarActivity::class.java, "CardView")
             }
         }
     }

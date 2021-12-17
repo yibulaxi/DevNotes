@@ -65,6 +65,9 @@
 <!--        Material design UI-->
         <activity android:name=".ui.system.material.MaterialActivity"/>
         <activity android:name=".ui.system.material.CardViewActivity"/>
+        <activity android:name=".ui.system.material.ToolbarActivity"
+                  android:theme="@style/KKTheme"
+        />
 
     </application>
 
