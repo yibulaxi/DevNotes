@@ -26,7 +26,7 @@
 
 
     <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
-
+        <item name="colorPrimary">@color/MediumSeaGreen</item>
     </style>
 
     <style name="Theme.Default" parent="Base.Theme">
