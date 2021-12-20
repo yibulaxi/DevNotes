@@ -1,6 +1,5 @@
 package cn.kk.base.dialog
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Button
@@ -10,11 +9,9 @@ import cn.kk.base.activity.BaseActivity
 /**
  * 简单的底部弹窗 dialog
  */
-class SimpleBottomDialog(val mActivity: BaseActivity): BaseBottomDialog(mActivity) {
+class SimpleBottomDialog( mActivity: BaseActivity, theme: Int): BaseBottomDialog(mActivity, theme) {
 
-    init {
-
-    }
+    constructor(mActivity: BaseActivity): this(mActivity, 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

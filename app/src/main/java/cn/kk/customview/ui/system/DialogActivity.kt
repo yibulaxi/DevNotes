@@ -1,25 +1,36 @@
 package cn.kk.customview.ui.system
 
-import android.graphics.Color
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.dialog.CommentFragment
 import cn.kk.base.dialog.CommentFragmentV2
 import cn.kk.base.dialog.SimpleBottomDialog
 import cn.kk.customview.R
-import kotlinx.android.synthetic.main.activity_dialog.*
 
 class DialogActivity: BaseActivity() {
     override fun getLayout(): Int {
        return R.layout.activity_dialog
     }
 
-    override fun doWhenOnCreate() {
-        super.doWhenOnCreate()
+    override fun getItemNameList(): MutableList<String> {
+        return mutableListOf<String>().apply {
+            add("DialogFragment")
+            add("BottomSheetDialog")
+            add("BottomSheetDialog with theme")
+        }
+    }
 
-        tv_show_dialog.setOnClickListener { CommentFragmentV2.showDialog(this) }
-        btn_show_simple_dialog.setOnClickListener {
-            window?.navigationBarColor = Color.TRANSPARENT
-            SimpleBottomDialog(this).show()
+    override fun setListViewID(): Int {
+        return R.id.rv_list
+    }
+
+    override fun initAdapter() {
+        super.initAdapter()
+        listAdapter.setOnItemClickListener { adapter, view, position ->
+            when(position){
+                0 ->  CommentFragment.showDialog(this)
+                1 ->  SimpleBottomDialog(this).show()
+                2 ->  SimpleBottomDialog(this, R.style.EdgeToEdgeDialogStyle).show()
+            }
         }
     }
 

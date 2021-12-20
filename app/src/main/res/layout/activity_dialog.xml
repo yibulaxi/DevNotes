@@ -9,33 +9,15 @@
         android:id="@+id/title"
         layout="@layout/layout_title"/>
 
-    <Button
-        android:id="@+id/btn_show_simple_dialog"
-        android:layout_marginTop="10dp"
-        android:text="show simple dialog"
-        android:background="@color/YellowGreen"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
         app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-    <LinearLayout
-        android:background="@color/YellowGreen"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="0dp"/>
 
-        <TextView
-            android:id="@+id/tv_show_dialog"
-            android:gravity="center"
-            android:text="有话要说..."
-            android:textSize="24sp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

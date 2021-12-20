@@ -5,6 +5,7 @@
     android:id="@+id/item_home_root"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/selectableItemBackground"
+    android:paddingLeft="15dp"
     android:layout_height="50dp">
 
 
@@ -18,7 +19,7 @@
         android:ellipsize="marquee"
         android:gravity="center_vertical"
         android:id="@+id/tv_item_home_name"
-        android:textColor="@color/teal"
+        android:textColor="@color/grey_3"
         android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -31,8 +32,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/icon_arrow_right_gray"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="16dp"
+        android:layout_height="16dp"/>
 
     <View
         app:layout_constraintBottom_toBottomOf="parent"

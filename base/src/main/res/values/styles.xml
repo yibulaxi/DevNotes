@@ -14,7 +14,8 @@
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:windowBackground">#44000000</item>
+        <item name="android:windowBackground">#66000000</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
     </style>
 
     <style name="FullScreenDialogTheme2">
@@ -25,8 +26,15 @@
     </style>
 
 
+    <style name="EdgeToEdgeDialogStyle" parent="Theme.Design.BottomSheetDialog">
+        <item name="enableEdgeToEdge">true</item>
+        <item name="paddingBottomSystemWindowInsets">true</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
     <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/MediumSeaGreen</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
     <style name="Theme.Default" parent="Base.Theme">

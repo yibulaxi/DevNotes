@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorPrimary">@color/RoyalBlue</color>
+    <color name="colorPrimaryDark">#338a3e</color>
+    <color name="colorAccent">#03DAC5</color>
+
     <color name="grey_e">#eee</color>
     <color name="grey_d">#ddd</color>
     <color name="grey_c">#ccc</color>
