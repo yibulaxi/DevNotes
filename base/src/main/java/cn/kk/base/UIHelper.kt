@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Point
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 object UIHelper {
@@ -71,6 +72,10 @@ object UIHelper {
         sb.append(G)
         sb.append(B)
         return sb.toString()
+    }
+
+    fun toast(msg: String, context: Context){
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
 }

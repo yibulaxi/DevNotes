@@ -8,6 +8,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.ViewHelper
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
+import cn.kk.customview.ui.cool300.Cool300Activity
 import kotlinx.android.synthetic.main.activity_home.*
 
 /**
@@ -39,6 +40,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         return mutableListOf<String>(
             "系统学习",
             "系统 UI",
+            "炫酷应用 300例",
             "第三方 UI"
         )
     }
@@ -55,7 +57,8 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             0 -> openNextUI(BookTutorialActivity::class.java, itemList[position])
             // endregion
             1 -> openNextUI(SystemUIActivity::class.java, itemList[position])
-            2 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
+            2 -> openNextUI(Cool300Activity::class.java, itemList[position])
+            3 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
         }
     }
     // endregion

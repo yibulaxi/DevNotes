@@ -84,8 +84,7 @@ abstract class BaseActivity: BasicActivity() {
      * onCreate() 中的操作
      */
     protected open fun doWhenOnCreate(){
-       showTitle()
-
+        showTitle()
         initAdapter()
     }
 
