@@ -68,5 +68,9 @@ public class NormalUtil {
     public static void main(String[] args) {
 
         System.out.println(convert(0.6f));
+
+        int[][] myS = new int[6][];
+
+        myS[0] = new int[]{1,2};
     }
 }

@@ -52,6 +52,10 @@
         <activity android:name=".ui.cool300.chapter1.Simple_009"/>
         <activity android:name=".ui.cool300.chapter1.Simple_010"/>
 
+        <activity android:name=".ui.cool300.chapter5.Chapter5"/>
+        <activity android:name=".ui.cool300.chapter5.Simple_143"/>
+
+
 <!--        system ui-->
         <activity android:name=".ui.system.ImageViewActivity"/>
         <activity android:name=".ui.system.DialogActivity"/>
