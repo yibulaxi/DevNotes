@@ -1,8 +1,6 @@
 package cn.kk.customview.ui
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
-import cn.kk.base.adapter.ListV2Adapter
 import cn.kk.customview.R
 import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.material.MaterialActivity
@@ -25,6 +23,7 @@ class SystemUIActivity: BaseActivity() {
             add("Material Design")
             add("约束布局- TextView 长度可变")
             add("TextView with drawable")
+            add("忽略系统大字体")
         }
     }
 
@@ -55,6 +54,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[8] -> openNextUI(MaterialActivity::class.java, itemList[position])
                 itemList[9] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
                 itemList[10] -> openNextUI(TextViewWithDrawableActivity::class.java, itemList[position])
+                itemList[11] -> openNextUI(IgnoreSystemBigFont::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

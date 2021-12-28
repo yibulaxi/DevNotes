@@ -66,6 +66,7 @@
         <activity android:name=".ui.system.LineHeightActivity"/>
         <activity android:name=".ui.system.TextViewWidthEnableChangeActivity"/>
         <activity android:name=".ui.system.TextViewWithDrawableActivity"/>
+        <activity android:name=".ui.system.IgnoreSystemBigFont"/>
 
 <!--        Material design UI-->
         <activity android:name=".ui.system.material.MaterialActivity"/>

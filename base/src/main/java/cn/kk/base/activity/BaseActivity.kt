@@ -2,6 +2,8 @@ package cn.kk.base.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -146,8 +148,18 @@ abstract class BaseActivity: BasicActivity() {
         slideAnimEnter()
     }
 
+    /**
+     * 忽略系统字体大小
+     * 默认忽略
+     */
+    protected open fun ignoreSystemFontSize(): Boolean = true
+
     private fun slideAnimEnter(){
         slideAnimExit = true
         overridePendingTransition(R.anim.in_right, R.anim.out_left)
+    }
+
+    override fun getResources(): Resources {
+        return if (ignoreSystemFontSize()) createConfigurationContext(Configuration().apply { setToDefaults() }).resources else super.getResources()
     }
 }
