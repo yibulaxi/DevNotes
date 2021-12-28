@@ -4,6 +4,8 @@ import android.content.Context
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
+import cn.kk.customview.ui.cool300.chapter1.Chapter1
+import cn.kk.customview.ui.cool300.chapter1.Simple_009
 
 /**
  * Android 炫酷应用 300 例
@@ -37,7 +39,7 @@ class Cool300Activity: BaseActivity() {
         super.initAdapter()
         listAdapter.setOnItemClickListener { adapter, view, position ->
             when(position){
-                0 -> UIHelper.toast(itemList[position], self)
+                0 -> openNextUI(Chapter1::class.java, itemList[position])
                 1 -> UIHelper.toast(itemList[position], self)
                 2 -> UIHelper.toast(itemList[position], self)
             }

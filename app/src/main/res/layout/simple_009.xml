@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
+
+    <Button
+        android:layout_below="@id/title"
+        android:id="@+id/btn_oval"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_oval"
+        android:textSize="30sp"
+        android:padding="6dp"
+        android:text="自定义椭圆按钮"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
