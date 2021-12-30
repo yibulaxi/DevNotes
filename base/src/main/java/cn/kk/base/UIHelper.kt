@@ -5,9 +5,14 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Point
+import android.view.View
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 object UIHelper {
 
@@ -74,8 +79,33 @@ object UIHelper {
         return sb.toString()
     }
 
+    fun color2HexEncodingEasy(color: Int): String{
+        return Integer.toHexString(4)
+    }
+
     fun toast(msg: String, context: Context){
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * 设置状态栏字体颜色为亮色
+     */
+     fun setStatusBarTextColorLight(context: Activity){
+        context.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    }
+
+    /**
+     * 设置状态栏字体颜色为暗色
+     */
+     fun setStatusBarTextColorDark(context: Activity){
+        context.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    }
+
+    /**
+     * 最新的，用 WindowInsetsController
+     * 使用参考：https://juejin.cn/post/6940048488071856164
+     */
+    private fun setStatusBarTextColorLightNow(context: Activity){
+
+    }
 }

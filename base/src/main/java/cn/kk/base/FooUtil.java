@@ -8,4 +8,8 @@ package cn.kk.base;
  */
 public class FooUtil {
 
+    public static void main(String[] args) {
+
+        Integer.toHexString(4);
+    }
 }

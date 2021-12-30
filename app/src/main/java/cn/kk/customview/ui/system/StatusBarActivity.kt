@@ -6,6 +6,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import cn.kk.base.UIHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_status_bar.*
 
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_status_bar.*
  * 3. 半透明状态栏(使用窗口标志实现的)
  * 4. 动态设置状态栏背景色\
  * 5. 将应用的背景图像扩展至状态栏
+ * 6. 改变状态栏字体颜色
  *
  * View.SYSTEM_UI_FLAG_LOW_PROFILE 用于隐藏通知栏的部分图标，并变暗，主要是为了降低电量消耗。
  */
@@ -65,6 +67,17 @@ class StatusBarActivity: AppCompatActivity() {
 
             // 动态设置根布局 padding top 值
             rootView.setPadding(0, 44 * 3, 0, 0)
+        }
+
+        // 6.
+        var cout_6 = 0
+        btn_status_bar_text_color_change.setOnClickListener {
+            if (cout_6 % 2 == 0){
+                UIHelper.setStatusBarTextColorDark(this)
+            } else {
+                UIHelper.setStatusBarTextColorLight(this)
+            }
+            cout_6++
         }
     }
 }

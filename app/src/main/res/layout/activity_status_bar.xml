@@ -54,9 +54,17 @@
 
     <Button
         android:text="背景图像扩展至状态栏"
-        android:textColor="@color/Blue"
+        android:textColor="@color/Green"
         android:textSize="28sp"
         android:id="@+id/btn_extent_img_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+    <Button
+        android:text="设置状态栏字体颜色"
+        android:textColor="@color/Blue"
+        android:textSize="28sp"
+        android:id="@+id/btn_status_bar_text_color_change"
         android:layout_width="match_parent"
         android:layout_height="80dp"/>
 </LinearLayout>

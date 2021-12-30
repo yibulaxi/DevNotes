@@ -5,6 +5,7 @@ import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.ui.cool300.chapter1.Chapter1
+import cn.kk.customview.ui.cool300.chapter3.Menu
 import cn.kk.customview.ui.cool300.chapter5.Chapter5
 
 /**
@@ -41,7 +42,7 @@ class Cool300Activity: BaseActivity() {
             when(position){
                 0 -> openNextUI(Chapter1::class.java, itemList[position])
                 1 -> UIHelper.toast(itemList[position], self)
-                2 -> UIHelper.toast(itemList[position], self)
+                2 -> openNextUI(Menu::class.java, itemList[position])
                 4 -> openNextUI(Chapter5::class.java, itemList[position])
             }
         }
