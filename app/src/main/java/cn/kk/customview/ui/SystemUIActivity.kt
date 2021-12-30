@@ -24,6 +24,7 @@ class SystemUIActivity: BaseActivity() {
             add("约束布局- TextView 长度可变")
             add("TextView with drawable")
             add("忽略系统大字体")
+            add("Html Text")
         }
     }
 
@@ -55,6 +56,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[9] -> openNextUI(TextViewWidthEnableChangeActivity::class.java, itemList[position])
                 itemList[10] -> openNextUI(TextViewWithDrawableActivity::class.java, itemList[position])
                 itemList[11] -> openNextUI(IgnoreSystemBigFont::class.java, itemList[position])
+                itemList[12] -> openNextUI(HtmlText::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

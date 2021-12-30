@@ -14,4 +14,27 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
+    <string name="html_demo">
+        <![CDATA[
+        <h1>Main Title</h1>
+        <h2>A sub-title</h2>
+        <p>This is some html. Look, here\'s an <u>underline</u>.</p>
+        <p>Look, this is <em>emphasized.</em> And here\'s some <b>bold</b>.</p>
+        <p>This is a UL list:
+        <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        </ul>
+        <p>This is an OL list:
+        <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        </ol>
+        ]]>
+    </string>
+
+    <string name="html_ting"><![CDATA[<html><font color=\'#F83D54\'>红色</font>代表发音有待提高，<font color=\'#969EA7\'>灰色</font>代表发音还行，<font color=\'#7ED321\'>绿色</font>代表发音很好</html>]]></string>
+
 </resources>
