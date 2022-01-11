@@ -18,6 +18,7 @@ class Menu: BaseActivity() {
     override fun getItemNameList(): MutableList<String> {
         return mutableListOf<String>().apply {
             add("063. 使用 Toolbar 在工具栏上添加菜单")
+            add("071. 在弹出底部菜单时，主窗口立刻变暗")
         }
     }
 
@@ -26,6 +27,7 @@ class Menu: BaseActivity() {
         listAdapter.setOnItemClickListener { adapter, view, position ->
             when(position){
                 0 -> openNextUI(Simple_063::class.java, itemList[position])
+                1 -> openNextUI(Simple_071::class.java, itemList[position])
             }
         }
     }

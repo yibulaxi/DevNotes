@@ -22,7 +22,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         super.doWhenOnCreate()
         showAppInfo()
 
-
+        tv_app_info.touchDelegate
         tv_app_info.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 
         // region 设置适配器
