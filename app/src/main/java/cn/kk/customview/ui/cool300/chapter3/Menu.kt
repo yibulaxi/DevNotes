@@ -19,6 +19,7 @@ class Menu: BaseActivity() {
         return mutableListOf<String>().apply {
             add("063. 使用 Toolbar 在工具栏上添加菜单")
             add("071. 在弹出底部菜单时，主窗口立刻变暗")
+            add("072. 长按 view 弹出上下文")
         }
     }
 
@@ -28,6 +29,7 @@ class Menu: BaseActivity() {
             when(position){
                 0 -> openNextUI(Simple_063::class.java, itemList[position])
                 1 -> openNextUI(Simple_071::class.java, itemList[position])
+                2 -> openNextUI(Simple_072::class.java, itemList[position])
             }
         }
     }
