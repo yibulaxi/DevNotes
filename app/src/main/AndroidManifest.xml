@@ -51,6 +51,7 @@
         <activity android:name=".ui.cool300.chapter1.Simple_005"/>
         <activity android:name=".ui.cool300.chapter1.Simple_009"/>
         <activity android:name=".ui.cool300.chapter1.Simple_010"/>
+        <activity android:name=".ui.cool300.chapter1.Simple_022"/>
 
         <activity android:name=".ui.cool300.chapter3.Menu"/>
         <activity android:name=".ui.cool300.chapter3.Simple_063"/>
