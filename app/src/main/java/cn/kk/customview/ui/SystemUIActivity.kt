@@ -6,6 +6,9 @@ import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.material.MaterialActivity
 import kotlinx.android.synthetic.main.activity_system_ui.*
 
+/**
+ * 系统 UI 练习
+ */
 class SystemUIActivity: BaseActivity() {
 
     override fun getLayout(): Int = R.layout.activity_system_ui
@@ -25,6 +28,7 @@ class SystemUIActivity: BaseActivity() {
             add("TextView with drawable")
             add("忽略系统大字体")
             add("Html Text")
+            add("桌面小组件")
         }
     }
 
@@ -57,6 +61,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[10] -> openNextUI(TextViewWithDrawableActivity::class.java, itemList[position])
                 itemList[11] -> openNextUI(IgnoreSystemBigFont::class.java, itemList[position])
                 itemList[12] -> openNextUI(HtmlText::class.java, itemList[position])
+                itemList[13] -> openNextUI(AppWidgetSample::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

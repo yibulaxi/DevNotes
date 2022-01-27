@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
+
+    <TextView
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:text="AppWidget 是桌面小组件，需要回到桌面，然后长按 app 图标或者长按桌面空白处，会出现 「小组件」字样，点击后，选择需要的小组件添加即可！"
+        android:layout_below="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

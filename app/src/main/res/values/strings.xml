@@ -39,5 +39,10 @@
     </string>
 
     <string name="html_ting"><![CDATA[<html><font color=\'#F83D54\'>红色</font>代表发音有待提高，<font color=\'#969EA7\'>灰色</font>代表发音还行，<font color=\'#7ED321\'>绿色</font>代表发音很好</html>]]></string>
+    <string name="appwidget_text">简单的一个桌面小组件</string>
+    <string name="appwidget_text_night">简单的一个桌面小组件-夜间</string>
+    <string name="appwidget_day">小组件-白天</string>
+    <string name="appwidget_night">小组件-夜间</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
