@@ -13,6 +13,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import android.R.color
+
+
+
 
 object UIHelper {
 
@@ -108,4 +112,11 @@ object UIHelper {
     private fun setStatusBarTextColorLightNow(context: Activity){
 
     }
+
+    // region color 相关
+    fun colorInt2Hex(int color): String{
+        return String.format("#%06X", (0xFFFFFF and color))
+    }
+
+    // endregion
 }
