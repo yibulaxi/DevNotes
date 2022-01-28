@@ -3,6 +3,7 @@ package cn.kk.customview.ui
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.ui.system.*
+import cn.kk.customview.ui.system.drawable.DrawableSample
 import cn.kk.customview.ui.system.material.MaterialActivity
 import kotlinx.android.synthetic.main.activity_system_ui.*
 
@@ -29,6 +30,7 @@ class SystemUIActivity: BaseActivity() {
             add("忽略系统大字体")
             add("Html Text")
             add("桌面小组件")
+            add("Drawable")
         }
     }
 
@@ -62,6 +64,7 @@ class SystemUIActivity: BaseActivity() {
                 itemList[11] -> openNextUI(IgnoreSystemBigFont::class.java, itemList[position])
                 itemList[12] -> openNextUI(HtmlText::class.java, itemList[position])
                 itemList[13] -> openNextUI(AppWidgetSample::class.java, itemList[position])
+                itemList[14] -> openNextUI(DrawableSample::class.java, itemList[position])
             }
         }
         rv_list.adapter = listAdapter

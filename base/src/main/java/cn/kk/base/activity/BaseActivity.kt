@@ -21,8 +21,13 @@ import cn.kk.base.adapter.ListV2Adapter
  */
 abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
+    protected val INTENT_TYPE_KEY = "type"
+
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
+    }
+    protected val ui_type by lazy {
+        intent.getIntExtra(INTENT_TYPE_KEY, -1)
     }
     private var slideAnimExit = false
 
@@ -144,6 +149,17 @@ abstract class BaseActivity: BasicActivity() {
     protected fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String){
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
+        })
+        slideAnimEnter()
+    }
+
+    /**
+     * 打开下一个页面
+     */
+    protected fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String, type: Int){
+        startActivity(Intent(this, targetActivity).apply {
+            putExtra(INTENT_TITLE_KEY, title)
+            putExtra(INTENT_TYPE_KEY, type)
         })
         slideAnimEnter()
     }
