@@ -114,7 +114,7 @@ object UIHelper {
     }
 
     // region color 相关
-    fun colorInt2Hex(int color): String{
+    fun colorInt2Hex(color: Int): String{
         return String.format("#%06X", (0xFFFFFF and color))
     }
 

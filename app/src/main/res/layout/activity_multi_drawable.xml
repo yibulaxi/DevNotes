@@ -24,7 +24,7 @@
         android:layout_height="50dp"/>
 
     <Button
-        android:id="@+id/btn_statelist_drawable"
+        android:id="@+id/btn_multi_drawable"
         android:visibility="invisible"
         android:text="StateListDrawable"
         android:textSize="22sp"

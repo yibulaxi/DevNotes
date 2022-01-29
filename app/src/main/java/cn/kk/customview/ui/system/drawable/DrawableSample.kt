@@ -42,6 +42,11 @@ class DrawableSample: BaseActivity() {
                 1 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_SHAPE_DRAWABLE)
                 2 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_LAYER_DRAWABLE)
                 3 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_STATELIST_DRAWABLE)
+                4 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_LEVELLIST_DRAWABLE)
+                5 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_TRANSITION_DRAWABLE)
+                6 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_INSET_DRAWABLE)
+                7 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_SCALE_DRAWABLE)
+                8 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_Clip_DRAWABLE)
             }
         }
     }
