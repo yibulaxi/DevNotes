@@ -3,20 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/title"
-        layout="@layout/layout_title" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:fitsSystemWindows="true"
+        android:background="?colorPrimary"
+        android:paddingTop="?actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <View
         android:id="@+id/view_drawable_bg"
-        android:layout_below="@id/title"
+        android:layout_below="@id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <EditText
         android:visibility="gone"
         android:background="@drawable/kk_layer_drawable"
-        android:layout_below="@id/title"
+        android:layout_below="@id/toolBar"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:id="@+id/et_input"

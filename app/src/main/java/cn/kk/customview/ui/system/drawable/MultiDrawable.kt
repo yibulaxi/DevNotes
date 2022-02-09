@@ -1,20 +1,24 @@
 package cn.kk.customview.ui.system.drawable
 
-import android.content.Context
 import android.graphics.drawable.TransitionDrawable
+import android.view.MenuItem
 import android.view.View
 import androidx.core.content.ContextCompat
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.WikiModel
+import cn.kk.base.dialog.WikiBottomDialog
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_multi_drawable.*
 
 /**
  * 可显示多种 Drawable
  */
-class MultiDrawable: BaseActivity() {
+class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuItemClickListener {
+
+    val MENU_ID_MORE = 0;
 
     var level = 0
-    lateinit var mContext: Context
+    lateinit var mContext: BaseActivity
 
     companion object {
         val TYPE_BITMAP_DRAWABLE = 0
@@ -41,6 +45,13 @@ class MultiDrawable: BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
         mContext = this
+
+        // toolbar 上加 menu，单独使用 toolbar，
+        baseToolbar?.inflateMenu(R.menu.menu_wiki)
+        baseToolbar?.title = intent.getStringExtra(INTENT_TITLE_KEY)
+        baseToolbar?.setNavigationIcon(R.drawable.icon_back)
+        baseToolbar?.setNavigationOnClickListener { finish() }
+        baseToolbar?.setOnMenuItemClickListener(this)
 
         when (ui_type) {
             // 对应的是 <bitmap> 标签
@@ -89,5 +100,21 @@ class MultiDrawable: BaseActivity() {
 
             }
         }
+    }
+
+
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.wiki -> {
+                when(ui_type){
+                    TYPE_BITMAP_DRAWABLE -> {
+                        WikiBottomDialog(mContext, WikiModel("BitmapDrawable", "这几乎是最简单的 Drawable 了，它表示的就是一张图")).show()
+                    }
+                }
+            }
+            else -> {
+            }
+        }
+        return super.onOptionsItemSelected(item!!)
     }
 }
