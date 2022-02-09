@@ -5,14 +5,15 @@ import android.graphics.Color
 import android.widget.RemoteViews
 import cn.kk.customview.R
 
- class KKAppWidgetNight: BaseKKAppWidget() {
+open class KKAppWidgetNight: KKAppWidget() {
 
-    override fun onNightWidget(context: Context): RemoteViews {
-        // 构造 RemoteViews 对象
-        val views = RemoteViews(context.packageName, R.layout.k_k_app_widget_night)
-        val widgetText = context.getString(R.string.appwidget_text_night)
-        views.setTextViewText(R.id.appwidget_text, widgetText)
-        views.setInt(R.id.container, "setBackgroundResource", Color.BLACK)
-        return views
-    }
+     override fun setColors(context: Context): RemoteViews{
+
+         val views = RemoteViews(context.packageName, R.layout.kk_app_widget)
+         val widgetText = context.getString(R.string.appwidget_text)
+         views.setTextViewText(R.id.appwidget_text, widgetText)
+         views.setInt(R.id.container, "setBackgroundColor", Color.BLACK)
+
+         return views
+     }
 }

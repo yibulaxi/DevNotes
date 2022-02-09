@@ -6,16 +6,9 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Point
 import android.view.View
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsControllerCompat
-import android.R.color
-
-
 
 
 object UIHelper {
@@ -56,6 +49,12 @@ object UIHelper {
 
     fun isLandscape(context: Context): Boolean {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+    }
+
+    fun isSystemDarkModeOpened(ctx: Context?): Boolean {
+        return if (ctx == null) {
+            false
+        } else ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     }
 
 
