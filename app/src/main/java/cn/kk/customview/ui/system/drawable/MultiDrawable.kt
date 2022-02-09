@@ -9,6 +9,7 @@ import cn.kk.base.bean.WikiModel
 import cn.kk.base.dialog.WikiBottomDialog
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_multi_drawable.*
+import java.util.*
 
 /**
  * 可显示多种 Drawable
@@ -20,6 +21,12 @@ class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuIte
     var level = 0
     lateinit var mContext: BaseActivity
 
+    val drawableInfoWiki: Array<String> by lazy {
+        Arrays.asList(resources.getStringArray(R.array.drawable_info))[0]
+    }
+    val drawableNames: Array<String> by lazy {
+        Arrays.asList(resources.getStringArray(R.array.drawable_name))[0]
+    }
     companion object {
         val TYPE_BITMAP_DRAWABLE = 0
         val TYPE_SHAPE_DRAWABLE = 1
@@ -104,17 +111,7 @@ class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuIte
 
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.wiki -> {
-                when(ui_type){
-                    TYPE_BITMAP_DRAWABLE -> {
-                        WikiBottomDialog(mContext, WikiModel("BitmapDrawable", "这几乎是最简单的 Drawable 了，它表示的就是一张图")).show()
-                    }
-                }
-            }
-            else -> {
-            }
-        }
+        WikiBottomDialog(mContext, WikiModel(drawableNames[ui_type], drawableInfoWiki[ui_type])).show()
         return super.onOptionsItemSelected(item!!)
     }
 }
