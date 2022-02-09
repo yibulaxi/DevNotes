@@ -111,6 +111,10 @@ class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuIte
 
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
+        if (ui_type > drawableNames.size - 1){
+            showToast("暂无...")
+            return true
+        }
         WikiBottomDialog(mContext, WikiModel(drawableNames[ui_type], drawableInfoWiki[ui_type])).show()
         return super.onOptionsItemSelected(item!!)
     }

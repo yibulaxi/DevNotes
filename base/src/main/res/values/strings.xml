@@ -8,11 +8,13 @@
     <string-array name="drawable_name">
         <item>BitmapDrawable</item>
         <item>ShapeDrawable</item>
+        <item>LayerDrawable</item>
     </string-array>
 
     <string-array name="drawable_info">
         <item>@string/BitmapDrawableWiki</item>
         <item>@string/ShapeDrawableWiki</item>
+        <item>@string/LayerDrawableWiki</item>
     </string-array>
 
     <string name="BitmapDrawableWiki">这几乎是最简单的 Drawable 了，它表示的就是一张图</string>
@@ -26,4 +28,5 @@
         solid\n
         stroke\n
     </string>
+    <string name="LayerDrawableWiki">对应的 XML 标签是 layer-list，表示一种层次化的 Drawable 集合。</string>
 </resources>
