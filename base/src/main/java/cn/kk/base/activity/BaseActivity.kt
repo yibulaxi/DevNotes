@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.LogHelper
@@ -22,6 +23,8 @@ import cn.kk.base.adapter.ListV2Adapter
 abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
+
+    protected var baseToolbar: Toolbar?= null
 
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
@@ -53,6 +56,7 @@ abstract class BaseActivity: BasicActivity() {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
         setContentView(getLayout())
+        baseToolbar = findViewById(R.id.toolBar)
 
         rvList = findViewById(setListViewID())
 
@@ -102,8 +106,8 @@ abstract class BaseActivity: BasicActivity() {
 
     protected open fun showTitle(){
         val tvTitle = findViewById<TextView>(R.id.tv_page_title)
-        tvTitle.text = title
-        tvTitle.setOnLongClickListener(object : View.OnLongClickListener{
+        tvTitle?.text = title
+        tvTitle?.setOnLongClickListener(object : View.OnLongClickListener{
             override fun onLongClick(v: View?): Boolean {
                showToast(TAG)
                 return true
@@ -125,7 +129,7 @@ abstract class BaseActivity: BasicActivity() {
      * 返回按钮点击
      */
     private fun clickTitleBack(){
-        findViewById<ImageButton>(R.id.btn_title_back).setOnClickListener {
+        findViewById<ImageButton>(R.id.btn_title_back)?.setOnClickListener {
             finish()
         }
     }

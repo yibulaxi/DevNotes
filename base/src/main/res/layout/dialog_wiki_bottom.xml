@@ -24,12 +24,12 @@
         android:background="@color/grey_b" />
 
     <TextView
+        android:id="@+id/tv_wiki"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_above="@id/btn_exit"
         android:layout_below="@id/view_divider_line"
         android:paddingTop="30dp"
-        android:text="这是一个简单的弹窗..."
         android:textColor="@color/green"
         android:textStyle="bold" />
 
@@ -40,8 +40,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:background="?selectableItemBackground"
-        android:text="Exit"
+        android:text="我知道了"
         android:textAllCaps="false"
-        android:textColor="@color/red_1"
+        android:textColor="@color/colorPrimary"
         android:textSize="26sp" />
 </RelativeLayout>

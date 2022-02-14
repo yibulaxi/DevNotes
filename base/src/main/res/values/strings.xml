@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="knowledge_article_comment_empty">当前文章没有评论</string>
+
+
+
+    <!--    drawable 相关-->
+    <string-array name="drawable_name">
+        <item>BitmapDrawable</item>
+        <item>ShapeDrawable</item>
+        <item>LayerDrawable</item>
+    </string-array>
+
+    <string-array name="drawable_info">
+        <item>@string/BitmapDrawableWiki</item>
+        <item>@string/ShapeDrawableWiki</item>
+        <item>@string/LayerDrawableWiki</item>
+    </string-array>
+
+    <string name="BitmapDrawableWiki">这几乎是最简单的 Drawable 了，它表示的就是一张图</string>
+    <string name="ShapeDrawableWiki">是一种很常见的 Drawable，可以理解为通过颜色来构造的图形，既可以是纯色的图形，也可以是具有渐变效果的图形。\n
+    有属性：\n
+        shape=["rectangle" | "oval" | "line" | "ring"]\n
+        corner\n
+        gradient\n
+        padding\n
+        size\n
+        solid\n
+        stroke\n
+    </string>
+    <string name="LayerDrawableWiki">对应的 XML 标签是 layer-list，表示一种层次化的 Drawable 集合。</string>
 </resources>

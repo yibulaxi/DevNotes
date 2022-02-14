@@ -2,9 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    android:background="?attr/appWidgetBackgroundColor"
-    android:padding="@dimen/widget_margin"
-    android:theme="@style/ThemeOverlay.CustomeView.AppWidgetContainer">
+    android:padding="@dimen/widget_margin">
 
     <TextView
         android:id="@+id/appwidget_text"
@@ -13,10 +11,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:background="?attr/appWidgetBackgroundColor"
         android:contentDescription="@string/appwidget_text"
         android:text="@string/appwidget_text"
-        android:textColor="?attr/appWidgetTextColor"
-        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
         android:textStyle="bold|italic" />
 </RelativeLayout>
