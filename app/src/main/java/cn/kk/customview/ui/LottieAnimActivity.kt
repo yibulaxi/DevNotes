@@ -8,6 +8,7 @@ class LottieAnimActivity: BaseActivity() {
 
     val ANIM_LIKE = "ting_icon_knowledge_like.json"
     val ANIM_LIKE2 = "icon_like_2.json"
+    val ANIM_VOICE = "icon_voice_wave.json"
     var loadProgress = 0f
     override fun getLayout(): Int {
       return  R.layout.activity_lottie_anim
@@ -16,7 +17,7 @@ class LottieAnimActivity: BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
-        lav.setAnimation(ANIM_LIKE2)
+        lav.setAnimation(ANIM_VOICE)
         lav.progress = 0f
 
         lav.setOnClickListener {
