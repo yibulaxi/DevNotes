@@ -69,13 +69,20 @@ public class DateHelper {
         return cal.get(Calendar.DAY_OF_MONTH);
     }
 
+    public static String getCurrentTimezone() {
+        String utc = String.valueOf(TimeZone.getDefault().getRawOffset() / 60 / 60 / 1000);
+        return utc;
+    }
+
 
     public static void main(String[] args) {
 
-        HashMap<Integer, Integer> dayOfWeek = getAllDaysOfWeek();
+        /*HashMap<Integer, Integer> dayOfWeek = getAllDaysOfWeek();
         for (Map.Entry<Integer, Integer> entry : dayOfWeek.entrySet()) {
             System.out.println("星期 " + entry.getKey() + " -> " + entry.getValue());
-        }
+        }*/
+
+        System.out.println(getCurrentTimezone());
 
     }
 }
