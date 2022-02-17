@@ -12,9 +12,13 @@ import cn.kk.base.utils.ThreadHelper
 import java.util.*
 
 const val PROGRESS_MAX = 1000
+
+
 class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context, attribute) {
 
     constructor(context: Context): this(context, null)
+
+    var progressCallback: ProgressCallback? =null
 
     private var mPaint: Paint = Paint().apply {
         color = Color.BLUE
@@ -25,7 +29,7 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
     // 时间，格式为：8.8s
     private var timeInfo = ""
     // 进度，0-100
-    private var progress: Int = 0
+    private var progress: Long = 0
     // 时长，单位:ms
     public var duration: Long = 5000
     // 刷新间隔时长，单位：ms
@@ -35,7 +39,7 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
     private var diffProgress = 0
     private var currentDuration = 0L
 
-    public var hideWhenFinished = false
+    var hideWhenFinished = false
     private var timer: Timer = Timer()
 
 
@@ -45,6 +49,7 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
     }
 
     fun start(){
+        visibility = VISIBLE
         // 计算每次刷新后，新增的进度
         diffProgress = PROGRESS_MAX / (duration / refreshInterval).toInt()
         // 执行定时任务
@@ -82,8 +87,9 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
             if (hideWhenFinished){
                 visibility = INVISIBLE
             }
-            return
+            progressCallback?.onFinish()
         }
+        progressCallback?.onProgress(progress)
         this.progress += diffProgress
         currentDuration += refreshInterval
         if (currentDuration > duration) currentDuration = duration
@@ -91,6 +97,18 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
         val hundredMillSecond = currentDuration % 1000 / 100
         timeInfo = String.format("%d.%ds", second, hundredMillSecond)
         invalidate()
+    }
+
+    fun reset(){
+        timer = Timer()
+        progress = 0
+        currentDuration = 0
+    }
+
+    interface ProgressCallback {
+        fun onProgress(progress: Long)
+
+        fun onFinish()
     }
 
 }
