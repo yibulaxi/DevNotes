@@ -11,6 +11,7 @@
     <cn.kk.elementary.chapter1.TimeProgressbar
         android:layout_below="@id/title"
         android:layout_marginTop="20dp"
+        android:id="@+id/timeProgress"
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
 </RelativeLayout>
