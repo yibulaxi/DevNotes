@@ -41,7 +41,8 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             "系统学习",
             "系统 UI",
             "炫酷应用 300例",
-            "第三方 UI"
+            "第三方 UI",
+            "work"
         )
     }
 
@@ -59,6 +60,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
             1 -> openNextUI(SystemUIActivity::class.java, itemList[position])
             2 -> openNextUI(Cool300Activity::class.java, itemList[position])
             3 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
+            4 -> openNextUI(WorkActivity::class.java, itemList[position])
         }
     }
     // endregion

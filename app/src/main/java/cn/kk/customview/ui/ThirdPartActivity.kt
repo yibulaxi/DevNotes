@@ -1,11 +1,7 @@
 package cn.kk.customview.ui
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.activity.BaseActivity
-import cn.kk.base.adapter.ListV2Adapter
 import cn.kk.customview.R
-import cn.kk.customview.ui.system.DialogActivity
-import cn.kk.customview.ui.system.ImageViewActivity
 import kotlinx.android.synthetic.main.activity_system_ui.*
 
 class ThirdPartActivity: BaseActivity() {

@@ -51,6 +51,7 @@
         <activity android:name=".ui.BookTutorialActivity" />
         <activity android:name=".ui.SystemUIActivity" />
         <activity android:name=".ui.ThirdPartActivity" />
+        <activity android:name=".ui.WorkActivity" />
         <activity android:name=".ui.cool300.Cool300Activity" />
         <activity android:name=".ui.RecyclerActivity" />
         <activity android:name="cn.kk.base.activity.CommentActivity" />
