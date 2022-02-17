@@ -30,6 +30,8 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
     private var duration: Long = 5000
     // 刷新间隔时长，单位：ms
     private val refreshInterval = 20L
+    private val textBottom = UIHelper.dip2px(context, 6.0)
+    private val lineThick = UIHelper.dip2px(context, 1.5)
     private var diffProgress = 0
     private var currentDuration = 0L
     private var timer: Timer = Timer()
@@ -52,22 +54,21 @@ class TimeProgressbar(context: Context, attribute : AttributeSet?): View(context
 
         canvas.drawARGB(100, 200, 100, 50)
 
-        val textTop = height - 10f
+        val textTop = height - textBottom - lineThick
         var textLeft = 0f
         var textRight = 5f
 
         val paddingLeft = 0
         val paddingRight = 0
-        val thick = 5
         val completeWidth = (width - paddingLeft - paddingRight) * 1.0 * progress / PROGRESS_MAX
 
         textLeft = (completeWidth - mPaint.measureText(timeInfo)).toFloat()
         if (textLeft < 0) textLeft = 0f
         if (progress >= PROGRESS_MAX) textLeft -= textRight
 
-        canvas.drawText(timeInfo, textLeft, textTop, mPaint)
+        canvas.drawText(timeInfo, textLeft, textTop.toFloat(), mPaint)
 
-        canvas.drawRect(Rect(paddingLeft, height - thick, completeWidth.toInt(),  height), mPaint)
+        canvas.drawRect(Rect(paddingLeft, height - lineThick, completeWidth.toInt(),  height), mPaint)
     }
 
     fun updateProgress(){
