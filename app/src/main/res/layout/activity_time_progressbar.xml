@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
+
+    <cn.kk.elementary.chapter1.TimeProgressbar
+        android:layout_below="@id/title"
+        android:layout_marginTop="20dp"
+        android:id="@+id/timeProgress"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:id="@+id/btn_rest"
+        android:textAllCaps="false"
+        android:text="Rest"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_press_drawable"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+</RelativeLayout>

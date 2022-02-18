@@ -107,6 +107,9 @@
         <activity
             android:name=".ui.system.material.ToolbarActivity"
             android:theme="@style/KKTheme" />
+
+        <activity android:name=".ui.work.TimeProgressActivity" />
+        <activity android:name=".ui.work.FlickerActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <size android:height="60dp"
+                android:width="60dp"/>
+
+            <solid android:color="@color/colorPrimary"/>
+        </shape>
+    </item>
+
+    <item >
+        <bitmap
+            android:antialias="false"
+            android:dither="false"
+            android:filter="false"
+            android:gravity="center"
+            android:mipMap="true"
+            android:tileMode="disabled"
+            android:src="@drawable/icon_voice_play_rect" />
+<!--        src 引入不能用 svg 格式的，否则崩溃-->
+    </item>
+
+</layer-list>

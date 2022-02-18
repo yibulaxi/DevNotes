@@ -5,13 +5,12 @@
 
     <include
         android:id="@+id/title"
-        layout="@layout/layout_title" />
+        layout="@layout/layout_title"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/title" />
-
-
+    <Button
+        android:id="@+id/btn_play"
+        android:background="@drawable/ting_play"
+       android:layout_centerInParent="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
 </RelativeLayout>
