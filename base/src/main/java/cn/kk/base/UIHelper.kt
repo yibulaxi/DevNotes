@@ -3,6 +3,7 @@ package cn.kk.base
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Point
 import android.view.View
@@ -30,8 +31,15 @@ object UIHelper {
         if (context == null) {
             return (dpValue * 2).toInt()
         }
-        val scale: Float = context.getResources().getDisplayMetrics().density
+        val scale: Float = context.resources.displayMetrics.density
         return (dpValue * scale + 0.5f).toInt()
+    }
+
+    /**
+     * 该方法不需要传入上下文
+     */
+    fun dp2px(value: Float): Int{
+        return (Resources.getSystem().displayMetrics.densityDpi * value).toInt()
     }
 
     fun getEditCursorYOnScreen(edit: EditText): Int{

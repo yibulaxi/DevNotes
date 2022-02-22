@@ -17,7 +17,7 @@ class SimpleView(context: Context?, attrs: AttributeSet?): View(context) {
         canvas?.drawLine(100f, 100f, 500f, 100f, paint)
 
         // 绘制圆
-        canvas?.drawCircle(width / 2f, height / 2f , UIHelper.dip2px(context, RADIIUS.toDouble()).toFloat(), paint)
+        canvas?.drawCircle(width / 2f, height / 2f , UIHelper.dp2px(RADIIUS).toFloat(), paint)
 
     }
 }
