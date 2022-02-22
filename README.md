@@ -7,6 +7,7 @@
 - [系统学习笔记](./elementary/README.md)
 - [其他练习笔记](./app/README.md)
 - [系统控件](./sys/README.md)
+- [HenCoder](doc/hencoder/README.md)
 
 ### 知识储备
 

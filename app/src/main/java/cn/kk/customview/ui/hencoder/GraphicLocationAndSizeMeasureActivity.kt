@@ -5,6 +5,7 @@ import cn.kk.customview.R
 
 /**
  * 图形的位置和尺寸测量
+ *
  */
 class GraphicLocationAndSizeMeasureActivity: BaseActivity() {
     override fun getLayout(): Int {

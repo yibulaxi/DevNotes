@@ -3,3 +3,4 @@ include ':base'
 include ':elementary'
 include ':app'
 rootProject.name = "CustomeView"
+include ':hencoder'
