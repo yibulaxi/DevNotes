@@ -2,18 +2,18 @@ plugins {
     id 'com.android.library'
 }
 
+apply from: "../version.gradle"
+
 android {
 
     defaultPublishConfig "debug"
 
-    compileSdkVersion 30
+    compileSdkVersion appCompileSdkVersion
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

@@ -6,12 +6,12 @@ plugins {
 apply from: '../version.gradle'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion appCompileSdkVersion
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
         versionCode appVersionCode
         versionName appVersionName
 

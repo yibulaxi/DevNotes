@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 apply from: '../version.gradle'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion appCompileSdkVersion
     buildToolsVersion "30.0.2"
 
     // 配置签名信息
@@ -20,8 +20,8 @@ android {
 
     defaultConfig {
         applicationId "cn.kk.customeview"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion  appTargetSdkVersion
         versionCode appVersionCode
         versionName appVersionName
 

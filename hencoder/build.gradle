@@ -3,12 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: "../version.gradle"
+
 android {
-    compileSdkVersion 30
+    compileSdkVersion appCompileSdkVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

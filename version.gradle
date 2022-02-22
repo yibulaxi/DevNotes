@@ -1,4 +1,8 @@
 ext {
     appVersionCode = 1
     appVersionName = "0.1"
+
+    appCompileSdkVersion = 30
+    appMinSdkVersion = 21
+    appTargetSdkVersion = 30
 }
