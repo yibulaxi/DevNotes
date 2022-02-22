@@ -51,6 +51,7 @@
         <activity android:name=".ui.BookTutorialActivity" />
         <activity android:name=".ui.SystemUIActivity" />
         <activity android:name=".ui.ThirdPartActivity" />
+        <activity android:name=".ui.HenCoderActivity" />
         <activity android:name=".ui.WorkActivity" />
         <activity android:name=".ui.cool300.Cool300Activity" />
         <activity android:name=".ui.RecyclerActivity" />
@@ -84,6 +85,9 @@
         <activity android:name=".ui.system.ImageViewActivity" />
         <activity android:name=".ui.system.DialogActivity" />
         <activity android:name=".ui.system.ImmersiveModeActivity" />
+
+        <activity android:name=".ui.hencoder.GraphicLocationAndSizeMeasureActivity"/>
+        <activity android:name=".ui.hencoder.touch.TouchFeedBackActivity"/>
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"
             android:theme="@style/Theme.Default" />
