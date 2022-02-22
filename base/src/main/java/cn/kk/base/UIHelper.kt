@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Point
+import android.util.TypedValue
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -38,9 +39,7 @@ object UIHelper {
     /**
      * 该方法不需要传入上下文
      */
-    fun dp2px(value: Float): Int{
-        return (Resources.getSystem().displayMetrics.densityDpi * value).toInt()
-    }
+    fun dp2px(value: Float): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, Resources.getSystem().displayMetrics)
 
     fun getEditCursorYOnScreen(edit: EditText): Int{
         val point = IntArray(2)
