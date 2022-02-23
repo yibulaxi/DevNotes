@@ -5,10 +5,13 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import cn.kk.base.UIHelper
 
-const val RADIIUS = 100f
+
+/**
+ *
+ */
 class SimpleView(context: Context?, attrs: AttributeSet?): View(context) {
+    val RADIIUS = 100f.px
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     override fun onDraw(canvas: Canvas?) {
@@ -17,7 +20,7 @@ class SimpleView(context: Context?, attrs: AttributeSet?): View(context) {
         canvas?.drawLine(100f, 100f, 500f, 100f, paint)
 
         // 绘制圆
-        canvas?.drawCircle(width / 2f, height / 2f , UIHelper.dp2px(RADIIUS), paint)
+        canvas?.drawCircle(width / 2f, height / 2f , RADIIUS, paint)
 
     }
 }
