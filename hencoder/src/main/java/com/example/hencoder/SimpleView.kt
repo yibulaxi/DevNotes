@@ -33,7 +33,7 @@ class SimpleView(context: Context?, attrs: AttributeSet?): View(context) {
         super.onSizeChanged(w, h, oldw, oldh)
         path.reset()
         // 圆心在 view 中心位置，
-        // 绘制方向：控制 相交部分的区域是否应该填充
+        // 绘制方向：控制 相交部分的区域是否应该填充，配合 path.fillType 使用(视频 40min 左右)
         // 绘制方向：Path.Direction.CCW（顺时针 counter-clockwise）
         // 绘制方向：Path.Direction.CW（顺时针 clockwise）
 
