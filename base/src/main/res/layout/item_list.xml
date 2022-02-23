@@ -15,7 +15,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:focusableInTouchMode="true"
-        android:ellipsize="end"
+        android:ellipsize="marquee"
         app:layout_constraintEnd_toStartOf="@id/iv_arrow"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginRight="20dp"
