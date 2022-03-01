@@ -105,7 +105,7 @@ dependencies {
 
 
     implementation project(path: ':base')
-    implementation project(path: ':hencoder')
+    api project(path: ':hencoder')
 
     // test lib
     testImplementation 'junit:junit:4.12'

@@ -5,5 +5,11 @@
 - [绘图篇](./docs/chapter_draw_view/readme.md)  
 - [视图篇](./docs/chapter_views/readme.md)  
 
+---
+
+### 《Android 开发艺术探索》
+
+- [View 的事件体系](./docs/dev_art/part_1.md)
+- [View 的工作原理](./docs/dev_art/part_2.md)
 
 
