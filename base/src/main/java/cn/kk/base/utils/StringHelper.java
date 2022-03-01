@@ -1,6 +1,8 @@
 package cn.kk.base.utils;
 
-import android.text.TextUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringHelper {
 
@@ -26,14 +28,26 @@ public class StringHelper {
         return str.replaceAll(regex, "");
     }
 
+    public static void list2arrayDemo(){
+        List<String> list = new ArrayList<>();
+        list.add("one");
+        list.add("two");
+        list.add("three");
+        list.add("four");
+
+        String[] numArray = list.toArray(new String[0]);
+        for (String s : numArray) {
+            System.out.println(s);
+        }
+    }
+
     public static void main(String[] args) {
 
-        String answer = "<div id=\"exp\" class=\".expDiv\">亲兄弟</div><div id=\"lj_recite\" class=\"sentence\"><div><div>Alicia tiene un hermano y una hermana.<br><span class=\"exp\">Alicia 有一个哥哥和一个姐姐</span></div></div></div>";
-        System.out.println("answer: " + answer);
-        System.out.println("filterHtml: " + filterHtml(answer));
-        String[] split = filterHtml(answer).split("\n");
+//        String answer = "<div id=\"exp\" class=\".expDiv\">亲兄弟</div><div id=\"lj_recite\" class=\"sentence\"><div><div>Alicia tiene un hermano y una hermana.<br><span class=\"exp\">Alicia 有一个哥哥和一个姐姐</span></div></div></div>";
+//        System.out.println("answer: " + answer);
+//        System.out.println("filterHtml: " + filterHtml(answer));
+//        String[] split = filterHtml(answer).split("\n");
 
-
-        System.out.println(split.length);
+        list2arrayDemo();
     }
 }
