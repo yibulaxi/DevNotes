@@ -8,6 +8,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         app:tabMode="scrollable"
+        app:tabIndicatorHeight="10dp"
         app:tabIndicatorColor="@color/white"
         app:tabIndicator="@drawable/tab_indicator"
         app:tabSelectedTextColor="@color/white"
