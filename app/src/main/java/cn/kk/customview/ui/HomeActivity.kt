@@ -56,9 +56,7 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun onItemClick(position: Int) {
         when(position){
             // region 1. 打开「系统学习」
-            0 -> openNextUI(BookTutorialActivity::class.java, itemList[position])
             // endregion
-            1 -> openNextUI(SystemUIActivity::class.java, itemList[position])
             2 -> openNextUI(Cool300Activity::class.java, itemList[position])
             3 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
             4 -> openNextUI(HenCoderActivity::class.java, itemList[position])

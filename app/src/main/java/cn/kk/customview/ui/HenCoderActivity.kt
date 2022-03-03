@@ -4,7 +4,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
 import cn.kk.customview.ui.hencoder.touch.TouchFeedBackActivity
-import kotlinx.android.synthetic.main.activity_system_ui.*
+import kotlinx.android.synthetic.main.activity_hencoder.*
 
 /**
  * HenCoder 课程学习整理

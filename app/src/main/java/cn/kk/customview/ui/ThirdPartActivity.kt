@@ -2,7 +2,7 @@ package cn.kk.customview.ui
 
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import kotlinx.android.synthetic.main.activity_system_ui.*
+import kotlinx.android.synthetic.main.activity_third_part.*
 
 class ThirdPartActivity: BaseActivity() {
     override fun getLayout(): Int {

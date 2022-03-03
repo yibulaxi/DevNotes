@@ -2,7 +2,7 @@ package cn.kk.customview.ui.hencoder.touch
 
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import kotlinx.android.synthetic.main.activity_system_ui.*
+import kotlinx.android.synthetic.main.activity_basic.*
 
 class TouchFeedBackActivity: BaseActivity() {
     override fun getLayout(): Int {
