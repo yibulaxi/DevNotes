@@ -5,6 +5,9 @@ import cn.kk.base.R
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
+/**
+ * 使用了开源库：BaseQuickAdapter
+ */
 class ListV2Adapter( data: MutableList<String>): BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_list, data) {
 
     override fun convert(holder: BaseViewHolder, item: String) {
