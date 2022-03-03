@@ -1,13 +1,13 @@
 package cn.kk.customview.chapter.c2
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 import cn.kk.customview.chapter.AnimInterpolatorActivity
 import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.elementary.anim.view.AnimSampleActivity
-import kotlinx.android.synthetic.main.activity_home.*
 
 /**
  * 视图动画导航页面
@@ -28,8 +28,9 @@ class ViewAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         }
 
         val layoutManager = LinearLayoutManager(this)
-        rv_home.layoutManager = layoutManager
-        rv_home.adapter = homeAdapter
+        val rvHome = findViewById<RecyclerView>(R.id.rv_home)
+        rvHome.layoutManager = layoutManager
+        rvHome.adapter = homeAdapter
         // endregion
     }
 

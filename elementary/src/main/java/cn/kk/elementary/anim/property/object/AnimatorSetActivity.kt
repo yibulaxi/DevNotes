@@ -23,7 +23,7 @@ class AnimatorSetActivity: BaseActivity(), ListAdapter.ItemClickListener {
             itemClickListener = this@AnimatorSetActivity
         }
         val layoutManager = LinearLayoutManager(this)
-        val rvHome = findViewById<RecyclerView>(R.id.rv_home)
+        val rvHome = findViewById<RecyclerView>(R.id.rv_list)
         rvHome.layoutManager = layoutManager
         rvHome.adapter = homeAdapter
         // endregion

@@ -15,15 +15,17 @@ import cn.kk.customview.chapter.c2.AnimActivity
 import cn.kk.customview.chapter.c3.DrawHomeActivity
 import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
-import cn.kk.customview.ui.HomeActivity
 import cn.kk.customview.ui.LottieAnimActivity
-import cn.kk.customview.ui.activity.HomeNewActivity
 import cn.kk.customview.ui.cool300.chapter1.Chapter1
 import cn.kk.customview.ui.cool300.chapter3.Menu
 import cn.kk.customview.ui.cool300.chapter5.Chapter5
+import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
+import cn.kk.customview.ui.hencoder.touch.TouchFeedBackActivity
 import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.drawable.DrawableSample
 import cn.kk.customview.ui.system.material.MaterialActivity
+import cn.kk.customview.ui.work.FlickerActivity
+import cn.kk.customview.ui.work.TimeProgressActivity
 
 class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
@@ -93,6 +95,18 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
             UIConfig.PART_THIRD -> {
                 when(position){
                     0 -> startNextUI(LottieAnimActivity::class.java,title)
+                }
+            }
+            UIConfig.PART_HENCODER -> {
+                when(position){
+                    0 -> startNextUI(GraphicLocationAndSizeMeasureActivity::class.java, title)
+                    11 -> startNextUI(TouchFeedBackActivity::class.java, title)
+                }
+            }
+            UIConfig.PART_WORK -> {
+                when(position){
+                    0 -> startNextUI(TimeProgressActivity::class.java, title)
+                    1 -> startNextUI(FlickerActivity::class.java, title)
                 }
             }
         }

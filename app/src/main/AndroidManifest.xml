@@ -48,8 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HenCoderActivity" />
-        <activity android:name=".ui.WorkActivity" />
         <activity android:name=".ui.RecyclerActivity" />
         <activity android:name="cn.kk.base.activity.CommentActivity" />
         <activity android:name=".ui.LottieAnimActivity" />
