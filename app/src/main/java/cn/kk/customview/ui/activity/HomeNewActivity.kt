@@ -2,8 +2,9 @@ package cn.kk.customview.ui.activity
 
 import androidx.fragment.app.Fragment
 import cn.kk.base.activity.BaseActivity
-import cn.kk.base.fragment.NormalListFragment
+import cn.kk.customview.ui.fragment.NormalListFragment
 import cn.kk.customview.R
+import cn.kk.customview.config.UIConfig
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,6 +22,7 @@ class HomeNewActivity: BaseActivity() {
         viewPager.adapter = BaseFragmentAdapter(this, mutableListOf<Fragment>().apply {
             // add fragment ui
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_SYSTEM_STUDY
                 addItem("绘图基础")
                 addItem("动画篇")
                 addItem("绘图篇")
@@ -28,6 +30,7 @@ class HomeNewActivity: BaseActivity() {
             })
 
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_SYSTEM_UI
                 addItem("ImageView")
                 addItem("Dialog")
                 addItem("ImmersiveMode")
@@ -46,6 +49,7 @@ class HomeNewActivity: BaseActivity() {
             })
 
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_COOL_300
                 addItem("1. 常用控件")
                 addItem("2. 通知栏")
                 addItem("3. 菜单")
@@ -58,10 +62,12 @@ class HomeNewActivity: BaseActivity() {
             })
 
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_THIRD
                 addItem("LottieAnim")
             })
 
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_HENCODER
                 addItem("图形的位置和尺寸测量 136min")
                 addItem("Xfermode 完全使用解析 43min")
                 addItem("文字的测量 99min")
@@ -77,6 +83,7 @@ class HomeNewActivity: BaseActivity() {
             })
 
             add(NormalListFragment().apply {
+                partType = UIConfig.PART_WORK
                 addItem("时间水平进度条")
                 addItem("闪烁按钮")
             })
