@@ -56,7 +56,6 @@ class HomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
         when(position){
             // region 1. 打开「系统学习」
             // endregion
-            3 -> openNextUI(ThirdPartActivity::class.java, itemList[position])
             4 -> openNextUI(HenCoderActivity::class.java, itemList[position])
             5 -> openNextUI(WorkActivity::class.java, itemList[position])
         }

@@ -16,6 +16,7 @@ import cn.kk.customview.chapter.c3.DrawHomeActivity
 import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.HomeActivity
+import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.ui.activity.HomeNewActivity
 import cn.kk.customview.ui.cool300.chapter1.Chapter1
 import cn.kk.customview.ui.cool300.chapter3.Menu
@@ -87,6 +88,11 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     1 -> context?.let { UIHelper.toast(itemList[position], it) }
                     2 -> startNextUI(Menu::class.java, title)
                     4 -> startNextUI(Chapter5::class.java, title)
+                }
+            }
+            UIConfig.PART_THIRD -> {
+                when(position){
+                    0 -> startNextUI(LottieAnimActivity::class.java,title)
                 }
             }
         }
