@@ -51,7 +51,6 @@
         <activity android:name=".ui.ThirdPartActivity" />
         <activity android:name=".ui.HenCoderActivity" />
         <activity android:name=".ui.WorkActivity" />
-        <activity android:name=".ui.cool300.Cool300Activity" />
         <activity android:name=".ui.RecyclerActivity" />
         <activity android:name="cn.kk.base.activity.CommentActivity" />
         <activity android:name=".ui.LottieAnimActivity" />
