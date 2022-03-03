@@ -16,6 +16,9 @@ import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.HomeActivity
 import cn.kk.customview.ui.activity.HomeNewActivity
+import cn.kk.customview.ui.system.*
+import cn.kk.customview.ui.system.drawable.DrawableSample
+import cn.kk.customview.ui.system.material.MaterialActivity
 
 class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
@@ -45,14 +48,33 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
     override fun onItemClick(position: Int) {
         // 跳转页面
+        val title = itemList[position]
         when(partType){
             UIConfig.PART_SYSTEM_STUDY -> {
-                val title = itemList[position]
                 when(position){
                     0 -> startNextUI(DrawBasicActivity::class.java, title)
                     1 -> startNextUI(AnimActivity::class.java, title)
                     2 -> startNextUI(DrawHomeActivity::class.java, title)
                     3 -> startNextUI(ViewHomeActivity::class.java, title)
+                }
+            }
+            UIConfig.PART_SYSTEM_UI -> {
+                when(position){
+                    0 -> startNextUI(ImageViewActivity::class.java, title)
+                    1 -> startNextUI(DialogActivity::class.java, title)
+                    2 -> startNextUI(ImmersiveModeActivity::class.java, title)
+                    3 -> startNextUI(CoordinatorLayoutActivity::class.java, title)
+                    4 -> startNextUI(CoordinatorLayoutAndCollapsingToolbarLayoutActivity::class.java, title)
+                    5 -> startNextUI(CustomBehaviorActivity::class.java, title)
+                    6 -> startNextUI(StatusBarActivity::class.java, title)
+                    7 -> startNextUI(LineHeightActivity::class.java, title)
+                    8 -> startNextUI(MaterialActivity::class.java, title)
+                    9 -> startNextUI(TextViewWidthEnableChangeActivity::class.java, title)
+                    10 ->startNextUI(TextViewWithDrawableActivity::class.java, title)
+                    11 ->startNextUI(IgnoreSystemBigFont::class.java, title)
+                    12 ->startNextUI(HtmlText::class.java, title)
+                    13 ->startNextUI(AppWidgetSample::class.java, title)
+                    14 ->startNextUI(DrawableSample::class.java, title)
                 }
             }
         }

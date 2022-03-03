@@ -10,6 +10,12 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_home_new.*
 
+/**
+ * task list:
+ *
+ * 1. 水平滑动和竖直滑动，判断
+ *
+ */
 class HomeNewActivity: BaseActivity() {
     val tabs_name = arrayOf("系统学习","系统UI","炫酷应用 300例","第三方UI","Hencoder", "work" )
     override fun getLayout(): Int {
