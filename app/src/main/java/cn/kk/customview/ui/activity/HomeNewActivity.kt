@@ -9,6 +9,7 @@ import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_home_new.*
+import java.io.File
 
 /**
  * task list:
@@ -102,5 +103,14 @@ class HomeNewActivity: BaseActivity() {
             }
 
         }).attach()
+
+        // print this class info
+       val homeClass = this.javaClass
+
+        val path = homeClass.`package`.name.replace("\\.","/")
+        val  sourceFile =  File(path, homeClass.name + ".java")
+
+        printLog(path)
+        printLog("sourceFile is ")
     }
 }
