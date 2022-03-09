@@ -14,4 +14,8 @@ abstract class BaseFragment: Fragment() {
     }
 
     abstract fun getLayoutId(): Int
+
+    /*protected open fun getItemList(): MutableList<String>{
+        return mutableListOf()
+    }*/
 }

@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="20dp"
         android:paddingLeft="10dp"
-        android:id="@+id/rv_home"
+        android:id="@+id/rv_list"
         android:layout_below="@id/home_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

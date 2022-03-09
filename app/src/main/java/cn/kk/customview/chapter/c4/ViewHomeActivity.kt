@@ -25,7 +25,7 @@ class ViewHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
         val layoutManager = LinearLayoutManager(this)
 
-        val rvDraw = findViewById<RecyclerView>(R.id.rv_home)
+        val rvDraw = findViewById<RecyclerView>(R.id.rv_list)
         rvDraw.layoutManager = layoutManager
         rvDraw.adapter = homeAdapter
         // endregion

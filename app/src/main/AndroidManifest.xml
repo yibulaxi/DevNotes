@@ -41,19 +41,13 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>
         -->
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".ui.activity.HomeNewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.BookTutorialActivity" />
-        <activity android:name=".ui.SystemUIActivity" />
-        <activity android:name=".ui.ThirdPartActivity" />
-        <activity android:name=".ui.HenCoderActivity" />
-        <activity android:name=".ui.WorkActivity" />
-        <activity android:name=".ui.cool300.Cool300Activity" />
         <activity android:name=".ui.RecyclerActivity" />
         <activity android:name="cn.kk.base.activity.CommentActivity" />
         <activity android:name=".ui.LottieAnimActivity" />
