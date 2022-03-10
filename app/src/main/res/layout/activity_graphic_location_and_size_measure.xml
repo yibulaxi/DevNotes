@@ -8,9 +8,13 @@
         android:id="@+id/title"
         layout="@layout/layout_title"/>
 
-    <com.example.hencoder.SimpleView
+   <!-- <com.example.hencoder.draw.SimpleView
         android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+-->
 
+    <com.example.hencoder.draw.DashBoardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

@@ -1,9 +1,10 @@
-package com.example.hencoder
+package com.example.hencoder.draw
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import com.example.hencoder.px
 
 
 /**

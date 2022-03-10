@@ -1,5 +1,10 @@
 ### 图形的位置和尺寸测量
 
+#### 代码
+
+- [SimpleView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/SimpleView.kt)
+- [DashBoardView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/DashBoardView.kt)
+
 #### 绘制的基本要素
 
 - onDraw(Canvas)
