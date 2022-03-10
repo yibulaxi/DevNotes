@@ -13,13 +13,15 @@ import com.example.hencoder.px
  * 仪表盘
  *
  * 过程
- * 1. 确定绘制的区域（矩形）
- * 2. 绘制圆弧形: canvas.drawArc()
- * 3. 注意：是顺时针绘制
+ * 1. 确定绘制的区域（矩形），然后绘制圆弧形: canvas.drawArc()，注意：是顺时针绘制
+ * 2. 绘制刻度: Path.setPathEffect(PathDashPathEffect)
+ * 3.
  */
 val RAIDUS = 150f.px
 // 开口角度
 const val OPEN_ANGLE = 120
+ val dash_length = 15f.px
+ val dash_width = 3f.px
 
 class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs) {
 
