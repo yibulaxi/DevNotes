@@ -3,6 +3,7 @@ package cn.kk.customview.ui.system.drawable
 import android.graphics.drawable.TransitionDrawable
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.WikiModel
@@ -39,10 +40,11 @@ class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuIte
         val TYPE_INSET_DRAWABLE = 7
         // 根据自己的等级，将指定的 Drawable 缩放到一定比例
         val TYPE_SCALE_DRAWABLE = 8
+        val TYPE_ROTATE_DRAWABLE = 9
         // 根据自己当前的等级来裁剪另一个 Drawable; 裁剪方向方向通过 android:clipOrientation 和 android:gravity 两个属性共同控制
-        val TYPE_Clip_DRAWABLE = 9
+        val TYPE_Clip_DRAWABLE = 10
         // 自定义 Drawable，通常不这么用
-        val TYPE_CUSTOM_DRAWABLE = 10
+        val TYPE_CUSTOM_DRAWABLE = 11
     }
 
     override fun getLayout(): Int {
@@ -95,6 +97,11 @@ class MultiDrawable: BaseActivity(), androidx.appcompat.widget.Toolbar.OnMenuIte
                     visibility = View.VISIBLE
                     background = scaleDrawable
                 }
+            }
+            TYPE_ROTATE_DRAWABLE -> {
+                btn_rotate.visibility = View.VISIBLE
+                val anim = AnimationUtils.loadAnimation(mContext, R.drawable.kk_rotate_drawable)
+                btn_rotate.startAnimation(anim)
             }
             TYPE_Clip_DRAWABLE -> {
                 view_drawable_bg.visibility = View.VISIBLE

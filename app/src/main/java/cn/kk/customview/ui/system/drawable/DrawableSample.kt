@@ -29,6 +29,7 @@ class DrawableSample: BaseActivity() {
             add("TransitionDrawable")
             add("InsetDrawable")
             add("ScaleDrawable")
+            add("RotateDrawable")
             add("ClipDrawable")
             add("自定义 Drawable")
         }
@@ -46,7 +47,8 @@ class DrawableSample: BaseActivity() {
                 5 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_TRANSITION_DRAWABLE)
                 6 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_INSET_DRAWABLE)
                 7 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_SCALE_DRAWABLE)
-                8 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_Clip_DRAWABLE)
+                8 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_ROTATE_DRAWABLE)
+                9 -> openNextUI(MultiDrawable::class.java, itemList[position], MultiDrawable.TYPE_Clip_DRAWABLE)
             }
         }
     }
