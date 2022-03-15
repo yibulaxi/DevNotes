@@ -19,6 +19,8 @@ import java.util.*
  *      1. 测量圆弧长度: 修改绘制圆弧的方式，改用 path
  *      2. 计算刻度值（刻度之间的间隔距离）
  * 4. 绘制指针
+ *      1. start point
+ *      2. end point: 三角函数
  */
 
 // region const fields
@@ -64,7 +66,7 @@ class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs
         }
 
         // start time
-        timer.schedule(object : TimerTask(){
+        /*timer.schedule(object : TimerTask(){
             override fun run() {
                 ThreadHelper.runOnUIThread(Runnable {
                     pointerAngle += (360 - OPEN_ANGLE) / SCALE_COUNT
@@ -76,7 +78,7 @@ class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs
 
             }
 
-        }, 1000,1000)
+        }, 1000,1000)*/
     }
     // endregion
 
@@ -109,12 +111,9 @@ class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs
         removePathDashEffect()
 
         // step3 绘制指针
-        val pointerAngle = pointerAngle * -1 / 180.0 * Math.PI
-        canvas.drawLine(width / 2f, height / 2f,
-            width / 2f + (Math.cos(pointerAngle) * POINTER_LENGTH).toFloat(),
-            height / 2f - (Math.sin(pointerAngle) * POINTER_LENGTH).toFloat(),
-            paint)
+        drawPointer(canvas)
     }
+
 
     // endregion
 
@@ -138,9 +137,23 @@ class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs
         paint.pathEffect = mPathEffect
     }
 
+    // region 绘制指针
+    private fun drawPointer(canvas: Canvas) {
+        val pointerAngle = markToRadians(1)
+        canvas.drawLine(
+            width / 2f, height / 2f,
+            width / 2f + (Math.cos(pointerAngle) * POINTER_LENGTH).toFloat(),
+            height / 2f + (Math.sin(pointerAngle) * POINTER_LENGTH).toFloat(),
+            paint
+        )
+    }
+    // endregion
+
     private fun removePathDashEffect(){
         paint.pathEffect = null
     }
+
+    private fun markToRadians(mark: Int) = Math.toRadians(startAngle.toDouble() + (360 - OPEN_ANGLE) / 20F * mark)
 
     // endregion
 }
