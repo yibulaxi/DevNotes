@@ -24,27 +24,18 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     // 开口角度
     private val OPEN_ANGLE = 120
 
-    // 刻度数
-    private val SCALE_COUNT = 20
-    private val DASH_LENGTH = 15f.px
-    private val DASH_WIDTH = 3f.px
-
-
+    private val ANGLES = floatArrayOf(30f, 80f, 100f, 150f)
+    private val COLORS = listOf(Color.parseColor("#123123"), Color.parseColor("#321321"),
+        Color.parseColor("#123456"), Color.parseColor("#654321"))
 
 // endregion
 
 
     // region fields
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val archPath = Path()
-    private val dashPath = Path()
     private val startAngle: Float by lazy {
         90f + OPEN_ANGLE / 2
     }
-    private val endAngle: Float by lazy {
-        360f - OPEN_ANGLE
-    }
-    private lateinit var mPathEffect: PathDashPathEffect
     // endregion
 
     // region init
@@ -68,7 +59,13 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         super.onDraw(canvas)
 
         // step1 绘制 弧线
-        drawMyArc(canvas)
+
+        var startAngle = 0f
+        for ((index, angle) in ANGLES.withIndex()){
+            paint.color = COLORS[index]
+            drawMyArc(canvas, startAngle, angle)
+            startAngle += angle
+        }
 
 
     }
@@ -80,11 +77,10 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     /**
      * 以 view 中心为圆心，绘制自定义的弧线
      */
-    private fun drawMyArc(canvas: Canvas) {
-        canvas.drawPath(archPath, paint)
+    private fun drawMyArc(canvas: Canvas, startAngle: Float, sweepAngle: Float) {
         canvas.drawArc(width / 2f - RADIUS, height / 2f - RADIUS,
             width / 2f + RADIUS, height / 2f + RADIUS,
-            0f, 60f, true, paint)
+            startAngle, sweepAngle, true, paint)
     }
 
 
