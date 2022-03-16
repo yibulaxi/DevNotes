@@ -24,6 +24,7 @@ abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
 
+    protected lateinit var mSelf: Activity
     protected var baseToolbar: Toolbar?= null
 
     private val title by lazy {
@@ -56,6 +57,8 @@ abstract class BaseActivity: BasicActivity() {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
         setContentView(getLayout())
+
+        mSelf = this
         baseToolbar = findViewById(R.id.toolBar)
 
         rvList = findViewById(setListViewID())

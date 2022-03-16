@@ -39,6 +39,8 @@ val POINTER_LENGTH = 0.8 * RAIDUS
 
 class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs) {
 
+    constructor(context: Context): this(context, null)
+
     // region fields
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val archPath = Path()

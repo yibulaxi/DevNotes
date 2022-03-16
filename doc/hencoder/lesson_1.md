@@ -4,6 +4,7 @@
 
 - [SimpleView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/SimpleView.kt)
 - [DashBoardView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/DashBoardView.kt)
+- [PieView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/PieView.kt)
 
 #### 绘制的基本要素
 
