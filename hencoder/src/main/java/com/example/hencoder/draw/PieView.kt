@@ -6,12 +6,15 @@ import android.util.AttributeSet
 import android.view.View
 import cn.kk.base.UIHelper
 import com.example.hencoder.px
+import kotlin.math.cos
+import kotlin.math.sin
 
 /**
  * 饼图
  *
  * 过程
- * 1. 确定绘制的区域（矩形），然后绘制圆弧形: canvas.drawArc()，注意：是顺时针绘制
+ * 1. 绘制圆弧，绘制多个。
+ * 2. 偏移某块扇形: canvas.translate()
  */
 
 class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
@@ -61,9 +64,20 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         // step1 绘制 弧线
 
         var startAngle = 0f
-        for ((index, angle) in ANGLES.withIndex()){
+        val offsetSector = 10f.px
+        for ((index, angle) in ANGLES.withIndex()) {
             paint.color = COLORS[index]
-            drawMyArc(canvas, startAngle, angle)
+            // 偏移第一个扇形
+            if (index == 0) {
+                val offsetSectorX = (offsetSector * cos(Math.toRadians(angle.toDouble() / 2))).toFloat()
+                val offsetSectorY = (offsetSector * sin(Math.toRadians(angle.toDouble() / 2))).toFloat()
+                canvas.translate(offsetSectorX, offsetSectorY)
+                drawMyArc(canvas, startAngle, angle)
+                canvas.translate(-offsetSectorX, -offsetSectorY)
+            } else {
+
+                drawMyArc(canvas, startAngle, angle)
+            }
             startAngle += angle
         }
 
