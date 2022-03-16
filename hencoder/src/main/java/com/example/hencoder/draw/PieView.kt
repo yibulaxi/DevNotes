@@ -24,9 +24,6 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     // region const fields
     private val RADIUS = 150f.px
 
-    // 开口角度
-    private val OPEN_ANGLE = 120
-
     private val ANGLES = floatArrayOf(30f, 80f, 100f, 150f)
     private val COLORS = listOf(Color.parseColor("#123123"), Color.parseColor("#321321"),
         Color.parseColor("#123456"), Color.parseColor("#654321"))
@@ -36,9 +33,6 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
     // region fields
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val startAngle: Float by lazy {
-        90f + OPEN_ANGLE / 2
-    }
     // endregion
 
     // region init
@@ -96,14 +90,6 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
             width / 2f + RADIUS, height / 2f + RADIUS,
             startAngle, sweepAngle, true, paint)
     }
-
-
-    private fun removePathDashEffect() {
-        paint.pathEffect = null
-    }
-
-    private fun markToRadians(mark: Int) =
-        Math.toRadians(startAngle.toDouble() + (360 - OPEN_ANGLE) / 20F * mark)
 
     // endregion
 }
