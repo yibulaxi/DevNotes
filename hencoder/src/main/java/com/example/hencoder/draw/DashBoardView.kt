@@ -16,7 +16,7 @@ import java.util.*
  * 1. 确定绘制的区域（矩形），然后绘制圆弧形: canvas.drawArc()，注意：是顺时针绘制
  * 2. 绘制刻度(给 path 加效果，这里加的是虚线效果): Path.setPathEffect(PathDashPathEffect)
  * 3. 按照固定的刻度数调整刻度
- *      1. 测量圆弧长度: 修改绘制圆弧的方式，改用 path
+ *      1. 测量圆弧长度: 修改绘制圆弧的方式，改用 path，见 97 行
  *      2. 计算刻度值（刻度之间的间隔距离）
  * 4. 绘制指针
  *      1. start point
@@ -94,10 +94,11 @@ class DashBoardView(context: Context, attrs: AttributeSet?): View(context, attrs
             startAngle,
             endAngle)
 
-        // measure arch length
+        // region measure arch length: 测量弧形的长度
         val archPathMeasure = PathMeasure(archPath, false)
         // 一个刻度的长度
         val scaleLength = (archPathMeasure.length - DASH_WIDTH) / SCALE_COUNT
+        // endregion
         mPathEffect = PathDashPathEffect(dashPath, scaleLength, 0f, PathDashPathEffect.Style.ROTATE)
     }
 

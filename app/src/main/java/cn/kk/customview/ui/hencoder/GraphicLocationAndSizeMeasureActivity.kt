@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_base_sub_tab_viewpager.viewPager
 
 /**
  * 图形的位置和尺寸测量
- *
+ * [DashBoardView] 和 [PieView]
  */
 class GraphicLocationAndSizeMeasureActivity: BaseActivity() {
     val tabs_name = arrayOf("刻度盘","饼图")

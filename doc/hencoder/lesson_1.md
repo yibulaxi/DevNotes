@@ -3,8 +3,6 @@
 #### 代码
 
 - [SimpleView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/SimpleView.kt)
-- [DashBoardView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/DashBoardView.kt)
-- [PieView.kt](../../hencoder/src/main/java/com/example/hencoder/draw/PieView.kt)
 
 #### 绘制的基本要素
 
@@ -14,3 +12,15 @@
 - 坐标系
 - 尺寸单位：px
 
+---
+
+#### 效果
+
+##### [`DashBoardView.kt`](../../hencoder/src/main/java/com/example/hencoder/draw/DashBoardView.kt)
+
+![刻度盘](./imgs/img-dashboard.png)
+
+
+##### [`PieView.kt`](../../hencoder/src/main/java/com/example/hencoder/draw/PieView.kt)
+
+![刻度盘](./imgs/img-pie.png)
