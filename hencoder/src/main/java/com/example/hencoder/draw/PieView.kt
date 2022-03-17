@@ -62,12 +62,15 @@ class PieView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
         var startAngle = 0f
         val offsetSector = 10f.px
+        var tempAngle = 0f
         for ((index, angle) in ANGLES.withIndex()) {
             paint.color = COLORS[index]
             // 偏移第一个扇形
+            // 扇形的中轴线的角度
+            tempAngle = startAngle + angle / 2
             if (index == focusSectorIndex) {
-                val offsetSectorX = (offsetSector * cos(Math.toRadians(angle.toDouble() / 2))).toFloat()
-                val offsetSectorY = (offsetSector * sin(Math.toRadians(angle.toDouble() / 2))).toFloat()
+                val offsetSectorX = (offsetSector * cos(Math.toRadians(tempAngle.toDouble()))).toFloat()
+                val offsetSectorY = (offsetSector * sin(Math.toRadians(tempAngle.toDouble()))).toFloat()
                 canvas.translate(offsetSectorX, offsetSectorY)
                 drawMyArc(canvas, startAngle, angle)
                 canvas.translate(-offsetSectorX, -offsetSectorY)
