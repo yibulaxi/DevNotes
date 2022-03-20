@@ -163,7 +163,7 @@ abstract class BaseActivity: BasicActivity() {
     /**
      * 打开下一个页面
      */
-    protected fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String, type: Int){
+    open fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String, type: Int){
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
             putExtra(INTENT_TYPE_KEY, type)

@@ -82,6 +82,7 @@
 
         <activity android:name=".ui.hencoder.GraphicLocationAndSizeMeasureActivity"/>
         <activity android:name=".ui.hencoder.touch.TouchFeedBackActivity"/>
+        <activity android:name=".ui.activity.NormalViewActivity"/>
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"
             android:theme="@style/Theme.Default" />

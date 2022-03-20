@@ -16,6 +16,7 @@ import cn.kk.customview.chapter.c3.DrawHomeActivity
 import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
+import cn.kk.customview.ui.activity.NormalViewActivity
 import cn.kk.customview.ui.cool300.chapter1.Chapter1
 import cn.kk.customview.ui.cool300.chapter3.Menu
 import cn.kk.customview.ui.cool300.chapter5.Chapter5
@@ -100,6 +101,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
             UIConfig.PART_HENCODER -> {
                 when(position){
                     0 -> startNextUI(GraphicLocationAndSizeMeasureActivity::class.java, title)
+                    1 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_XFERMODE_AVATARVIEW)
                     11 -> startNextUI(TouchFeedBackActivity::class.java, title)
                 }
             }
@@ -114,5 +116,9 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
     fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String){
         (activity as BaseActivity).openNextUI(targetActivity, title)
+    }
+
+    fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int){
+        (activity as BaseActivity).openNextUI(targetActivity, title, type)
     }
 }
