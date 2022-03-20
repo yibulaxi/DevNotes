@@ -102,6 +102,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                 when(position){
                     0 -> startNextUI(GraphicLocationAndSizeMeasureActivity::class.java, title)
                     1 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_XFERMODE_AVATARVIEW)
+                    2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXT_MEAUSRE)
                     11 -> startNextUI(TouchFeedBackActivity::class.java, title)
                 }
             }
