@@ -9,6 +9,33 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
 
+/**
+ * ### 文字的测量
+
+#### 1.绘制文字：canvas.drawText(）
+
+#### 2.难点一：居中的纵向测量
+- 方式一：Paint.getTextBounds() 之后，使⽤ (bounds.top + bounds.bottom) / 2
+- 方式二：Paint.getFontMetrics() 之后，使⽤ (fontMetrics.ascend + fontMetrics.descend) / 2
+
+#### 3.难点二： 左对齐
+- ⽤ getTextBounds() 之后的 left 来计算
+
+#### 4.难点三：换行
+- ⽤ breakText() 来计算
+
+#### 5.多行文字(57:32 ~)
+
+##### 1. 简单情况
+- MultilineTextView.
+- StaticLayout 自动适应多行
+-  staticLayout.draw(canvas)
+- 折行，paint.breakText
+
+- lorem ipsum: 常用于排版设计领域的拉丁文文章，主要的目的为测试文章或文字在不同字型、版型下看起来的效果，通常网站还没建设好时会出现这段文字
+
+---
+ */
 class MultilineTextView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     constructor(context: Context) : this(context, null)
