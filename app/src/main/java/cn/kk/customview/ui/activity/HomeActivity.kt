@@ -5,10 +5,11 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.ui.fragment.NormalListFragment
 import cn.kk.customview.R
 import cn.kk.customview.config.UIConfig
+import cn.kk.customview.ui.fragment.NormalTabFragment
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_home_new.*
+import kotlinx.android.synthetic.main.activity_home.*
 import java.io.File
 
 /**
@@ -17,10 +18,10 @@ import java.io.File
  * 1. 水平滑动和竖直滑动，判断
  *
  */
-class HomeNewActivity: BaseActivity() {
+class HomeActivity: BaseActivity() {
     val tabs_name = arrayOf("系统学习","系统UI","炫酷应用 300例","第三方UI","Hencoder", "work" )
     override fun getLayout(): Int {
-        return R.layout.activity_home_new
+        return R.layout.activity_home
     }
 
     override fun doWhenOnCreate() {
@@ -55,18 +56,7 @@ class HomeNewActivity: BaseActivity() {
                 addItem("Drawable")
             })
 
-            add(NormalListFragment().apply {
-                partType = UIConfig.PART_COOL_300
-                addItem("1. 常用控件")
-                addItem("2. 通知栏")
-                addItem("3. 菜单")
-                addItem("4. 图形和图像")
-                addItem("5. 动画")
-                addItem("6. 文件和数据")
-                addItem("7. 系统和设备")
-                addItem("8. Intent")
-                addItem("9. 第三方 SDK 开发")
-            })
+            add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_THIRD

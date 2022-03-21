@@ -17,9 +17,11 @@ import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.ui.activity.NormalViewActivity
-import cn.kk.customview.ui.cool300.chapter1.Chapter1
-import cn.kk.customview.ui.cool300.chapter3.Menu
-import cn.kk.customview.ui.cool300.chapter5.Chapter5
+import cn.kk.customview.ui.cool300.chapter1.*
+import cn.kk.customview.ui.cool300.chapter3.Simple_063
+import cn.kk.customview.ui.cool300.chapter3.Simple_071
+import cn.kk.customview.ui.cool300.chapter3.Simple_072
+import cn.kk.customview.ui.cool300.chapter5.Simple_143
 import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
 import cn.kk.customview.ui.hencoder.touch.TouchFeedBackActivity
 import cn.kk.customview.ui.system.*
@@ -85,14 +87,28 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     14 ->startNextUI(DrawableSample::class.java, title)
                 }
             }
-            UIConfig.PART_COOL_300 -> {
-                when(position){
-                    0 -> startNextUI(Chapter1::class.java, title)
-                    1 -> context?.let { UIHelper.toast(itemList[position], it) }
-                    2 -> startNextUI(Menu::class.java, title)
-                    4 -> startNextUI(Chapter5::class.java, title)
+            // region cool 300
+            UIConfig.SubConfig.COMMON_VIEW -> {
+                when (position) {
+                    0 -> startNextUI(Simple_005::class.java, itemList[position])
+                    1 -> startNextUI(Simple_009::class.java, itemList[position])
+                    2 -> startNextUI(Simple_010::class.java, itemList[position])
+                    3 -> startNextUI(Simple_022::class.java, itemList[position])
                 }
             }
+            UIConfig.SubConfig.MENU_VIEW -> {
+                when(position){
+                    0 -> startNextUI(Simple_063::class.java, itemList[position])
+                    1 -> startNextUI(Simple_071::class.java, itemList[position])
+                    2 -> startNextUI(Simple_072::class.java, itemList[position])
+                }
+            }
+            UIConfig.SubConfig.ANIM_VIEW -> {
+                when(position){
+                    0 -> startNextUI(Simple_143::class.java, itemList[position])
+                }
+            }
+            // endregion
             UIConfig.PART_THIRD -> {
                 when(position){
                     0 -> startNextUI(LottieAnimActivity::class.java,title)

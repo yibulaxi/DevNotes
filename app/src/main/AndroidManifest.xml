@@ -41,7 +41,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>
         -->
-        <activity android:name=".ui.activity.HomeNewActivity">
+        <activity android:name=".ui.activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,16 +65,13 @@
         <activity android:name=".chapter.c3.PaintActivity" />
         <activity android:name=".chapter.c3.DrawAdvanceActivity" />
         <activity android:name=".chapter.c4.ViewHomeActivity" />
-        <activity android:name=".ui.cool300.chapter1.Chapter1" />
         <activity android:name=".ui.cool300.chapter1.Simple_005" />
         <activity android:name=".ui.cool300.chapter1.Simple_009" />
         <activity android:name=".ui.cool300.chapter1.Simple_010" />
         <activity android:name=".ui.cool300.chapter1.Simple_022" />
-        <activity android:name=".ui.cool300.chapter3.Menu" />
         <activity android:name=".ui.cool300.chapter3.Simple_063" />
         <activity android:name=".ui.cool300.chapter3.Simple_071" />
         <activity android:name=".ui.cool300.chapter3.Simple_072" />
-        <activity android:name=".ui.cool300.chapter5.Chapter5" />
         <activity android:name=".ui.cool300.chapter5.Simple_143" /> <!-- system ui -->
         <activity android:name=".ui.system.ImageViewActivity" />
         <activity android:name=".ui.system.DialogActivity" />
