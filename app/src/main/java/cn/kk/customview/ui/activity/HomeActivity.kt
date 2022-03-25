@@ -83,6 +83,7 @@ class HomeActivity: BaseActivity() {
                 partType = UIConfig.PART_WORK
                 addItem("时间水平进度条")
                 addItem("闪烁按钮")
+                addItem("渐变图片")
             })
         })
 

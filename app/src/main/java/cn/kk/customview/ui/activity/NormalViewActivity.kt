@@ -2,11 +2,15 @@ package cn.kk.customview.ui.activity
 
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
+import cn.kk.customview.widget.GradientImageView
 import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
 import kotlinx.android.synthetic.main.activity_normal_view.*
 
+/**
+ * 用来显示单纯的 View(各种自定义的 View) 页面
+ */
 class NormalViewActivity: BaseActivity() {
 
     companion object {
@@ -16,6 +20,8 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_TEXT_MEAUSRE = 1
         // 范围裁剪和几何变换
         val VIEW_TYPE_CLIP_AND_TRANS = 2
+        // 图片渐变
+        val VIEW_TYPE_GRADIENT_IMG = 3
     }
 
     override fun getLayout(): Int {
@@ -30,6 +36,7 @@ class NormalViewActivity: BaseActivity() {
             VIEW_TYPE_XFERMODE_AVATARVIEW -> view_container.addView(AvatarView(this))
             VIEW_TYPE_TEXT_MEAUSRE -> view_container.addView(MultilineTextView(this))
             VIEW_TYPE_CLIP_AND_TRANS -> view_container.addView(CameraView(this))
+            VIEW_TYPE_GRADIENT_IMG -> view_container.addView(GradientImageView(this))
             else -> {
             }
         }
