@@ -6,6 +6,7 @@ import cn.kk.customview.widget.GradientImageView
 import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
+import com.example.hencoder.draw.SimpleDrawable
 import kotlinx.android.synthetic.main.activity_normal_view.*
 
 /**
@@ -22,6 +23,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_CLIP_AND_TRANS = 2
         // 图片渐变
         val VIEW_TYPE_GRADIENT_IMG = 3
+        val VIEW_TYPE_DRAWABLE = 5
     }
 
     override fun getLayout(): Int {
@@ -37,6 +39,7 @@ class NormalViewActivity: BaseActivity() {
             VIEW_TYPE_TEXT_MEAUSRE -> view_container.addView(MultilineTextView(this))
             VIEW_TYPE_CLIP_AND_TRANS -> view_container.addView(CameraView(this))
             VIEW_TYPE_GRADIENT_IMG -> view_container.addView(GradientImageView(this))
+            VIEW_TYPE_DRAWABLE -> view_container.addView(SimpleDrawable(this))
             else -> {
             }
         }

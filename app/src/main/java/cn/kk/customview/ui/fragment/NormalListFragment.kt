@@ -114,15 +114,18 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     0 -> startNextUI(LottieAnimActivity::class.java,title)
                 }
             }
+            // region Hencoder
             UIConfig.PART_HENCODER -> {
                 when(position){
                     0 -> startNextUI(GraphicLocationAndSizeMeasureActivity::class.java, title)
                     1 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_XFERMODE_AVATARVIEW)
                     2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXT_MEAUSRE)
                     3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CLIP_AND_TRANS)
+                    5 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAWABLE)
                     11 -> startNextUI(TouchFeedBackActivity::class.java, title)
                 }
             }
+            // endregion
             UIConfig.PART_WORK -> {
                 when(position){
                     0 -> startNextUI(TimeProgressActivity::class.java, title)

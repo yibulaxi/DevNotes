@@ -4,8 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Point
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.util.TypedValue
 import android.view.View
 import android.widget.EditText
@@ -125,4 +129,24 @@ object UIHelper {
     }
 
     // endregion
+
+    fun bitmap2Drawable(bitmap: Bitmap, context: Context): Drawable{
+        return BitmapDrawable(context.resources, bitmap)
+    }
+
+    fun drawable2Bitmap(drawable: Drawable): Bitmap{
+        if (drawable is BitmapDrawable) return drawable.bitmap
+        if (drawable.intrinsicWidth <= 0 ||drawable.intrinsicHeight <=0){
+            return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+        } else {
+            return Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+        }
+        var bitmap: Bitmap
+        val canvas = Canvas(bitmap)
+        drawable.apply {
+            setBounds(0, 0, canvas.width, canvas.height)
+            draw(canvas)
+        }
+        return bitmap
+    }
 }

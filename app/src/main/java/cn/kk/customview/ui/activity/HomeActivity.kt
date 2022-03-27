@@ -63,6 +63,7 @@ class HomeActivity: BaseActivity() {
                 addItem("LottieAnim")
             })
 
+            // region Hencoder
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_HENCODER
                 addItem("图形的位置和尺寸测量 136min")
@@ -78,6 +79,7 @@ class HomeActivity: BaseActivity() {
                 addItem("绘制流程源码解析 81min")
                 addItem("触摸反馈系列")
             })
+            // endregion
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_WORK
