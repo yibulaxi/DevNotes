@@ -1,6 +1,7 @@
 package cn.kk.customview.ui.system
 
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.base.dialog.CommentFragment
 import cn.kk.base.dialog.CommentFragmentV2
 import cn.kk.base.dialog.SimpleBottomDialog
@@ -11,11 +12,11 @@ class DialogActivity: BaseActivity() {
        return R.layout.activity_dialog
     }
 
-    override fun getItemNameList(): MutableList<String> {
-        return mutableListOf<String>().apply {
-            add("DialogFragment")
-            add("BottomSheetDialog")
-            add("BottomSheetDialog with theme")
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        return mutableListOf<ListItemAction>().apply {
+            add(ListItemAction("DialogFragment", true))
+            add(ListItemAction("BottomSheetDialog", true))
+            add(ListItemAction("BottomSheetDialog with theme", true))
         }
     }
 

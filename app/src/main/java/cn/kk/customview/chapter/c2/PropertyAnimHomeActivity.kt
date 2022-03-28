@@ -3,6 +3,7 @@ package cn.kk.customview.chapter.c2
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 import cn.kk.elementary.anim.property.`object`.AnimatorSetActivity
@@ -17,8 +18,8 @@ import cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity
 class PropertyAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun getLayout(): Int = R.layout.activity_base_home
 
-    override fun getItemNameList(): MutableList<String> {
-        return resources.getStringArray(R.array.property_anim_types).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        return getItemActionList(resources.getStringArray(R.array.property_anim_types))
     }
 
     override fun doWhenOnCreate() {
@@ -37,7 +38,7 @@ class PropertyAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        val itemName = itemList[position]
+        val itemName = itemList[position].title
         when(position){
             0 -> openNextUI(ValueAnimationActivity::class.java, itemName)
             1 -> openNextUI(InterpolationActivity::class.java, itemName)

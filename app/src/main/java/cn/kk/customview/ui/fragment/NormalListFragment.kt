@@ -9,6 +9,7 @@ import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
+import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.chapter.c1.DrawBasicActivity
 import cn.kk.customview.chapter.c2.AnimActivity
@@ -30,17 +31,22 @@ import cn.kk.customview.ui.system.material.MaterialActivity
 import cn.kk.customview.ui.work.FlickerActivity
 import cn.kk.customview.ui.work.TimeProgressActivity
 
+/**
+ * 普通列表 Fragment
+ */
 class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
     private val itemList = mutableListOf<String>()
+    private val itemActionList = mutableListOf<ListItemAction>()
     var partType = -1
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_normal_list
     }
 
-    fun addItem(item: String): NormalListFragment {
+    fun addItem(item: String, finishTag: Boolean = false): NormalListFragment {
         itemList.add(item)
+        itemActionList.add(ListItemAction(item, finishTag))
         return this
     }
 
@@ -50,7 +56,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
         rvList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = ListAdapter(itemList).apply {
+            adapter = ListAdapter(itemActionList).apply {
                 itemClickListener = this@NormalListFragment
             }
         }
@@ -68,6 +74,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     3 -> startNextUI(ViewHomeActivity::class.java, title)
                 }
             }
+            // region system UI
             UIConfig.PART_SYSTEM_UI -> {
                 when(position){
                     0 -> startNextUI(ImageViewActivity::class.java, title)
@@ -87,6 +94,8 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     14 ->startNextUI(DrawableSample::class.java, title)
                 }
             }
+            // endregion
+
             // region cool 300
             UIConfig.SubConfig.COMMON_VIEW -> {
                 when (position) {

@@ -23,6 +23,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_CLIP_AND_TRANS = 2
         // 图片渐变
         val VIEW_TYPE_GRADIENT_IMG = 3
+        // 自定义 drawable
         val VIEW_TYPE_DRAWABLE = 5
     }
 

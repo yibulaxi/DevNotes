@@ -31,47 +31,47 @@ class HomeActivity: BaseActivity() {
             // add fragment ui
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_SYSTEM_STUDY
-                addItem("绘图基础")
-                addItem("动画篇")
-                addItem("绘图篇")
+                addItem("绘图基础", true)
+                addItem("动画篇", true)
+                addItem("绘图篇", true)
                 addItem("视图篇")
             })
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_SYSTEM_UI
-                addItem("ImageView")
-                addItem("Dialog")
-                addItem("ImmersiveMode")
-                addItem("CoordinatorLayout")
-                addItem("CoordinatorLayout & CollapsingToolbarLayout")
+                addItem("ImageView", true)
+                addItem("Dialog", true)
+                addItem("ImmersiveMode", true)
+                addItem("CoordinatorLayout", true)
+                addItem("CoordinatorLayout & CollapsingToolbarLayout", true)
                 addItem("Custom Behavior")
-                addItem("Status Bar")
-                addItem("Line Height")
-                addItem("Material Design")
-                addItem("约束布局- TextView 长度可变")
-                addItem("TextView with drawable")
-                addItem("忽略系统大字体")
-                addItem("Html Text")
-                addItem("桌面小组件")
-                addItem("Drawable")
+                addItem("Status Bar", true)
+                addItem("Line Height", true)
+                addItem("Material Design", true)
+                addItem("约束布局- TextView 长度可变", true)
+                addItem("TextView with drawable", true)
+                addItem("忽略系统大字体", true)
+                addItem("Html Text", true)
+                addItem("桌面小组件", true)
+                addItem("Drawable", true)
             })
 
             add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_THIRD
-                addItem("LottieAnim")
+                addItem("LottieAnim", true)
             })
 
             // region Hencoder
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_HENCODER
-                addItem("图形的位置和尺寸测量 136min")
-                addItem("Xfermode 完全使用解析 43min")
-                addItem("文字的测量 99min")
-                addItem("范围裁剪和几何变换 63min")
+                addItem("图形的位置和尺寸测量 136min", true)
+                addItem("Xfermode 完全使用解析 43min", true)
+                addItem("文字的测量 99min", true)
+                addItem("范围裁剪和几何变换 63min", true)
                 addItem("属性动画和硬件加速 127min")
-                addItem("Bitmap 和 Drawable 54min")
+                addItem("Bitmap 和 Drawable 54min", true)
                 addItem("手写 MaterialEditText 76min")
                 addItem("布局流程完全解析 35min")
                 addItem("尺寸的自定义 40min")
@@ -83,9 +83,9 @@ class HomeActivity: BaseActivity() {
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_WORK
-                addItem("时间水平进度条")
-                addItem("闪烁按钮")
-                addItem("渐变图片")
+                addItem("时间水平进度条", true)
+                addItem("闪烁按钮", true)
+                addItem("渐变图片", true)
             })
         })
 

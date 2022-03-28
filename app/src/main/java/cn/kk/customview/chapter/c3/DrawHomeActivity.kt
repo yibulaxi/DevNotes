@@ -3,6 +3,7 @@ package cn.kk.customview.chapter.c3
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 
@@ -19,8 +20,7 @@ class DrawHomeActivity : BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun getLayout(): Int = R.layout.activity_base_list
 
-    override fun getItemNameList(): MutableList<String> =
-        resources.getStringArray(R.array.draw_sections).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> = getItemActionList( resources.getStringArray(R.array.draw_sections))
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -42,8 +42,8 @@ class DrawHomeActivity : BaseActivity(), ListAdapter.ItemClickListener {
         val nextTitle = itemList[position]
         when (position) {
             // region 打开视图动画
-            0 -> openNextUI(PaintActivity::class.java, nextTitle)
-            1 -> openNextUI(DrawAdvanceActivity::class.java, nextTitle)
+            0 -> openNextUI(PaintActivity::class.java, nextTitle.title)
+            1 -> openNextUI(DrawAdvanceActivity::class.java, nextTitle.title)
             // endregion
         }
     }

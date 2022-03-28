@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
+import cn.kk.base.bean.ListItemAction
 import cn.kk.elementary.R
 
 /**
@@ -23,8 +24,8 @@ class AnimatorSetCommonFuncsActivity: BaseActivity(), ListAdapter.ItemClickListe
 
     override fun getLayout(): Int = R.layout.activity_base_list
 
-    override fun getItemNameList(): MutableList<String> {
-        return resources.getStringArray(R.array.animator_set_common_funs).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        return getItemActionList(resources.getStringArray(R.array.animator_set_common_funs))
     }
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()

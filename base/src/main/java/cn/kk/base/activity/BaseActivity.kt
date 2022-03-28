@@ -16,6 +16,7 @@ import cn.kk.base.LogHelper
 import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.adapter.ListV2Adapter
+import cn.kk.base.bean.ListItemAction
 
 /**
  * Activity 基类
@@ -40,7 +41,7 @@ abstract class BaseActivity: BasicActivity() {
     /**
      * 具体的子类，要用到的 item 列表
      */
-    protected val itemList: MutableList<String> by lazy {
+    protected val itemList: MutableList<ListItemAction> by lazy {
         getItemNameList()
     }
 
@@ -102,21 +103,32 @@ abstract class BaseActivity: BasicActivity() {
         initAdapter()
     }
 
-    protected  open fun getItemNameList(): MutableList<String>{
+    protected  open fun getItemNameList(): MutableList<ListItemAction>{
         // 如果子类不重写，默认就返回空的集合。
         return mutableListOf()
+    }
+
+    open fun getItemActionList(names: Array<String>, finishTag: Boolean = false): MutableList<ListItemAction> {
+        val list = mutableListOf<ListItemAction>()
+        for (name in names) {
+            list.add(ListItemAction(name, finishTag))
+        }
+        return list
     }
 
     protected open fun showTitle(){
         val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle?.text = title
-        tvTitle?.setOnLongClickListener(object : View.OnLongClickListener{
-            override fun onLongClick(v: View?): Boolean {
-               showToast(TAG)
-                return true
-            }
+        tvTitle?.setOnLongClickListener {
+            showToast(TAG)
+            true
+        }
 
-        })
+        // long click toolbar
+       baseToolbar?.setOnLongClickListener {
+           showToast(TAG)
+           true
+       }
     }
 
     protected open fun initAdapter(){

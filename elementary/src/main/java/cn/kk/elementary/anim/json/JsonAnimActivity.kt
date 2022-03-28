@@ -1,6 +1,7 @@
 package cn.kk.elementary.anim.json
 
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.elementary.R
 import kotlinx.android.synthetic.main.activity_anim_json.*
 
@@ -19,13 +20,17 @@ class JsonAnimActivity: BaseActivity() {
         super.doWhenOnCreate()
 
         btn_play.setOnClickListener {
-            lottieAnim.setAnimation(itemList[count++ % 4])
+            lottieAnim.setAnimation(itemList[count++ % 4].title)
             lottieAnim.playAnimation()
 
         }
     }
 
-    override fun getItemNameList(): MutableList<String> {
-       return anims.toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        val list = mutableListOf<ListItemAction>()
+        anims.toMutableList().forEach {
+            list.add(ListItemAction(it, true))
+        }
+       return list
     }
 }

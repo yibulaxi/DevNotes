@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import cn.kk.base.bean.ListItemAction
 
 abstract class BaseFragment: Fragment() {
 
@@ -15,7 +16,11 @@ abstract class BaseFragment: Fragment() {
 
     abstract fun getLayoutId(): Int
 
-    /*protected open fun getItemList(): MutableList<String>{
-        return mutableListOf()
-    }*/
+    open fun getItemActionList(names: Array<String>): MutableList<ListItemAction> {
+        val list = mutableListOf<ListItemAction>()
+        for (name in names) {
+            list.add(ListItemAction(name))
+        }
+        return list
+    }
 }

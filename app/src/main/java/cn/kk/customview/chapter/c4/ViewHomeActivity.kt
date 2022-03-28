@@ -3,6 +3,7 @@ package cn.kk.customview.chapter.c4
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 
@@ -13,7 +14,7 @@ class ViewHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun getLayout(): Int = R.layout.activity_base_list
 
-    override fun getItemNameList(): MutableList<String> = resources.getStringArray(R.array.view_sections).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> = getItemActionList(resources.getStringArray(R.array.view_sections))
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()

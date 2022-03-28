@@ -1,6 +1,7 @@
 package cn.kk.customview.ui.system.material
 
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 
 class MaterialActivity: BaseActivity() {
@@ -8,10 +9,10 @@ class MaterialActivity: BaseActivity() {
       return  R.layout.activity_material
     }
 
-    override fun getItemNameList(): MutableList<String> {
-        return mutableListOf<String>().apply {
-            add("CardView")
-            add("Toolbar")
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        return mutableListOf<ListItemAction>().apply {
+            add(ListItemAction("CardView", true))
+            add(ListItemAction("Toolbar", true))
         }
     }
 

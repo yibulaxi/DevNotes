@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
+import cn.kk.base.bean.ListItemAction
 import cn.kk.elementary.R
 
 /**
@@ -12,8 +13,12 @@ import cn.kk.elementary.R
 class AnimatorSetActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun getLayout(): Int = R.layout.activity_base_list
 
-    override fun getItemNameList(): MutableList<String> {
-        return resources.getStringArray(R.array.animator_set_types).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        val itemList = mutableListOf<ListItemAction>()
+        for (s in resources.getStringArray(R.array.animator_set_types).toMutableList()) {
+            itemList.add(ListItemAction(s, true))
+        }
+        return itemList
     }
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -31,7 +36,7 @@ class AnimatorSetActivity: BaseActivity(), ListAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        val title = itemList[position]
+        val title = itemList[position].title
         when(position){
             // region 3.5.1 playSequentially() 与 playTogether() 函数
             0 -> openNextUI(AnimatorSetDualPlayFunActivity::class.java, title)

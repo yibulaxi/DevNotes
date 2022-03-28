@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.kk.base.adapter.ListAdapter
+import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.elementary.R
 import kotlinx.android.synthetic.main.fragment_hardware_accelerate.*
@@ -15,8 +16,8 @@ import kotlinx.android.synthetic.main.fragment_paint_funs.*
  */
 class PaintFunsFragment: BaseFragment() {
 
-    val funsArray: MutableList<String> by lazy {
-        resources.getStringArray(R.array.paint_common_funs).toMutableList()
+    val funsArray: MutableList<ListItemAction> by lazy {
+       getItemActionList(resources.getStringArray(R.array.paint_common_funs))
     }
     override fun getLayoutId(): Int = R.layout.fragment_paint_funs
 

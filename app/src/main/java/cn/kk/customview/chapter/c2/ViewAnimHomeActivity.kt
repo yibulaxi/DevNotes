@@ -3,6 +3,7 @@ package cn.kk.customview.chapter.c2
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 import cn.kk.customview.adpater.ListAdapter
 import cn.kk.customview.chapter.AnimInterpolatorActivity
@@ -15,8 +16,8 @@ import cn.kk.elementary.anim.view.AnimSampleActivity
 class ViewAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
     override fun getLayout(): Int = R.layout.activity_view_anim_home
 
-    override fun getItemNameList(): MutableList<String> {
-        return resources.getStringArray(R.array.view_anim_types).toMutableList()
+    override fun getItemNameList(): MutableList<ListItemAction> {
+        return getItemActionList(resources.getStringArray(R.array.view_anim_types))
     }
 
     override fun doWhenOnCreate() {
@@ -36,9 +37,9 @@ class ViewAnimHomeActivity: BaseActivity(), ListAdapter.ItemClickListener {
 
     override fun onItemClick(position: Int) {
         when(position){
-            0 -> openNextUI(ViewAnimIntrosActivity::class.java, itemList[position])
-            1 -> openNextUI(AnimSampleActivity::class.java, itemList[position])
-            2 -> openNextUI(AnimInterpolatorActivity::class.java, itemList[position])
+            0 -> openNextUI(ViewAnimIntrosActivity::class.java, itemList[position].title)
+            1 -> openNextUI(AnimSampleActivity::class.java, itemList[position].title)
+            2 -> openNextUI(AnimInterpolatorActivity::class.java, itemList[position].title)
         }
     }
 }
