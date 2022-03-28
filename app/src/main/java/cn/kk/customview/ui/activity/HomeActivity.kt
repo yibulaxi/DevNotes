@@ -86,6 +86,9 @@ class HomeActivity: BaseActivity() {
                 addItem("时间水平进度条", true)
                 addItem("闪烁按钮", true)
                 addItem("渐变图片", true)
+                addItem("区间拖拽条", true)
+                addItem("拼写组件", false)
+                addItem("日历打卡组件", false)
             })
         })
 

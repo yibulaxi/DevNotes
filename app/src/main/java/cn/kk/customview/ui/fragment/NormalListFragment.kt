@@ -140,6 +140,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     0 -> startNextUI(TimeProgressActivity::class.java, title)
                     1 -> startNextUI(FlickerActivity::class.java, title)
                     2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_GRADIENT_IMG)
+                    3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAG_LEVEL)
                 }
             }
         }

@@ -1,14 +1,19 @@
-package cn.kk.customview.widget
+package com.kk.work.widget
 
 import android.content.Context
 import android.graphics.*
+import android.preference.PreferenceManager
 import android.util.AttributeSet
 import android.util.Log
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 import androidx.core.content.res.ResourcesCompat
-import cn.kk.customview.R
-import cn.kk.customview.utils.ValueUtil
+import cn.kk.base.BuildConfig
+import cn.kk.base.UIHelper
+import com.kk.work.R
 
 /**
  * 单词等级拖动条
@@ -19,8 +24,6 @@ import cn.kk.customview.utils.ValueUtil
  * 5. 支持拖拽 ok
  * 6. 支持放手后修正 ok
  * 7. 支持按下后更新区间，抬起手后修正区间 ok
- * 8. 请求父控件不要拦截触摸事件 ok
- * 9. 支持 padding 属性
  */
 
 // 单词等级默认 5个 级别
@@ -33,18 +36,17 @@ val ANCHOR_RING_END_FLAG = 1
 class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): View(mContext,attributeSet) {
     val TAG = this::class.java.simpleName
 
-    constructor(context: Context): this(context, null)
-
+    var onLevelChangedCallback: OnLevelChangedCallback? = null
     // 未选中背景颜色
-    var normalBgColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.grey_c,null)
+    var normalBgColor: Int = Color.GRAY
     // 选中背景颜色
-    var selectBgColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.ting_color_alpha20,null)
+    var selectBgColor: Int = Color.GREEN
     // 未选中的单词等级导航点颜色
-    var normalVocabularyAnchorColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.grey_8,null)
+    var normalVocabularyAnchorColor: Int = Color.DKGRAY
     // 选中的单词等级导航点颜色
     var selectedAnchorColor: Int = Color.WHITE
     // 选中的单词等级端点圆环颜色
-    var selectedAnchorRingColor: Int = ResourcesCompat.getColor(mContext.resources,R.color.ting_color,null)
+    var selectedAnchorRingColor: Int = ResourcesCompat.getColor(mContext.resources, R.color.colorPrimary ,null)
 
     // 画笔
     // 画笔- 背景
@@ -72,12 +74,14 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
 
 
     // 数字参数
-    // 1. 单词等级锚点左右间距
-    val selectedPointMargin = ValueUtil.dp2px(30f)
+    // 1. 单词等级锚点左右间距. 效果是：端点半圆的圆心和端点锚点圆心一样。
+    val selectedPointMargin by lazy {
+        getDrawHeight() / 2f
+    }
     // 2. 单词等级数量
     val levelCount = DEFAULT_VOCABULARY_LEVEL_COUNT
     // 3. 单词等级锚点，半径
-    val levelAnchorRadius = ValueUtil.dp2px(3f)
+    val levelAnchorRadius = UIHelper.dp2px(3f)
     // 4. 单词等级区间，选中圆环，半径（绘制时的半径）.
     val selectedLevelRingRadius by lazy {
         levelAnchorRadius + (paintAnchorRingSelected.strokeWidth / 2)
@@ -91,16 +95,17 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     var startLevel = 0
 
     // 选中的最高等级. 默认是 1星
-    var endLevel = 3
+    var endLevel = 0
 
     // 锚点数组
     val anchorsArray = arrayOfNulls<PointF>(levelCount)
 
     init {
-
+        //  从本地获取设置的 startLevel 和 endLevel
+        val defaultSP = PreferenceManager.getDefaultSharedPreferences(mContext)
         viewTreeObserver.addOnGlobalLayoutListener {
             paintAnchorRingSelected.apply { // 初始化圆环画笔的宽度
-                strokeWidth = getCorrectHeight() / 2 - levelAnchorRadius
+                strokeWidth = getDrawHeight() / 2 - levelAnchorRadius
             }
         }
 
@@ -111,10 +116,10 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         // 1. 绘制基本背景形状. 两头是半圆的矩形
         val t = 0f + paddingTop
         val b = height.toFloat() - paddingBottom
-        val l = 0f + paddingLeft
-        val r = width.toFloat() - paddingRight
+        val l = 0f
+        val r = width.toFloat()
         val rectBg = RectF(l, t, r, b)
-        val radiusBg: Float = (height / 2).toFloat()
+        val radiusBg: Float = (getDrawHeight() / 2).toFloat()
         canvas.drawRoundRect(rectBg,radiusBg,radiusBg,paintNormalBg)
 
         // 2. 绘制单词等级锚点
@@ -178,8 +183,10 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         // 5. 绘制临时（拖动的）圆环.
         if (pressEvent || moveEvent){ // 按下或者拖拽
             drawRing(currentPressP.x,canvas)
+            printLog("按下或者拖拽")
         } else {
             if (closestAnchorIndex != -1) { // 手指抬起
+                printLog("手指抬起")
                 val anchorCenterPWhenUP = getAnchorCenterP(closestAnchorIndex)
                 drawRing(anchorCenterPWhenUP.x, canvas)
 
@@ -191,6 +198,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                     endLevel = closestAnchorIndex
                     correctLevelRegion()
                 }
+                // 把新的状态通知出去
+                onLevelChangedCallback?.onChange(startLevel,endLevel)
             }
         }
 
@@ -240,6 +249,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 是否能腿拽
     var canDraft = false
     var lastTouchX = -1f
+    var lastTouchY = -1f
     var pressEvent = false
     var moveEvent = false
 
@@ -251,8 +261,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
     // 按下后，要改变的圆环端点标记。0: 左边起点端点 1: 右边终点端点
     var nextChangeRingFlag = -1
 
+
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        // 请求父控件不要拦截触摸事件
         parent.requestDisallowInterceptTouchEvent(true)
         return super.dispatchTouchEvent(event)
     }
@@ -274,6 +284,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 val distanceSquare = diffX * diffX + diffY * diffY
                 if (distanceSquare < selectedLevelVersionRealRadius * selectedLevelVersionRealRadius){
                     canDraft = true
+                } else {
+                    printLog("超出按下范围了")
                 }
 
                 canDraft = canDragWhenTouch(startLevel, event.x, event.y)
@@ -286,6 +298,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 printLog("可拖拽：$canDraft")
                 if (canDraft){
                     lastTouchX = event.x
+                    lastTouchY = event.y
                 }
 
                 // 处理按下后，选中圆环的最新位置（临时，手指离开屏幕后需要规正）
@@ -310,7 +323,17 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 invalidate()
             }
             MotionEvent.ACTION_MOVE -> {
+                // 计算水平移动距离，屏蔽掉 y 轴的拖动
+                /*val moveDistanceX = Math.abs(event!!.x - lastTouchX)
+                val moveDistanceY = Math.abs(event!!.y - lastTouchY)
+                printLog("水平移动：${moveDistanceX}")
+                if (moveDistanceY > moveDistanceX) return false*/
+
                 moveEvent = true
+
+                // 限制拖拽范围
+                if (event.x < 0 + getDrawHeight() / 2) return false
+                if (event.x > width - getDrawHeight() / 2) return false
                 currentPressP.apply {
                     x = event.x
                     y = height / 2f
@@ -321,10 +344,8 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 if (!canDraft){
                     return false
                 }
-               /* // 计算水平移动距离，屏蔽掉 y 轴的拖动
-                val moveDistanceX = event!!.x - lastTouchX
-                printLog("水平移动：${moveDistanceX}")
-                // 绘制临时圆环
+
+               /* // 绘制临时圆环
                 // 获取触摸点最近的锚点圆环圆心坐标
                 val closestRingPoint = getAnchorCenterP(startLevel)
                 val tempRingCenterP = PointF().apply {
@@ -337,6 +358,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         }
 
         lastTouchX = event!!.x
+        lastTouchY = event!!.y
         return true
     }
 
@@ -409,20 +431,38 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
         }, paintSelectedBg)
     }
 
-
-    /**
-     * 计算能绘制区域的高度
-     */
-    fun getCorrectHeight(): Int{
-        return height - paddingTop - paddingBottom
+    @ColorInt
+    fun Context.getColorFromAttr(
+        @AttrRes attrColor: Int,
+        typedValue: TypedValue = TypedValue(),
+        resolveRefs: Boolean = true
+    ): Int {
+        theme.resolveAttribute(attrColor, typedValue, resolveRefs)
+        return typedValue.data
     }
 
     /**
      * 打印日志
      */
     fun printLog(info: String){
-        Log.d(TAG, "printLog: $info")
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "printLog: $info")
+        }
     }
 
+    /**
+     * 获取绘制区域高度
+     */
+    fun getDrawHeight(): Int{
+        return height - paddingTop - paddingBottom
+    }
 
+}
+
+/**
+ * 单词等级变化监听
+ */
+interface OnLevelChangedCallback {
+
+    fun onChange(startLevel: Int, endLevel: Int)
 }
