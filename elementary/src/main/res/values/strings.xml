@@ -88,4 +88,13 @@
         <item>setTypeFace(): 设置字体样式</item>
         <item>setLinearText(): 设置是否打开线性文本标识</item>
     </string-array>
+
+    <string-array name="touch_feed">
+        <item>触摸反馈：原理全解析 119min</item>
+        <item>双向滑动的 ScalableImageView 180min</item>
+        <item>多点触控的原理和写法全解析 116min</item>
+        <item>ViewGroup 的触摸反馈 41min</item>
+        <item>自定义触摸算法之拖拽 API 详解 57min</item>
+        <item>嵌套滑动 21min</item>
+    </string-array>
 </resources>

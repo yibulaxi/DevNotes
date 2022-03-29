@@ -6,25 +6,24 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.R
-import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
+import cn.kk.customview.activity.NormalListActivity
 import cn.kk.customview.chapter.c1.DrawBasicActivity
 import cn.kk.customview.chapter.c2.AnimActivity
 import cn.kk.customview.chapter.c3.DrawHomeActivity
 import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
-import cn.kk.customview.ui.activity.NormalViewActivity
+import cn.kk.customview.activity.NormalViewActivity
 import cn.kk.customview.ui.cool300.chapter1.*
 import cn.kk.customview.ui.cool300.chapter3.Simple_063
 import cn.kk.customview.ui.cool300.chapter3.Simple_071
 import cn.kk.customview.ui.cool300.chapter3.Simple_072
 import cn.kk.customview.ui.cool300.chapter5.Simple_143
 import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
-import cn.kk.customview.ui.hencoder.touch.TouchFeedBackActivity
 import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.drawable.DrawableSample
 import cn.kk.customview.ui.system.material.MaterialActivity
@@ -131,7 +130,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXT_MEAUSRE)
                     3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CLIP_AND_TRANS)
                     5 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAWABLE)
-                    11 -> startNextUI(TouchFeedBackActivity::class.java, title)
+                    11 -> startNextUI(NormalListActivity::class.java, title)
                 }
             }
             // endregion

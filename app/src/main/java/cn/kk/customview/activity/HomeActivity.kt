@@ -1,4 +1,4 @@
-package cn.kk.customview.ui.activity
+package cn.kk.customview.activity
 
 import androidx.fragment.app.Fragment
 import cn.kk.base.activity.BaseActivity

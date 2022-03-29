@@ -3,18 +3,14 @@ package cn.kk.customview.ui.system.drawable
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
-import cn.kk.customview.ui.activity.NormalViewActivity
-import cn.kk.customview.ui.cool300.chapter1.Simple_005
-import cn.kk.customview.ui.cool300.chapter1.Simple_009
-import cn.kk.customview.ui.cool300.chapter1.Simple_010
-import cn.kk.customview.ui.cool300.chapter1.Simple_022
+import cn.kk.customview.activity.NormalViewActivity
 
 /**
  * Html 显示在 TextView 上
  */
 class DrawableSample: BaseActivity() {
     override fun getLayout(): Int {
-        return R.layout.activity_basic
+        return R.layout.activity_normal_list
     }
 
     override fun setListViewID(): Int {

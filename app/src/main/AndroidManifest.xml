@@ -32,16 +32,12 @@
                 android:resource="@xml/k_k_app_widget_info" />
         </receiver>
 
-        <activity
-            android:name=".ui.fragment.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/NoTitle.NoActionBar" />
         <!--
  <meta-data
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>
         -->
-        <activity android:name=".ui.activity.HomeActivity">
+        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,8 +73,8 @@
         <activity android:name=".ui.system.ImmersiveModeActivity" />
 
         <activity android:name=".ui.hencoder.GraphicLocationAndSizeMeasureActivity"/>
-        <activity android:name=".ui.hencoder.touch.TouchFeedBackActivity"/>
-        <activity android:name=".ui.activity.NormalViewActivity"/>
+        <activity android:name=".activity.NormalListActivity"/>
+        <activity android:name=".activity.NormalViewActivity"/>
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"
             android:theme="@style/Theme.Default" />

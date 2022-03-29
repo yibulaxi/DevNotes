@@ -1,4 +1,4 @@
-package cn.kk.customview.ui.activity
+package cn.kk.customview.activity
 
 import android.view.Gravity
 import android.widget.FrameLayout

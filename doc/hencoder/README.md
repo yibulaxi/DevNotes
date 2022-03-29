@@ -4,3 +4,4 @@
 
 - [图形的位置和尺寸测量](lesson_1.md)
 - [Bitmap 和 Drawable](lesson_6.md)
+- [触摸反馈系列](lesson_12.md)
