@@ -1,6 +1,7 @@
 package cn.kk.customview.activity
 
 import android.view.Gravity
+import android.view.View
 import android.widget.FrameLayout
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
@@ -11,6 +12,7 @@ import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
 import com.example.hencoder.draw.SimpleDrawable
+import com.example.hencoder.touch.TouchView
 import kotlinx.android.synthetic.main.activity_normal_view.*
 
 /**
@@ -31,6 +33,9 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_DRAG_LEVEL = 4
         // 自定义 drawable
         val VIEW_TYPE_DRAWABLE = 5
+
+        // 触摸反馈：原理全解析
+        val VIEW_TYPE_TOUCH_FEED_1 = 10
     }
 
     override fun getLayout(): Int {
@@ -55,8 +60,21 @@ class NormalViewActivity: BaseActivity() {
                 }
             })
             VIEW_TYPE_DRAWABLE -> view_container.addView(SimpleDrawable(this))
+            VIEW_TYPE_TOUCH_FEED_1 -> view_container.addView(getTouchView().apply {
+                /*findViewById<TouchView>(R.id.touchView).setOnClickListener {
+                    showToast("click..")
+                }*/
+            })
             else -> {
             }
         }
+    }
+
+    /**
+     * 获取 TouchView
+     * 以填充布局文件的方式
+     */
+   private fun getTouchView(): View {
+       return layoutInflater.inflate(R.layout.view_at_touchview_layout, null)
     }
 }

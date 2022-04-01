@@ -116,6 +116,12 @@ abstract class BaseActivity: BasicActivity() {
         return list
     }
 
+    open fun changeItemFinishTag(index: Int, tag: Boolean){
+        if (itemList.isNotEmpty() && itemList.size > index && index >= 0) {
+            itemList[index].finish = tag
+        }
+    }
+
     protected open fun showTitle(){
         val tvTitle = findViewById<TextView>(R.id.tv_page_title)
         tvTitle?.text = title

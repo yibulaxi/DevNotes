@@ -77,7 +77,7 @@ class HomeActivity: BaseActivity() {
                 addItem("尺寸的自定义 40min")
                 addItem("Layout 的自定义 65min")
                 addItem("绘制流程源码解析 81min")
-                addItem("触摸反馈系列")
+                addItem("触摸反馈系列", true)
             })
             // endregion
 
@@ -89,6 +89,7 @@ class HomeActivity: BaseActivity() {
                 addItem("区间拖拽条", true)
                 addItem("拼写组件", false)
                 addItem("日历打卡组件", false)
+                addItem("拖动排序列表", true)
             })
         })
 

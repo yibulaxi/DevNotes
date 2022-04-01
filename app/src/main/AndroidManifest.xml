@@ -75,6 +75,7 @@
         <activity android:name=".ui.hencoder.GraphicLocationAndSizeMeasureActivity"/>
         <activity android:name=".activity.NormalListActivity"/>
         <activity android:name=".activity.NormalViewActivity"/>
+
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"
             android:theme="@style/Theme.Default" />
@@ -101,6 +102,7 @@
 
         <activity android:name=".ui.work.TimeProgressActivity" />
         <activity android:name=".ui.work.FlickerActivity" />
+        <activity android:name=".ui.work.DragListActivity"/>
     </application>
 
 </manifest>
