@@ -2,6 +2,7 @@ package com.example.hencoder.touch
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.ViewGroup
 
 /**
@@ -15,5 +16,16 @@ class TouchLayout(context: Context, attributeSet: AttributeSet?): ViewGroup(cont
 
     override fun shouldDelayChildPressedState(): Boolean {
         return false
+    }
+
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
+        // 根据需要拦截，默认不拦截
+        val intercept = true
+        if (intercept) return true
+        return super.onInterceptTouchEvent(ev)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return super.onTouchEvent(event)
     }
 }

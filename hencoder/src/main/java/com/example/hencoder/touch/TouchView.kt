@@ -22,6 +22,13 @@ import android.view.View
  *          4.1 属性：tooltipText: 解释性描述(长安后显示)。API 26 之后引入
  *          4.2 ShouldDelayChildPressedState(), 延迟 100ms 判断 子view 是否要滑动。
  *           那么如果自定义 ViewGroup 不需要滑动的话，就要重写这个方法，并且返回 false。见：[TouchLayout]
+ *          4.3  MotionEvent.DOWN
+ *              1. setPress(true, x, y) // 标记按下
+ *              2. checkForLongClick()  // 设置长按等待器
+ *          4.4 MotionEvent.MOVE
+ *              1. if(clickable) drawableHotSpotChange(x, y); // 点击波纹效果，手指移动时，波纹中心跟随移动
+ *
+ *
  *  4. 其他相关的自定义类：[TouchLayout]
  */
 class TouchView(context: Context, attributeSet: AttributeSet?): View(context, attributeSet) {

@@ -12,6 +12,7 @@ import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
 import com.example.hencoder.draw.SimpleDrawable
+import com.example.hencoder.touch.ScalableImageView
 import com.example.hencoder.touch.TouchView
 import kotlinx.android.synthetic.main.activity_normal_view.*
 
@@ -36,6 +37,7 @@ class NormalViewActivity: BaseActivity() {
 
         // 触摸反馈：原理全解析
         val VIEW_TYPE_TOUCH_FEED_1 = 10
+        val VIEW_TYPE_TOUCH_FEED_2 = 11 // 双向滑动的 ScalableImageView
     }
 
     override fun getLayout(): Int {
@@ -65,6 +67,7 @@ class NormalViewActivity: BaseActivity() {
                     showToast("click..")
                 }*/
             })
+            VIEW_TYPE_TOUCH_FEED_2 -> view_container.addView(getScalableImageView())
             else -> {
             }
         }
@@ -76,5 +79,9 @@ class NormalViewActivity: BaseActivity() {
      */
    private fun getTouchView(): View {
        return layoutInflater.inflate(R.layout.view_at_touchview_layout, null)
+    }
+
+    private fun getScalableImageView(): View {
+        return layoutInflater.inflate(R.layout.view_at_scalable_image_layout, null)
     }
 }

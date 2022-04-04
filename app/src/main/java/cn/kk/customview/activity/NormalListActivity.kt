@@ -28,10 +28,13 @@ class NormalListActivity: BaseActivity() {
         super.initAdapter()
         // 第一个标记 finish
         changeItemFinishTag(0, true)
+        // 第二个标记 finish
+        changeItemFinishTag(1, true)
         listAdapter.setOnItemClickListener { adapter, view, position ->
             val title = itemList[position].title
             when (position) {
                 0 -> openNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TOUCH_FEED_1)
+                1 -> openNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TOUCH_FEED_2)
             }
         }
         rv_list.adapter = listAdapter
