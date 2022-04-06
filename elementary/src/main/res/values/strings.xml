@@ -97,4 +97,10 @@
         <item>自定义触摸算法之拖拽 API 详解 57min</item>
         <item>嵌套滑动 21min</item>
     </string-array>
+
+    <string-array name="anim_items">
+        <item>视图动画</item>
+        <item>属性动画</item>
+        <item>动画进阶</item>
+    </string-array>
 </resources>

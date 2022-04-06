@@ -116,6 +116,13 @@ abstract class BaseActivity: BasicActivity() {
         return list
     }
 
+    /**
+     * 根据页面对列表类型获取
+     */
+    protected open fun getItemNamesByType(): MutableList<String> {
+        return mutableListOf()
+    }
+
     open fun changeItemFinishTag(index: Int, tag: Boolean){
         if (itemList.isNotEmpty() && itemList.size > index && index >= 0) {
             itemList[index].finish = tag

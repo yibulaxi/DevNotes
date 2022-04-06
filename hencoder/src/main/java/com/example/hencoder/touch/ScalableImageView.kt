@@ -21,6 +21,8 @@ import kotlin.math.min
 
 /**
  * 双向滑动
+ * 1. 默认是填充满父 view: 因此要计算缩放比例，于是有了 smallScale 和 bitScale
+ * 2. 双击缩放：双击 GestureDetectorCompat
  */
 private val IMAGE_SIZE = 300f.px.toInt()
 private val EXTRA_SCALA_FRACTION = 1.5f
@@ -98,6 +100,7 @@ class ScalableImageView(context: Context?, attrs: AttributeSet?) : View(context,
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        // 去掉原生功能，使用自己的手势外挂功能
         scaleGestureDetector.onTouchEvent(event)
         if (!scaleGestureDetector.isInProgress) { //如果没有正在缩放，那么也支持双击
             gestureDetectorCompat.onTouchEvent(event)

@@ -47,13 +47,9 @@
         <activity android:name="cn.kk.base.activity.CommentActivity" />
         <activity android:name=".ui.LottieAnimActivity" />
         <activity android:name=".chapter.c1.DrawBasicActivity" />
-        <activity android:name=".chapter.c2.AnimActivity" />
-        <activity android:name=".chapter.c2.ViewAnimHomeActivity" />
-        <activity android:name=".chapter.c2.AnimAdvanceHomeActivity" />
         <activity android:name="cn.kk.elementary.anim.view.AnimSampleActivity" />
         <activity android:name=".chapter.ViewAnimIntrosActivity" />
         <activity android:name=".chapter.AnimInterpolatorActivity" />
-        <activity android:name=".chapter.c2.PropertyAnimHomeActivity" />
         <activity android:name="cn.kk.elementary.anim.property.value.ValueAnimationActivity" />
         <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity" />
         <activity android:name=".chapter.c3.DrawHomeActivity" />
@@ -75,6 +71,7 @@
         <activity android:name=".ui.hencoder.GraphicLocationAndSizeMeasureActivity"/>
         <activity android:name=".activity.NormalListActivity"/>
         <activity android:name=".activity.NormalViewActivity"/>
+        <activity android:name=".activity.NormalTabActivity"/>
 
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"

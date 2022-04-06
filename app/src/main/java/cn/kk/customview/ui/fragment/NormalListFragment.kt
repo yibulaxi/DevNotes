@@ -10,14 +10,17 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
+import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalListActivity
+import cn.kk.customview.activity.NormalTabActivity
 import cn.kk.customview.chapter.c1.DrawBasicActivity
-import cn.kk.customview.chapter.c2.AnimActivity
 import cn.kk.customview.chapter.c3.DrawHomeActivity
 import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.activity.NormalViewActivity
+import cn.kk.customview.chapter.AnimInterpolatorActivity
+import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.customview.ui.cool300.chapter1.*
 import cn.kk.customview.ui.cool300.chapter3.Simple_063
 import cn.kk.customview.ui.cool300.chapter3.Simple_071
@@ -30,6 +33,12 @@ import cn.kk.customview.ui.system.material.MaterialActivity
 import cn.kk.customview.ui.work.DragListActivity
 import cn.kk.customview.ui.work.FlickerActivity
 import cn.kk.customview.ui.work.TimeProgressActivity
+import cn.kk.elementary.anim.property.`object`.AnimatorSetActivity
+import cn.kk.elementary.anim.property.`object`.ObjectAnimActivity
+import cn.kk.elementary.anim.property.value.ValueAnimationActivity
+import cn.kk.elementary.anim.property.value.evaluator.EvaluatorActivity
+import cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity
+import cn.kk.elementary.anim.view.AnimSampleActivity
 
 /**
  * 普通列表 Fragment
@@ -48,6 +57,12 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
         itemList.add(item)
         itemActionList.add(ListItemAction(item, finishTag))
         return this
+    }
+
+    fun addItems(items: MutableList<String>) {
+        for (item in items) {
+            addItem(item)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,7 +84,8 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
             UIConfig.PART_SYSTEM_STUDY -> {
                 when(position){
                     0 -> startNextUI(DrawBasicActivity::class.java, title)
-                    1 -> startNextUI(AnimActivity::class.java, title)
+//                    1 -> startNextUI(AnimActivity::class.java, title)
+                    1 -> startNextUI(NormalTabActivity::class.java, title, BaseTabActivity.TabType.ANIM_TYPE)
                     2 -> startNextUI(DrawHomeActivity::class.java, title)
                     3 -> startNextUI(ViewHomeActivity::class.java, title)
                 }
@@ -135,6 +151,8 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                 }
             }
             // endregion
+
+            // region work
             UIConfig.PART_WORK -> {
                 when(position){
                     0 -> startNextUI(TimeProgressActivity::class.java, title)
@@ -144,6 +162,35 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     6 -> startNextUI(DragListActivity::class.java, title)
                 }
             }
+            // endregion
+
+            // region sub ui
+
+            // anim- 视图动画
+            UIConfig.SubConfigSystem.Anim.ANIM_VIEW -> {
+                when (position) {
+                    0 -> startNextUI(ViewAnimIntrosActivity::class.java, itemList[position])
+                    1 -> startNextUI(AnimSampleActivity::class.java, itemList[position])
+                    2 -> startNextUI(AnimInterpolatorActivity::class.java, itemList[position])
+                }
+            }
+            // endregion
+
+            // anim- 属性动画
+            UIConfig.SubConfigSystem.Anim.ANIM_PROPERTY -> {
+                val itemName = itemList[position]
+                when (position) {
+                    0 -> startNextUI(ValueAnimationActivity::class.java, itemName)
+                    1 -> startNextUI(InterpolationActivity::class.java, itemName)
+                    2 -> startNextUI(EvaluatorActivity::class.java, itemName)
+                    3 -> startNextUI(ObjectAnimActivity::class.java, itemName)
+                    4 -> startNextUI(AnimatorSetActivity::class.java, itemName)
+                }
+            }
+            // endregion
+
+            // endregion
+
         }
     }
 

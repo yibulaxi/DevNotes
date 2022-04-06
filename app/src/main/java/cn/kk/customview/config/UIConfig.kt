@@ -35,4 +35,18 @@ class UIConfig {
 
     }
 
+    open class SubConfigSystem {
+
+        open class Anim {
+            companion object {
+                // 视图动画
+                val ANIM_VIEW = 100
+                // 属性动画
+                val ANIM_PROPERTY = 101
+                // 动画进阶
+                val ANIM_ADVANCE = 102
+            }
+        }
+    }
+
 }
