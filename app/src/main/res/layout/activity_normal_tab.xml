@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/layout_title"/>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         app:tabMode="scrollable"
@@ -13,8 +15,6 @@
         app:tabIndicator="@drawable/tab_indicator"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/black"
-        android:fitsSystemWindows="true"
-        android:paddingTop="?actionBarSize"
         android:background="?colorPrimary"
         app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         android:layout_width="match_parent"
