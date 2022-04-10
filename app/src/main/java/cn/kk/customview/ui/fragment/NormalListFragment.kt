@@ -157,6 +157,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     1 -> startNextUI(FlickerActivity::class.java, title)
                     2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_GRADIENT_IMG)
                     3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAG_LEVEL)
+                    5 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHECKIN_WEEK)
                     6 -> startNextUI(DragListActivity::class.java, title)
                 }
             }

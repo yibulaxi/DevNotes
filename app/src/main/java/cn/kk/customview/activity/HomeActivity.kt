@@ -81,6 +81,7 @@ class HomeActivity: BaseActivity() {
             })
             // endregion
 
+            // region work
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_WORK
                 addItem("时间水平进度条", true)
@@ -88,9 +89,10 @@ class HomeActivity: BaseActivity() {
                 addItem("渐变图片", true)
                 addItem("区间拖拽条", true)
                 addItem("拼写组件", false)
-                addItem("日历打卡组件", false)
+                addItem("日历打卡组件", true)
                 addItem("拖动排序列表", true)
             })
+            // endregion
         })
 
         // bind tabLayout and viewPager

@@ -2,12 +2,16 @@ package cn.kk.customview.activity
 
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.DateHelper
 import cn.kk.customview.R
 import cn.kk.customview.widget.GradientImageView
 import cn.kk.customview.widget.VocabularyLevelBar
+import cn.kk.customview.widget.work.CheckInWeekView
 import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
@@ -38,6 +42,9 @@ class NormalViewActivity: BaseActivity() {
         // 触摸反馈：原理全解析
         val VIEW_TYPE_TOUCH_FEED_1 = 10
         val VIEW_TYPE_TOUCH_FEED_2 = 11 // 双向滑动的 ScalableImageView
+
+        // about work
+        val VIEW_TYPE_CHECKIN_WEEK = 100
     }
 
     override fun getLayout(): Int {
@@ -68,6 +75,17 @@ class NormalViewActivity: BaseActivity() {
                 }*/
             })
             VIEW_TYPE_TOUCH_FEED_2 -> view_container.addView(getScalableImageView())
+
+            VIEW_TYPE_CHECKIN_WEEK -> {
+                view_container.addView(getCheckinWeekView())
+                view_container.postDelayed({
+                    val checkInView = ((view_container.getChildAt(0) as ViewGroup).getChildAt(0) as CheckInWeekView)
+                    // 显示打卡动画
+                    val ivTemp = ((view_container.getChildAt(0) as ViewGroup).getChildAt(1) as ImageView)
+                    checkInView.playAnim(ivTemp)
+
+                }, 1000)
+            }
             else -> {
             }
         }
@@ -83,5 +101,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getScalableImageView(): View {
         return layoutInflater.inflate(R.layout.view_at_scalable_image_layout, null)
+    }
+
+    private fun getCheckinWeekView(): View {
+        return layoutInflater.inflate(R.layout.view_at_checkin_week_view_layout, null)
     }
 }

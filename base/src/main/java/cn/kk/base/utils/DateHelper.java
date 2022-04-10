@@ -62,6 +62,10 @@ public class DateHelper {
         return days;
     }
 
+    public static String getDay(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(new Date());
+    }
 
     public static int getDayOfMonth(int diffDay){
         Calendar cal = Calendar.getInstance();
@@ -82,7 +86,7 @@ public class DateHelper {
             System.out.println("星期 " + entry.getKey() + " -> " + entry.getValue());
         }*/
 
-        System.out.println(getCurrentTimezone());
+        System.out.println(getDay());
 
     }
 }
