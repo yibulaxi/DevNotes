@@ -47,6 +47,31 @@ class UIConfig {
                 val ANIM_ADVANCE = 102
             }
         }
+
+        open class  Draw {
+            companion object {
+                // Paint 基本使用
+                val PAINT_TYPE = 200
+                // 绘图进阶
+                val ADVANCE_TYPE = 201
+                // 混合模式
+                val XFERMODE_TYPE = 202
+                // Canvas 与涂层
+                val CANVAS_TYPE = 203
+                // Android 画布
+                val ANDROID_CANVAS_TYPE = 204
+                // Matrix 与坐标变换
+                val MATRIX_TYPE = 205
+            }
+
+        }
+
+        open class View {
+            companion object {
+                val BOX_VIEW = 300
+                val VIEW_ADVANCE_PROPERTY = 300
+            }
+        }
     }
 
 }

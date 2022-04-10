@@ -14,8 +14,6 @@ import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalListActivity
 import cn.kk.customview.activity.NormalTabActivity
 import cn.kk.customview.chapter.c1.DrawBasicActivity
-import cn.kk.customview.chapter.c3.DrawHomeActivity
-import cn.kk.customview.chapter.c4.ViewHomeActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.activity.NormalViewActivity
@@ -84,10 +82,10 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
             UIConfig.PART_SYSTEM_STUDY -> {
                 when(position){
                     0 -> startNextUI(DrawBasicActivity::class.java, title)
-//                    1 -> startNextUI(AnimActivity::class.java, title)
                     1 -> startNextUI(NormalTabActivity::class.java, title, BaseTabActivity.TabType.ANIM_TYPE)
-                    2 -> startNextUI(DrawHomeActivity::class.java, title)
-                    3 -> startNextUI(ViewHomeActivity::class.java, title)
+                    2 -> startNextUI(NormalTabActivity::class.java, title, BaseTabActivity.TabType.DRAW_TYPE)
+                    3 -> startNextUI(NormalTabActivity::class.java, title, BaseTabActivity.TabType.VIEW_TYPE)
+//                    3 -> startNextUI(ViewHomeActivity::class.java, title)
                 }
             }
             // region system UI

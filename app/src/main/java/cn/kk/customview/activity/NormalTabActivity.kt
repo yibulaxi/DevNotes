@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import cn.kk.customview.R
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.fragment.NormalListFragment
+import cn.kk.customview.ui.fragment.NormalTabFragment
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -48,6 +49,49 @@ class NormalTabActivity: BaseTabActivity() {
                         addItems(items)
                     })
                 }
+                // endregion
+
+                // region 绘图篇
+                TabType.DRAW_TYPE -> {
+                    var items = resources.getStringArray(R.array.view_anim_types).toMutableList()
+                    // region Paint 基本使用
+                    add(NormalTabFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.PAINT_TYPE
+                    })
+                    // endregion
+
+                    // region 绘图进阶
+                    add(NormalTabFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.ADVANCE_TYPE
+                    })
+                    // endregion
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.XFERMODE_TYPE
+                    })
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.CANVAS_TYPE
+                    })
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.ANDROID_CANVAS_TYPE
+                    })
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.Draw.MATRIX_TYPE
+                    })
+                }
+
+                // endregion
+
+                // region 视图篇
+                TabType.VIEW_TYPE -> {
+                    var items = resources.getStringArray(R.array.view_sections).toMutableList()
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.View.BOX_VIEW
+                    })
+                    add(NormalListFragment().apply {
+                        partType = UIConfig.SubConfigSystem.View.VIEW_ADVANCE_PROPERTY
+                    })
+                }
+
                 // endregion
             }
 

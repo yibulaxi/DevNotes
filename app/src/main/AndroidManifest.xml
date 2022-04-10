@@ -52,9 +52,6 @@
         <activity android:name=".chapter.AnimInterpolatorActivity" />
         <activity android:name="cn.kk.elementary.anim.property.value.ValueAnimationActivity" />
         <activity android:name="cn.kk.elementary.anim.property.value.interpolation.InterpolationActivity" />
-        <activity android:name=".chapter.c3.DrawHomeActivity" />
-        <activity android:name=".chapter.c3.PaintActivity" />
-        <activity android:name=".chapter.c3.DrawAdvanceActivity" />
         <activity android:name=".chapter.c4.ViewHomeActivity" />
         <activity android:name=".ui.cool300.chapter1.Simple_005" />
         <activity android:name=".ui.cool300.chapter1.Simple_009" />
