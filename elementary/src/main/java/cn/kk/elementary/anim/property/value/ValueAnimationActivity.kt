@@ -2,12 +2,7 @@ package cn.kk.elementary.anim.property.value
 
 import android.animation.Animator
 import android.animation.ValueAnimator
-import android.os.Bundle
-import android.renderscript.Sampler
 import android.widget.Button
-import android.widget.ViewAnimator
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.animation.*
 import cn.kk.base.*
 import cn.kk.base.activity.BaseActivity
 import cn.kk.elementary.R
