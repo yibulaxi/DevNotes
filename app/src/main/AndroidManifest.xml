@@ -37,7 +37,7 @@
             android:name="MTA_CHANNEL"
             android:value="${MTA_CHANNEL_VALUE}"/>
         -->
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name=".activity.HomeTabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

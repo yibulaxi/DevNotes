@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import cn.kk.base.bean.ListItemAction
 
 abstract class BaseFragment: Fragment() {
-
+    protected lateinit var rootView: View
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        return inflater.inflate(getLayoutId(), container, false)
+        rootView = inflater.inflate(getLayoutId(), container, false)
+        return rootView
     }
 
     abstract fun getLayoutId(): Int

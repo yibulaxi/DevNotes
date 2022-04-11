@@ -1,33 +1,29 @@
-package cn.kk.customview.activity
+package cn.kk.customview.fragment
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
-import cn.kk.base.activity.BaseActivity
-import cn.kk.customview.ui.fragment.NormalListFragment
+import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.config.UIConfig
+import cn.kk.customview.ui.fragment.NormalListFragment
 import cn.kk.customview.ui.fragment.NormalTabFragment
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_home.*
-import java.io.File
+import kotlinx.android.synthetic.main.fragment_home_view.*
 
-/**
- * task list:
- *
- * 1. 水平滑动和竖直滑动，判断
- *
- */
-class HomeActivity: BaseActivity() {
+class ViewHomeFragment: BaseFragment() {
     val tabs_name = arrayOf("系统学习","系统UI","炫酷应用 300例","第三方UI","Hencoder", "work" )
-    override fun getLayout(): Int {
-        return R.layout.activity_home
+
+    override fun getLayoutId(): Int {
+        return R.layout.fragment_home_view
     }
 
-    override fun doWhenOnCreate() {
-        super.doWhenOnCreate()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        viewPager.adapter = BaseFragmentAdapter(this, mutableListOf<Fragment>().apply {
+        viewPager.adapter = BaseFragmentAdapter(requireActivity(), mutableListOf<Fragment>().apply {
             // add fragment ui
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_SYSTEM_STUDY
@@ -102,14 +98,5 @@ class HomeActivity: BaseActivity() {
             }
 
         }).attach()
-
-        // print this class info
-       val homeClass = this.javaClass
-
-        val path = homeClass.`package`.name.replace("\\.","/")
-        val  sourceFile =  File(path, homeClass.name + ".java")
-
-        printLog(path)
-        printLog("sourceFile is ")
     }
 }

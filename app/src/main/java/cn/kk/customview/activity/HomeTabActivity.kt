@@ -1,0 +1,68 @@
+package cn.kk.customview.activity
+
+import android.util.Log
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import cn.kk.base.activity.BaseActivity
+import cn.kk.customview.R
+import cn.kk.customview.fragment.ArchFragment
+import cn.kk.customview.fragment.MoreFragment
+import cn.kk.customview.fragment.PlayerFragment
+import cn.kk.customview.fragment.ViewHomeFragment
+import kotlinx.android.synthetic.main.activity_home_tab.*
+
+class HomeTabActivity: BaseActivity() {
+    private val fragmentList = mutableMapOf<Int, Fragment>()
+    private var lastTabId = -1
+
+    override fun getLayout(): Int {
+        return R.layout.activity_home_tab
+    }
+
+    override fun doWhenOnCreate() {
+        super.doWhenOnCreate()
+
+        bottom_navi.setOnItemSelectedListener {
+            Log.d(TAG, "doWhenOnCreate: 0")
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+            val curFragment = getFragment(it.itemId)
+            val fragmentTag = it.itemId.toString()
+            if (!curFragment.isAdded || supportFragmentManager.findFragmentByTag(fragmentTag) == null) {
+                fragmentTransaction.add(R.id.fragment_container ,curFragment, fragmentTag)
+             } else {
+                // 现隐藏上一个 fragment
+                if (lastTabId != -1 && lastTabId != it.itemId) {
+                    val lastFragment = getFragment(lastTabId)
+                    fragmentTransaction.hide(lastFragment)
+                    fragmentTransaction.setMaxLifecycle(lastFragment, Lifecycle.State.STARTED)
+                }
+                fragmentTransaction.show(curFragment)
+                lastTabId = it.itemId
+            }
+            fragmentTransaction.setMaxLifecycle(curFragment, Lifecycle.State.RESUMED)
+            fragmentTransaction.commitAllowingStateLoss()
+            Log.d(TAG, "doWhenOnCreate: fragmentId: ${it.itemId}")
+            return@setOnItemSelectedListener true
+        }
+
+        // 默认选中第一个 tab 页面
+        bottom_navi.selectedItemId = R.id.navigation_tab_views
+    }
+
+   private fun getFragment(id: Int): Fragment {
+        if (!fragmentList.containsKey(id)){
+            val existFragment = supportFragmentManager.findFragmentByTag(id.toString())
+            if (existFragment != null) return existFragment
+
+            when(id) {
+                R.id.navigation_tab_views -> fragmentList.put(id, ViewHomeFragment())
+                R.id.navigation_tab_player -> fragmentList.put(id, PlayerFragment())
+                R.id.navigation_tab_arch -> fragmentList.put(id, ArchFragment())
+                R.id.navigation_tab_more -> fragmentList.put(id, MoreFragment())
+            }
+        }
+
+       return fragmentList.get(id)!!
+    }
+}
