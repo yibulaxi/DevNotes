@@ -5,9 +5,21 @@ import android.os.Bundle
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
+import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 
+/**
+ * 播放器页面
+ * 1. 播放视频 ok
+ * 2. status bar 设置为黑色 ok
+ * 3. 进度条
+ * 4. 控制按钮
+ * 5. 时间
+ * 6. 全屏切换
+ * 7. 音量调整
+ * 8. 亮度调整
+ */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
     override fun getLayoutId(): Int {
@@ -33,6 +45,11 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // region step2: status bar 设置为黑色
+        UIHelper.setStatusBarDark(activity!!)
+        // endregion
+
+        // region step1: play media
         val surfaceView = rootView.findViewById<SurfaceView>(R.id.surface_view)
 
         surfaceView.holder.addCallback(this)
@@ -43,7 +60,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         mediaPlayer.setOnPreparedListener(mediaPrepareListener)
         mediaPlayer.setOnCompletionListener(mediaCompletionListener)
         mediaPlayer.prepareAsync()
-
+        // endregion
 
     }
 

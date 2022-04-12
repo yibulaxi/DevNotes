@@ -101,6 +101,15 @@ object UIHelper {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
+    fun setStatusBarDark(context: Activity){
+        setStatusBarColor(context, Color.BLACK)
+        setStatusBarTextColorLight(context)
+    }
+
+    fun setStatusBarColor(context: Activity, color: Int){
+        context.window.statusBarColor = color
+    }
+
     /**
      * 设置状态栏字体颜色为亮色
      */
