@@ -26,20 +26,21 @@ class HomeTabActivity: BaseActivity() {
             Log.d(TAG, "doWhenOnCreate: 0")
             val fragmentTransaction = supportFragmentManager.beginTransaction()
 
+            // 先隐藏上一个 fragment
+            if (lastTabId != -1 && lastTabId != it.itemId) {
+                val lastFragment = getFragment(lastTabId)
+                fragmentTransaction.hide(lastFragment)
+                fragmentTransaction.setMaxLifecycle(lastFragment, Lifecycle.State.STARTED)
+            }
+
             val curFragment = getFragment(it.itemId)
             val fragmentTag = it.itemId.toString()
             if (!curFragment.isAdded || supportFragmentManager.findFragmentByTag(fragmentTag) == null) {
                 fragmentTransaction.add(R.id.fragment_container ,curFragment, fragmentTag)
              } else {
-                // 现隐藏上一个 fragment
-                if (lastTabId != -1 && lastTabId != it.itemId) {
-                    val lastFragment = getFragment(lastTabId)
-                    fragmentTransaction.hide(lastFragment)
-                    fragmentTransaction.setMaxLifecycle(lastFragment, Lifecycle.State.STARTED)
-                }
                 fragmentTransaction.show(curFragment)
-                lastTabId = it.itemId
             }
+            lastTabId = it.itemId
             fragmentTransaction.setMaxLifecycle(curFragment, Lifecycle.State.RESUMED)
             fragmentTransaction.commitAllowingStateLoss()
             Log.d(TAG, "doWhenOnCreate: fragmentId: ${it.itemId}")
@@ -51,11 +52,14 @@ class HomeTabActivity: BaseActivity() {
     }
 
    private fun getFragment(id: Int): Fragment {
-        if (!fragmentList.containsKey(id)){
+        if (!fragmentList.containsKey(id)) {
             val existFragment = supportFragmentManager.findFragmentByTag(id.toString())
-            if (existFragment != null) return existFragment
+            if (existFragment != null) {
+                fragmentList.put(id, existFragment)
+                return existFragment
+            }
 
-            when(id) {
+            when (id) {
                 R.id.navigation_tab_views -> fragmentList.put(id, ViewHomeFragment())
                 R.id.navigation_tab_player -> fragmentList.put(id, PlayerFragment())
                 R.id.navigation_tab_arch -> fragmentList.put(id, ArchFragment())
