@@ -8,6 +8,7 @@ import android.view.View
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
+import kotlinx.android.synthetic.main.fragment_player.*
 
 /**
  * 播放器页面
@@ -27,10 +28,13 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     }
 
     val mediaPlayer = MediaPlayer()
+    var mediaPrepared = false
+    var mediaPauseState = false
 
     private val mediaPrepareListener = object: MediaPlayer.OnPreparedListener {
         override fun onPrepared(mp: MediaPlayer?) {
             mediaPlayer.start()
+            mediaPrepared = true
         }
     }
 
@@ -62,8 +66,45 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         mediaPlayer.prepareAsync()
         // endregion
 
+        // region step4: 控制按钮
+        videoContainer.setOnClickListener {
+            // 显示控制按钮，然后 3s 后再隐藏
+            if (btn_control_play.visibility != View.VISIBLE) {
+                btn_control_play.visibility = View.VISIBLE
+                btn_control_play.postDelayed(object : Runnable {
+                    override fun run() {
+                        if (mediaPlayer.isPlaying) {
+                            btn_control_play.visibility = View.INVISIBLE
+                        }
+                    }
+
+                }, 3000)
+            }
+        }
+
+        btn_control_play.setOnClickListener {
+            // play or pause
+            playOrPause()
+        }
+        // endregion
     }
 
+    fun playOrPause(){
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.pause()
+            mediaPauseState = true
+        } else {
+            mediaPlayer.start()
+            mediaPauseState = false
+        }
+        updatePlayControlBtnState(!mediaPauseState)
+    }
+
+    fun updatePlayControlBtnState(play: Boolean){
+        btn_control_play.setImageResource(if (play) R.drawable.icon_pause else R.drawable.icon_play)
+    }
+
+    // region surface callback
     override fun surfaceCreated(holder: SurfaceHolder) {
         mediaPlayer.setDisplay(holder)
     }
@@ -74,5 +115,5 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     override fun surfaceDestroyed(holder: SurfaceHolder) {
 
     }
-
+    // endregion
 }
