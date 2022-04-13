@@ -33,6 +33,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("视图篇")
             })
 
+            // region 系统UI
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_SYSTEM_UI
                 addItem("ImageView", true)
@@ -50,7 +51,9 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("Html Text", true)
                 addItem("桌面小组件", true)
                 addItem("Drawable", true)
+                addItem("RecyclerView 下面加 View", true)
             })
+            // endregion
 
             add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
 

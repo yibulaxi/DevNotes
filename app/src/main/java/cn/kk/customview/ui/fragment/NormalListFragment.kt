@@ -75,6 +75,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
         }
     }
 
+    // region 点击条目
     override fun onItemClick(position: Int) {
         // 跳转页面
         val title = itemList[position]
@@ -106,6 +107,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     12 ->startNextUI(HtmlText::class.java, title)
                     13 ->startNextUI(AppWidgetSample::class.java, title)
                     14 ->startNextUI(DrawableSample::class.java, title)
+                    15 ->startNextUI(RecyclerViewDemo::class.java, title)
                 }
             }
             // endregion
@@ -192,6 +194,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
 
         }
     }
+    // endregion
 
     fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String){
         (activity as BaseActivity).openNextUI(targetActivity, title)

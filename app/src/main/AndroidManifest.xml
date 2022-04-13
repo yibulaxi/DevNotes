@@ -91,6 +91,7 @@
         <activity android:name=".ui.system.material.CardViewActivity" />
         <activity android:name=".ui.system.drawable.DrawableSample" />
         <activity android:name=".ui.system.drawable.MultiDrawable" />
+        <activity android:name=".ui.system.RecyclerViewDemo" />
         <activity
             android:name=".ui.system.material.ToolbarActivity"
             android:theme="@style/KKTheme" />
