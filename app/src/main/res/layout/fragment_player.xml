@@ -26,6 +26,22 @@
             android:visibility="invisible"
             tools:visibility="visible"
             app:tint="@color/white_alpha_50" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_cur_duration"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white_alpha_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </FrameLayout>
 
 </RelativeLayout>

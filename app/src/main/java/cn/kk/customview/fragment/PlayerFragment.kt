@@ -2,11 +2,15 @@ package cn.kk.customview.fragment
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
+import cn.kk.base.utils.TimeHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.fragment_player.*
 
@@ -14,9 +18,9 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 播放器页面
  * 1. 播放视频 ok
  * 2. status bar 设置为黑色 ok
- * 3. 进度条
- * 4. 控制按钮
- * 5. 时间
+ * 3. 进度条 ok
+ * 4. 控制按钮 ok
+ * 5. 时间 ok
  * 6. 全屏切换
  * 7. 音量调整
  * 8. 亮度调整
@@ -30,11 +34,15 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     val mediaPlayer = MediaPlayer()
     var mediaPrepared = false
     var mediaPauseState = false
+    var mediaDuration = 0
 
     private val mediaPrepareListener = object: MediaPlayer.OnPreparedListener {
         override fun onPrepared(mp: MediaPlayer?) {
             mediaPlayer.start()
             mediaPrepared = true
+            // update duration info
+            mediaDuration = getMediaTotalDurationForSecond()
+            seekbar.max = mediaDuration
         }
     }
 
@@ -43,8 +51,25 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
             mediaPlayer.stop()
             mediaPlayer.reset()
         }
+    }
+
+
+    // player play state task
+    private var playerStateObserver = false
+    private val playerStateHandler = Handler(Looper.getMainLooper())
+    val playerStateTask = object : Runnable {
+        override fun run() {
+            Log.d(TAG, "run: duration: ${getMediaTotalDurationForSecond()}")
+            Log.d(TAG, "run: cur duration: ${getMediaCurPlayPosition()}")
+            updateMediaProgress()
+            if (playerStateObserver) {
+                playerStateHandler.postDelayed(this, 500)
+            }
+        }
 
     }
+    // endregion
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -87,9 +112,67 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
             playOrPause()
         }
         // endregion
+
+        // region start observer player state
+        startPlayObserver()
+        // endregion
     }
 
-    fun playOrPause(){
+    override fun onDetach() {
+        super.onDetach()
+        stopPlayObserver()
+    }
+
+    private fun startPlayObserver(){
+        playerStateObserver = true
+        playerStateHandler.postDelayed(playerStateTask, 500)
+    }
+
+
+    private fun stopPlayObserver(){
+        playerStateObserver = false
+    }
+
+    /**
+     * 获取媒体时长：单位：秒
+     */
+    private fun getMediaTotalDurationForSecond(): Int{
+        if (!mediaPrepared) return 0
+        return mediaPlayer.duration / 1000
+    }
+
+    /**
+     * 获取媒体时长，单位: ms
+     */
+    private fun getMediaDuration(): Long {
+        if (!mediaPrepared) return 0
+        return mediaPlayer.duration.toLong()
+    }
+
+    /**
+     * 获取媒体当前进度；单位：ms
+     */
+    private fun getMediaCurPlayPosition(): Int {
+        if (!mediaPrepared) return 0
+        return mediaPlayer.currentPosition
+    }
+
+    /**
+     * 更新媒体进度
+     */
+    private fun updateMediaProgress(){
+        if (!mediaPlayer.isPlaying) return
+        // 播放时长 / 总时长
+        val curProgressTime = String.format("%s / %s",
+            TimeHelper.getDurationFormat(getMediaCurPlayPosition().toLong()),
+            TimeHelper.getDurationFormat(getMediaDuration())
+        )
+        tv_cur_duration.text = curProgressTime
+        // 进度条
+        seekbar.progress = getMediaCurPlayPosition() / 1000
+    }
+
+   private fun playOrPause(){
         if (mediaPlayer.isPlaying) {
             mediaPlayer.pause()
             mediaPauseState = true
@@ -116,4 +199,5 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
     }
     // endregion
+
 }
