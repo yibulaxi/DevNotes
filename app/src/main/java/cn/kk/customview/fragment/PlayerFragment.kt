@@ -71,15 +71,15 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
             // 显示控制按钮，然后 3s 后再隐藏
             if (btn_control_play.visibility != View.VISIBLE) {
                 btn_control_play.visibility = View.VISIBLE
-                btn_control_play.postDelayed(object : Runnable {
-                    override fun run() {
-                        if (mediaPlayer.isPlaying) {
-                            btn_control_play.visibility = View.INVISIBLE
-                        }
-                    }
-
-                }, 3000)
             }
+            btn_control_play.postDelayed(object : Runnable {
+                override fun run() {
+                    if (mediaPlayer.isPlaying) {
+                        btn_control_play.visibility = View.INVISIBLE
+                    }
+                }
+
+            }, 3000)
         }
 
         btn_control_play.setOnClickListener {
