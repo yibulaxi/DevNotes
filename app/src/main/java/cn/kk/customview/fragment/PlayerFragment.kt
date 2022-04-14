@@ -24,7 +24,8 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 6. 全屏切换
  * 7. 音量调整
  * 8. 亮度调整
- * 9. 自动暂停和开始
+ * 9. 自动暂停和开始 ok
+ * 10. 加进度条 ok
  */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
@@ -44,6 +45,8 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
             // update duration info
             mediaDuration = getMediaTotalDurationForSecond()
             seekbar.max = mediaDuration
+
+            hideLoading()
         }
     }
 
@@ -90,6 +93,8 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         mediaPlayer.setOnPreparedListener(mediaPrepareListener)
         mediaPlayer.setOnCompletionListener(mediaCompletionListener)
         mediaPlayer.prepareAsync()
+
+        showLoading()
         // endregion
 
         // region step4: 控制按钮
@@ -209,6 +214,14 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         tv_cur_duration.text = curProgressTime
         // 进度条
         seekbar.progress = getMediaCurPlayPosition() / 1000
+    }
+
+    private fun showLoading(){
+        loading.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading(){
+        loading.visibility = View.INVISIBLE
     }
 
    private fun playOrPause(){
