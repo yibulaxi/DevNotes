@@ -41,12 +41,13 @@ class RecyclerViewContextMenu: BaseActivity() {
     ) {
         super.onCreateContextMenu(menu, v, menuInfo)
         // menu.add() or menuInflater.inflate(R.menu.menu_delete, menu)
-        menu?.add(Menu.NONE, DELETE_MENU_TAG, Menu.NONE, R.string.delete)
+//        menu?.add(Menu.NONE, DELETE_MENU_TAG, Menu.NONE, R.string.delete)
+        menuInflater.inflate(R.menu.menu_delete, menu)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            DELETE_MENU_TAG -> {
+            DELETE_MENU_TAG, R.id.delete -> {
                 showToast(listAdapter.getSelectItem().title)
             }
         }
