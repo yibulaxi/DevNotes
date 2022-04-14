@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 6. 全屏切换
  * 7. 音量调整
  * 8. 亮度调整
+ * 9. 自动暂停和开始
  */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
@@ -59,8 +60,8 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     private val playerStateHandler = Handler(Looper.getMainLooper())
     val playerStateTask = object : Runnable {
         override fun run() {
-            Log.d(TAG, "run: duration: ${getMediaTotalDurationForSecond()}")
-            Log.d(TAG, "run: cur duration: ${getMediaCurPlayPosition()}")
+//            Log.d(TAG, "run: duration: ${getMediaTotalDurationForSecond()}")
+//            Log.d(TAG, "run: cur duration: ${getMediaCurPlayPosition()}")
             updateMediaProgress()
             if (playerStateObserver) {
                 playerStateHandler.postDelayed(this, 500)
@@ -118,12 +119,49 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         // endregion
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: ")
+        startPlayObserver()
+        startMedia()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+        pauseMedia()
+        stopPlayObserver()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: ")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d(TAG, "onDestroyView: ")
+    }
+
     override fun onDetach() {
         super.onDetach()
+        Log.d(TAG, "onDetach: ")
         stopPlayObserver()
     }
 
     private fun startPlayObserver(){
+        Log.d(TAG, "startPlayObserver: ")
+        if (playerStateObserver) return
         playerStateObserver = true
         playerStateHandler.postDelayed(playerStateTask, 500)
     }
@@ -131,6 +169,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
     private fun stopPlayObserver(){
         playerStateObserver = false
+        Log.d(TAG, "stopPlayObserver: ")
     }
 
     /**
@@ -179,6 +218,23 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         } else {
             mediaPlayer.start()
             mediaPauseState = false
+        }
+        updatePlayControlBtnState(!mediaPauseState)
+    }
+
+    private fun startMedia(){
+        if (!mediaPrepared) return
+        if (!mediaPlayer.isPlaying) {
+            mediaPlayer.start()
+            mediaPauseState = false
+        }
+        updatePlayControlBtnState(!mediaPauseState)
+    }
+
+    private fun pauseMedia(){
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.pause()
+            mediaPauseState = true
         }
         updatePlayControlBtnState(!mediaPauseState)
     }
