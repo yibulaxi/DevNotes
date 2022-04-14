@@ -9,6 +9,9 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 
+/**
+ * 参考(https://www.bswen.com/2021/05/others-android-how-to-add-context-menu-to-recyclerview.html)
+ */
 class RecyclerViewContextMenu: BaseActivity() {
 
     override fun getLayout(): Int {
