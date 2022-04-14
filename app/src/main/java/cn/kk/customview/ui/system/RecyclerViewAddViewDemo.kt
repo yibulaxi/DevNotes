@@ -4,7 +4,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
 import cn.kk.customview.R
 
-class RecyclerViewDemo: BaseActivity() {
+class RecyclerViewAddViewDemo: BaseActivity() {
 
     override fun getLayout(): Int {
         return R.layout.activity_recyclerview_demo

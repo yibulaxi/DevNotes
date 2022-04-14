@@ -107,7 +107,8 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     12 ->startNextUI(HtmlText::class.java, title)
                     13 ->startNextUI(AppWidgetSample::class.java, title)
                     14 ->startNextUI(DrawableSample::class.java, title)
-                    15 ->startNextUI(RecyclerViewDemo::class.java, title)
+                    15 ->startNextUI(RecyclerViewAddViewDemo::class.java, title)
+                    16 ->startNextUI(RecyclerViewContextMenu::class.java, title)
                 }
             }
             // endregion
