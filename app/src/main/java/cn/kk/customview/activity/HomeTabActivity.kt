@@ -3,6 +3,7 @@ package cn.kk.customview.activity
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.fragment.ArchFragment
@@ -66,7 +67,11 @@ class HomeTabActivity: BaseActivity() {
                 R.id.navigation_tab_more -> fragmentList.put(id, MoreFragment())
             }
         }
-
+        if (id == R.id.navigation_tab_player) {
+            UIHelper.setStatusBarDark(mSelf)
+        } else {
+            UIHelper.setStatusBarTrans(mSelf)
+        }
        return fragmentList.get(id)!!
     }
 }

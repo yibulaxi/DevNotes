@@ -101,6 +101,15 @@ object UIHelper {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
+     fun setStatusBarTrans(ctx: Activity){
+        // 表示让应用主题内容占据系统状态栏的空间
+        val option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+         ctx.window.decorView.systemUiVisibility = option
+
+        // 状态栏透明
+         ctx.window.statusBarColor = Color.TRANSPARENT
+    }
+
     fun setStatusBarDark(context: Activity){
         setStatusBarColor(context, Color.BLACK)
         setStatusBarTextColorLight(context)
