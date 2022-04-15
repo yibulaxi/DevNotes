@@ -29,6 +29,7 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 10. 加进度条 ok
  * 11. 进度条拖拽 ok
  * 12. 播放完后，重置 ok
+ * 13. 黑色渐变蒙板
  */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 

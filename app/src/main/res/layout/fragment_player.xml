@@ -30,6 +30,7 @@
         <SeekBar
             android:id="@+id/seekbar"
             style="@style/media_control_bar"
+            android:background="@drawable/media_bar_dark_mask"
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
