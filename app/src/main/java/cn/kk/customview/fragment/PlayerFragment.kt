@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 9. 自动暂停和开始 ok
  * 10. 加进度条 ok
  * 11. 进度条拖拽 ok
+ * 12. 播放完后，重置 ok
  */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
@@ -42,6 +43,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
     var mediaPrepared = false
     var mediaPauseState = false
     var mediaDuration = 0
+    var resetState = false
     // endregion
 
     // region media listener
@@ -52,7 +54,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
             // update duration info
             mediaDuration = getMediaDuration().toInt()
             seekbar.max = mediaDuration
-
+            resetState = false
             hideLoading()
         }
     }
@@ -61,6 +63,8 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         override fun onCompletion(mp: MediaPlayer?) {
             mediaPlayer.stop()
             mediaPlayer.reset()
+            resetState = true
+            resetMediaProgress()
         }
     }
 
@@ -111,11 +115,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         surfaceView.holder.addCallback(this)
 
         // MediaPlayer
-        val videoUrl = "https://fs-gateway.esdict.cn/buckets/main/store_knowledge_circle/11cdf583-4aa2-11e7-8f8c-000c29e6fad9/1efda3b5-5cef-11ec-8804-00505686c5e6/028462b0-9e40-4bbf-83fd-538ff27b4721.mp4?shape=1280x720"
-        mediaPlayer.setDataSource(videoUrl)
-        mediaPlayer.setOnPreparedListener(mediaPrepareListener)
-        mediaPlayer.setOnCompletionListener(mediaCompletionListener)
-        mediaPlayer.prepareAsync()
+        startPlayMedia()
 
         showLoading()
         // endregion
@@ -185,7 +185,12 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
         btn_control_play.setOnClickListener {
             // play or pause
-            playOrPause()
+            if (resetState) {
+                startPlayMedia()
+            } else {
+                playOrPause()
+            }
+
         }
 
         // seekbar
@@ -251,6 +256,16 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         seekbar.progress = getMediaCurPlayPosition()
     }
 
+    private fun resetMediaProgress(){
+        val curProgressTime = String.format("%s / %s",
+            TimeHelper.getDurationFormat(0),
+            TimeHelper.getDurationFormat(mediaDuration.toLong())
+        )
+        tv_cur_duration.text = curProgressTime
+        // 进度条
+        seekbar.progress = 0
+    }
+
     private fun showLoading(){
         loading.visibility = View.VISIBLE
     }
@@ -267,6 +282,14 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
 
     // region play control
+    private fun startPlayMedia(){
+        val videoUrl = "https://fs-gateway.esdict.cn/buckets/main/store_knowledge_circle/11cdf583-4aa2-11e7-8f8c-000c29e6fad9/1efda3b5-5cef-11ec-8804-00505686c5e6/028462b0-9e40-4bbf-83fd-538ff27b4721.mp4?shape=1280x720"
+        mediaPlayer.setDataSource(videoUrl)
+        mediaPlayer.setOnPreparedListener(mediaPrepareListener)
+        mediaPlayer.setOnCompletionListener(mediaCompletionListener)
+        mediaPlayer.prepareAsync()
+        updatePlayControlBtnState(true)
+    }
    private fun playOrPause(){
         if (mediaPlayer.isPlaying) {
             mediaPlayer.pause()
