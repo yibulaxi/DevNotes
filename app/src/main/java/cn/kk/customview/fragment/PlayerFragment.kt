@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
+import android.widget.SeekBar
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.TimeHelper
@@ -26,24 +27,30 @@ import kotlinx.android.synthetic.main.fragment_player.*
  * 8. 亮度调整
  * 9. 自动暂停和开始 ok
  * 10. 加进度条 ok
+ * 11. 进度条拖拽 ok
  */
 class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
 
+    // region UI layout
     override fun getLayoutId(): Int {
        return R.layout.fragment_player
     }
+    // endregion
 
+    // region media about fields
     val mediaPlayer = MediaPlayer()
     var mediaPrepared = false
     var mediaPauseState = false
     var mediaDuration = 0
+    // endregion
 
+    // region media listener
     private val mediaPrepareListener = object: MediaPlayer.OnPreparedListener {
         override fun onPrepared(mp: MediaPlayer?) {
             mediaPlayer.start()
             mediaPrepared = true
             // update duration info
-            mediaDuration = getMediaTotalDurationForSecond()
+            mediaDuration = getMediaDuration().toInt()
             seekbar.max = mediaDuration
 
             hideLoading()
@@ -57,8 +64,10 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         }
     }
 
+    // endregion
 
-    // player play state task
+
+    // region player play state task
     private var playerStateObserver = false
     private val playerStateHandler = Handler(Looper.getMainLooper())
     val playerStateTask = object : Runnable {
@@ -72,9 +81,23 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         }
 
     }
+    private fun startPlayObserver(){
+        Log.d(TAG, "startPlayObserver: ")
+        if (playerStateObserver) return
+        playerStateObserver = true
+        playerStateHandler.postDelayed(playerStateTask, 500)
+    }
+
+
+    private fun stopPlayObserver(){
+        playerStateObserver = false
+        Log.d(TAG, "stopPlayObserver: ")
+    }
+
     // endregion
 
 
+    // region life circle funs
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -97,27 +120,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         showLoading()
         // endregion
 
-        // region step4: 控制按钮
-        videoContainer.setOnClickListener {
-            // 显示控制按钮，然后 3s 后再隐藏
-            if (btn_control_play.visibility != View.VISIBLE) {
-                btn_control_play.visibility = View.VISIBLE
-            }
-            btn_control_play.postDelayed(object : Runnable {
-                override fun run() {
-                    if (mediaPlayer.isPlaying) {
-                        btn_control_play.visibility = View.INVISIBLE
-                    }
-                }
-
-            }, 3000)
-        }
-
-        btn_control_play.setOnClickListener {
-            // play or pause
-            playOrPause()
-        }
-        // endregion
+        configListener()
 
         // region start observer player state
         startPlayObserver()
@@ -164,18 +167,48 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         stopPlayObserver()
     }
 
-    private fun startPlayObserver(){
-        Log.d(TAG, "startPlayObserver: ")
-        if (playerStateObserver) return
-        playerStateObserver = true
-        playerStateHandler.postDelayed(playerStateTask, 500)
+    // endregion
+
+    // region click event
+    private fun configListener(){
+        videoContainer.setOnClickListener {
+            // 显示控制按钮，然后 3s 后再隐藏
+            if (btn_control_play.visibility != View.VISIBLE) {
+                btn_control_play.visibility = View.VISIBLE
+            }
+            btn_control_play.postDelayed({
+                if (mediaPlayer.isPlaying) {
+                    btn_control_play.visibility = View.INVISIBLE
+                }
+            }, 3000)
+        }
+
+        btn_control_play.setOnClickListener {
+            // play or pause
+            playOrPause()
+        }
+
+        // seekbar
+        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // pause paly
+                pauseMedia()
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                seekToPosition(seekBar.progress)
+            }
+
+        })
     }
+    // endregion
 
 
-    private fun stopPlayObserver(){
-        playerStateObserver = false
-        Log.d(TAG, "stopPlayObserver: ")
-    }
+    // region get media info
 
     /**
      * 获取媒体时长：单位：秒
@@ -200,7 +233,9 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         if (!mediaPrepared) return 0
         return mediaPlayer.currentPosition
     }
+    // endregion
 
+    // region update media info
     /**
      * 更新媒体进度
      */
@@ -213,7 +248,7 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         )
         tv_cur_duration.text = curProgressTime
         // 进度条
-        seekbar.progress = getMediaCurPlayPosition() / 1000
+        seekbar.progress = getMediaCurPlayPosition()
     }
 
     private fun showLoading(){
@@ -224,6 +259,14 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         loading.visibility = View.INVISIBLE
     }
 
+   private fun updatePlayControlBtnState(play: Boolean){
+        btn_control_play.setImageResource(if (play) R.drawable.icon_pause else R.drawable.icon_play)
+    }
+
+    // endregion
+
+
+    // region play control
    private fun playOrPause(){
         if (mediaPlayer.isPlaying) {
             mediaPlayer.pause()
@@ -252,9 +295,13 @@ class PlayerFragment: BaseFragment(), SurfaceHolder.Callback {
         updatePlayControlBtnState(!mediaPauseState)
     }
 
-    fun updatePlayControlBtnState(play: Boolean){
-        btn_control_play.setImageResource(if (play) R.drawable.icon_pause else R.drawable.icon_play)
+    private fun seekToPosition(pos: Int) {
+        mediaPlayer.seekTo(pos)
+        mediaPlayer.start()
     }
+
+    // endregion
+
 
     // region surface callback
     override fun surfaceCreated(holder: SurfaceHolder) {

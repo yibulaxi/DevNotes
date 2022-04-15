@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import cn.kk.base.UIHelper
 import cn.kk.base.bean.ListItemAction
 
 abstract class BaseFragment: Fragment() {
@@ -24,5 +25,10 @@ abstract class BaseFragment: Fragment() {
             list.add(ListItemAction(name))
         }
         return list
+    }
+
+    protected fun showToast(msg: String){
+        if (context == null) return
+        UIHelper.toast(msg, context!!)
     }
 }
