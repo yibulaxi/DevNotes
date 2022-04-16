@@ -13,4 +13,8 @@ object ValueHelper {
         val diff = if (min < 30) min else 30
         return Math.abs(valueA - valueB) < diff
     }
+
+    fun getRandomValue(start: Int, end: Int): Int {
+        return (start .. end).random()
+    }
 }

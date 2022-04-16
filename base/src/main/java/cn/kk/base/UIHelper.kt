@@ -137,6 +137,16 @@ object UIHelper {
     }
 
     /**
+     * 生成随机颜色
+     */
+    fun generaRandomColor(): Int {
+        val redValue = ValueHelper.getRandomValue(0, 255)
+        val greenValue = ValueHelper.getRandomValue(0, 255)
+        val blueValue = ValueHelper.getRandomValue(0, 255)
+      return  Color.rgb(redValue, greenValue, blueValue)
+    }
+
+    /**
      * 把颜色转换成 hex 字符串形式
      * @param color
      * @return
