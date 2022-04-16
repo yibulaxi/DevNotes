@@ -4,9 +4,21 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/title"
         android:text="更多"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:paddingBottom="4dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:textSize="21sp"
+        android:paddingTop="40dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/title"
+        android:id="@+id/rv_list_more"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
