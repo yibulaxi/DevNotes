@@ -19,19 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 object UIHelper {
 
-    fun getScreenSize(activity: Activity): Point {
-        return Point(activity.windowManager.currentWindowMetrics.bounds.right, activity.windowManager.currentWindowMetrics.bounds.bottom)
-    }
-
-    fun getEditCursorY(edit: EditText): Int{
-        edit.selectionEnd
-        val line = edit.layout.getLineForOffset(edit.selectionEnd)
-        val baseLine = edit.layout.getLineBaseline(line)
-        val ascent = edit.layout.getLineAscent(line)
-        val cursorY = baseLine + ascent
-        return cursorY
-    }
-
+    // region dip px
     fun dip2px(context: Context?, dpValue: Double): Int {
         if (context == null) {
             return (dpValue * 2).toInt()
@@ -44,20 +32,35 @@ object UIHelper {
      * 该方法不需要传入上下文
      */
     fun dp2px(value: Float): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, Resources.getSystem().displayMetrics)
+    // endregion
 
+    // region EditText cursor
     fun getEditCursorYOnScreen(edit: EditText): Int{
         val point = IntArray(2)
         edit.getLocationOnScreen(point)
         return getEditCursorY(edit) + point[1]
     }
 
+    fun getEditCursorY(edit: EditText): Int{
+        edit.selectionEnd
+        val line = edit.layout.getLineForOffset(edit.selectionEnd)
+        val baseLine = edit.layout.getLineBaseline(line)
+        val ascent = edit.layout.getLineAscent(line)
+        val cursorY = baseLine + ascent
+        return cursorY
+    }
+    // endregion
+
+    // region Theme
     fun getCurrentTheme(activity: AppCompatActivity): Int{
         if ((activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES){
            return R.style.Theme_Night
         }
         return R.style.Theme_Default
     }
+    // endregion
 
+    // region configuration
     fun isLandscape(context: Context): Boolean {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
@@ -68,38 +71,24 @@ object UIHelper {
         } else ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     }
 
+    // endregion
 
-    /**
-     * 把颜色转换成 hex 字符串形式
-     * @param color
-     * @return
-     */
-    fun color2HexEncoding(color: Int): String? {
-        var R: String
-        var G: String
-        var B: String
-        val sb = StringBuffer()
-        R = Integer.toHexString(Color.red(color))
-        G = Integer.toHexString(Color.green(color))
-        B = Integer.toHexString(Color.blue(color))
-        //判断获取到的R,G,B值的长度 如果长度等于1 给R,G,B值的前边添0
-        R = if (R.length == 1) "0$R" else R
-        G = if (G.length == 1) "0$G" else G
-        B = if (B.length == 1) "0$B" else B
-        sb.append("0x")
-        sb.append(R)
-        sb.append(G)
-        sb.append(B)
-        return sb.toString()
+    // region Screen
+
+    fun getScreenSize(activity: Activity): Point {
+        return Point(activity.windowManager.currentWindowMetrics.bounds.right, activity.windowManager.currentWindowMetrics.bounds.bottom)
     }
 
-    fun color2HexEncodingEasy(color: Int): String{
-        return Integer.toHexString(4)
-    }
+    // endregion
 
+
+    // region Toast
     fun toast(msg: String, context: Context){
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
+    // endregion
+
+    // region status bar
 
      fun setStatusBarTrans(ctx: Activity){
         // 表示让应用主题内容占据系统状态栏的空间
@@ -140,14 +129,44 @@ object UIHelper {
     private fun setStatusBarTextColorLightNow(context: Activity){
 
     }
+    // endregion
 
     // region color 相关
     fun colorInt2Hex(color: Int): String{
         return String.format("#%06X", (0xFFFFFF and color))
     }
 
+    /**
+     * 把颜色转换成 hex 字符串形式
+     * @param color
+     * @return
+     */
+    fun color2HexEncoding(color: Int): String? {
+        var R: String
+        var G: String
+        var B: String
+        val sb = StringBuffer()
+        R = Integer.toHexString(Color.red(color))
+        G = Integer.toHexString(Color.green(color))
+        B = Integer.toHexString(Color.blue(color))
+        //判断获取到的R,G,B值的长度 如果长度等于1 给R,G,B值的前边添0
+        R = if (R.length == 1) "0$R" else R
+        G = if (G.length == 1) "0$G" else G
+        B = if (B.length == 1) "0$B" else B
+        sb.append("0x")
+        sb.append(R)
+        sb.append(G)
+        sb.append(B)
+        return sb.toString()
+    }
+
+    fun color2HexEncodingEasy(color: Int): String{
+        return Integer.toHexString(4)
+    }
+
     // endregion
 
+    // region bitmap and drawable
     fun bitmap2Drawable(bitmap: Bitmap, context: Context): Drawable{
         return BitmapDrawable(context.resources, bitmap)
     }
@@ -167,4 +186,5 @@ object UIHelper {
         }
         return bitmap
     }
+    // endregion
 }
