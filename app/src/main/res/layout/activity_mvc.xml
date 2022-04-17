@@ -3,11 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/layout_title"/>
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title"/>
 
     <TextView
-        android:text="mvc"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="10dp"
+        android:layout_margin="15dp"
+        android:text="MVC(Model-View-Controller, 模型-视图-控制器)\n
+- 模型层：业务数据模型\n
+- 视图层：一般采用 Xml 或者 Java 代码进行界面的描述\n
+- 控制层：通常在 Activity、Fragment 或者由他们控制的其他业务类中\n\n
+缺点：\n
+- 业务多时，导致在 Activity 中的代码臃肿，不利于维护\n
+- View 层和 Model 层相互耦合，不易开发和维护"
+        android:textSize="21sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
