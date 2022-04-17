@@ -37,6 +37,7 @@ class MoreFragment: BaseFragment() {
             add(ItemMore("多线程", true))
             add(ItemMore("网络"))
             add(ItemMore("设计模式"))
+            add(ItemMore("数据结构和算法"))
             add(ItemMore("Activity 的生命周期和启动模式"))
             add(ItemMore("Android 消息机制"))
             add(ItemMore("IPC机制"))
@@ -52,7 +53,13 @@ class MoreFragment: BaseFragment() {
             add(ItemMore("性能优化"))
             add(ItemMore("Gradle"))
             add(ItemMore("JNI 和 NDK"))
+            add(ItemMore("C/C++"))
+            add(ItemMore("OpenGL"))
             add(ItemMore("综合技术"))
+            add(ItemMore("打包脚本"))
+            add(ItemMore("Git"))
+            add(ItemMore("Linux"))
+            add(ItemMore("Python"))
         }
     }
 
