@@ -10,6 +10,8 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.LogHelper
@@ -58,6 +60,7 @@ abstract class BaseActivity: BasicActivity() {
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
         setContentView(getLayout())
+
 
         mSelf = this
         baseToolbar = findViewById(R.id.toolBar)
