@@ -26,11 +26,11 @@ class LoginFragment: BaseFragment(), LoginContract.View {
     }
 
     override fun showLoading() {
-        showToast("loading...")
+        showProgressDialog("loading...")
     }
 
     override fun hideLoading() {
-        showToast("hideLoading...")
+       hideProgressDialog()
     }
 
     override fun showError(msg: String) {

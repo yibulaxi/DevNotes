@@ -1,5 +1,6 @@
 package cn.kk.base.fragment
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,10 @@ abstract class BaseFragment: Fragment() {
 
     val TAG = this.javaClass.simpleName
     protected lateinit var rootView: View
+    protected lateinit var mProgressDialog: ProgressDialog
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(getLayoutId(), container, false)
+        mProgressDialog = ProgressDialog(context)
         return rootView
     }
 
@@ -30,5 +33,15 @@ abstract class BaseFragment: Fragment() {
     protected fun showToast(msg: String){
         if (context == null) return
         UIHelper.toast(msg, context!!)
+    }
+
+    protected fun showProgressDialog(msg: String){
+        mProgressDialog.setCancelable(true)
+        mProgressDialog.setMessage(msg)
+        mProgressDialog.show()
+    }
+
+    protected fun hideProgressDialog(){
+        mProgressDialog.dismiss()
     }
 }
