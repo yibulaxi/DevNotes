@@ -3,12 +3,13 @@ package cn.kk.customview.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
+import cn.kk.customview.activity.more.WorkActivity
+import cn.kk.customview.bean.ItemSimpleCard
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
@@ -22,49 +23,59 @@ class MoreFragment: BaseFragment() {
 
        val rvList = rootView.findViewById<RecyclerView>(R.id.rv_list_more)
         rvList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        rvList.adapter = object : BaseQuickAdapter<ItemMore, BaseViewHolder>(R.layout.item_more_list, getItems()){
-            override fun convert(holder: BaseViewHolder, item: ItemMore) {
-                holder.setText(R.id.tv_name, item.name)
+        rvList.adapter = object : BaseQuickAdapter<ItemSimpleCard, BaseViewHolder>(R.layout.item_card_list, getItems()){
+            override fun convert(holder: BaseViewHolder, item: ItemSimpleCard) {
+                holder.setText(R.id.tv_name, item.title)
                 holder.setVisible(R.id.iv_ok_flag, item.finish)
                 holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
             }
-
+        }.apply {
+            setOnItemClickListener { adapter, view, position ->
+                val title = data[position].title
+                when (data[position].item_action) {
+                    ItemSimpleCard.ACTION_MORE_WORK -> {
+                        startNextUI(WorkActivity::class.java, title)
+                    }
+                    else -> {
+                    }
+                }
+            }
         }
     }
 
-    private fun getItems(): MutableList<ItemMore>{
-        return  mutableListOf<ItemMore>().apply {
-            add(ItemMore("多线程", true))
-            add(ItemMore("网络"))
-            add(ItemMore("设计模式"))
-            add(ItemMore("数据结构和算法"))
-            add(ItemMore("Activity 的生命周期和启动模式"))
-            add(ItemMore("Android 消息机制"))
-            add(ItemMore("IPC机制"))
-            add(ItemMore("理解 Window 和 WindowManager"))
-            add(ItemMore("四大组件工作过程"))
-            add(ItemMore("Bitmap 的加载和 Cache"))
-            add(ItemMore("事件总线"))
-            add(ItemMore("函数响应式编程"))
-            add(ItemMore("注解与依赖注入框架"))
-            add(ItemMore("Flutter"))
-            add(ItemMore("音频"))
-            add(ItemMore("视频"))
-            add(ItemMore("性能优化"))
-            add(ItemMore("热修复"))
-            add(ItemMore("全埋点解决方案"))
-            add(ItemMore("Android 插件化开发指南"))
-            add(ItemMore("Gradle"))
-            add(ItemMore("JNI 和 NDK"))
-            add(ItemMore("C/C++"))
-            add(ItemMore("OpenGL"))
-            add(ItemMore("综合技术"))
-            add(ItemMore("打包脚本"))
-            add(ItemMore("Git"))
-            add(ItemMore("Linux"))
-            add(ItemMore("Python"))
+    private fun getItems(): MutableList<ItemSimpleCard>{
+        return  mutableListOf<ItemSimpleCard>().apply {
+            add(ItemSimpleCard("工作中汇总", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK })
+            add(ItemSimpleCard("多线程", true))
+            add(ItemSimpleCard("网络"))
+            add(ItemSimpleCard("设计模式"))
+            add(ItemSimpleCard("数据结构和算法"))
+            add(ItemSimpleCard("Activity 的生命周期和启动模式"))
+            add(ItemSimpleCard("Android 消息机制"))
+            add(ItemSimpleCard("IPC机制"))
+            add(ItemSimpleCard("理解 Window 和 WindowManager"))
+            add(ItemSimpleCard("四大组件工作过程"))
+            add(ItemSimpleCard("Bitmap 的加载和 Cache"))
+            add(ItemSimpleCard("事件总线"))
+            add(ItemSimpleCard("函数响应式编程"))
+            add(ItemSimpleCard("注解与依赖注入框架"))
+            add(ItemSimpleCard("Flutter"))
+            add(ItemSimpleCard("音频"))
+            add(ItemSimpleCard("视频"))
+            add(ItemSimpleCard("性能优化"))
+            add(ItemSimpleCard("热修复"))
+            add(ItemSimpleCard("全埋点解决方案"))
+            add(ItemSimpleCard("Android 插件化开发指南"))
+            add(ItemSimpleCard("Gradle"))
+            add(ItemSimpleCard("JNI 和 NDK"))
+            add(ItemSimpleCard("C/C++"))
+            add(ItemSimpleCard("OpenGL"))
+            add(ItemSimpleCard("综合技术"))
+            add(ItemSimpleCard("打包脚本"))
+            add(ItemSimpleCard("Git"))
+            add(ItemSimpleCard("Linux"))
+            add(ItemSimpleCard("Python"))
         }
     }
 
-    class ItemMore(val name: String,val finish: Boolean = false)
 }

@@ -197,11 +197,4 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
     }
     // endregion
 
-    fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String){
-        (activity as BaseActivity).openNextUI(targetActivity, title)
-    }
-
-    fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int){
-        (activity as BaseActivity).openNextUI(targetActivity, title, type)
-    }
 }

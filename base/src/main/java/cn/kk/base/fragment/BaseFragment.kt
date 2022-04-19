@@ -1,5 +1,6 @@
 package cn.kk.base.fragment
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cn.kk.base.UIHelper
+import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
 
 abstract class BaseFragment: Fragment() {
@@ -43,5 +45,14 @@ abstract class BaseFragment: Fragment() {
 
     protected fun hideProgressDialog(){
         mProgressDialog.dismiss()
+    }
+
+
+    protected fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String){
+        (activity as BaseActivity).openNextUI(targetActivity, title)
+    }
+
+    protected fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int){
+        (activity as BaseActivity).openNextUI(targetActivity, title, type)
     }
 }
