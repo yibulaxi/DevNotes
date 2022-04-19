@@ -19,6 +19,7 @@ import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.adapter.ListV2Adapter
 import cn.kk.base.bean.ListItemAction
+import cn.kk.base.dialog.SimpleBottomDialog
 
 /**
  * Activity 基类
@@ -27,7 +28,7 @@ abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
 
-    protected lateinit var mSelf: Activity
+    protected lateinit var mSelf: BaseActivity
     protected var baseToolbar: Toolbar?= null
 
     private val title by lazy {
@@ -213,4 +214,5 @@ abstract class BaseActivity: BasicActivity() {
     override fun getResources(): Resources {
         return if (ignoreSystemFontSize()) createConfigurationContext(Configuration().apply { setToDefaults() }).resources else super.getResources()
     }
+
 }

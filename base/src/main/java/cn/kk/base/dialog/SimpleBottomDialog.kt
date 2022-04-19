@@ -9,7 +9,7 @@ import cn.kk.base.activity.BaseActivity
 /**
  * 简单的底部弹窗 dialog
  */
-class SimpleBottomDialog( mActivity: BaseActivity, theme: Int): BaseBottomDialog(mActivity, theme) {
+open class SimpleBottomDialog(mActivity: BaseActivity ,theme: Int): BaseBottomDialog(mActivity, theme) {
 
     constructor(mActivity: BaseActivity): this(mActivity, 0)
 

@@ -47,4 +47,37 @@
     <string name="appwidget_night">小组件-夜间</string>
     <string name="add_widget">Add widget</string>
 
+    <!-- 大内容 -->
+    <string name="intent_serial_wiki">什么是序列化？为什么？怎么做？
+百科是这么定义序列化的：
+
+序列化 (Serialization)将对象的状态信息转换为可以存储或传输的形式的过程。在序列化期间，对象将其当前状态写入到临时或持久性存储区。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。
+
+另外，还提到了一个技术：
+
+二进制序列化保持类型保真度，这对于在应用程序的不同调用之间保留对象的状态很有用。例如，通过将对象序列化到剪贴板，可在不同的应用程序之间共享对象。您可以将对象序列化到流、磁盘、内存和网络等等。远程处理使用序列化“通过值”在计算机应用程序域之间传递对象。
+
+简单概括一下，序列化就是将一个对象转换成二进制，然后存储到本地 / 流 或者通过网络传递对象给其他终端。
+
+以上是对序列化这一概念的介绍，可能看到此处会觉得：“哦，序列化的概念我知道了，不过为什么我要序列化呢？不序列化就不能传输数据了么？”。
+
+下面简单举个栗子来解释为什么需要序列化：
+Android 中最简单的Activity间传递数据的方式，无外乎通过intent.putExtra()方式传递数据，比如字符串，数字以及 Bundle 等，但是我们会发现，我们不能直接通过该方法传递一个Java类对象。
+why？
+因为Android 在处理Intent的时候时copy intent，如果未经序列化，那么只是传递了对象的引用，但是显然如果这个引用不是static的，那么在新的activity中是获取不到任何东西的。因此我们需要将对象序列化后存放到intent中，然后再传递。
+
+参考 https://stackoverflow.com/questions/14917029/pass-object-reference-within-intent-without-implementing-serializable-or-parcela
+
+知道为什么需要序列化之后，下面我们就来看一看Android实际开发中序列化的应用
+两种方式：
+
+方式一：Serializable（Java提供），要传递的类实现Serializable接口
+方式二：Parcelable（Android专属），要传递的类实现Parcelable接口
+下面我们详细介绍一下这两种序列化方式
+
+Serializable 接口，简单易用
+Serializable 是 Java 提供的序列化接口（一个空接口），用来标识当前类可以被 ObjectOutputStream 序列化，以及被 ObjectInputStream 反序列化。
+Google工程师将其称作“标识接口（marker interface）”，这意味着无需实现方法，只要将准备序列化的类实现该接口，Java 便会进行序列化操作。
+
+</string>
 </resources>
