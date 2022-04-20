@@ -23,7 +23,7 @@ class DrawableSample: BaseActivity() {
             add(ListItemAction("ShapeDrawable", true))
             add(ListItemAction("LayerDrawable", true))
             add(ListItemAction("StateListDrawable", true))
-            add(ListItemAction("StateListDrawable", true))
+            add(ListItemAction("LevelListDrawable", true))
             add(ListItemAction("TransitionDrawable", true))
             add(ListItemAction("InsetDrawable", true))
             add(ListItemAction("ScaleDrawable", true))
