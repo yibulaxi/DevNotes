@@ -51,12 +51,13 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("Html Text", true)
                 addItem("桌面小组件", true)
                 addItem("Drawable", true)
-                addItem("RecyclerView 下面加 View", true)
-                addItem("RecyclerView item 长按 Context Menu", true)
+                addItem("RecyclerView 用法", true)
             })
             // endregion
 
+            // region cool-300
             add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
+            // endregion
 
             add(NormalListFragment().apply {
                 partType = UIConfig.PART_THIRD
@@ -90,7 +91,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("区间拖拽条", true)
                 addItem("拼写组件", false)
                 addItem("日历打卡组件", true)
-                addItem("拖动排序列表", true)
+                addItem("RecyclerView 用法", true)
             })
             // endregion
         })

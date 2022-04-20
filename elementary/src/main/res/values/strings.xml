@@ -103,4 +103,12 @@
         <item>属性动画</item>
         <item>动画进阶</item>
     </string-array>
+
+    <string-array name="recycler_view_types">
+        <item>拖动排序</item>
+        <item>下面加 View</item>
+        <item>长按 item 弹出 Context Menu</item>
+        <item>监听滑动位置</item>
+        <item>监听上下滑动方向</item>
+    </string-array>
 </resources>

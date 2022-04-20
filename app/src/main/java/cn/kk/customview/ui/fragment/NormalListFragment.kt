@@ -1,12 +1,10 @@
 package cn.kk.customview.ui.fragment
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.R
-import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListAdapter
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
@@ -28,8 +26,9 @@ import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
 import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.drawable.DrawableSample
 import cn.kk.customview.ui.system.material.MaterialActivity
-import cn.kk.customview.ui.work.DragListActivity
+import cn.kk.customview.ui.work.DragListFragment
 import cn.kk.customview.ui.work.FlickerActivity
+import cn.kk.customview.ui.work.RecyclerViewDemoActivity
 import cn.kk.customview.ui.work.TimeProgressActivity
 import cn.kk.elementary.anim.property.`object`.AnimatorSetActivity
 import cn.kk.elementary.anim.property.`object`.ObjectAnimActivity
@@ -107,8 +106,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     12 ->startNextUI(HtmlText::class.java, title)
                     13 ->startNextUI(AppWidgetSample::class.java, title)
                     14 ->startNextUI(DrawableSample::class.java, title)
-                    15 ->startNextUI(RecyclerViewAddViewDemo::class.java, title)
-                    16 ->startNextUI(RecyclerViewContextMenu::class.java, title)
+                    15 ->startNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
                 }
             }
             // endregion
@@ -161,7 +159,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     2 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_GRADIENT_IMG)
                     3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAG_LEVEL)
                     5 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHECKIN_WEEK)
-                    6 -> startNextUI(DragListActivity::class.java, title)
+                    6 -> startNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
                 }
             }
             // endregion

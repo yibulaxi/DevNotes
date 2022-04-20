@@ -1,12 +1,15 @@
 package cn.kk.customview.activity.more
 
+import android.content.ClipData
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
+import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
+import cn.kk.customview.ui.work.RecyclerViewDemoActivity
 import cn.kk.customview.widget.dialog.NormalWikiBottomDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -33,10 +36,12 @@ class WorkActivity: BaseActivity() {
             }
         }.apply {
             setOnItemClickListener { adapter, view, position ->
+                val title = data[position].title
                 when(data[position].item_action) {
                     ItemSimpleCard.ACTION_WORK_INTENT_SERIALIZABLE -> {
-                        showWikiDialog(SimpleWikiModel(data[position].title, getString(R.string.intent_serial_wiki)))
+                        showWikiDialog(SimpleWikiModel(title, getString(R.string.intent_serial_wiki)))
                     }
+                    ItemSimpleCard.ACTION_WORK_INTENT_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
                 }
             }
         }
@@ -45,7 +50,7 @@ class WorkActivity: BaseActivity() {
     fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("Intent 序列化传值", true).apply { item_action = ItemSimpleCard.ACTION_WORK_INTENT_SERIALIZABLE })
-            add(ItemSimpleCard("RecyclerView 使用总结", false))
+            add(ItemSimpleCard("RecyclerView 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_WORK_INTENT_REYCYCLER_VIEW })
         }
     }
 

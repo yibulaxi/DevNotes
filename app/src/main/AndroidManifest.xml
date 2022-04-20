@@ -92,15 +92,15 @@
         <activity android:name=".ui.system.material.CardViewActivity" />
         <activity android:name=".ui.system.drawable.DrawableSample" />
         <activity android:name=".ui.system.drawable.MultiDrawable" />
-        <activity android:name=".ui.system.RecyclerViewAddViewDemo" />
-        <activity android:name=".ui.system.RecyclerViewContextMenu" />
         <activity
             android:name=".ui.system.material.ToolbarActivity"
             android:theme="@style/KKTheme" />
 
+
+        <!--work-->
         <activity android:name=".ui.work.TimeProgressActivity" />
         <activity android:name=".ui.work.FlickerActivity" />
-        <activity android:name=".ui.work.DragListActivity"/>
+        <activity android:name=".ui.work.RecyclerViewDemoActivity" />
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>

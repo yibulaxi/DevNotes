@@ -12,99 +12,75 @@ import kotlinx.android.synthetic.main.activity_normal_tab.*
 
 class NormalTabActivity: BaseTabActivity() {
 
-    private val tabsName by lazy {
-        getItemNamesByType()
-    }
-    private var tabType = -1
-
-    override fun getTabType(): Int {
-        return tabType
-    }
-
     override fun getLayout(): Int {
         return R.layout.activity_normal_tab
     }
 
-    override fun doWhenOnCreate() {
-        super.doWhenOnCreate()
-        tabType = intent.getIntExtra(INTENT_TYPE_KEY, -1)
+    override fun MutableList<Fragment>.addFragments() {
+        when (tabType) {
+            // region 动画篇
+            TabType.ANIM_TYPE -> {
+                var items = resources.getStringArray(R.array.view_anim_types).toMutableList()
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Anim.ANIM_VIEW
+                    addItems(items)
+                })
+                items = resources.getStringArray(R.array.property_anim_types).toMutableList()
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Anim.ANIM_PROPERTY
+                    addItems(items)
+                })
+                items = resources.getStringArray(R.array.anim_advance_sections).toMutableList()
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Anim.ANIM_ADVANCE
+                    addItems(items)
+                })
+            }
+            // endregion
 
-        viewPager.adapter = BaseFragmentAdapter(this, mutableListOf<Fragment>().apply {
-            when(tabType) {
-                // region 动画篇
-                TabType.ANIM_TYPE -> {
-                    var items = resources.getStringArray(R.array.view_anim_types).toMutableList()
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Anim.ANIM_VIEW
-                        addItems(items)
-                    })
-                    items = resources.getStringArray(R.array.property_anim_types).toMutableList()
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Anim.ANIM_PROPERTY
-                        addItems(items)
-                    })
-                    items = resources.getStringArray(R.array.anim_advance_sections).toMutableList()
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Anim.ANIM_ADVANCE
-                        addItems(items)
-                    })
-                }
+            // region 绘图篇
+            TabType.DRAW_TYPE -> {
+                var items = resources.getStringArray(R.array.view_anim_types).toMutableList()
+                // region Paint 基本使用
+                add(NormalTabFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.PAINT_TYPE
+                })
                 // endregion
 
-                // region 绘图篇
-                TabType.DRAW_TYPE -> {
-                    var items = resources.getStringArray(R.array.view_anim_types).toMutableList()
-                    // region Paint 基本使用
-                    add(NormalTabFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.PAINT_TYPE
-                    })
-                    // endregion
-
-                    // region 绘图进阶
-                    add(NormalTabFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.ADVANCE_TYPE
-                    })
-                    // endregion
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.XFERMODE_TYPE
-                    })
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.CANVAS_TYPE
-                    })
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.ANDROID_CANVAS_TYPE
-                    })
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.Draw.MATRIX_TYPE
-                    })
-                }
-
+                // region 绘图进阶
+                add(NormalTabFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.ADVANCE_TYPE
+                })
                 // endregion
-
-                // region 视图篇
-                TabType.VIEW_TYPE -> {
-                    var items = resources.getStringArray(R.array.view_sections).toMutableList()
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.View.BOX_VIEW
-                    })
-                    add(NormalListFragment().apply {
-                        partType = UIConfig.SubConfigSystem.View.VIEW_ADVANCE_PROPERTY
-                    })
-                }
-
-                // endregion
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.XFERMODE_TYPE
+                })
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.CANVAS_TYPE
+                })
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.ANDROID_CANVAS_TYPE
+                })
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.Draw.MATRIX_TYPE
+                })
             }
 
-        })
+            // endregion
 
-        TabLayoutMediator(tabs, viewPager, true, object: TabLayoutMediator.TabConfigurationStrategy {
-            override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
-                tab.text = tabsName[position]
+            // region 视图篇
+            TabType.VIEW_TYPE -> {
+                var items = resources.getStringArray(R.array.view_sections).toMutableList()
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.View.BOX_VIEW
+                })
+                add(NormalListFragment().apply {
+                    partType = UIConfig.SubConfigSystem.View.VIEW_ADVANCE_PROPERTY
+                })
             }
 
-        }).attach()
-
-
+            // endregion
+        }
     }
 
 }

@@ -1,24 +1,35 @@
 package cn.kk.customview.ui.work
 
+import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.adapter.ListV3Adapter
 import cn.kk.base.bean.ListItemAction
+import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import java.util.*
 
-class DragListActivity : BaseActivity() {
-    override fun getLayout(): Int {
+/**
+ * RecyclerView item 长按拖拽
+ */
+class DragListFragment : BaseFragment() {
+
+    override fun getLayoutId(): Int {
         return R.layout.activity_normal_list
     }
 
-    override fun setListViewID(): Int {
-        return R.id.rv_list
+    private lateinit var rvList: RecyclerView
+    private val itemList by lazy {
+        getItemNameList()
+    }
+    private val mAdapter by lazy {
+        ListV3Adapter(itemList)
     }
 
-    override fun getItemNameList(): MutableList<ListItemAction> {
+    private fun getItemNameList(): MutableList<ListItemAction> {
         return mutableListOf<ListItemAction>().apply {
             add(ListItemAction("一"))
             add(ListItemAction("二"))
@@ -51,7 +62,7 @@ class DragListActivity : BaseActivity() {
             val toPosition = target.adapterPosition
 
             Collections.swap(itemList, fromPosition, toPosition)
-            rvList?.adapter?.notifyItemMoved(fromPosition, toPosition)
+            rvList.adapter?.notifyItemMoved(fromPosition, toPosition)
             return false
         }
 
@@ -62,24 +73,23 @@ class DragListActivity : BaseActivity() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun initAdapter() {
-        if (rvList == null) {
-            return
-        }
-        rvList!!.layoutManager = LinearLayoutManager(this)
-        rvList!!.adapter = ListV3Adapter(itemList).apply {
+        rootView.findViewById<View>(R.id.title).visibility = View.GONE
+        rvList = rootView.findViewById<RecyclerView>(R.id.rv_list)
+        rvList.layoutManager = LinearLayoutManager(context)
+        rvList.adapter = mAdapter.apply {
             addChildClickViewIds(R.id.iv_sort)
             setOnItemChildClickListener { adapter, view, position ->
                 if (view.id == R.id.iv_sort) {
-                    mItemTouchHelper.startDrag(rvList!!.findViewHolderForAdapterPosition(position)!!)
+                    mItemTouchHelper.startDrag(rvList.findViewHolderForAdapterPosition(position)!!)
                 }
             }
         }
-        mItemTouchHelper = ItemTouchHelper(simpleCallback)
 
+        mItemTouchHelper = ItemTouchHelper(simpleCallback)
         mItemTouchHelper.attachToRecyclerView(rvList)
     }
-
 
 }
