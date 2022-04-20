@@ -48,6 +48,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("工作中汇总", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK })
             add(ItemSimpleCard("多线程", true))
             add(ItemSimpleCard("网络"))
+            add(ItemSimpleCard("Android Sqlite 数据库使用"))
             add(ItemSimpleCard("设计模式"))
             add(ItemSimpleCard("数据结构和算法"))
             add(ItemSimpleCard("Activity 的生命周期和启动模式"))
