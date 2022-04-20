@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
+import cn.kk.customview.activity.more.LinuxActivity
+import cn.kk.customview.activity.more.MixDevActivity
 import cn.kk.customview.activity.more.WorkActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -26,6 +28,7 @@ class MoreFragment: BaseFragment() {
         rvList.adapter = object : BaseQuickAdapter<ItemSimpleCard, BaseViewHolder>(R.layout.item_card_list, getItems()){
             override fun convert(holder: BaseViewHolder, item: ItemSimpleCard) {
                 holder.setText(R.id.tv_name, item.title)
+                holder.setText(R.id.tv_index, (holder.layoutPosition + 1).toString())
                 holder.setVisible(R.id.iv_ok_flag, item.finish)
                 holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
             }
@@ -33,9 +36,9 @@ class MoreFragment: BaseFragment() {
             setOnItemClickListener { adapter, view, position ->
                 val title = data[position].title
                 when (data[position].item_action) {
-                    ItemSimpleCard.ACTION_MORE_WORK -> {
-                        startNextUI(WorkActivity::class.java, title)
-                    }
+                    ItemSimpleCard.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
+                    ItemSimpleCard.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
+                    ItemSimpleCard.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
                     else -> {
                     }
                 }
@@ -74,8 +77,9 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("综合技术"))
             add(ItemSimpleCard("打包脚本"))
             add(ItemSimpleCard("Git"))
-            add(ItemSimpleCard("Linux"))
+            add(ItemSimpleCard("Linux", true).apply { item_action = ItemSimpleCard.ACTION_MORE_Linux })
             add(ItemSimpleCard("Python"))
+            add(ItemSimpleCard("混合开发", true).apply { item_action = ItemSimpleCard.ACTION_MORE_MIX_DEV })
         }
     }
 

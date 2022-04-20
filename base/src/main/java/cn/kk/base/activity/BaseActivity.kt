@@ -27,6 +27,7 @@ import cn.kk.base.dialog.SimpleBottomDialog
 abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
+    protected val INTENT_WEB_URL_KEY = "web_url"
 
     protected lateinit var mSelf: BaseActivity
     protected var baseToolbar: Toolbar?= null
@@ -196,6 +197,15 @@ abstract class BaseActivity: BasicActivity() {
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
             putExtra(INTENT_TYPE_KEY, type)
+        })
+        slideAnimEnter()
+    }
+
+    open fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String, type: Int, webUrl: String){
+        startActivity(Intent(this, targetActivity).apply {
+            putExtra(INTENT_TITLE_KEY, title)
+            putExtra(INTENT_TYPE_KEY, type)
+            putExtra(INTENT_WEB_URL_KEY, webUrl)
         })
         slideAnimEnter()
     }

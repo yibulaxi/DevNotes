@@ -71,6 +71,7 @@
         <activity android:name=".activity.NormalListActivity"/>
         <activity android:name=".activity.NormalViewActivity"/>
         <activity android:name=".activity.NormalTabActivity"/>
+        <activity android:name=".activity.NormalWebViewActivity"/>
 
         <activity
             android:name=".ui.system.CoordinatorLayoutActivity"
@@ -111,6 +112,10 @@
 
         <!--more-->
         <activity android:name=".activity.more.WorkActivity"/>
+        <activity android:name=".activity.more.LinuxActivity"/>
+
+        <!--more Linux-->
+        <activity android:name=".activity.more.MixDevActivity"/>
     </application>
 
 </manifest>

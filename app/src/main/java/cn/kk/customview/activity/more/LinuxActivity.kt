@@ -6,6 +6,7 @@ import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
@@ -15,9 +16,9 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import kotlinx.android.synthetic.main.activity_normal_list.*
 
 /**
- * 工作中总结
+ * Linux 总结
  */
-class WorkActivity: BaseActivity() {
+class LinuxActivity: BaseActivity() {
 
     override fun getLayout(): Int {
        return R.layout.activity_normal_list
@@ -37,10 +38,8 @@ class WorkActivity: BaseActivity() {
             setOnItemClickListener { adapter, view, position ->
                 val title = data[position].title
                 when(data[position].item_action) {
-                    ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE -> {
-                        showWikiDialog(SimpleWikiModel(title, getString(R.string.intent_serial_wiki)))
-                    }
-                    ItemSimpleCard.ACTION_MORE_WORK_INTENT_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
+                    ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT ->
+                        openNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
                 }
             }
         }
@@ -48,12 +47,11 @@ class WorkActivity: BaseActivity() {
 
     fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
-            add(ItemSimpleCard("Intent 序列化传值", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE })
-            add(ItemSimpleCard("RecyclerView 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_INTENT_REYCYCLER_VIEW })
+            add(ItemSimpleCard("比 cat 更好用的命令", true).apply {
+                item_action = ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT
+                web_url = "https://mp.weixin.qq.com/s/jDYgI-HIuE3ez8K3EA8WoA"
+            })
         }
     }
 
-    fun showWikiDialog(wiki: SimpleWikiModel){
-        NormalWikiBottomDialog(mSelf, wiki).show()
-    }
 }
