@@ -18,6 +18,7 @@ class ItemSimpleCard(val title: String, val finish: Boolean = false) {
 
         // 更多 Linux 笔记
         val ACTION_MORE_LINUX_BETTER_CAT = 1301
+        val ACTION_MORE_LINUX_MAC_TRANS_LINUX = 1302
 
         // 更多混合开发笔记
         val ACTION_MORE_MIX_DEV_WEBVIEW = 1321

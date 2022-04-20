@@ -40,6 +40,8 @@ class LinuxActivity: BaseActivity() {
                 when(data[position].item_action) {
                     ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT ->
                         openNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
+                    ItemSimpleCard.ACTION_MORE_LINUX_MAC_TRANS_LINUX ->
+                        openNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
                 }
             }
         }
@@ -50,6 +52,10 @@ class LinuxActivity: BaseActivity() {
             add(ItemSimpleCard("比 cat 更好用的命令", true).apply {
                 item_action = ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT
                 web_url = "https://mp.weixin.qq.com/s/jDYgI-HIuE3ez8K3EA8WoA"
+            })
+            add(ItemSimpleCard("我为什么从 Mac 转到 Linux", true).apply {
+                item_action = ItemSimpleCard.ACTION_MORE_LINUX_MAC_TRANS_LINUX
+                web_url = "https://mp.weixin.qq.com/s/yMR66tjAM4a3Dkaw-MovVg"
             })
         }
     }
