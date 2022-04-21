@@ -6,6 +6,7 @@ import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
+import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
@@ -17,43 +18,29 @@ import kotlinx.android.synthetic.main.activity_normal_list.*
 /**
  * 工作中总结
  */
-class WorkActivity: BaseActivity() {
+class WorkActivity: NormalCardListActivity() {
 
     override fun getLayout(): Int {
        return R.layout.activity_normal_list
     }
 
-    override fun doWhenOnCreate() {
-        super.doWhenOnCreate()
-
-        rv_list.layoutManager = GridLayoutManager(this, 2)
-        rv_list.adapter = object :  BaseQuickAdapter<ItemSimpleCard, BaseViewHolder>(R.layout.item_card_list, getItemCardList()){
-            override fun convert(holder: BaseViewHolder, item: ItemSimpleCard) {
-                holder.setText(R.id.tv_name, item.title)
-                holder.setVisible(R.id.iv_ok_flag, item.finish)
-                holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
-            }
-        }.apply {
-            setOnItemClickListener { adapter, view, position ->
-                val title = data[position].title
-                when(data[position].item_action) {
-                    ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE -> {
-                        showWikiDialog(SimpleWikiModel(title, getString(R.string.intent_serial_wiki)))
-                    }
-                    ItemSimpleCard.ACTION_MORE_WORK_INTENT_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
-                }
-            }
-        }
+    override fun getListSpanCount(): Int {
+        return 2
     }
 
-    fun getItemCardList(): MutableList<ItemSimpleCard>{
+   override fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("Intent 序列化传值", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE })
-            add(ItemSimpleCard("RecyclerView 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_INTENT_REYCYCLER_VIEW })
+            add(ItemSimpleCard("RecyclerView 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_REYCYCLER_VIEW })
+            add(ItemSimpleCard("菜单 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_MENU })
         }
     }
 
-    fun showWikiDialog(wiki: SimpleWikiModel){
-        NormalWikiBottomDialog(mSelf, wiki).show()
+    override fun doWhenClickItem(item: ItemSimpleCard) {
+        when(item.item_action) {
+            ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE -> showWikiDialog(SimpleWikiModel(item.title, getString(R.string.intent_serial_wiki)))
+            ItemSimpleCard.ACTION_MORE_WORK_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
+        }
     }
+
 }

@@ -80,6 +80,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("Linux", true).apply { item_action = ItemSimpleCard.ACTION_MORE_Linux })
             add(ItemSimpleCard("Python"))
             add(ItemSimpleCard("混合开发", true).apply { item_action = ItemSimpleCard.ACTION_MORE_MIX_DEV })
+            add(ItemSimpleCard("正则表达式", false))
         }
     }
 
