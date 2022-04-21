@@ -1,32 +1,20 @@
 package cn.kk.customview.activity.more
 
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.GridLayoutManager
-import cn.kk.base.UIHelper
-import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
-import cn.kk.customview.widget.dialog.NormalWikiBottomDialog
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import kotlinx.android.synthetic.main.activity_normal_list.*
 
 /**
  * 工作中总结
  */
 class WorkActivity: NormalCardListActivity() {
 
-    override fun getLayout(): Int {
-       return R.layout.activity_normal_list
-    }
+    override fun getLayout() = R.layout.activity_normal_list
 
-    override fun getListSpanCount(): Int {
-        return 2
-    }
+    override fun getListSpanCount() = 2
 
    override fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
