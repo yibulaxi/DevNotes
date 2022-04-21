@@ -114,6 +114,7 @@
         <!--more-->
         <activity android:name=".activity.more.WorkActivity"/>
         <activity android:name=".activity.more.LinuxActivity"/>
+        <activity android:name=".activity.more.ZongHeActivity"/>
 
         <!--more Linux-->
         <activity android:name=".activity.more.MixDevActivity"/>
