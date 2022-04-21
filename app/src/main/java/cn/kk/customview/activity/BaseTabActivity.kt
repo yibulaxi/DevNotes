@@ -29,6 +29,7 @@ abstract class BaseTabActivity: BaseActivity() {
 
             // region SystemUI Type
             TabType.SystemUI.RECYCLER_VIEW_TYPE -> return resources.getStringArray(R.array.recycler_view_types).toMutableList()
+            TabType.SystemUI.MENU_TYPE -> return resources.getStringArray(R.array.menu_types).toMutableList()
             // endregion
 
             else -> {
@@ -77,6 +78,7 @@ abstract class BaseTabActivity: BaseActivity() {
             companion object {
 
                 val RECYCLER_VIEW_TYPE = 10
+                val MENU_TYPE = 11
             }
         }
     }

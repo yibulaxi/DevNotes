@@ -110,5 +110,13 @@
         <item>长按 item 弹出 Context Menu</item>
         <item>监听滑动位置</item>
         <item>监听上下滑动方向</item>
+        <item>EmptyView</item>
+    </string-array>
+
+    <string-array name="menu_types">
+        <item>Option Menu</item>
+        <item>Context Menu</item>
+        <item>PopupWindow Menu</item>
+        <item>ActionMode Menu</item>
     </string-array>
 </resources>

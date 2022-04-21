@@ -5,6 +5,7 @@ import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
+import cn.kk.customview.ui.work.MenuDemoActivity
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
 
 /**
@@ -28,6 +29,7 @@ class WorkActivity: NormalCardListActivity() {
         when(item.item_action) {
             ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE -> showWikiDialog(SimpleWikiModel(item.title, getString(R.string.intent_serial_wiki)))
             ItemSimpleCard.ACTION_MORE_WORK_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
+            ItemSimpleCard.ACTION_MORE_WORK_MENU -> openNextUI(MenuDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.MENU_TYPE)
         }
     }
 

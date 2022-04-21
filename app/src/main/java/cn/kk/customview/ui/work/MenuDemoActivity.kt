@@ -13,24 +13,22 @@ import cn.kk.customview.ui.system.RecyclerViewContextMenuFragment
 import cn.kk.customview.utils.px
 
 /**
- * RecyclerView 常见用法
+ * Menu 常见用法
  */
-class RecyclerViewDemoActivity: BaseTabActivity() {
+class MenuDemoActivity: BaseTabActivity() {
 
     override fun getLayout(): Int {
         return R.layout.activity_normal_tab
     }
 
     override fun MutableList<Fragment>.addFragments() {
-        add(DragListFragment())
-        add(RecyclerViewAddViewDemoFragment())
-        add(RecyclerViewContextMenuFragment())
-        add(ScrollListenerFragment().apply { title = tabsName[3] })
-        add(ScrollListenerFragment().apply { title = tabsName[4] })
-        add(ScrollListenerFragment().apply { title = tabsName[5] })
+        add(MenuFragment().apply { title = tabsName[0] })
+        add(MenuFragment().apply { title = tabsName[1] })
+        add(MenuFragment().apply { title = tabsName[2] })
+        add(MenuFragment().apply { title = tabsName[3] })
     }
 
-    class ScrollListenerFragment: NormalViewFragment() {
+    class MenuFragment: NormalViewFragment() {
         var title = ""
         override fun getMyView(): View {
             return TextView(requireContext()).apply {

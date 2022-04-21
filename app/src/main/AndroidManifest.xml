@@ -102,6 +102,7 @@
         <activity android:name=".ui.work.TimeProgressActivity" />
         <activity android:name=".ui.work.FlickerActivity" />
         <activity android:name=".ui.work.RecyclerViewDemoActivity" />
+        <activity android:name=".ui.work.MenuDemoActivity" />
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>
