@@ -79,6 +79,13 @@ abstract class BaseTabActivity: BaseActivity() {
 
                 val RECYCLER_VIEW_TYPE = 10
                 val MENU_TYPE = 11
+
+                // sub menu type
+                val menu_option = 111
+                val menu_bottom = 112
+                val menu_context = 113
+                val menu_popup_window = 114
+                val menu_action_more = 115
             }
         }
     }

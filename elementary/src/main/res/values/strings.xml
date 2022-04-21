@@ -115,6 +115,7 @@
 
     <string-array name="menu_types">
         <item>Option Menu</item>
+        <item>Bottom Menu</item>
         <item>Context Menu</item>
         <item>PopupWindow Menu</item>
         <item>ActionMode Menu</item>
