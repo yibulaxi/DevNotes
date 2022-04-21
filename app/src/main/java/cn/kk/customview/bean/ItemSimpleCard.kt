@@ -16,6 +16,7 @@ class ItemSimpleCard(val title: String, val finish: Boolean = false) {
         val ACTION_MORE_WORK_INTENT_SERIALIZABLE = 1001
         val ACTION_MORE_WORK_REYCYCLER_VIEW = 1002
         val ACTION_MORE_WORK_MENU = 1003
+        val ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT = 1004
 
         // 更多 Linux 笔记
         val ACTION_MORE_LINUX_BETTER_CAT = 1301

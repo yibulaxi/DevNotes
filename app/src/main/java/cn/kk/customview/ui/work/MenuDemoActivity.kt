@@ -56,7 +56,7 @@ class MenuDemoActivity: BaseTabActivity() {
                         TabType.SystemUI.menu_bottom -> startNextUI(Simple_071::class.java, title)
                         TabType.SystemUI.menu_context -> startNextUI(Simple_072::class.java, title)
                         else -> {
-                            showToast("还没做...")
+                            showToast(getString(R.string.not_yet))
                         }
                     }
                 }

@@ -111,6 +111,7 @@
         <item>监听滑动位置</item>
         <item>监听上下滑动方向</item>
         <item>EmptyView</item>
+        <item>FlexboxLayoutManager(流式布局)</item>
     </string-array>
 
     <string-array name="menu_types">

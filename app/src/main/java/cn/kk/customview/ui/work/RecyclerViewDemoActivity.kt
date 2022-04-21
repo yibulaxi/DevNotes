@@ -10,7 +10,6 @@ import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.ui.fragment.NormalViewFragment
 import cn.kk.customview.ui.system.RecyclerViewAddViewDemoFragment
 import cn.kk.customview.ui.system.RecyclerViewContextMenuFragment
-import cn.kk.customview.utils.px
 
 /**
  * RecyclerView 常见用法
@@ -28,6 +27,7 @@ class RecyclerViewDemoActivity: BaseTabActivity() {
         add(ScrollListenerFragment().apply { title = tabsName[3] })
         add(ScrollListenerFragment().apply { title = tabsName[4] })
         add(ScrollListenerFragment().apply { title = tabsName[5] })
+        add(ScrollListenerFragment().apply { title = tabsName[6] })
     }
 
     class ScrollListenerFragment: NormalViewFragment() {

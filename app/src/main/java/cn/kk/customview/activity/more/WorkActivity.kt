@@ -22,6 +22,7 @@ class WorkActivity: NormalCardListActivity() {
             add(ItemSimpleCard("Intent 序列化传值", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE })
             add(ItemSimpleCard("RecyclerView 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_REYCYCLER_VIEW })
             add(ItemSimpleCard("菜单 使用总结", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_MENU })
+            add(ItemSimpleCard("EditText/TextView 高亮文本").apply { item_action = ItemSimpleCard.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT })
         }
     }
 
@@ -30,6 +31,7 @@ class WorkActivity: NormalCardListActivity() {
             ItemSimpleCard.ACTION_MORE_WORK_INTENT_SERIALIZABLE -> showWikiDialog(SimpleWikiModel(item.title, getString(R.string.intent_serial_wiki)))
             ItemSimpleCard.ACTION_MORE_WORK_REYCYCLER_VIEW -> openNextUI(RecyclerViewDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
             ItemSimpleCard.ACTION_MORE_WORK_MENU -> openNextUI(MenuDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.MENU_TYPE)
+            ItemSimpleCard.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT -> showToast(getString(R.string.not_yet))
         }
     }
 
