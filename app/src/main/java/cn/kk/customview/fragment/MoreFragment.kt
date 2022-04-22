@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
-import cn.kk.customview.activity.more.LinuxActivity
-import cn.kk.customview.activity.more.MixDevActivity
-import cn.kk.customview.activity.more.WorkActivity
-import cn.kk.customview.activity.more.ZongHeActivity
+import cn.kk.customview.activity.more.*
 import cn.kk.customview.bean.ItemSimpleCard
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -38,6 +35,7 @@ class MoreFragment: BaseFragment() {
                 val title = data[position].title
                 when (data[position].item_action) {
                     ItemSimpleCard.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
+                    ItemSimpleCard.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
@@ -52,7 +50,7 @@ class MoreFragment: BaseFragment() {
         return  mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("工作中汇总", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK })
             add(ItemSimpleCard("多线程", true))
-            add(ItemSimpleCard("网络"))
+            add(ItemSimpleCard("网络", true).apply { item_action = ItemSimpleCard.ACTION_MORE_NET })
             add(ItemSimpleCard("Android Sqlite 数据库使用"))
             add(ItemSimpleCard("设计模式"))
             add(ItemSimpleCard("数据结构和算法"))
