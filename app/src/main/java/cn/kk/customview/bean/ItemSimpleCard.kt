@@ -9,6 +9,7 @@ class ItemSimpleCard(val title: String, val finish: Boolean = false) {
         // 更多：工作中总结
         val ACTION_MORE_WORK = 100
         val ACTION_MORE_NET = 103
+        val ACTION_MORE_AUDIO = 117 // 音频
         val ACTION_MORE_ZONGHE = 127 // 综合技术
         val ACTION_MORE_Linux = 130
         val ACTION_MORE_MIX_DEV = 132 // 混合开发

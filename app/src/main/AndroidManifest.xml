@@ -115,6 +115,7 @@
         <activity android:name=".activity.more.WorkActivity"/>
         <activity android:name=".activity.more.NetActivity"/>
         <activity android:name=".activity.more.LinuxActivity"/>
+        <activity android:name=".activity.more.AudioActivity"/>
         <activity android:name=".activity.more.ZongHeActivity"/>
 
         <!--more Linux-->

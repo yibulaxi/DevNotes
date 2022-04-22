@@ -36,6 +36,7 @@ class MoreFragment: BaseFragment() {
                 when (data[position].item_action) {
                     ItemSimpleCard.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
+                    ItemSimpleCard.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
                     ItemSimpleCard.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
@@ -64,7 +65,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("函数响应式编程"))
             add(ItemSimpleCard("注解与依赖注入框架"))
             add(ItemSimpleCard("Flutter"))
-            add(ItemSimpleCard("音频"))
+            add(ItemSimpleCard("音频", true).apply { item_action = ItemSimpleCard.ACTION_MORE_AUDIO })
             add(ItemSimpleCard("视频"))
             add(ItemSimpleCard("性能优化"))
             add(ItemSimpleCard("热修复"))
