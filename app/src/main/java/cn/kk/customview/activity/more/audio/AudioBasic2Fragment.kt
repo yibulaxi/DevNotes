@@ -3,6 +3,7 @@ package cn.kk.customview.activity.more.audio
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import com.bumptech.glide.Glide
@@ -31,13 +32,17 @@ class AudioBasic2Fragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rv_imgs.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        rv_imgs.adapter = object : BaseQuickAdapter<ImgModel, BaseViewHolder>(R.layout.item_img, imgModelList){
+        view_pager_imgs.adapter = object : BaseQuickAdapter<ImgModel, BaseViewHolder>(R.layout.item_img, imgModelList){
             override fun convert(holder: BaseViewHolder, item: ImgModel) {
                 Glide.with(context).load(item.imgResId).into(holder.getView(R.id.image_view))
             }
-
         }
+        view_pager_imgs.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                indicator_view.numberSelected = position
+            }
+        })
     }
 
     class ImgModel(val imgResId: Int)
