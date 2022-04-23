@@ -4,6 +4,7 @@ import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.activity.NormalWebViewActivity
+import cn.kk.customview.activity.more.audio.AudioBasicActivity
 import cn.kk.customview.bean.ItemSimpleCard
 
 /**
@@ -17,7 +18,7 @@ class AudioActivity: NormalCardListActivity() {
 
     override fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
-            add(ItemSimpleCard("音频基础", true))
+            add(ItemSimpleCard("音频基础", true).apply { item_action = ItemSimpleCard.ACTION_MORE_AUDIO_BASIC })
             add(ItemSimpleCard("音频降噪", true))
             add(ItemSimpleCard("回声消除", true))
             add(ItemSimpleCard("音频网络传输", true))
@@ -29,7 +30,9 @@ class AudioActivity: NormalCardListActivity() {
     }
 
     override fun doWhenClickItem(item: ItemSimpleCard) {
-        openNextUI(NormalWebViewActivity::class.java, item.title, -1, item.web_url)
+        when (item.item_action) {
+            ItemSimpleCard.ACTION_MORE_AUDIO_BASIC -> openNextUI(AudioBasicActivity::class.java, item.title)
+        }
     }
 
 }

@@ -1,5 +1,8 @@
 package cn.kk.customview.bean
 
+/**
+ * 卡片 item
+ */
 class ItemSimpleCard(val title: String, val finish: Boolean = false) {
     var item_action = 0
     var web_url = ""
@@ -25,6 +28,10 @@ class ItemSimpleCard(val title: String, val finish: Boolean = false) {
         val ACTION_MORE_ZONGHE_NESTEDSCROLLVIEW = 1271
         val ACTION_MORE_ZONGHE_chazhuang = 1272
         val ACTION_MORE_ZONGHE_mock = 1273
+
+        // 更多 音频 笔记
+        val ACTION_MORE_AUDIO_BASIC = 1171
+
 
         // 更多 Linux 笔记
         val ACTION_MORE_LINUX_BETTER_CAT = 1301

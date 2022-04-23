@@ -120,6 +120,9 @@
 
         <!--more Linux-->
         <activity android:name=".activity.more.MixDevActivity"/>
+
+        <!--more Audio-->
+        <activity android:name=".activity.more.audio.AudioBasicActivity"/>
     </application>
 
 </manifest>
