@@ -32,6 +32,9 @@ abstract class BaseTabActivity: BaseActivity() {
             TabType.SystemUI.MENU_TYPE -> return resources.getStringArray(R.array.menu_types).toMutableList()
             // endregion
 
+            // region audio
+            TabType.Audio.AUDIO_BASIC_TYPE -> return resources.getStringArray(R.array.audio_basic_types).toMutableList()
+            // endregion
             else -> {
             }
         }
@@ -86,6 +89,17 @@ abstract class BaseTabActivity: BaseActivity() {
                 val menu_context = 113
                 val menu_popup_window = 114
                 val menu_action_more = 115
+
+
+            }
+        }
+
+        class Audio {
+            companion object {
+                val AUDIO_TYPE = 17
+
+                // sub audio type
+                val AUDIO_BASIC_TYPE = 171
             }
         }
     }

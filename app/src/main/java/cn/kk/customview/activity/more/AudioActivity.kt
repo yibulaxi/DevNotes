@@ -31,7 +31,7 @@ class AudioActivity: NormalCardListActivity() {
 
     override fun doWhenClickItem(item: ItemSimpleCard) {
         when (item.item_action) {
-            ItemSimpleCard.ACTION_MORE_AUDIO_BASIC -> openNextUI(AudioBasicActivity::class.java, item.title)
+            ItemSimpleCard.ACTION_MORE_AUDIO_BASIC -> openNextUI(AudioBasicActivity::class.java, item.title, BaseTabActivity.TabType.Audio.AUDIO_BASIC_TYPE)
         }
     }
 

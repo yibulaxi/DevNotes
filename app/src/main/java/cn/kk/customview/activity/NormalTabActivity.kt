@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_normal_tab.*
 
-class NormalTabActivity: BaseTabActivity() {
+open class NormalTabActivity: BaseTabActivity() {
 
     override fun getLayout(): Int {
         return R.layout.activity_normal_tab

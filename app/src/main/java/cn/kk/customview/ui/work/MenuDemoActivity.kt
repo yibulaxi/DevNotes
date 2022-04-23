@@ -20,9 +20,7 @@ import cn.kk.customview.utils.px
  */
 class MenuDemoActivity: BaseTabActivity() {
 
-    override fun getLayout(): Int {
-        return R.layout.activity_normal_tab
-    }
+    override fun getLayout(): Int = R.layout.activity_normal_tab
 
     override fun MutableList<Fragment>.addFragments() {
         add(MenuFragment().apply {
