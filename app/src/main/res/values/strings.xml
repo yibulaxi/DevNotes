@@ -16,6 +16,56 @@
     <string name="delete">删除</string>
     <string name="not_yet">还没做...</string>
 
+
+    <string-array name="audio_parts">
+        <item>音频基础</item>
+        <item>音频降噪</item>
+        <item>回声消除</item>
+        <item>音频网络传输</item>
+        <item>空间音频</item>
+        <item>音频特效生成与算法</item>
+        <item>结束语</item>
+    </string-array>
+
+    <string-array name="audio_basic_types">
+        <item>声音是如何保存成数字信号的？</item>
+        <item>如何量化分析语音信号？</item>
+        <item>如何分析与处理音乐信号？</item>
+        <item>如何评价音频质量的好坏？</item>
+    </string-array>
+
+    <string-array name="audio_denoise">
+        <item>音频降噪如何对症下药？</item>
+        <item>如何将 AI 技术运用到降噪中？</item>
+
+    </string-array>
+ <string-array name="audio_remove_echo">
+        <item>如何通过算法自动快速地消除回声？</item>
+        <item>回声消除算法实战指南</item>
+    </string-array>
+
+    <string-array name="audio_net_trans">
+        <item>音频编解码器是如何工作的？</item>
+        <item>如何选择一个适合你的编解码器？</item>
+        <item>网络差怎么办？音频网络传输与抗弱网策略</item>
+    </string-array>
+
+    <string-array name="audio_space">
+        <item>空间音频入门：如何实现 "声临其境"？</item>
+        <item>如何利用 HRTF 实现听音辨位？</item>
+    </string-array>
+
+    <string-array name="audio_special_effect">
+        <item>音效三剑客：变调、均衡器、混响</item>
+        <item>加餐 ｜音频技术漫谈之好声音是怎么练成的？</item>
+        <item>AI变声：音频 AI 技术集大成者</item>
+    </string-array>
+    
+    <string-array name="audio_end">
+        <item>选择比努力更重要</item>
+        <item>期末测试</item>
+    </string-array>
+
     <string name="ussr_info">苏联，全称苏维埃社会主义共和国联盟（Union of Soviet Socialist Republics，（USSR））。是1922年至1991年的联邦制社会主义国家，并奉行社会主义制度，由苏联共产党执政。
 十月革命胜利后，苏共领导人民开始了大规模的社会主义建设，推动了社会生产力的发展，综合国力有了很大提高，成为仅次于美国的世界第二大经济体。 [48]  苏联于1941年卷入二战，爆发卫国战争， [51]  于1945年4月30日占领柏林，同年5月8日纳粹德国投降。 [52]  与美国一同成为当时世界上最强的两个国家，被称为超级大国。苏联于1955年成立华沙条约组织，标志冷战格局完全形成。1980年代初期，经济增长速度变慢，国力逐渐落后于美国。在1980年代末，戈尔巴乔夫进行国家自由化和民主化改革，但失败。1991年8月，苏联国内爆发八一九事件。12月25日，戈尔巴乔夫辞去总统职务，并将权力移交给叶利钦，苏联解体。
     </string>

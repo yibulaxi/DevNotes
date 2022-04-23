@@ -4,6 +4,7 @@ import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.activity.NormalWebViewActivity
+import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 
 /**
@@ -18,15 +19,15 @@ class ZongHeActivity: NormalCardListActivity() {
     override fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("嵌套滑动，NestedScrollView", true).apply {
-                item_action = ItemSimpleCard.ACTION_MORE_ZONGHE_NESTEDSCROLLVIEW
+                item_action = BaseItem.ACTION_MORE_ZONGHE_NESTEDSCROLLVIEW
                 web_url = "https://mp.weixin.qq.com/s/bPrbyt4Fr-S5XTXhk5QO9A"
             })
             add(ItemSimpleCard("Android 插桩之美", true).apply {
-                item_action = ItemSimpleCard.ACTION_MORE_ZONGHE_chazhuang
+                item_action = BaseItem.ACTION_MORE_ZONGHE_chazhuang
                 web_url = "https://mp.weixin.qq.com/s/dbseDMO3tqNPtSvBB5UL3Q"
             })
             add(ItemSimpleCard("Mock 神器", true).apply {
-                item_action = ItemSimpleCard.ACTION_MORE_ZONGHE_mock
+                item_action = BaseItem.ACTION_MORE_ZONGHE_mock
                 web_url = "https://mp.weixin.qq.com/s/FmGMZ8PMIzA002vF26Terw"
             })
             add(ItemSimpleCard("Compose 和 MVI 结合", true).apply {

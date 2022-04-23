@@ -4,6 +4,7 @@ import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.activity.NormalWebViewActivity
+import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 
 /**
@@ -18,11 +19,11 @@ class LinuxActivity: NormalCardListActivity() {
     override fun getItemCardList(): MutableList<ItemSimpleCard>{
         return mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("比 cat 更好用的命令", true).apply {
-                item_action = ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT
+                item_action = BaseItem.ACTION_MORE_LINUX_BETTER_CAT
                 web_url = "https://mp.weixin.qq.com/s/jDYgI-HIuE3ez8K3EA8WoA"
             })
             add(ItemSimpleCard("我为什么从 Mac 转到 Linux", true).apply {
-                item_action = ItemSimpleCard.ACTION_MORE_LINUX_MAC_TRANS_LINUX
+                item_action = BaseItem.ACTION_MORE_LINUX_MAC_TRANS_LINUX
                 web_url = "https://mp.weixin.qq.com/s/yMR66tjAM4a3Dkaw-MovVg"
             })
         }
@@ -30,9 +31,9 @@ class LinuxActivity: NormalCardListActivity() {
 
     override fun doWhenClickItem(item: ItemSimpleCard) {
        when(item.item_action) {
-           ItemSimpleCard.ACTION_MORE_LINUX_BETTER_CAT ->
+           BaseItem.ACTION_MORE_LINUX_BETTER_CAT ->
                openNextUI(NormalWebViewActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, item.web_url)
-           ItemSimpleCard.ACTION_MORE_LINUX_MAC_TRANS_LINUX ->
+           BaseItem.ACTION_MORE_LINUX_MAC_TRANS_LINUX ->
                openNextUI(NormalWebViewActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, item.web_url)
        }
     }

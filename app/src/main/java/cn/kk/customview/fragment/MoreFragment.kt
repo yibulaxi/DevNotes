@@ -9,6 +9,7 @@ import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.activity.more.*
+import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -34,12 +35,12 @@ class MoreFragment: BaseFragment() {
             setOnItemClickListener { adapter, view, position ->
                 val title = data[position].title
                 when (data[position].item_action) {
-                    ItemSimpleCard.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
-                    ItemSimpleCard.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
-                    ItemSimpleCard.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
-                    ItemSimpleCard.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
-                    ItemSimpleCard.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
-                    ItemSimpleCard.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
+                    BaseItem.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
+                    BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
+                    BaseItem.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
+                    BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
+                    BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
+                    BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
                     else -> {
                     }
                 }
@@ -49,9 +50,9 @@ class MoreFragment: BaseFragment() {
 
     private fun getItems(): MutableList<ItemSimpleCard>{
         return  mutableListOf<ItemSimpleCard>().apply {
-            add(ItemSimpleCard("工作中汇总", true).apply { item_action = ItemSimpleCard.ACTION_MORE_WORK })
+            add(ItemSimpleCard("工作中汇总", true).apply { item_action = BaseItem.ACTION_MORE_WORK })
             add(ItemSimpleCard("多线程", true))
-            add(ItemSimpleCard("网络", true).apply { item_action = ItemSimpleCard.ACTION_MORE_NET })
+            add(ItemSimpleCard("网络", true).apply { item_action = BaseItem.ACTION_MORE_NET })
             add(ItemSimpleCard("Android Sqlite 数据库使用"))
             add(ItemSimpleCard("设计模式"))
             add(ItemSimpleCard("数据结构和算法"))
@@ -65,7 +66,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("函数响应式编程"))
             add(ItemSimpleCard("注解与依赖注入框架"))
             add(ItemSimpleCard("Flutter"))
-            add(ItemSimpleCard("音频", true).apply { item_action = ItemSimpleCard.ACTION_MORE_AUDIO })
+            add(ItemSimpleCard("音频", true).apply { item_action = BaseItem.ACTION_MORE_AUDIO })
             add(ItemSimpleCard("视频"))
             add(ItemSimpleCard("性能优化"))
             add(ItemSimpleCard("热修复"))
@@ -75,12 +76,12 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("JNI 和 NDK"))
             add(ItemSimpleCard("C/C++"))
             add(ItemSimpleCard("OpenGL"))
-            add(ItemSimpleCard("综合技术", true).apply { item_action = ItemSimpleCard.ACTION_MORE_ZONGHE })
+            add(ItemSimpleCard("综合技术", true).apply { item_action = BaseItem.ACTION_MORE_ZONGHE })
             add(ItemSimpleCard("打包脚本"))
             add(ItemSimpleCard("Git"))
-            add(ItemSimpleCard("Linux", true).apply { item_action = ItemSimpleCard.ACTION_MORE_Linux })
+            add(ItemSimpleCard("Linux", true).apply { item_action = BaseItem.ACTION_MORE_Linux })
             add(ItemSimpleCard("Python"))
-            add(ItemSimpleCard("混合开发", true).apply { item_action = ItemSimpleCard.ACTION_MORE_MIX_DEV })
+            add(ItemSimpleCard("混合开发", true).apply { item_action = BaseItem.ACTION_MORE_MIX_DEV })
             add(ItemSimpleCard("正则表达式", false))
         }
     }
