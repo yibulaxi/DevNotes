@@ -55,11 +55,11 @@ class AudioActivity: BaseActivity() {
 
         val sectionModelDeNoiseList = mutableListOf<ItemSectionModel>().apply {
             add(ItemSectionModel(sectionsDeNoiseName[0]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_1
+                item_action = BaseItem.ACTION_MORE_AUDIO_DENOISE_1
                 finishTag = false
             })
             add(ItemSectionModel(sectionsDeNoiseName[1]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_2
+                item_action = BaseItem.ACTION_MORE_AUDIO_DENOISE_2
                 finishTag = false
             })
         }
@@ -101,11 +101,15 @@ class AudioActivity: BaseActivity() {
 
         val sectionModelNetTransList = mutableListOf<ItemSectionModel>().apply {
             add(ItemSectionModel(sectionsNetTransName[0]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_1
+                item_action = BaseItem.ACTION_MORE_AUDIO_NET_TRANS_1
                 finishTag = false
             })
             add(ItemSectionModel(sectionsNetTransName[1]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_2
+                item_action = BaseItem.ACTION_MORE_AUDIO_NET_TRANS_2
+                finishTag = false
+            })
+            add(ItemSectionModel(sectionsNetTransName[2]).apply {
+                item_action = BaseItem.ACTION_MORE_AUDIO_NET_TRANS_3
                 finishTag = false
             })
         }
@@ -124,11 +128,11 @@ class AudioActivity: BaseActivity() {
 
         val sectionModelSpaceList = mutableListOf<ItemSectionModel>().apply {
             add(ItemSectionModel(sectionsSpaceName[0]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_1
+                item_action = BaseItem.ACTION_MORE_AUDIO_SPACE_1
                 finishTag = false
             })
             add(ItemSectionModel(sectionsSpaceName[1]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_2
+                item_action = BaseItem.ACTION_MORE_AUDIO_SPACE_2
                 finishTag = false
             })
         }
@@ -147,11 +151,15 @@ class AudioActivity: BaseActivity() {
 
         val sectionModelSpecialEffectList = mutableListOf<ItemSectionModel>().apply {
             add(ItemSectionModel(sectionsSpecialEffectName[0]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_1
+                item_action = BaseItem.ACTION_MORE_AUDIO_SPECIAL_EFFECT_1
                 finishTag = false
             })
             add(ItemSectionModel(sectionsSpecialEffectName[1]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_2
+                item_action = BaseItem.ACTION_MORE_AUDIO_SPECIAL_EFFECT_1
+                finishTag = false
+            })
+            add(ItemSectionModel(sectionsSpecialEffectName[2]).apply {
+                item_action = BaseItem.ACTION_MORE_AUDIO_SPECIAL_EFFECT_1
                 finishTag = false
             })
         }
@@ -170,11 +178,11 @@ class AudioActivity: BaseActivity() {
 
         val sectionModelEndList = mutableListOf<ItemSectionModel>().apply {
             add(ItemSectionModel(sectionsEndName[0]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_1
+                item_action = BaseItem.ACTION_MORE_AUDIO_END_1
                 finishTag = false
             })
             add(ItemSectionModel(sectionsEndName[1]).apply {
-                item_action = BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO_2
+                item_action = BaseItem.ACTION_MORE_AUDIO_END_2
                 finishTag = false
             })
         }

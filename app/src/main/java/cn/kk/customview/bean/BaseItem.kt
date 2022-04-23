@@ -33,6 +33,7 @@ abstract  class BaseItem {
         val ACTION_MORE_AUDIO_NET_TRANS = 1174
         val ACTION_MORE_AUDIO_SPACE = 1175
         val ACTION_MORE_AUDIO_SPECIAL_EFFECT = 1176
+        val ACTION_MORE_AUDIO_END = 1177
 
         val ACTION_MORE_AUDIO_BASIC_1 = 11711
         val ACTION_MORE_AUDIO_BASIC_2 = 11712
@@ -55,6 +56,9 @@ abstract  class BaseItem {
         val ACTION_MORE_AUDIO_SPECIAL_EFFECT_1 = 11761
         val ACTION_MORE_AUDIO_SPECIAL_EFFECT_2 = 11762
         val ACTION_MORE_AUDIO_SPECIAL_EFFECT_3 = 11763
+
+        val ACTION_MORE_AUDIO_END_1 = 11771
+        val ACTION_MORE_AUDIO_END_2 = 11772
 
         // 更多 Linux 笔记
         val ACTION_MORE_LINUX_BETTER_CAT = 1301
