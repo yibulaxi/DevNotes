@@ -1,7 +1,9 @@
 package cn.kk.customview.activity.more
 
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.activity.more.audio.AudioBasicActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemChapterModel
@@ -33,7 +35,10 @@ class AudioActivity: BaseActivity() {
                 item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_2
                 finishTag = true
             })
-            add(ItemSectionModel(sectionsBasicName[2]).apply { item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_3 })
+            add(ItemSectionModel(sectionsBasicName[2]).apply {
+                item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_3
+                finishTag = true
+            })
             add(ItemSectionModel(sectionsBasicName[3]).apply { item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_4 })
         }
 
@@ -44,7 +49,7 @@ class AudioActivity: BaseActivity() {
                     BaseItem.ACTION_MORE_AUDIO_BASIC_1 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_1)
                     BaseItem.ACTION_MORE_AUDIO_BASIC_2 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_2)
                     BaseItem.ACTION_MORE_AUDIO_BASIC_3 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_3)
-                    BaseItem.ACTION_MORE_AUDIO_BASIC_4 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_4)
+                    BaseItem.ACTION_MORE_AUDIO_BASIC_4 -> openNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("html", "section_4.html"))
                 }
             }
         }

@@ -12,6 +12,7 @@ class AudioBasicActivity: BaseFragmentActivity() {
         when (ui_type) {
             SECTION_1 -> return AudioBasic1Fragment().apply { imgRes = R.drawable.bg_audio_1 }
             SECTION_2 -> return AudioBasic2Fragment()
+            SECTION_3 -> return AudioBasic1Fragment().apply { imgRes = R.drawable.bg_audio_music }
 
             else -> {
                 return NormalViewFragment()

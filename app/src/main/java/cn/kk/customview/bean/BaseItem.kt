@@ -20,6 +20,7 @@ abstract  class BaseItem {
         val ACTION_MORE_WORK_REYCYCLER_VIEW = 1002
         val ACTION_MORE_WORK_MENU = 1003
         val ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT = 1004
+        val ACTION_MORE_WORK_TEXTVIEW_HTML = 1005
 
         // 更多：综合技术，细分
         val ACTION_MORE_ZONGHE_NESTEDSCROLLVIEW = 1271
