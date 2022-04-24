@@ -26,12 +26,6 @@
     </style>
 
 
-    <style name="EdgeToEdgeDialogStyle" parent="Theme.Design.BottomSheetDialog">
-        <item name="enableEdgeToEdge">true</item>
-        <item name="paddingBottomSystemWindowInsets">true</item>
-        <item name="android:colorBackground">@color/white</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
 
     <!--基本主题-->
     <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -63,5 +57,13 @@
 
     <style name="SimpleBottomDialogTheme">
         <item name="android:navigationBarColor">@color/red_1</item>
+    </style>
+
+
+    <style name="EdgeToEdgeDialogStyle" parent="Theme.Design.BottomSheetDialog">
+        <item name="enableEdgeToEdge">true</item>
+        <item name="paddingBottomSystemWindowInsets">true</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 </resources>

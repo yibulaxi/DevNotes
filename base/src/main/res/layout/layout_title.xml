@@ -1,47 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="?colorPrimary"
     android:fitsSystemWindows="true"
     android:paddingTop="?actionBarSize"
-    android:paddingBottom="10dp"
-    android:id="@+id/toolBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:paddingBottom="10dp">
 
-        <!--        标题栏的返回按钮-->
-        <ImageButton
-            android:id="@+id/btn_title_back"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_centerVertical="true"
-            android:background="?selectableItemBackgroundBorderless"
-            android:scaleType="fitXY"
-            app:tint="@color/White"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingRight="20dp"
-            app:srcCompat="@drawable/icon_back" />
+    <!--        标题栏的返回按钮-->
+    <ImageButton
+        android:id="@+id/btn_title_back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_centerVertical="true"
+        android:background="?selectableItemBackgroundBorderless"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/icon_back"
+        app:tint="@color/White" />
 
-        <!--        标题栏的标题-->
-        <TextView
-            android:textColor="@color/Gainsboro"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:focusable="true"
-            android:id="@+id/tv_page_title"
-            android:layout_centerHorizontal="true"
-            android:scrollHorizontally="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:layout_width="wrap_content"
-            android:maxWidth="260dp"
-            android:singleLine="true"
-            android:focusableInTouchMode="true"
-            android:ellipsize="marquee"
-            android:layout_height="wrap_content">
-            <requestFocus/>
-        </TextView>
+    <!--        标题栏的标题-->
+    <TextView
+        android:id="@+id/tv_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxWidth="260dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/Gainsboro"
+        android:textSize="24sp"
+        android:textStyle="bold">
+
+        <requestFocus />
+    </TextView>
+
+    <ImageButton
+        android:id="@+id/btn_title_more"
+        android:visibility="invisible"
+        android:src="@drawable/icon_menu_more"
+        android:background="?selectableItemBackgroundBorderless"
+        android:layout_gravity="right|center_vertical"
+        android:padding="10dp"
+        android:tint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.appcompat.widget.Toolbar>

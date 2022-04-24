@@ -3,6 +3,8 @@ package cn.kk.customview.chapter.c1
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.HtmlWikiModel
+import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
 import cn.kk.customview.adpater.BasicViewViewPagerAdapter
 import cn.kk.elementary.chapter1.*
@@ -23,6 +25,8 @@ import kotlinx.android.synthetic.main.activity_one.*
 class DrawBasicActivity: BaseActivity() {
 
     override fun getLayout(): Int = R.layout.activity_one
+
+    private var pageIndex = 0
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -50,5 +54,22 @@ class DrawBasicActivity: BaseActivity() {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
         one_viewpager.setCurrentItem(0, true)
+
+        one_viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                pageIndex = position
+            }
+        })
+    }
+
+    override fun showTitleMoreBtn(): Boolean {
+        return true
+    }
+
+    override fun titleMoreClick() {
+
+        when (pageIndex) {
+            1 -> showWikiHtmlDialog(mSelf, HtmlWikiModel(AssetsHelper.getHtmlFilePath("basic_line_view.html")).apply { title = "BasicLineView" })
+        }
     }
 }

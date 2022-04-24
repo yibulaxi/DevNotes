@@ -52,7 +52,7 @@ class AudioActivity: BaseActivity() {
                     BaseItem.ACTION_MORE_AUDIO_BASIC_1 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_1)
                     BaseItem.ACTION_MORE_AUDIO_BASIC_2 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_2)
                     BaseItem.ACTION_MORE_AUDIO_BASIC_3 -> openNextUI(AudioBasicActivity::class.java, item.title, AudioBasicActivity.SECTION_3)
-                    BaseItem.ACTION_MORE_AUDIO_BASIC_4 -> openNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("html", "section_4.html"))
+                    BaseItem.ACTION_MORE_AUDIO_BASIC_4 -> openNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("section_4.html"))
                 }
             }
         }

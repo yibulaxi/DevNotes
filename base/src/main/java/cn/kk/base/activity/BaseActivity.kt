@@ -18,8 +18,11 @@ import cn.kk.base.LogHelper
 import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.adapter.ListV2Adapter
+import cn.kk.base.bean.HtmlWikiModel
 import cn.kk.base.bean.ListItemAction
+import cn.kk.base.dialog.HtmlBottomDialog
 import cn.kk.base.dialog.SimpleBottomDialog
+import kotlinx.android.synthetic.main.layout_title.*
 
 /**
  * Activity 基类
@@ -66,6 +69,7 @@ abstract class BaseActivity: BasicActivity() {
 
         mSelf = this
         baseToolbar = findViewById(R.id.toolBar)
+        btn_title_more?.visibility = if(showTitleMoreBtn()) View.VISIBLE else View.INVISIBLE
 
         rvList = findViewById(setListViewID())
 
@@ -82,6 +86,7 @@ abstract class BaseActivity: BasicActivity() {
     override fun onStart() {
         super.onStart()
         clickTitleBack()
+        clickTitleMore()
     }
 
     override fun finish() {
@@ -105,6 +110,7 @@ abstract class BaseActivity: BasicActivity() {
      */
     protected open fun doWhenOnCreate(){
         showTitle()
+
         initAdapter()
     }
 
@@ -167,6 +173,16 @@ abstract class BaseActivity: BasicActivity() {
         }
     }
 
+    /**
+     * 更多按钮点击
+     */
+    private fun clickTitleMore(){
+        findViewById<ImageButton>(R.id.btn_title_more)?.setOnClickListener {
+            titleMoreClick()
+        }
+    }
+
+
 
     /**
      * 设置状态栏透明，且独自占用空间
@@ -179,6 +195,11 @@ abstract class BaseActivity: BasicActivity() {
         // 状态栏透明
         window.statusBarColor = Color.TRANSPARENT
     }
+
+    protected open fun titleMoreClick(){}
+
+
+    protected open fun showTitleMoreBtn(): Boolean = false
 
     /**
      * 打开下一个页面
@@ -208,6 +229,10 @@ abstract class BaseActivity: BasicActivity() {
             putExtra(INTENT_WEB_URL_KEY, webUrl)
         })
         slideAnimEnter()
+    }
+
+    open fun showWikiHtmlDialog(ctx: BaseActivity,model: HtmlWikiModel) {
+        HtmlBottomDialog(ctx, model).show()
     }
 
     /**

@@ -17,8 +17,6 @@ open class SimpleBottomDialog(mActivity: BaseActivity ,theme: Int): BaseBottomDi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_simple_bottom)
 
-
-
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
 

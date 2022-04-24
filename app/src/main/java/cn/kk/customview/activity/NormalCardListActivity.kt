@@ -57,7 +57,7 @@ abstract class NormalCardListActivity: BaseActivity() {
     // todo 抽象 item 点击跳转
     abstract fun doWhenClickItem(item: ItemSimpleCard)
 
-   protected fun showWikiDialog(wiki: SimpleWikiModel){
+    protected fun showWikiDialog(wiki: SimpleWikiModel){
         NormalWikiBottomDialog(mSelf, wiki).show()
     }
 }
