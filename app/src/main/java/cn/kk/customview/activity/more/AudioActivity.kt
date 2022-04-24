@@ -39,7 +39,10 @@ class AudioActivity: BaseActivity() {
                 item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_3
                 finishTag = true
             })
-            add(ItemSectionModel(sectionsBasicName[3]).apply { item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_4 })
+            add(ItemSectionModel(sectionsBasicName[3]).apply {
+                item_action = BaseItem.ACTION_MORE_AUDIO_BASIC_4
+                finishTag = true
+            })
         }
 
         part_basic.setData(ItemChapterModel(parts[0], sectionModelList), true)
