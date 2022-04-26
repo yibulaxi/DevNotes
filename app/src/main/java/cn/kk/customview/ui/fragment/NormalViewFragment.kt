@@ -25,4 +25,11 @@ import cn.kk.customview.R
     protected open fun getMyView(): View {
         return View(context)
     }
+
+     /**
+      * 获取实际的 view 填充到跟布局中
+      */
+    protected open fun getAddViewByInflate(layoutId: Int): View {
+        return layoutInflater.inflate(layoutId, null)
+     }
 }

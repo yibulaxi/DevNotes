@@ -2,6 +2,7 @@
 <resources>
     <!--    String 数组-->
 
+
     <string-array name="anim_types">
         <item>视图动画</item>
         <item>属性动画</item>
