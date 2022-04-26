@@ -103,7 +103,6 @@
         <activity android:name=".ui.work.FlickerActivity" />
         <activity android:name=".ui.work.RecyclerViewDemoActivity" />
         <activity android:name=".ui.work.MenuDemoActivity" />
-        <activity android:name=".ui.work.TextViewHtmlActivity" />
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>

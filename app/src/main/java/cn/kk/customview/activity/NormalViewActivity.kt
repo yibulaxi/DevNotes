@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.DateHelper
@@ -45,6 +47,7 @@ class NormalViewActivity: BaseActivity() {
 
         // about work
         val VIEW_TYPE_CHECKIN_WEEK = 100
+        val VIEW_TYPE_TEXTVIEW_HIGHLIGHT = 101 // TextView 高亮特定内容
     }
 
     override fun getLayout(): Int {
@@ -76,6 +79,7 @@ class NormalViewActivity: BaseActivity() {
             })
             VIEW_TYPE_TOUCH_FEED_2 -> view_container.addView(getScalableImageView())
 
+            // region checkin week
             VIEW_TYPE_CHECKIN_WEEK -> {
                 view_container.addView(getCheckinWeekView())
                 view_container.postDelayed({
@@ -86,6 +90,18 @@ class NormalViewActivity: BaseActivity() {
 
                 }, 1000)
             }
+            // endregion
+            VIEW_TYPE_TEXTVIEW_HIGHLIGHT -> {
+                val highLightContainer = getTextViewWithHighLightView()
+                view_container.addView(highLightContainer)
+
+               val tvInfo = highLightContainer.findViewById<TextView>(R.id.tv_info)
+                tvInfo.text = "#时间 锄禾日当午，\n#辛苦 汗滴禾下土。\n#吃饭 谁知盘中餐？\n#总结 粒粒皆辛苦。";
+                UIHelper.highlightTag(tvInfo, ContextCompat.getColor(this, R.color.colorPrimary))
+            }
+            // region TextView highlight
+
+            // endregion
             else -> {
             }
         }
@@ -105,5 +121,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getCheckinWeekView(): View {
         return layoutInflater.inflate(R.layout.view_at_checkin_week_view_layout, null)
+    }
+
+    private fun getTextViewWithHighLightView(): View {
+        return layoutInflater.inflate(R.layout.view_at_textview_highlight_layout, null)
     }
 }

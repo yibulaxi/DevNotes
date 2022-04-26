@@ -10,11 +10,18 @@ import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cn.kk.base.utils.PatternHelper
+import java.util.regex.Matcher
 
 
 object UIHelper {
@@ -48,6 +55,25 @@ object UIHelper {
         val ascent = edit.layout.getLineAscent(line)
         val cursorY = baseLine + ascent
         return cursorY
+    }
+    // endregion
+
+    // region Highlight
+    fun highlightTag(textView: TextView, highlightColor: Int) {
+        val ss = SpannableString(textView.getText())
+        val matcher = PatternHelper.patternTag.matcher(ss)
+        while (matcher.find()) {
+            if (matcher.start() >= 0 && matcher.end() > matcher.start() + 1) {
+                ss.setSpan(
+                    ForegroundColorSpan(highlightColor),
+                    matcher.start(),
+                    matcher.end(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+        }
+        textView.movementMethod = LinkMovementMethod.getInstance()
+        textView.text = ss
     }
     // endregion
 
