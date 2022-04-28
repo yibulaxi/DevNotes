@@ -10,7 +10,6 @@ import cn.kk.customview.adapter.BaseChapterAdapter
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemChapterModel
 import cn.kk.customview.bean.ItemSectionModel
-import kotlinx.android.synthetic.main.activity_audio.*
 import kotlinx.android.synthetic.main.chapter_list_layout.*
 
 /**
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.chapter_list_layout.*
  */
 class AudioActivity: BaseActivity() {
 
-    override fun getLayout() = R.layout.activity_audio
+    override fun getLayout() = R.layout.normal_chapter_list_layout
 
     private fun getSectionDataList(chapterType: Int): MutableList<ItemSectionModel> {
         when(chapterType) {

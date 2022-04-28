@@ -67,5 +67,30 @@ abstract  class BaseItem {
 
         // 更多混合开发笔记
         val ACTION_MORE_MIX_DEV_WEBVIEW = 1321
+
+        // region cool-300
+        val ACTION_COOL300 = 90
+        val ACTION_COOL300_common_ui = 91
+        val ACTION_COOL300_notification = 92
+        val ACTION_COOL300_menu = 93
+        val ACTION_COOL300_graphic_picture = 94
+        val ACTION_COOL300_anim = 95
+        val ACTION_COOL300_file_data = 96
+        val ACTION_COOL300_sys_device = 97
+        val ACTION_COOL300_intent = 98
+        val ACTION_COOL300_third_part_sdk = 99
+
+        val ACTION_COOL300_common_ui_005 = 91005
+        val ACTION_COOL300_common_ui_009 = 91009
+        val ACTION_COOL300_common_ui_010 = 91010
+        val ACTION_COOL300_common_ui_022 = 91022
+
+        val ACTION_COOL300_menu_063 = 93063
+        val ACTION_COOL300_menu_071 = 93071
+        val ACTION_COOL300_menu_072 = 93072
+
+        val ACTION_COOL300_anim_143 = 95143
+
+        // endregion
     }
 }

@@ -16,6 +16,17 @@
     <string name="delete">删除</string>
     <string name="not_yet">还没做...</string>
 
+    <string-array name="cool_300">
+        <item>常用控件</item>
+        <item>通知栏</item>
+        <item>菜单</item>
+        <item>图形和图像</item>
+        <item>动画</item>
+        <item>文件和数据</item>
+        <item>系统和设备</item>
+        <item>Intent</item>
+        <item>第三方 SDK 开发</item>
+    </string-array>
 
     <string-array name="audio_parts">
         <item>音频基础</item>

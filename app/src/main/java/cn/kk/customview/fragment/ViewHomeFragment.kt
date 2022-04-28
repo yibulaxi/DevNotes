@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.config.UIConfig
+import cn.kk.customview.ui.fragment.NormalChapterListFragment
 import cn.kk.customview.ui.fragment.NormalListFragment
 import cn.kk.customview.ui.fragment.NormalTabFragment
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
@@ -56,7 +57,8 @@ class ViewHomeFragment: BaseFragment() {
             // endregion
 
             // region cool-300
-            add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
+//            add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
+            add(NormalChapterListFragment())
             // endregion
 
             add(NormalListFragment().apply {
