@@ -11,6 +11,7 @@ import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemChapterModel
 import cn.kk.customview.bean.ItemSectionModel
 import kotlinx.android.synthetic.main.activity_audio.*
+import kotlinx.android.synthetic.main.chapter_list_layout.*
 
 /**
  * 音频知识学习
