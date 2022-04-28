@@ -6,7 +6,7 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.HtmlWikiModel
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
-import cn.kk.customview.adpater.BasicViewViewPagerAdapter
+import cn.kk.customview.adapter.BasicViewViewPagerAdapter
 import cn.kk.elementary.chapter1.*
 import cn.kk.elementary.chapter1.canvas.CanvasAndScreen
 import cn.kk.elementary.chapter1.canvas.CanvasClipView

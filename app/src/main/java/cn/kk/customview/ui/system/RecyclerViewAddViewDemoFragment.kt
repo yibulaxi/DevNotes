@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
-import cn.kk.customview.adpater.ListAdapter
+import cn.kk.customview.adapter.ListAdapter
 
 /**
  * RecyclerView 下面加 view

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +18,10 @@ import cn.kk.customview.bean.ItemSectionModel
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
+/**
+ * 目录view
+ * 内部含有具体章节
+ */
 class ItemFolderView(context: Context, attributeSet: AttributeSet) :
     ConstraintLayout(context, attributeSet) {
 
@@ -55,6 +60,7 @@ class ItemFolderView(context: Context, attributeSet: AttributeSet) :
                     setTextColor(ContextCompat.getColor(context, R.color.ForestGreen))
                 }
             }
+
         }.apply {
             setOnItemClickListener { adapter, view, position ->
                 // open special ui

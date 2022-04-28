@@ -17,43 +17,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
+            android:paddingBottom="200dp"
             android:orientation="vertical">
 
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_basic"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_chapter_list"
+                android:nestedScrollingEnabled="false"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_denoise"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_remove_echo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_net_trans"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_space"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_special_effect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <cn.kk.customview.widget.ItemFolderView
-                android:id="@+id/part_end"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package cn.kk.customview.adpater
+package cn.kk.customview.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater

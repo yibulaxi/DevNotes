@@ -1,7 +1,5 @@
-package cn.kk.customview.adpater
+package cn.kk.customview.adapter
 
-import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +7,6 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.customview.R
-import cn.kk.customview.utils.NormalUtil
 
 /**
  * 绘图基础

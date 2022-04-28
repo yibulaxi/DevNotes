@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import cn.kk.customview.adpater.ViewPagerAdapter
+import cn.kk.customview.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_scrollbar.*
 
 
