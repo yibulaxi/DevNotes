@@ -1,6 +1,5 @@
 package cn.kk.customview.chapter
 
-import android.view.View
 import android.view.animation.*
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
@@ -88,54 +87,6 @@ class ViewAnimIntrosActivity: BaseActivity() {
             playAnim(transAnimOut, transAnimIn)
 
             val animBean = animList[count % animList.size]
-//            tv_scale_anim.startAnimation(animBean.anim)
-
-           /* if (count++ % 2 == 0) {
-                tv_scale_anim.startAnimation(transAnimOut)
-                ll_three.startAnimation(transAnimIn)
-            } else {
-                tv_scale_anim.startAnimation(transAnimIn)
-                ll_three.startAnimation(transAnimOut)
-            }
-            count++
-
-            transAnimIn.setAnimationListener(object : Animation.AnimationListener{
-                override fun onAnimationStart(animation: Animation?) {
-
-                }
-
-                override fun onAnimationEnd(animation: Animation?) {
-
-                }
-
-                override fun onAnimationRepeat(animation: Animation?) {
-
-                }
-
-            })
-
-            transAnimOut.setAnimationListener(object : Animation.AnimationListener{
-                override fun onAnimationStart(animation: Animation?) {
-
-                }
-
-                override fun onAnimationEnd(animation: Animation?) {
-                    *//*if (count % 2 == 0 ){
-                        tv_scale_anim.visibility = View.INVISIBLE
-                        transAnimOut.fillBefore = true
-                    } else {
-                        ll_three.visibility = View.INVISIBLE
-                        transAnimOut.fillBefore = true
-                    }*//*
-
-
-                }
-
-                override fun onAnimationRepeat(animation: Animation?) {
-                }
-
-            })
-*/
             animBean.anim.setAnimationListener(object : Animation.AnimationListener{
                 override fun onAnimationStart(animation: Animation?) {
                     btn_scale_play.text = animBean.name

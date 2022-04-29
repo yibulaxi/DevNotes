@@ -4,7 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -81,9 +82,17 @@ class ItemFolderView(context: Context, attributeSet: AttributeSet) :
         }
     }
 
+    /**
+     * 改变展开状态
+     * rotation: 0 -> 展开；1 -> 收起
+     */
    private fun changeExpandUI(){
+       val rotateAnim = RotateAnimation(if (expandState) -90f else 0f, if (expandState) 0f else -90f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f).apply {
+           duration = 300
+           fillAfter = true
+       }
         rvList.visibility = if (expandState) View.VISIBLE else View.GONE
-        ivArrow.rotation = if (expandState) 0f else -90f
+        ivArrow.startAnimation(rotateAnim)
     }
 
     interface SectionClickListener {
