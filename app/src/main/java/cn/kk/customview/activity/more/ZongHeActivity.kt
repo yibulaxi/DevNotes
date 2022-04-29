@@ -39,6 +39,12 @@ class ZongHeActivity: NormalCardListActivity() {
             add(ItemSimpleCard("架构案例学习", true).apply {
                 web_url = "https://mp.weixin.qq.com/s/wCoNtt9SWu1pHsWkCMBSxQ"
             })
+            add(ItemSimpleCard("Android原生TabLayout使用全解析", true).apply {
+                web_url = "https://mp.weixin.qq.com/s/EWPNyGSkLlugRuvOYcHVdQ"
+            })
+            add(ItemSimpleCard("这真是 App 开发者的神器！", true).apply {
+                web_url = "https://mp.weixin.qq.com/s/0RhWfm0n29jDU8kGeLRxKg"
+            })
 
         }
     }
