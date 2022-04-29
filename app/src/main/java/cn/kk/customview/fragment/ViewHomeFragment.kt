@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.config.UIConfig
-import cn.kk.customview.ui.fragment.NormalChapterListFragment
+import cn.kk.customview.ui.cool300.Cool300HomeFragment
 import cn.kk.customview.ui.fragment.NormalListFragment
-import cn.kk.customview.ui.fragment.NormalTabFragment
 import cn.kk.elementary.anim.adapter.BaseFragmentAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -58,7 +57,7 @@ class ViewHomeFragment: BaseFragment() {
 
             // region cool-300
 //            add((NormalTabFragment().apply { partType = UIConfig.PART_COOL_300 }))
-            add(NormalChapterListFragment())
+            add(Cool300HomeFragment())
             // endregion
 
             add(NormalListFragment().apply {

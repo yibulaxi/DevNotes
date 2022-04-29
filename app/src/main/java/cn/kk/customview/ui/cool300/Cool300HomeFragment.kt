@@ -1,13 +1,7 @@
-package cn.kk.customview.ui.fragment
+package cn.kk.customview.ui.cool300
 
-import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
-import cn.kk.customview.adapter.BaseChapterAdapter
 import cn.kk.customview.bean.BaseItem
-import cn.kk.customview.bean.ItemChapterModel
 import cn.kk.customview.bean.ItemSectionModel
 import cn.kk.customview.ui.cool300.chapter1.Simple_005
 import cn.kk.customview.ui.cool300.chapter1.Simple_009
@@ -17,53 +11,23 @@ import cn.kk.customview.ui.cool300.chapter3.Simple_063
 import cn.kk.customview.ui.cool300.chapter3.Simple_071
 import cn.kk.customview.ui.cool300.chapter3.Simple_072
 import cn.kk.customview.ui.cool300.chapter5.Simple_143
-import kotlinx.android.synthetic.main.chapter_list_layout.*
+import cn.kk.customview.ui.fragment.BaseChapterListFragment
 
 /**
- * 以章节列表形式显示
+ * 炫酷应用300例子：以章节列表形式显示
  */
-class NormalChapterListFragment: BaseFragment() {
+class Cool300HomeFragment: BaseChapterListFragment() {
 
-    override fun getLayoutId(): Int = R.layout.normal_chapter_list_without_title_layout
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val parts = resources.getStringArray(R.array.cool_300).toMutableList()
-
-        rv_chapter_list.layoutManager = LinearLayoutManager(context)
-        val chapterModelList = mutableListOf<ItemChapterModel>()
-
-        val baseItemActionValue = BaseItem.ACTION_COOL300
-        for (part in parts) {
-            val size = chapterModelList.size
-            chapterModelList.add(ItemChapterModel(part, getSectionDataList(baseItemActionValue + size + 1)))
-        }
-        rv_chapter_list.adapter = BaseChapterAdapter(chapterModelList).apply {
-            mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
-                override fun onSectionClick(item: ItemSectionModel) {
-                    when(item.item_action) {
-                        BaseItem.ACTION_COOL300_common_ui_005 -> startNextUI(Simple_005::class.java, item.title)
-                        BaseItem.ACTION_COOL300_common_ui_009 -> startNextUI(Simple_009::class.java, item.title)
-                        BaseItem.ACTION_COOL300_common_ui_010 -> startNextUI(Simple_010::class.java, item.title)
-                        BaseItem.ACTION_COOL300_common_ui_022 -> startNextUI(Simple_022::class.java, item.title)
-
-                        BaseItem.ACTION_COOL300_menu_063 -> startNextUI(Simple_063::class.java, item.title)
-                        BaseItem.ACTION_COOL300_menu_071 -> startNextUI(Simple_071::class.java, item.title)
-                        BaseItem.ACTION_COOL300_menu_072 -> startNextUI(Simple_072::class.java, item.title)
-
-                        BaseItem.ACTION_COOL300_anim_143-> startNextUI(Simple_143::class.java, item.title)
-                    }
-                }
-
-            }
-        }
+    override fun getPartsStringsId(): Int {
+        return R.array.cool_300
     }
 
-    /**
-     * @param chapterType: 章节类型
-     */
-    private fun getSectionDataList(chapterType: Int): MutableList<ItemSectionModel> {
+
+    override fun getActionBaseType(): Int {
+        return BaseItem.ACTION_COOL300
+    }
+
+    override fun getSectionDataList(chapterType: Int): MutableList<ItemSectionModel> {
         val sectionModelList = mutableListOf<ItemSectionModel>()
         when(chapterType) {
             BaseItem.ACTION_COOL300_common_ui -> {
@@ -156,4 +120,20 @@ class NormalChapterListFragment: BaseFragment() {
 
         return sectionModelList
     }
+
+    override fun onSectionViewClick(item: ItemSectionModel) {
+        when(item.item_action) {
+            BaseItem.ACTION_COOL300_common_ui_005 -> startNextUI(Simple_005::class.java, item.title)
+            BaseItem.ACTION_COOL300_common_ui_009 -> startNextUI(Simple_009::class.java, item.title)
+            BaseItem.ACTION_COOL300_common_ui_010 -> startNextUI(Simple_010::class.java, item.title)
+            BaseItem.ACTION_COOL300_common_ui_022 -> startNextUI(Simple_022::class.java, item.title)
+
+            BaseItem.ACTION_COOL300_menu_063 -> startNextUI(Simple_063::class.java, item.title)
+            BaseItem.ACTION_COOL300_menu_071 -> startNextUI(Simple_071::class.java, item.title)
+            BaseItem.ACTION_COOL300_menu_072 -> startNextUI(Simple_072::class.java, item.title)
+
+            BaseItem.ACTION_COOL300_anim_143-> startNextUI(Simple_143::class.java, item.title)
+        }
+    }
+
 }
