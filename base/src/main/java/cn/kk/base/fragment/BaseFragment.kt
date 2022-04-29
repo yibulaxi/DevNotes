@@ -12,6 +12,7 @@ import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
+import java.io.Serializable
 
 abstract class BaseFragment: Fragment() {
 
@@ -78,5 +79,10 @@ abstract class BaseFragment: Fragment() {
 
     open fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int, webUrl: String){
         (activity as BaseActivity).openNextUI(targetActivity, title, type, webUrl)
+    }
+
+
+    open fun <T: Activity, K: Serializable> startNextUI(targetActivity: Class<T>, title: String, model: K){
+        (activity as BaseActivity).openNextUI(targetActivity, title, model)
     }
 }

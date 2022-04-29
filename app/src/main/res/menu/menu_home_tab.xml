@@ -14,6 +14,10 @@
         android:id="@+id/navigation_tab_arch"
         android:icon="@drawable/icon_arch"
         android:title="Arch" />
+    <item
+        android:id="@+id/navigation_tab_book"
+        android:icon="@drawable/icon_book"
+        android:title="Book" />
 
     <item
         android:id="@+id/navigation_tab_more"

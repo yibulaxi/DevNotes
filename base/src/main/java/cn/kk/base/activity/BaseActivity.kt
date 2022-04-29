@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
@@ -23,6 +24,7 @@ import cn.kk.base.bean.ListItemAction
 import cn.kk.base.dialog.HtmlBottomDialog
 import cn.kk.base.dialog.SimpleBottomDialog
 import kotlinx.android.synthetic.main.layout_title.*
+import java.io.Serializable
 
 /**
  * Activity 基类
@@ -31,6 +33,7 @@ abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
     protected val INTENT_WEB_URL_KEY = "web_url"
+    protected val INTENT_MODEL_KEY = "model"
 
     protected lateinit var mSelf: BaseActivity
     protected var baseToolbar: Toolbar?= null
@@ -207,6 +210,14 @@ abstract class BaseActivity: BasicActivity() {
     open fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String){
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
+        })
+        slideAnimEnter()
+    }
+
+    open fun <T: Activity, K: Serializable> openNextUI(targetActivity: Class<T>, title: String, model: K){
+        startActivity(Intent(this, targetActivity).apply {
+            putExtra(INTENT_TITLE_KEY, title)
+            putExtra(INTENT_MODEL_KEY, model)
         })
         slideAnimEnter()
     }

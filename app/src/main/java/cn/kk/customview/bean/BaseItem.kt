@@ -1,10 +1,37 @@
 package cn.kk.customview.bean
 
-abstract  class BaseItem {
+import java.io.Serializable
+
+abstract  class BaseItem: Serializable {
     public  var item_action = 0
     var finishTag = false
 
+
+
     companion object {
+
+        // region book:
+        val action_book_1 = 201
+        val action_book_2 = 202
+        val action_book_3 = 203
+        val action_book_4 = 204
+        val action_book_5 = 205
+        val action_book_6 = 206
+        val action_book_7 = 207
+        val action_book_8 = 208
+        val action_book_9 = 209
+        val action_book_10 = 210
+        val action_book_11 = 211
+        val action_book_12 = 212
+        val action_book_13 = 213
+        val action_book_14 = 214
+        val action_book_15 = 215
+        val action_book_16 = 216
+        val action_book_17 = 217
+        val action_book_18 = 218
+        val action_book_19 = 219
+        val action_book_20 = 220
+        // endregion
 
         // 更多：工作中总结
         val ACTION_MORE_WORK = 100

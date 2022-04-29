@@ -6,10 +6,7 @@ import androidx.lifecycle.Lifecycle
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
-import cn.kk.customview.fragment.ArchFragment
-import cn.kk.customview.fragment.MoreFragment
-import cn.kk.customview.fragment.PlayerFragment
-import cn.kk.customview.fragment.ViewHomeFragment
+import cn.kk.customview.fragment.*
 import kotlinx.android.synthetic.main.activity_home_tab.*
 
 class HomeTabActivity: BaseActivity() {
@@ -64,6 +61,7 @@ class HomeTabActivity: BaseActivity() {
                 R.id.navigation_tab_views -> fragmentList.put(id, ViewHomeFragment())
                 R.id.navigation_tab_player -> fragmentList.put(id, PlayerFragment())
                 R.id.navigation_tab_arch -> fragmentList.put(id, ArchFragment())
+                R.id.navigation_tab_book -> fragmentList.put(id, BookFragment())
                 R.id.navigation_tab_more -> fragmentList.put(id, MoreFragment())
             }
         }
