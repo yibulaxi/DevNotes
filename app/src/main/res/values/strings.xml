@@ -29,6 +29,7 @@
         <item>第三方 SDK 开发</item>
     </string-array>
 
+    <!--audio-->
     <string-array name="audio_parts">
         <item>音频基础</item>
         <item>音频降噪</item>
@@ -76,6 +77,48 @@
     <string-array name="audio_end">
         <item>选择比努力更重要</item>
         <item>期末测试</item>
+    </string-array>
+
+    <!--video-->
+    <string-array name="video_parts">
+        <item>开篇词</item>
+        <item>图像基础和前处理</item>
+        <item>视频编码</item>
+        <item>视频传输和网络对抗</item>
+        <item>视频封装和播放</item>
+        <item>结束语</item>
+    </string-array>
+
+    <string-array name="video_start">
+        <item>为什么说视频开发是程序员的一片蓝海？</item>
+    </string-array>
+    <string-array name="video_basic">
+        <item>基本概念：从参数的角度看视频图像</item>
+        <item>YUV 和 RGB: 原来图像是这么丰富多彩的</item>
+        <item>缩放算法：如何高质量地缩放图像？</item>
+    </string-array>
+    <string-array name="video_decode">
+        <item>编码原理: 视频究竟是怎么编码压缩的？</item>
+        <item>码流结构: 原来你是这样的 H264</item>
+        <item>帧内预测: 如何减少空间冗余？</item>
+        <item>帧间预测: 如何减少时间冗余？</item>
+        <item>变换量化: 如何减少视觉冗余？</item>
+    </string-array>
+    <string-array name="video_trans_and_net">
+        <item>RTP 和 RTCP：如何正确地将视频装进RTP中？</item>
+        <item>带宽预测：3大算法准确预估网络带宽</item>
+        <item>码控算法：如何控制视频的编码码率？</item>
+        <item>Jitter Buffer：拿什么拯救你，花屏卡顿问题</item>
+        <item>SVC：如何实现视频编码可伸缩？</item>
+    </string-array>
+    <string-array name="video_mix_and_play">
+        <item>MP4 和 FLV：不要再说AVI了</item>
+        <item>加餐｜基于纯浏览器的视频会议方案探究</item>
+        <item>音画同步：如何让声音和画面手拉手前进？</item>
+    </string-array>
+    <string-array name="video_end">
+        <item>信心比黄金更重要</item>
+        <item>期末测试｜来赴一场满分之约吧！</item>
     </string-array>
 
     <string name="ussr_info">苏联，全称苏维埃社会主义共和国联盟（Union of Soviet Socialist Republics，（USSR））。是1922年至1991年的联邦制社会主义国家，并奉行社会主义制度，由苏联共产党执政。

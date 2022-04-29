@@ -1,4 +1,4 @@
-package cn.kk.customview.activity.more
+package cn.kk.customview.activity.more.audio
 
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R

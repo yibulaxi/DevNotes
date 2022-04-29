@@ -10,6 +10,7 @@ abstract  class BaseItem {
         val ACTION_MORE_WORK = 100
         val ACTION_MORE_NET = 103
         val ACTION_MORE_AUDIO = 117 // 音频
+        val ACTION_MORE_VIDEO = 118 // 视频
         val ACTION_MORE_ZONGHE = 127 // 综合技术
         val ACTION_MORE_Linux = 130
         val ACTION_MORE_MIX_DEV = 132 // 混合开发
@@ -27,7 +28,7 @@ abstract  class BaseItem {
         val ACTION_MORE_ZONGHE_chazhuang = 1272
         val ACTION_MORE_ZONGHE_mock = 1273
 
-        // 更多 音频 笔记
+        // region 更多 音频 笔记
         val ACTION_MORE_AUDIO_BASE = 1170
         val ACTION_MORE_AUDIO_BASIC = 1171
         val ACTION_MORE_AUDIO_DENOISE = 1172
@@ -36,6 +37,7 @@ abstract  class BaseItem {
         val ACTION_MORE_AUDIO_SPACE = 1175
         val ACTION_MORE_AUDIO_SPECIAL_EFFECT = 1176
         val ACTION_MORE_AUDIO_END = 1177
+
 
         val ACTION_MORE_AUDIO_BASIC_1 = 11711
         val ACTION_MORE_AUDIO_BASIC_2 = 11712
@@ -61,6 +63,36 @@ abstract  class BaseItem {
 
         val ACTION_MORE_AUDIO_END_1 = 11771
         val ACTION_MORE_AUDIO_END_2 = 11772
+        // endregion
+
+        // region 更多 视频 笔记
+        val ACTION_MORE_VIDEO_BASE = 1180
+        val ACTION_MORE_VIDEO_start = 1181
+        val ACTION_MORE_VIDEO_basic = 1182
+        val ACTION_MORE_VIDEO_decode = 1183
+        val ACTION_MORE_VIDEO_trans_and_net = 1184
+        val ACTION_MORE_VIDEO_mix_and_play = 1185
+        val ACTION_MORE_VIDEO_end = 1186
+
+        val ACTION_MORE_VIDEO_start_1 = ACTION_MORE_VIDEO_start * 10 + 1
+        val ACTION_MORE_VIDEO_basic_1 = ACTION_MORE_VIDEO_basic * 10 + 1
+        val ACTION_MORE_VIDEO_basic_2 = ACTION_MORE_VIDEO_basic * 10 + 2
+        val ACTION_MORE_VIDEO_basic_3 = ACTION_MORE_VIDEO_basic * 10 + 3
+        val ACTION_MORE_VIDEO_decode_1 = ACTION_MORE_VIDEO_decode * 10 + 1
+        val ACTION_MORE_VIDEO_decode_2 = ACTION_MORE_VIDEO_decode * 10 + 2
+        val ACTION_MORE_VIDEO_decode_3 = ACTION_MORE_VIDEO_decode * 10 + 3
+        val ACTION_MORE_VIDEO_decode_4 = ACTION_MORE_VIDEO_decode * 10 + 4
+        val ACTION_MORE_VIDEO_decode_5 = ACTION_MORE_VIDEO_decode * 10 + 5
+        val ACTION_MORE_VIDEO_trans_and_net_1 = ACTION_MORE_VIDEO_trans_and_net * 10 + 1
+        val ACTION_MORE_VIDEO_trans_and_net_2 = ACTION_MORE_VIDEO_trans_and_net * 10 + 2
+        val ACTION_MORE_VIDEO_trans_and_net_3 = ACTION_MORE_VIDEO_trans_and_net * 10 + 3
+        val ACTION_MORE_VIDEO_trans_and_net_4 = ACTION_MORE_VIDEO_trans_and_net * 10 + 4
+        val ACTION_MORE_VIDEO_trans_and_net_5 = ACTION_MORE_VIDEO_trans_and_net * 10 + 5
+        val ACTION_MORE_VIDEO_mix_and_play_1 = ACTION_MORE_VIDEO_mix_and_play * 10 + 1
+        val ACTION_MORE_VIDEO_mix_and_play_2 = ACTION_MORE_VIDEO_mix_and_play * 10 + 2
+        val ACTION_MORE_VIDEO_mix_and_play_3 = ACTION_MORE_VIDEO_mix_and_play * 10 + 3
+        val ACTION_MORE_VIDEO_end_1 = ACTION_MORE_VIDEO_end * 10 + 1
+        // endregion
 
         // 更多 Linux 笔记
         val ACTION_MORE_LINUX_BETTER_CAT = 1301

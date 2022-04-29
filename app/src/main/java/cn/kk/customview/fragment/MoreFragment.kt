@@ -9,6 +9,8 @@ import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.activity.more.*
+import cn.kk.customview.activity.more.audio.AudioActivity
+import cn.kk.customview.activity.more.video.VideoActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -38,6 +40,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
                     BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
                     BaseItem.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
+                    BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
@@ -67,7 +70,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("注解与依赖注入框架"))
             add(ItemSimpleCard("Flutter"))
             add(ItemSimpleCard("音频", true).apply { item_action = BaseItem.ACTION_MORE_AUDIO })
-            add(ItemSimpleCard("视频"))
+            add(ItemSimpleCard("视频", true).apply { item_action = BaseItem.ACTION_MORE_VIDEO })
             add(ItemSimpleCard("性能优化"))
             add(ItemSimpleCard("热修复"))
             add(ItemSimpleCard("全埋点解决方案"))
