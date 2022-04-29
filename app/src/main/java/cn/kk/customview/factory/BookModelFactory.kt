@@ -130,11 +130,246 @@ class BookModelFactory {
                             add(ItemSectionModel("内存泄漏分析之 MAT 工具"))
                             add(ItemSectionModel("提高程序的可维护性"))
                         }))
-
-
                     }
-                    val bookModel = BookModel("Android\n开发艺术探索", itemAction, chapterModelList)
 
+                    val bookModel = BookModel("Android\n开发艺术探索", itemAction, chapterModelList)
+                    return bookModel
+                }
+                // endregion
+
+                // region 《Linux 命令行与 shell 脚本编程大全》
+                BaseItem.action_book_2 -> {
+                    val chapterModelList = mutableListOf<ItemChapterModel>().apply {
+                        // chapter 1
+                        add(ItemChapterModel("第 1 章 初识 Linux shell", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("什么是 Linux"))
+                            add(ItemSectionModel("Linux 发行版"))
+                        }))
+
+                        // chapter 2
+                        add(ItemChapterModel("第 2 章 走进 shell", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("进入命令行"))
+                            add(ItemSectionModel("通过 linux 控制台终端访问 CLI"))
+                            add(ItemSectionModel("通过图形化终端访问 CLI"))
+                        }))
+
+                        // chapter 3
+                        add(ItemChapterModel("第 3 章 基本的 bash shell 命令", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("启动 shell"))
+                            add(ItemSectionModel("shell 提示符"))
+                            add(ItemSectionModel("bash 手册"))
+                            add(ItemSectionModel("浏览文件系统"))
+                            add(ItemSectionModel("文件和目录列表"))
+                            add(ItemSectionModel("处理文件"))
+                            add(ItemSectionModel("处理目录"))
+                            add(ItemSectionModel("查看文件内容"))
+                        }))
+
+                        // chapter 4
+                        add(ItemChapterModel("第 4 章 更多的 bash shell 命令", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("检测程序"))
+                            add(ItemSectionModel("检测磁盘空间"))
+                            add(ItemSectionModel("处理数据文件"))
+                        }))
+
+                        // chapter 5
+                        add(ItemChapterModel("第 5 章 理解 shell", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("shell 类型"))
+                            add(ItemSectionModel("shell 父子关系"))
+                            add(ItemSectionModel("shell 的内建命令"))
+                        }))
+
+                        // chapter 6
+                        add(ItemChapterModel("第 6 章 使用 linux 环境变量", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("什么是环境变量"))
+                        }))
+
+                        // chapter 7
+                        add(ItemChapterModel("第 7 章 理解 Linux 文件权限", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Linux 的安全性"))
+                        }))
+
+                        // chapter 8
+                        add(ItemChapterModel("第 8 章 管理文件系统", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("探索 Linux 文件系统"))
+                        }))
+
+                        // chapter 9
+                        add(ItemChapterModel("第 9 章 安装软件程序", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("包管理基础"))
+                            add(ItemSectionModel("基于 Debian 的系统"))
+                            add(ItemSectionModel("基于 Red Hat 的系统"))
+                            add(ItemSectionModel("从源码安装"))
+                        }))
+
+                        // chapter 10
+                        add(ItemChapterModel("第 10 章 使用编辑器", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("vim"))
+                            add(ItemSectionModel("nano"))
+                            add(ItemSectionModel("emacs"))
+                            add(ItemSectionModel("KDE 系编辑器"))
+                            add(ItemSectionModel("GNOME 编辑器"))
+                        }))
+
+                        // chapter 11
+                        add(ItemChapterModel("第 11 章 构建基本脚本", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("使用多个命令"))
+                            add(ItemSectionModel("创建 shell 脚本文件"))
+                            add(ItemSectionModel("显示消息"))
+                            add(ItemSectionModel("使用变量"))
+                            add(ItemSectionModel("重定向输入和输出"))
+                            add(ItemSectionModel("管道"))
+                            add(ItemSectionModel("执行数学运算"))
+                            add(ItemSectionModel("退出脚本"))
+                        }))
+
+                        // chapter 12
+                        add(ItemChapterModel("第 12 章 使用结构化命令", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("if-then 语句"))
+                            add(ItemSectionModel("if-then-else 语句"))
+                            add(ItemSectionModel("嵌套 if"))
+                            add(ItemSectionModel("test 命令"))
+                            add(ItemSectionModel("复合条件测试"))
+                            add(ItemSectionModel("if-then 的高级特性"))
+                            add(ItemSectionModel("case 命令"))
+                        }))
+
+                        // chapter 13
+                        add(ItemChapterModel("第 14 章 更多的结构化命令", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("for 命令"))
+                            add(ItemSectionModel("C 语音风格的 for 命令"))
+                            add(ItemSectionModel("while 命令"))
+                            add(ItemSectionModel("until 命令"))
+                            add(ItemSectionModel("嵌套循环"))
+                            add(ItemSectionModel("循环处理文件数据"))
+                            add(ItemSectionModel("控制循环"))
+                            add(ItemSectionModel("处理循环的输出"))
+                            add(ItemSectionModel("实例"))
+                        }))
+
+                        // chapter 14
+                        add(ItemChapterModel("第 14 章 处理用户输入", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("命令行参数"))
+                            add(ItemSectionModel("特殊参数变量"))
+                            add(ItemSectionModel("移动变量"))
+                            add(ItemSectionModel("处理选项"))
+                            add(ItemSectionModel("将选项标准化"))
+                            add(ItemSectionModel("获得用户输入"))
+                        }))
+
+                        // chapter 15
+                        add(ItemChapterModel("第 15 章 呈现数据", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("理解输入和输出"))
+                            add(ItemSectionModel("在脚本中重定向输出"))
+                            add(ItemSectionModel("在脚本中重定向输入"))
+                            add(ItemSectionModel("创建自己的重定向"))
+                            add(ItemSectionModel("列出打开的文件描述符"))
+                            add(ItemSectionModel("阻止命令输出"))
+                            add(ItemSectionModel("创建临时文件"))
+                            add(ItemSectionModel("记录消息"))
+                            add(ItemSectionModel("实例"))
+                        }))
+
+                        // chapter 16
+                        add(ItemChapterModel("第 16 章 控制脚本", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("处理信号"))
+                            add(ItemSectionModel("以后台模式运行脚本"))
+                            add(ItemSectionModel("在非控制台下运行脚本"))
+                            add(ItemSectionModel("作业控制"))
+                            add(ItemSectionModel("调整谦让度"))
+                            add(ItemSectionModel("定时运行作业"))
+                        }))
+
+                        // chapter 17
+                        add(ItemChapterModel("第 17 章 创建函数", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("基本的脚本函数"))
+                            add(ItemSectionModel("返回值"))
+                            add(ItemSectionModel("在函数中使用变量"))
+                            add(ItemSectionModel("数组变量和函数"))
+                            add(ItemSectionModel("函数递归"))
+                            add(ItemSectionModel("创建库"))
+                            add(ItemSectionModel("在命令行上使用函数"))
+                            add(ItemSectionModel("实例"))
+                        }))
+
+                        // chapter 18
+                        add(ItemChapterModel("第 18 章 图形化桌面环境中的脚本编程", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("创建文本菜单"))
+                            add(ItemSectionModel("制作窗口"))
+                            add(ItemSectionModel("使用图形"))
+                        }))
+
+                        // chapter 19
+                        add(ItemChapterModel("第 19 章 初识 sed 和 gawk", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("文本处理"))
+                            add(ItemSectionModel("sed 编辑器基础"))
+                        }))
+
+                        // chapter 20
+                        add(ItemChapterModel("第 20 章 正则表达式", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("什么是正则表达式"))
+                            add(ItemSectionModel("定义 BRE 模式"))
+                            add(ItemSectionModel("扩展正则表达式"))
+                            add(ItemSectionModel("实战"))
+                        }))
+
+                        // chapter 21
+                        add(ItemChapterModel("第 21 章 sed 进阶", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("多行命令"))
+                            add(ItemSectionModel("保持空间"))
+                            add(ItemSectionModel("排除命令"))
+                            add(ItemSectionModel("改变流"))
+                            add(ItemSectionModel("模式替代"))
+                            add(ItemSectionModel("在脚本中使用 sed"))
+                            add(ItemSectionModel("创建 sed 实用工具"))
+                        }))
+
+                        // chapter 22
+                        add(ItemChapterModel("第 22 章 gawk 进阶", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("使用变量"))
+                            add(ItemSectionModel("处理数组"))
+                            add(ItemSectionModel("使用模式"))
+                            add(ItemSectionModel("结构化命令"))
+                            add(ItemSectionModel("格式化命令"))
+                            add(ItemSectionModel("格式化打印"))
+                            add(ItemSectionModel("内建函数"))
+                            add(ItemSectionModel("自定义函数"))
+                            add(ItemSectionModel("实例"))
+                        }))
+
+                        // chapter 23
+                        add(ItemChapterModel("第 23 章 使用其他 shell", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("dash shell"))
+                            add(ItemSectionModel("dash shell 的特性"))
+                            add(ItemSectionModel("dash 脚本编程"))
+                            add(ItemSectionModel("zsh shell"))
+                            add(ItemSectionModel("zsh shell 的组成"))
+                            add(ItemSectionModel("zsh 脚本编程"))
+                        }))
+
+                        // chapter 24
+                        add(ItemChapterModel("第 24 章 编写简单的脚本实用工具", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("归档"))
+                            add(ItemSectionModel("管理用户账户"))
+                            add(ItemSectionModel("检测磁盘空间"))
+                        }))
+
+                        // chapter 25
+                        add(ItemChapterModel("第 25 章 创建与数据库、Web 及电子邮件相关的脚本", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("MySQL 数据库"))
+                            add(ItemSectionModel("使用 Web"))
+                            add(ItemSectionModel("使用 电子邮件"))
+                        }))
+
+                        // chapter 26
+                        add(ItemChapterModel("第 26 章 一些小有意思的脚本", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("发送消息"))
+                            add(ItemSectionModel("获取格言"))
+                            add(ItemSectionModel("编造借口"))
+                        }))
+                    }
+
+                    val bookModel = BookModel("Linux 命令行与\nshell 脚本编程大全", itemAction, chapterModelList)
                     return bookModel
                 }
                 // endregion

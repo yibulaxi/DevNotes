@@ -27,6 +27,7 @@ class BookFragment: BaseFragment() {
         // init book data
         val bookList = mutableListOf<BookModel>().apply {
             add(BookModelFactory.createBook(BaseItem.action_book_1))
+            add(BookModelFactory.createBook(BaseItem.action_book_2))
         }
 
         rvBookList.apply {
@@ -38,9 +39,10 @@ class BookFragment: BaseFragment() {
                 }
             }.apply {
                 setOnItemClickListener { adapter, view, position ->
+                    startNextUI(BookDetailActivity::class.java, data[position].title, data[position])
+
                     when (data[position].itemAction) {
                         BaseItem.action_book_1 -> {
-                            startNextUI(BookDetailActivity::class.java, data[position].title, data[position])
                         }
                         else -> {
                         }
