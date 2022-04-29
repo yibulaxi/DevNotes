@@ -20,31 +20,31 @@ class AudioHomeFragment: BaseChapterListFragment() {
         when (chapterType) {
             BaseItem.ACTION_MORE_AUDIO_BASIC -> {
                 val sectionsBasicName = resources.getStringArray(R.array.audio_basic_types).toMutableList()
-                sectionsBasicName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsBasicName.forEach { sectionModelList.add(ItemSectionModel(it, true).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_DENOISE -> {
                 val sectionsName = resources.getStringArray(R.array.audio_denoise).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_REMOVE_ECHO -> {
                 val sectionsName = resources.getStringArray(R.array.audio_remove_echo).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_NET_TRANS -> {
                 val sectionsName = resources.getStringArray(R.array.audio_net_trans).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_SPACE -> {
                 val sectionsName = resources.getStringArray(R.array.audio_space).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_SPECIAL_EFFECT -> {
                 val sectionsName = resources.getStringArray(R.array.audio_special_effect).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_AUDIO_END -> {
                 val sectionsName = resources.getStringArray(R.array.audio_end).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, true)) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
         }
 
