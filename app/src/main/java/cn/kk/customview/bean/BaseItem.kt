@@ -80,16 +80,111 @@ abstract  class BaseItem {
         val ACTION_COOL300_intent = 98
         val ACTION_COOL300_third_part_sdk = 99
 
+        val ACTION_COOL300_common_ui_001 = 91001
+        val ACTION_COOL300_common_ui_002 = 91002
+        val ACTION_COOL300_common_ui_003 = 91003
+        val ACTION_COOL300_common_ui_004 = 91004
         val ACTION_COOL300_common_ui_005 = 91005
+        val ACTION_COOL300_common_ui_006 = 91006
+        val ACTION_COOL300_common_ui_007 = 91007
+        val ACTION_COOL300_common_ui_008 = 91008
         val ACTION_COOL300_common_ui_009 = 91009
         val ACTION_COOL300_common_ui_010 = 91010
+        val ACTION_COOL300_common_ui_011 = 91011
+        val ACTION_COOL300_common_ui_012 = 91012
+        val ACTION_COOL300_common_ui_013 = 91013
+        val ACTION_COOL300_common_ui_014 = 91014
+        val ACTION_COOL300_common_ui_015 = 91015
+        val ACTION_COOL300_common_ui_016 = 91016
+        val ACTION_COOL300_common_ui_017 = 91017
+        val ACTION_COOL300_common_ui_018 = 91018
+        val ACTION_COOL300_common_ui_019 = 91019
+        val ACTION_COOL300_common_ui_020 = 91020
+        val ACTION_COOL300_common_ui_021 = 91021
         val ACTION_COOL300_common_ui_022 = 91022
+
+        val ACTION_COOL300_notification_030 = 92030
+        val ACTION_COOL300_notification_031 = 92031
+        val ACTION_COOL300_notification_032 = 92032
+        val ACTION_COOL300_notification_033 = 92033
+        val ACTION_COOL300_notification_034 = 92034
+        val ACTION_COOL300_notification_035 = 92035
+        val ACTION_COOL300_notification_036 = 92036
+        val ACTION_COOL300_notification_037 = 92037
+        val ACTION_COOL300_notification_038 = 92038
 
         val ACTION_COOL300_menu_063 = 93063
         val ACTION_COOL300_menu_071 = 93071
         val ACTION_COOL300_menu_072 = 93072
 
+        val ACTION_COOL300_graphic_picture_073 = 94073
+        val ACTION_COOL300_graphic_picture_074 = 94074
+        val ACTION_COOL300_graphic_picture_075 = 94075
+        val ACTION_COOL300_graphic_picture_076 = 94076
+        val ACTION_COOL300_graphic_picture_077 = 94077
+        val ACTION_COOL300_graphic_picture_078 = 94078
+        val ACTION_COOL300_graphic_picture_079 = 94079
+        val ACTION_COOL300_graphic_picture_080 = 94080
+        val ACTION_COOL300_graphic_picture_081 = 94081
+        val ACTION_COOL300_graphic_picture_082 = 94082
+        val ACTION_COOL300_graphic_picture_083 = 94083
+        val ACTION_COOL300_graphic_picture_106 = 94106
+
+        val ACTION_COOL300_anim_107 = 95107
+        val ACTION_COOL300_anim_108 = 95108
+        val ACTION_COOL300_anim_109 = 95109
+        val ACTION_COOL300_anim_110 = 95110
+        val ACTION_COOL300_anim_111 = 95111
+        val ACTION_COOL300_anim_112 = 95112
+        val ACTION_COOL300_anim_113 = 95113
+        val ACTION_COOL300_anim_114 = 95114
+        val ACTION_COOL300_anim_115 = 95115
+        val ACTION_COOL300_anim_116 = 95116
+        val ACTION_COOL300_anim_117 = 95117
         val ACTION_COOL300_anim_143 = 95143
+        val ACTION_COOL300_anim_145 = 95145
+
+        val ACTION_COOL300_file_data_146 = 96146
+        val ACTION_COOL300_file_data_147 = 96147
+        val ACTION_COOL300_file_data_148 = 96148
+        val ACTION_COOL300_file_data_149 = 96149
+        val ACTION_COOL300_file_data_150 = 96150
+        val ACTION_COOL300_file_data_151 = 96151
+        val ACTION_COOL300_file_data_152 = 96152
+        val ACTION_COOL300_file_data_153 = 96153
+        val ACTION_COOL300_file_data_154 = 96154
+        val ACTION_COOL300_file_data_155 = 96155
+        val ACTION_COOL300_file_data_156 = 96156
+        val ACTION_COOL300_file_data_157 = 96157
+        val ACTION_COOL300_file_data_175 = 96175
+
+        val ACTION_COOL300_sys_device_176 = 97176
+        val ACTION_COOL300_sys_device_177 = 97177
+        val ACTION_COOL300_sys_device_178 = 97178
+        val ACTION_COOL300_sys_device_179 = 97179
+        val ACTION_COOL300_sys_device_180 = 97180
+        val ACTION_COOL300_sys_device_181 = 97181
+        val ACTION_COOL300_sys_device_182 = 97182
+        val ACTION_COOL300_sys_device_183 = 97183
+        val ACTION_COOL300_sys_device_184 = 97184
+        val ACTION_COOL300_sys_device_207 = 97207
+
+        val ACTION_COOL300_intent_208 = 98208
+        val ACTION_COOL300_intent_209 = 98209
+        val ACTION_COOL300_intent_210 = 98210
+        val ACTION_COOL300_intent_211 = 98211
+        val ACTION_COOL300_intent_212 = 98212
+        val ACTION_COOL300_intent_213 = 98213
+        val ACTION_COOL300_intent_214 = 98214
+        val ACTION_COOL300_intent_252 = 98252
+
+        val ACTION_COOL300_third_part_sdk_253 = 99253
+        val ACTION_COOL300_third_part_sdk_254 = 99254
+        val ACTION_COOL300_third_part_sdk_255 = 99255
+        val ACTION_COOL300_third_part_sdk_256 = 99256
+        val ACTION_COOL300_third_part_sdk_257 = 99257
+        val ACTION_COOL300_third_part_sdk_258 = 99258
+        val ACTION_COOL300_third_part_sdk_300 = 99300
 
         // endregion
     }
