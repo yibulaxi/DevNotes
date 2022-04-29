@@ -2,6 +2,7 @@ package cn.kk.base.fragment
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -72,5 +73,10 @@ abstract class BaseFragment: Fragment() {
 
     protected fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int){
         (activity as BaseActivity).openNextUI(targetActivity, title, type)
+    }
+
+
+    open fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int, webUrl: String){
+        (activity as BaseActivity).openNextUI(targetActivity, title, type, webUrl)
     }
 }

@@ -28,6 +28,7 @@ abstract  class BaseItem {
         val ACTION_MORE_ZONGHE_mock = 1273
 
         // 更多 音频 笔记
+        val ACTION_MORE_AUDIO_BASE = 1170
         val ACTION_MORE_AUDIO_BASIC = 1171
         val ACTION_MORE_AUDIO_DENOISE = 1172
         val ACTION_MORE_AUDIO_REMOVE_ECHO = 1173
