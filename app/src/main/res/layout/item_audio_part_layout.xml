@@ -33,6 +33,14 @@
             android:text="音频基础"
             android:textSize="17sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_section_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/text_color_2"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

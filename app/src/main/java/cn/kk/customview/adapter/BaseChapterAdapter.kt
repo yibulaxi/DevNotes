@@ -1,7 +1,5 @@
 package cn.kk.customview.adapter
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import cn.kk.customview.R
 import cn.kk.customview.bean.ItemChapterModel
 import cn.kk.customview.bean.ItemSectionModel

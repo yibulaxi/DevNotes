@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.customview.R
-import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemChapterModel
 import cn.kk.customview.bean.ItemSectionModel
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -30,6 +29,7 @@ class ItemFolderView(context: Context, attributeSet: AttributeSet) :
     lateinit var containerView: View
     var titleView: View
     var tvTitle: TextView
+    var tvSectionCount: TextView
     var ivArrow: ImageView
     var rvList: RecyclerView
 
@@ -41,12 +41,14 @@ class ItemFolderView(context: Context, attributeSet: AttributeSet) :
             LayoutInflater.from(context).inflate(R.layout.item_audio_part_layout, this, true)
         titleView = containerView.findViewById(R.id.ll_title)
         tvTitle = containerView.findViewById(R.id.tv_title)
+        tvSectionCount = containerView.findViewById(R.id.tv_section_count)
         ivArrow = containerView.findViewById(R.id.iv_arrow)
         rvList = containerView.findViewById(R.id.rv_section)
     }
 
     fun setData(itemFolderModel: ItemChapterModel, expand: Boolean = false) {
         tvTitle.text = itemFolderModel.title
+        tvSectionCount.text = String.format(context.getString(R.string.section_count), itemFolderModel.sections.size)
 
         rvList.layoutManager = LinearLayoutManager(context)
         rvList.adapter = object :

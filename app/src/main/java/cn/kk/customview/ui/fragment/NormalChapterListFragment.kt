@@ -60,6 +60,9 @@ class NormalChapterListFragment: BaseFragment() {
         }
     }
 
+    /**
+     * @param chapterType: 章节类型
+     */
     private fun getSectionDataList(chapterType: Int): MutableList<ItemSectionModel> {
         val sectionModelList = mutableListOf<ItemSectionModel>()
         when(chapterType) {
