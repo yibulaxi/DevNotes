@@ -372,12 +372,138 @@ class BookModelFactory {
                 }
                 // endregion
 
-                // region《Android\n自定义控件开发入门与实践》
+                // region《Android\n自定义控件开发入门与实践》, 图书网址：(http://www.broadview.com.cn/book/93)
+                BaseItem.action_book_3 -> {
+                    // chapter 1
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 绘图基础", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("基本图形绘制"))
+                            add(ItemSectionModel("路径"))
+                            add(ItemSectionModel("Region"))
+                            add(ItemSectionModel("Canvas"))
+                        }))
+                    }
 
+                    // chapter 2
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 2 章 视图动画", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("视图动画标签"))
+                            add(ItemSectionModel("视图动画第代码实现"))
+                            add(ItemSectionModel("插值器初探"))
+                            add(ItemSectionModel("动画示例"))
+                            add(ItemSectionModel("逐帧动画"))
+                        }))
+                    }
+
+                    // chapter 3
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 3 章 属性动画", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("ValueAnimator 的基本使用"))
+                            add(ItemSectionModel("自定义差值器与 Evaluator"))
+                            add(ItemSectionModel("ValueAnimator 进阶——ofObject"))
+                            add(ItemSectionModel("ObjectAnimator"))
+                            add(ItemSectionModel("组合动画"))
+                            add(ItemSectionModel("Animator 动画的 XML 实现"))
+                        }))
+                    }
+
+                    // chapter 4
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 4 章 属性动画进阶", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Property ValuesHolder 与 Keyframe"))
+                            add(ItemSectionModel("ViewPropertyAnimator"))
+                            add(ItemSectionModel("为 ViewGroup 内的组件添加动画"))
+                            add(ItemSectionModel("开源动画库 NineOldAndroids"))
+                        }))
+                    }
+
+                    // chapter 5
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 5 章 动画进阶", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("利用 PathMeasure 实现路径动画"))
+                            add(ItemSectionModel("SVG 动画"))
+                        }))
+                    }
+                    // chapter 6
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 6 章 Paint 的基本使用", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("硬件加速"))
+                            add(ItemSectionModel("文字"))
+                            add(ItemSectionModel("Paint 常用函数"))
+                        }))
+                    }
+                    // chapter 7
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 7 章 绘图进阶", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("贝塞尔曲线"))
+                            add(ItemSectionModel("setShadowLayer 与阴影效果"))
+                            add(ItemSectionModel("BlurMaskFilter 发光效果与图片阴影"))
+                            add(ItemSectionModel("Shader 与 BitmapShader"))
+                            add(ItemSectionModel("Shader 之 LinearGradient"))
+                            add(ItemSectionModel("Shader 之 RadialGradient"))
+                        }))
+                    }
+
+                    // chapter 8
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 8 章 混合模式", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("AvoidXfermode"))
+                            add(ItemSectionModel("PorterDuffXfermode"))
+                            add(ItemSectionModel("PorterDuffXfermode 之源图像模式"))
+                            add(ItemSectionModel("目标图像模式与其他模式"))
+                        }))
+                    }
+
+                    // chapter 9
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 9 章 Canvas 与图层", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("获取 Canvas 对象的方法"))
+                            add(ItemSectionModel("涂层与画布"))
+                            add(ItemSectionModel("Flag 的具体含义"))
+                            add(ItemSectionModel("恢复画布"))
+                        }))
+                    }
+
+                    // chapter 10
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 10 章 Android 画布", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("ShapeDrawable"))
+                            add(ItemSectionModel("Bitmap"))
+                            add(ItemSectionModel("SurfaceView"))
+                        }))
+                    }
+
+                    // chapter 11
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 11 章 Matrix 与坐标变换", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("放网上了（电脑本地文件：34556-放网上第1章和第11章.pdf）"))
+                        }))
+                    }
+
+                    // chapter 12
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 12 章 封装控件", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("自定义属性与自定义 style"))
+                            add(ItemSectionModel("测量与布局"))
+                            add(ItemSectionModel("实现 FlowLayout 容器"))
+                        }))
+                    }
+
+                    // chapter 13
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 13 章 控件高级属性", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("GestureDector 手势检测"))
+                            add(ItemSectionModel("Window 与 WindowManager"))
+                        }))
+                    }
+
+
+                    return BookModel("Android\n自定义控件开发入门与实践", itemAction, chapterModelList)
+                }
                 // endregion
             }
 
-            return BookModel()
+            return BookModel("空", itemAction, chapterModelList)
         }
     }
 }
