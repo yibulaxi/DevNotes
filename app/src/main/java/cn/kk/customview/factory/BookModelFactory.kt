@@ -826,6 +826,78 @@ class BookModelFactory {
                     return BookModel("Android\n编程权威指南", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_5 }
                 }
                 // endregion
+
+                // region Git
+                BaseItem.action_book_6 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("介绍", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("背景"))
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("安装 Git", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("起步", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("基本的 Git 概念", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("文件管理和索引", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("提交", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("分支", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("diff", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("合并", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("更改提交", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("储藏和引用日志", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("远程版本库", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("版本库管理", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("补丁", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("钩子", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("合并项目", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("子模块最佳实战", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("结合 SVN 版本库使用 Git", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("高级操作", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("提示、技巧和技术", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                        add(ItemChapterModel("Git 和 GitHub", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(".."))
+                        }))
+                    }
+                    return BookModel("Git", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_6 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
