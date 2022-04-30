@@ -614,6 +614,218 @@ class BookModelFactory {
                 }
                 // endregion
 
+                // region 《Android编程权威指南》
+                BaseItem.action_book_5 -> {
+                    chapterModelList.apply {
+                        // chapter 1
+                        add(ItemChapterModel("第 1 章 Android 开发初体验", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android 开发基础"))
+                            add(ItemSectionModel("创建 Android 项目"))
+                            add(ItemSectionModel("Android Studio 使用导航"))
+                            add(ItemSectionModel("用户界面设计"))
+                            add(ItemSectionModel("从布局 XML 到视图对象"))
+                            add(ItemSectionModel("部件的实际应用"))
+                            add(ItemSectionModel("创建提示消息"))
+                            add(ItemSectionModel("使用模拟器运行应用"))
+                            add(ItemSectionModel("深入学习：Android 编译过程"))
+                        }))
+                        // chapter 2
+                        add(ItemChapterModel("第 2 章 Android 与 MVC 设计模式", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 3
+                        add(ItemChapterModel("第 3 章 Activity 生命周期", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("旋转 GeoQuiz 应用"))
+                        }))
+                        // chapter 4
+                        add(ItemChapterModel("第 4 章 UI 状态的保存与恢复", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("引入 ViewModel 依赖"))
+                            add(ItemSectionModel("添加 ViewModel"))
+                            add(ItemSectionModel("进程销毁时保存数据"))
+                            add(ItemSectionModel("ViewModel 与保存实例状态"))
+                            add(ItemSectionModel("深入学习：Jetpack、AndroidX 与 架构组件"))
+                        }))
+                        // chapter 5
+                        add(ItemChapterModel("第 5 章 Android 应用的调试", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("异常与栈跟踪"))
+                            add(ItemSectionModel("Android 特有的调试工具"))
+                            add(ItemSectionModel("挑战练习：探索布局检查器"))
+                            add(ItemSectionModel("挑战练习：探索 Android 性能分析器"))
+                        }))
+                        // chapter 6
+                        add(ItemChapterModel("第 6 章 第二个 Activity", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 7
+                        add(ItemChapterModel("第 7 章 Android SDK 版本与兼容", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android SDK 版本"))
+                            add(ItemSectionModel("Android 编程与兼容性问题"))
+                            add(ItemSectionModel("使用 Android 开发者文档"))
+                            add(ItemSectionModel("挑战练习： 报告编译版本"))
+                        }))
+                        // chapter 8
+                        add(ItemChapterModel("第 8 章 UI fragment 与 Fragment 管理器", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("UI 设计的灵活性需求"))
+                            add(ItemSectionModel("引入 fragment"))
+                        }))
+                        // chapter 9
+                        add(ItemChapterModel("第 9 章 使用 RecyclerView 显示列表", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                        }))
+                        // chapter 10
+                        add(ItemChapterModel("第 10 章 使用约束布局", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 11
+                        add(ItemChapterModel("第 11 章 数据库与 Room 库", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Room 架构组件库"))
+                            add(ItemSectionModel("创建数据库"))
+                        }))
+                        // chapter 12
+                        add(ItemChapterModel("第 12 章 Fragment Navigation", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("单 Activity 多 Fragment"))
+                            add(ItemSectionModel("Fragment argument"))
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 13
+                        add(ItemChapterModel("第 13 章 对话框", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("创建 DialogFragment"))
+                            add(ItemSectionModel("fragment 间的数据传递"))
+                            add(ItemSectionModel("挑战练习：事件选择对话框"))
+                        }))
+                        // chapter 14
+                        add(ItemChapterModel("第 14 章 应用栏", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("AppCompat 默认应用栏"))
+                            add(ItemSectionModel("应用栏菜单"))
+                            add(ItemSectionModel("使用 Android Assets Studio"))
+                            add(ItemSectionModel("深入学习：应用栏、状态栏、工具栏"))
+                            add(ItemSectionModel("深入学习：AppCompat 版应用栏"))
+                            add(ItemSectionModel("挑战练习：RecyclerView 空视图"))
+                        }))
+                        // chapter 15
+                        add(ItemChapterModel("第 15 章 隐式 intent", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 16
+                        add(ItemChapterModel("第 16 章 使用 intent 拍照", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("布置照片"))
+                            add(ItemSectionModel("文件存储"))
+                            add(ItemSectionModel("使用相机 intent"))
+                            add(ItemSectionModel("缩放和显示位图"))
+                            add(ItemSectionModel("功能声明"))
+                            add(ItemSectionModel("挑战练习：优化照片显示"))
+                            add(ItemSectionModel("挑战练习：优化缩略图加载"))
+                        }))
+                        // chapter 17
+                        add(ItemChapterModel("第 17 章 应用本地化", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("资源本地化"))
+                            add(ItemSectionModel("配置修饰符"))
+                            add(ItemSectionModel("测试备选资源"))
+                            add(ItemSectionModel("深入学习：确定设备屏幕尺寸"))
+                            add(ItemSectionModel("挑战练习：日期显示本地化"))
+                        }))
+                        // chapter 18
+                        add(ItemChapterModel("第 18 章 Android 辅助功能", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("TalkBack"))
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 19
+                        add(ItemChapterModel("第 19 章 数据绑定与 MVVM", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("为何要用 MVVM 架构"))
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 20
+                        add(ItemChapterModel("第 20 章 音频播放与单元测试", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("创建 SoundPool"))
+                            add(ItemSectionModel("访问 Assets"))
+                            add(ItemSectionModel("..."))
+                            add(ItemSectionModel("深入学习：整合测试"))
+                            add(ItemSectionModel("深入学习：模拟对象与测试"))
+                        }))
+                        // chapter 21
+                        add(ItemChapterModel("第 21 章 样式与主题", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("颜色资源"))
+                            add(ItemSectionModel("样式"))
+                            add(ItemSectionModel("主题"))
+                            add(ItemSectionModel("添加主题颜色"))
+                            add(ItemSectionModel("覆盖主题属性"))
+                            add(ItemSectionModel("修改按钮属性"))
+                            add(ItemSectionModel("深入学习：样式继承拾遗"))
+                            add(ItemSectionModel("深入学习：引用主题属性"))
+                        }))
+                        // chapter 22
+                        add(ItemChapterModel("第 22 章 XML drawable", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("统一样式修改"))
+                            add(ItemSectionModel("shape drawable"))
+                            add(ItemSectionModel("..."))
+                            add(ItemSectionModel("深入学习：为什么要使用 XML drawable"))
+                            add(ItemSectionModel("深入学习：使用 mipmap 图像"))
+                            add(ItemSectionModel("深入学习：使用 9-patch 图像"))
+                            add(ItemSectionModel("挑战练习：按钮主题"))
+                        }))
+                        // chapter 23
+                        add(ItemChapterModel("第 23 章 深入学习 intent 和任务", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("隐式 intent"))
+                            add(ItemSectionModel("任务与回退栈"))
+                            add(ItemSectionModel("深入学习：进程与任务"))
+                            add(ItemSectionModel("深入学习：并发文档"))
+                            add(ItemSectionModel("挑战练习：应用图标"))
+                        }))
+                        // chapter 24
+                        add(ItemChapterModel("第 24 章 HTTP 与后台任务", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Retrofit 网络连接基本"))
+                            add(ItemSectionModel("从 Flickr 获取 JSON 数据"))
+                            add(ItemSectionModel("应用设备配置改变"))
+                            add(ItemSectionModel("..."))
+                            add(ItemSectionModel("深入学习：其他 JSON 数据解析器和数据格式"))
+                            add(ItemSectionModel("深入学习：撤销网络请求"))
+                            add(ItemSectionModel("深入学习：管理依赖"))
+                            add(ItemSectionModel("挑战练习：自定义 Gson 反序列化器"))
+                            add(ItemSectionModel("挑战练习：分页"))
+                            add(ItemSectionModel("挑战练习：动态调整网格列"))
+                        }))// chapter 25
+                        add(ItemChapterModel("第 25 章 Looper、Handler 和 HandlerThread", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))// chapter 26
+                        add(ItemChapterModel("第 26 章 搜索", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("搜索 Flickr 网站"))
+                            add(ItemSectionModel("使用 SearchView"))
+                            add(ItemSectionModel("sharedpreferences"))
+                            add(ItemSectionModel("用 Android KTX 编辑 SharedPreferences"))
+                        }))
+                        // chapter 27
+                        add(ItemChapterModel("第 27 章 WorkManger", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 28
+                        add(ItemChapterModel("第 28 章 broadcast intent", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("普通 intent 与 broadcast intent"))
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 29
+                        add(ItemChapterModel("第 29 章 网页浏览", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("最后一段 Flickr 数据"))
+                            add(ItemSectionModel("简单方式：使用隐式 intent"))
+                            add(ItemSectionModel("较难的方式：使用 WebView"))
+                            add(ItemSectionModel("处理 WebView 的设备旋转问题"))
+                            add(ItemSectionModel("WebView 与定制 UI"))
+                            add(ItemSectionModel("深入学习：注入 JavaScript 对象"))
+                            add(ItemSectionModel("深入学习：WebView 升级"))
+                            add(ItemSectionModel("深入学习：Chrome Custom Tabs"))
+                            add(ItemSectionModel("挑战练习：使用回退键浏览历史网页"))
+                        }))
+                        // chapter 30
+                        add(ItemChapterModel("第 30 章 定制视图与触摸事件", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                        // chapter 31
+                        add(ItemChapterModel("第 31 章 属性动画", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("..."))
+                        }))
+                    }
+                    return BookModel("Android\n编程权威指南", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_5 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
