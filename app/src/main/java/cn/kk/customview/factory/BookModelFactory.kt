@@ -502,6 +502,118 @@ class BookModelFactory {
                     return BookModel("Android\n自定义控件开发入门与实践", itemAction, chapterModelList).apply { bookImgRes =  R.drawable.bg_book_3 }
                 }
                 // endregion
+
+                // region 《Android 进阶之光》
+                BaseItem.action_book_4 -> {
+
+                    // chapter 1
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 Android 新特性", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android 5.0 新特性"))
+                            add(ItemSectionModel("Android 6.0 新特性"))
+                            add(ItemSectionModel("Android 7.0 新特性"))
+                        }))
+                    }
+                    // chapter 2
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 2 章 Material Design", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Material Design 概述"))
+                            add(ItemSectionModel("Design Support Library 常用控件详解"))
+                        }))
+                    }
+                    // chapter 3
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 3 章 View 体系与自定义 View", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("View 和 ViewGroup"))
+                            add(ItemSectionModel("坐标系"))
+                            add(ItemSectionModel("View 的滑动"))
+                            add(ItemSectionModel("属性动画"))
+                            add(ItemSectionModel("解析 Scroller"))
+                            add(ItemSectionModel("View 的事件分发机制"))
+                            add(ItemSectionModel("View 的工作流程"))
+                            add(ItemSectionModel("自定义 View"))
+                            add(ItemSectionModel("自定义 ViewGroup"))
+                        }))
+                    }
+                    // chapter 4
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 4 章 多线程编程", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("线程基础"))
+                            add(ItemSectionModel("同步"))
+                            add(ItemSectionModel("阻塞队列"))
+                            add(ItemSectionModel("线程池"))
+                            add(ItemSectionModel("AsyncTask 原理"))
+                        }))
+                    }
+                    // chapter 5
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 5 章 网络编程与网络框架", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("网络分层"))
+                            add(ItemSectionModel("TCP 三次握手与四次挥手"))
+                            add(ItemSectionModel("HTTP 协议原理"))
+                            add(ItemSectionModel("HttpClient 与 HttpURLConnection"))
+                            add(ItemSectionModel("解析 Volley"))
+                            add(ItemSectionModel("解析 OkHttp"))
+                            add(ItemSectionModel("解析 Retrofit"))
+                        }))
+                    }
+                    // chapter 6
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 6 章 设计模式", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("六大原则"))
+                            add(ItemSectionModel("分类"))
+                            add(ItemSectionModel("创建型"))
+                            add(ItemSectionModel("结构型"))
+                            add(ItemSectionModel("行为型"))
+                        }))
+                    }
+                    // chapter 7
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 7 章 事件总线", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("EventBus"))
+                            add(ItemSectionModel("otto"))
+                        }))
+                    }
+                    // chapter 8
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 8 章 函数响应式编程", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("RxJava 基本用法"))
+                            add(ItemSectionModel("RxJava 的 Subject"))
+                            add(ItemSectionModel("RxJava 操作符入门"))
+                            add(ItemSectionModel("RxJava 线程控制"))
+                            add(ItemSectionModel("RxJava 使用场景"))
+                            add(ItemSectionModel("RxJava 源码解析"))
+                        }))
+                    }  // chapter 9
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 9 章 注解与依赖注入框架", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("注解"))
+                            add(ItemSectionModel("依赖注入的原理"))
+                            add(ItemSectionModel("依赖注入框架"))
+                        }))
+                    }
+                    // chapter 10
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 10 章 应用架构设计", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("MVC"))
+                            add(ItemSectionModel("MVP"))
+                            add(ItemSectionModel("MVVM"))
+                        }))
+                    }
+                    // chapter 11
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 11 章 系统架构与 MediaPlayer 框架", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android 系统架构"))
+                            add(ItemSectionModel("Android 系统源码目录"))
+                            add(ItemSectionModel("Source Insight 使用"))
+                            add(ItemSectionModel("MediaPlayer 框架"))
+                        }))
+                    }
+
+                    return BookModel("Android\n开发艺术探索", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_4 }
+                }
+                // endregion
+
             }
 
             return BookModel("空", itemAction, chapterModelList)
