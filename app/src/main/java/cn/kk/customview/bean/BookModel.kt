@@ -5,4 +5,6 @@ import java.io.Serializable
 class BookModel(val title: String, val itemAction: Int, val chapterModelList: MutableList<ItemChapterModel>): Serializable {
 
     constructor(): this("", -1, mutableListOf())
+
+    var bookImgRes: Int = -1
 }

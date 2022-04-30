@@ -1,5 +1,6 @@
 package cn.kk.customview.factory
 
+import cn.kk.customview.R
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
 import cn.kk.customview.bean.ItemChapterModel
@@ -498,7 +499,7 @@ class BookModelFactory {
                     }
 
 
-                    return BookModel("Android\n自定义控件开发入门与实践", itemAction, chapterModelList)
+                    return BookModel("Android\n自定义控件开发入门与实践", itemAction, chapterModelList).apply { bookImgRes =  R.drawable.bg_book_3 }
                 }
                 // endregion
             }

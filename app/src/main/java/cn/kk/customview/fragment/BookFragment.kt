@@ -35,8 +35,12 @@ class BookFragment: BaseFragment() {
             layoutManager = GridLayoutManager(context, 3)
             adapter = object : BaseQuickAdapter<BookModel, BaseViewHolder>(R.layout.item_book_view, bookList){
                 override fun convert(holder: BaseViewHolder, item: BookModel) {
-                    holder.setText(R.id.tv_name, item.title)
-                    holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(UIHelper.generaRandomColor())
+                    if (item.bookImgRes == -1) {
+                        holder.setText(R.id.tv_name, item.title)
+                        holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(UIHelper.generaRandomColor())
+                    } else {
+                        holder.setBackgroundResource(R.id.tv_name, item.bookImgRes)
+                    }
                 }
             }.apply {
                 setOnItemClickListener { adapter, view, position ->
