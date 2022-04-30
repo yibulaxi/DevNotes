@@ -369,7 +369,7 @@ class BookModelFactory {
                         }))
                     }
 
-                    return BookModel("Linux 命令行与\nshell 脚本编程大全", itemAction, chapterModelList)
+                    return BookModel("Linux 命令行与\nshell 脚本编程大全", itemAction, chapterModelList).apply { bookImgRes =  R.drawable.bg_book_2 }
                 }
                 // endregion
 
