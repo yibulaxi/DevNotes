@@ -13,11 +13,11 @@ class BookModelFactory {
     companion object {
 
         open fun createBook(itemAction: Int): BookModel {
-
+            val chapterModelList = mutableListOf<ItemChapterModel>()
             when(itemAction) {
                 // region 《Android 开发艺术探索》
                 BaseItem.action_book_1 -> {
-                    val chapterModelList = mutableListOf<ItemChapterModel>().apply {
+                     chapterModelList.apply {
                         // chapter 1
                         add(ItemChapterModel("第一章 Activity 的生命周期和启动模式", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("Activity 生命周期全面分析"))
@@ -132,14 +132,13 @@ class BookModelFactory {
                         }))
                     }
 
-                    val bookModel = BookModel("Android\n开发艺术探索", itemAction, chapterModelList)
-                    return bookModel
+                    return BookModel("Android\n开发艺术探索", itemAction, chapterModelList)
                 }
                 // endregion
 
                 // region 《Linux 命令行与 shell 脚本编程大全》
                 BaseItem.action_book_2 -> {
-                    val chapterModelList = mutableListOf<ItemChapterModel>().apply {
+                        chapterModelList.apply {
                         // chapter 1
                         add(ItemChapterModel("第 1 章 初识 Linux shell", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("什么是 Linux"))
@@ -369,9 +368,12 @@ class BookModelFactory {
                         }))
                     }
 
-                    val bookModel = BookModel("Linux 命令行与\nshell 脚本编程大全", itemAction, chapterModelList)
-                    return bookModel
+                    return BookModel("Linux 命令行与\nshell 脚本编程大全", itemAction, chapterModelList)
                 }
+                // endregion
+
+                // region《Android\n自定义控件开发入门与实践》
+
                 // endregion
             }
 
