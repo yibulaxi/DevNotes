@@ -898,6 +898,63 @@ class BookModelFactory {
                     return BookModel("Git", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_6 }
                 }
                 // endregion
+
+                // region 最强Android书架构大剖析
+                BaseItem.action_book_7 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 Android 体系结构的变革之路", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android 系统版本的历史变迁"))
+                            add(ItemSectionModel("Android 与 Linux"))
+                            add(ItemSectionModel("Android 的衍生产品"))
+                            add(ItemSectionModel("对前方道路的思考"))
+                        }))
+                        add(ItemChapterModel("第 2 章 Android 的分区和文件系统", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("分区架构"))
+                            add(ItemSectionModel("Android 文件系统中存储的内容"))
+                            add(ItemSectionModel("受保护的文件系统"))
+                            add(ItemSectionModel("Linux 伪文件系统"))
+                        }))
+                        add(ItemChapterModel("第 3 章 Android 的启动、备份和重置", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Android 系统镜像"))
+                            add(ItemSectionModel("启动过程"))
+                            add(ItemSectionModel("关机和重启"))
+                            add(ItemSectionModel("应用的备份和恢复"))
+                            add(ItemSectionModel("系统重置（recovery）和升级"))
+                        }))
+                        add(ItemChapterModel("第 4 章 init", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("init 的角色和任务"))
+                            add(ItemSectionModel("init 和 USB"))
+                            add(ItemSectionModel("init 的其他角色"))
+                        }))
+                        add(ItemChapterModel("第 5 章 Android 的守护进程", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("core 类中的服务"))
+                            add(ItemSectionModel("网络相关服务"))
+                            add(ItemSectionModel("图形及多媒体服务"))
+                            add(ItemSectionModel("其他服务"))
+                        }))
+                        add(ItemChapterModel("第 6 章 框架服务的架构", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("再探 servicemanager"))
+                            add(ItemSectionModel("服务调用的模式"))
+                            add(ItemSectionModel("binder"))
+                            add(ItemSectionModel("system_server"))
+                        }))
+                        add(ItemChapterModel("第 7 章 从 Linux 角度看 Android", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("重温 /proc"))
+                            add(ItemSectionModel("用户模式内存管理"))
+                            add(ItemSectionModel("跟踪系统调用"))
+                        }))
+                        add(ItemChapterModel("第 8 章 Android 安全性", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("移动安全威胁建模"))
+                            add(ItemSectionModel("Linux 层上的安全措施"))
+                            add(ItemSectionModel("Dalvik 层上的安全措施"))
+                            add(ItemSectionModel("用户层上的安全措施"))
+                            add(ItemSectionModel("存储安全"))
+                            add(ItemSectionModel("Root Android 设备"))
+                        }))
+                    }
+                    return BookModel("最强Android书架构大剖析", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_7 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
