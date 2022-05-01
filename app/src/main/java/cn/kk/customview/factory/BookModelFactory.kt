@@ -955,6 +955,168 @@ class BookModelFactory {
                     return BookModel("最强Android书架构大剖析", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_7 }
                 }
                 // endregion
+
+                // region Android 插件化开发指南
+                BaseItem.action_book_8 -> {
+                     chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 插件化技术的昨天、今天和明天", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("插件化技术是什么"))
+                            add(ItemSectionModel("为什么需要插件化"))
+                            add(ItemSectionModel("插件化技术的历史"))
+                            add(ItemSectionModel("插件化技术的用途到底是什么"))
+                            add(ItemSectionModel("更好的替代产品：React Native"))
+                            add(ItemSectionModel("只有中国这么玩吗"))
+                            add(ItemSectionModel("四大组件都需要插件化技术吗"))
+                            add(ItemSectionModel("双开和虚拟机"))
+                            add(ItemSectionModel("从原生页面到 HTML 5 的过度"))
+                        }))
+                         add(ItemChapterModel("第 2 章 Android 底层知识", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("概述"))
+                             add(ItemSectionModel("Binder 原理"))
+                             add(ItemSectionModel("AIDL 原理"))
+                             add(ItemSectionModel("AMS"))
+                             add(ItemSectionModel("Activity 工作原理"))
+                             add(ItemSectionModel("App 内部的页面跳转"))
+                             add(ItemSectionModel("Context 家族史"))
+                             add(ItemSectionModel("Service 工作原理"))
+                             add(ItemSectionModel("BroadcastReceiver 工作原理"))
+                             add(ItemSectionModel("ContentProvider 工作原理"))
+                             add(ItemSectionModel("PMS 及 App 安装过程"))
+                             add(ItemSectionModel("ClassLoader 家族史"))
+                             add(ItemSectionModel("双亲委托"))
+                             add(ItemSectionModel("MultiDex"))
+                             add(ItemSectionModel("实现一个音乐播放器 App"))
+                         }))
+                         add(ItemChapterModel("第 3 章 反射", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("基本反射技术"))
+                             add(ItemSectionModel("jOOR"))
+                             add(ItemSectionModel("对基本反射语法的封装"))
+                             add(ItemSectionModel("对反射的进一步封装"))
+                         }))
+                         add(ItemChapterModel("第 4 章 代理模式", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("概述"))
+                             add(ItemSectionModel("静态代理和动态代理"))
+                             add(ItemSectionModel("对 AMN 的 Hook"))
+                             add(ItemSectionModel("对 PMS 的 Hook"))
+                         }))
+                         add(ItemChapterModel("第 5 章 对 startActivity 方法进行 Hook", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("startActivity 方法的两种形式"))
+                             add(ItemSectionModel("对 Activity 的 startActivity 方法进行 Hook"))
+                             add(ItemSectionModel("对 Context 的 startActivity 方法进行 Hook"))
+                             add(ItemSectionModel("启动没有在 AndroidManifest 中声明的 Activity"))
+                             add(ItemSectionModel("欺骗AMS 的策略分析"))
+                             add(ItemSectionModel("Hook 的上半场"))
+                             add(ItemSectionModel("Hook 的下半场：对 H 类的 mCallback 字段进行 Hook"))
+                             add(ItemSectionModel("Hook 的下半场：对 ActvityThread 的 mInstrumentation 字段进行 Hook"))
+                             add(ItemSectionModel("欺骗AMS 的弊端"))
+                         }))
+                         add(ItemChapterModel("第 6 章 插件化技术基础知识", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("加载外部的 dex"))
+                             add(ItemSectionModel("面向接口编程"))
+                             add(ItemSectionModel("插件的瘦身"))
+                             add(ItemSectionModel("对插件进行代码调试"))
+                             add(ItemSectionModel("Application 的插件化解决方案"))
+                         }))
+                         add(ItemChapterModel("第 7 章 资源初探", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("资源加载机制"))
+                             add(ItemSectionModel("资源的插件化解决方案"))
+                             add(ItemSectionModel("换肤"))
+                             add(ItemSectionModel("殊途同归：另一种换肤方式"))
+                         }))
+                         add(ItemChapterModel("第 8 章 最简单的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("在 AndroidManifest 中声明插件中的组件"))
+                             add(ItemSectionModel("宿主 App 加载插件中的类"))
+                             add(ItemSectionModel("启动插件 Service"))
+                             add(ItemSectionModel("加载插件中的资源"))
+                         }))
+                         add(ItemChapterModel("第 9 章 Activity 的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("..."))
+                         }))
+                         add(ItemChapterModel("第 10 章 Service 的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("..."))
+                         }))
+                         add(ItemChapterModel("第 11 章 BroadcastReceiver 的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("Receiver 概述"))
+                             add(ItemSectionModel("动态广播的插件化解决方案"))
+                             add(ItemSectionModel("静态广播的插件化解决方案"))
+                             add(ItemSectionModel("静态广播的插件化终极解决方案"))
+                         }))
+                         add(ItemChapterModel("第 12 章 ContentProvider 的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("ContentProvider 基本概念"))
+                             add(ItemSectionModel("一个简单的 ContentProvider"))
+                             add(ItemSectionModel("ContentProvider 插件化"))
+                             add(ItemSectionModel("执行这段 Hook 代码的时机"))
+                             add(ItemSectionModel("ContentProvider 的转发机制"))
+                         }))
+                         add(ItemChapterModel("第 13 章 基于静态代理的插件化解决方案：that 框架", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("静态代理的思想"))
+                             add(ItemSectionModel("一个最简单的静态代理的例子"))
+                             add(ItemSectionModel("插件内部的页面跳转"))
+                             add(ItemSectionModel("从 肉体 上消灭 that 关键字"))
+                             add(ItemSectionModel("插件向歪跳转"))
+                             add(ItemSectionModel("面向接口编程在静态代理中的应用"))
+                             add(ItemSectionModel("对 LaunchMode 的支持"))
+                         }))
+                         add(ItemChapterModel("第 14 章 that 框架对 Service 和 BroadcastReceiver 的支持", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("静态代理的思想在 Service 的应用"))
+                             add(ItemSectionModel("对 BindService 的支持"))
+                             add(ItemSectionModel("..."))
+                         }))
+                         add(ItemChapterModel("第 15 章 再谈资源", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("Android App 打包流程"))
+                             add(ItemSectionModel("修改 AAPT"))
+                             add(ItemSectionModel("public.xml 固定资源 id 值"))
+                             add(ItemSectionModel("插件使用宿主的资源"))
+                         }))
+                         add(ItemChapterModel("第 16 章 基于 Fragment 的插件化框架", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel(""))
+                             add(ItemSectionModel(""))
+                             add(ItemSectionModel(""))
+                         }))
+                         add(ItemChapterModel("第 17 章 降级", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("从 Activity 到 HTML5"))
+                             add(ItemSectionModel("从 HTML5 到 Activity"))
+                             add(ItemSectionModel("对返回键的支持"))
+                         }))
+                         add(ItemChapterModel("第 18 章 插件的混淆", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("插件的基本混淆"))
+                             add(ItemSectionModel("方案1：不混淆公共库"))
+                             add(ItemSectionModel("方案2：混淆公共库"))
+                         }))
+                         add(ItemChapterModel("第 19 章 增量更新", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("如何使用增量更新"))
+                             add(ItemSectionModel("制作插件的增量包"))
+                             add(ItemSectionModel("App 下载增量包并解压到本地"))
+                             add(ItemSectionModel("App 合并增量包"))
+                         }))
+                         add(ItemChapterModel("第 20 章 so 的插件化解决方案", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("编写一个最简单的 so"))
+                             add(ItemSectionModel("使用 so"))
+                             add(ItemSectionModel("so 的加载原理"))
+                             add(ItemSectionModel("基于 System.load 的插件化解决方案"))
+                             add(ItemSectionModel("基于 System.loadLibrary 的插件化解决方案"))
+                         }))
+                         add(ItemChapterModel("第 21 章 对 App 的打包流程进行 Hook", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("自定义 Gradle 插件"))
+                             add(ItemSectionModel("修改 resources.arsc"))
+                             add(ItemSectionModel(""))
+                         }))
+                         add(ItemChapterModel("第 22 章 插件化技术总结", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("插件的工程化"))
+                             add(ItemSectionModel("插件中类的加载"))
+                             add(ItemSectionModel("哪些地方可以 Hook"))
+                             add(ItemSectionModel("Activity 插件化的解决方案"))
+                             add(ItemSectionModel("资源的解决方案"))
+                             add(ItemSectionModel("Fragment 是哪门哪派"))
+                             add(ItemSectionModel("Service、ContentProvider、BroadcastReceiver 插件化的通用解决方案"))
+                             add(ItemSectionModel("特定于 Service 的插件化解决方案"))
+                             add(ItemSectionModel("特定于 BroadcastReceiver 的插件化解决方案"))
+                             add(ItemSectionModel("特定于 ContentProvider 的插件化解决方案"))
+                         }))
+                    }
+                    return BookModel("Android插件化开发指南", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_8 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
