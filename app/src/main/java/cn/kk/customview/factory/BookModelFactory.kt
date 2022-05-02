@@ -1830,6 +1830,108 @@ class BookModelFactory {
                     return BookModel("C++ Primer", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_15 }
                 }
                 // endregion
+
+                // region C语言
+                BaseItem.action_book_16 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 导言", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("入门"))
+                            add(ItemSectionModel("变量与算数表达式"))
+                            add(ItemSectionModel("for 语句"))
+                            add(ItemSectionModel("符号常量"))
+                            add(ItemSectionModel("字符输入/输出"))
+                            add(ItemSectionModel("数组"))
+                            add(ItemSectionModel("函数"))
+                            add(ItemSectionModel("参数——传值调用"))
+                            add(ItemSectionModel("字符数组"))
+                            add(ItemSectionModel("外部变量与作用域"))
+                        }))
+                        add(ItemChapterModel("第 2 章 类型、运算符与表达式", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("变量名"))
+                            add(ItemSectionModel("数据类型及长度"))
+                            add(ItemSectionModel("常量"))
+                            add(ItemSectionModel("声明"))
+                            add(ItemSectionModel("算数运算符"))
+                            add(ItemSectionModel("关系运算符与逻辑运算符"))
+                            add(ItemSectionModel("类型转换"))
+                            add(ItemSectionModel("自增预算符与自减运算符"))
+                            add(ItemSectionModel("按位运算符"))
+                            add(ItemSectionModel("赋值运算符与表达式"))
+                            add(ItemSectionModel("条件表达式"))
+                            add(ItemSectionModel("运算符优先级与求值次序"))
+                        }))
+                        add(ItemChapterModel("第 3 章 控制流", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("语句与程序块"))
+                            add(ItemSectionModel("if-else 语句"))
+                            add(ItemSectionModel("else-if 语句"))
+                            add(ItemSectionModel("switch 语句"))
+                            add(ItemSectionModel("while 循环与 for 循环"))
+                            add(ItemSectionModel("do while 循环"))
+                            add(ItemSectionModel("breadk 语句与 continue 语句"))
+                            add(ItemSectionModel("goto 语句与标号"))
+                        }))
+                        add(ItemChapterModel("第 4 章 函数与程序结构", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("函数基本知识"))
+                            add(ItemSectionModel("返回非整型值的函数"))
+                            add(ItemSectionModel("外部变量"))
+                            add(ItemSectionModel("作用域规则"))
+                            add(ItemSectionModel("头文件"))
+                            add(ItemSectionModel("静态变量"))
+                            add(ItemSectionModel("寄存器变量"))
+                            add(ItemSectionModel("程序块结构"))
+                            add(ItemSectionModel("初始化"))
+                            add(ItemSectionModel("递归"))
+                            add(ItemSectionModel("C预处理器"))
+                        }))
+                        add(ItemChapterModel("第 5 章 指针与数组", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("指针与地址"))
+                            add(ItemSectionModel("指针与函数参数"))
+                            add(ItemSectionModel("指针与数组"))
+                            add(ItemSectionModel("地址算数运算符"))
+                            add(ItemSectionModel("字符指针与函数"))
+                            add(ItemSectionModel("指针数组以及指向指针的指针"))
+                            add(ItemSectionModel("多维数组"))
+                            add(ItemSectionModel("指针数组的初始化"))
+                            add(ItemSectionModel("指针与多维数组"))
+                            add(ItemSectionModel("命令行参数"))
+                            add(ItemSectionModel("指向函数的指针"))
+                            add(ItemSectionModel("复杂声明"))
+                        }))
+                        add(ItemChapterModel("第 6 章 结构", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("结构的基本知识"))
+                            add(ItemSectionModel("结构与函数"))
+                            add(ItemSectionModel("结构数组"))
+                            add(ItemSectionModel("指向结构的指针"))
+                            add(ItemSectionModel("自引用结构"))
+                            add(ItemSectionModel("表查找"))
+                            add(ItemSectionModel("类型定义（typedef）"))
+                            add(ItemSectionModel("联合"))
+                            add(ItemSectionModel("位字段"))
+                        }))
+                        add(ItemChapterModel("第 7 章 输入与输出", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("标准输入/输出"))
+                            add(ItemSectionModel("格式化输出——printf函数"))
+                            add(ItemSectionModel("变长参数表"))
+                            add(ItemSectionModel("格式化输入——scanf函数"))
+                            add(ItemSectionModel("文件访问"))
+                            add(ItemSectionModel("错误处理——stderr和exit"))
+                            add(ItemSectionModel("行输入和行输出"))
+                            add(ItemSectionModel("其他函数"))
+                        }))
+                        add(ItemChapterModel("第 8 章 UNIX 系统接口", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("文件描述符"))
+                            add(ItemSectionModel("低级 I/O——read 和 unlink"))
+                            add(ItemSectionModel("open、create、close 和 unlink"))
+                            add(ItemSectionModel("随机访问——lseek"))
+                            add(ItemSectionModel("实例：fopen 和 getc 函数的实现"))
+                            add(ItemSectionModel("实例：目录列表"))
+                            add(ItemSectionModel("实例：存储分配程序"))
+                        }))
+
+                    }
+                    return BookModel("C程序设计语言", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_16 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
