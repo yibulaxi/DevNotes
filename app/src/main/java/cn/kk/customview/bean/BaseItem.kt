@@ -38,6 +38,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_MULTI_THREAD = 102 // 多线程
         val ACTION_MORE_NET = 103
         val ACTION_MORE_DESIGN_PATTERN = 105 // 设计模式
+        val ACTION_MORE_DATA_ARCH = 106 // 数据结构和算法
         val ACTION_MORE_IPC = 109 // IPC 机制
         val ACTION_MORE_AUDIO = 117 // 音频
         val ACTION_MORE_VIDEO = 118 // 视频
