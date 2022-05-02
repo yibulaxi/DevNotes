@@ -39,6 +39,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_AUDIO = 117 // 音频
         val ACTION_MORE_VIDEO = 118 // 视频
         val ACTION_MORE_ZONGHE = 127 // 综合技术
+        val ACTION_MORE_Git = 129
         val ACTION_MORE_Linux = 130
         val ACTION_MORE_Python = 131
         val ACTION_MORE_MIX_DEV = 132 // 混合开发
