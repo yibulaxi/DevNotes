@@ -1666,6 +1666,17 @@ class BookModelFactory {
                     return BookModel("码出高效 Java 开发手册", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_14 }
                 }
                 // endregion
+
+                // region C++
+                BaseItem.action_book_15 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("", mutableListOf<ItemSectionModel>().apply {
+                            add("")
+                        }))
+                    }
+                    return BookModel("C++ Primer", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_15 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
