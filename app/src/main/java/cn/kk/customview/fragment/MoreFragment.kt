@@ -10,11 +10,13 @@ import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalWebViewActivity
+import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.activity.more.*
 import cn.kk.customview.activity.more.audio.AudioActivity
 import cn.kk.customview.activity.more.video.VideoActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
+import cn.kk.customview.factory.BookModelFactory
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
@@ -45,6 +47,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
+                    BaseItem.ACTION_MORE_Python -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_16))
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
                     BaseItem.ACTION_MORE_REGEX -> startNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
                     else -> {
@@ -86,7 +89,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("打包脚本"))
             add(ItemSimpleCard("Git"))
             add(ItemSimpleCard("Linux", true).apply { item_action = BaseItem.ACTION_MORE_Linux })
-            add(ItemSimpleCard("Python"))
+            add(ItemSimpleCard("Python", true).apply { item_action = BaseItem.ACTION_MORE_Python })
             add(ItemSimpleCard("混合开发", true).apply { item_action = BaseItem.ACTION_MORE_MIX_DEV })
             add(ItemSimpleCard("正则表达式", true).apply {
                 item_action = BaseItem.ACTION_MORE_REGEX
