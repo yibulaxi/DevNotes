@@ -41,6 +41,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_ZONGHE = 127 // 综合技术
         val ACTION_MORE_Linux = 130
         val ACTION_MORE_MIX_DEV = 132 // 混合开发
+        val ACTION_MORE_REGEX = 133 // 正则表达式
 
 
         // 更多：工作中总结，细分

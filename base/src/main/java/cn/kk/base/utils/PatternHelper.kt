@@ -3,7 +3,7 @@ package cn.kk.base.utils
 import java.util.regex.Pattern
 
 /**
- * 正则表达式
+ * 正则表达式帮助类
  */
 object PatternHelper {
 

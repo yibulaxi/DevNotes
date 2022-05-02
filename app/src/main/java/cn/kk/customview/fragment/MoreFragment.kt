@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
+import cn.kk.customview.activity.BaseTabActivity
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.activity.more.*
 import cn.kk.customview.activity.more.audio.AudioActivity
 import cn.kk.customview.activity.more.video.VideoActivity
@@ -44,6 +46,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
+                    BaseItem.ACTION_MORE_REGEX -> startNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
                     else -> {
                     }
                 }
@@ -85,7 +88,10 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("Linux", true).apply { item_action = BaseItem.ACTION_MORE_Linux })
             add(ItemSimpleCard("Python"))
             add(ItemSimpleCard("混合开发", true).apply { item_action = BaseItem.ACTION_MORE_MIX_DEV })
-            add(ItemSimpleCard("正则表达式", false))
+            add(ItemSimpleCard("正则表达式", true).apply {
+                item_action = BaseItem.ACTION_MORE_REGEX
+                web_url = "https://www.runoob.com/java/java-regular-expressions.html"
+            })
         }
     }
 
