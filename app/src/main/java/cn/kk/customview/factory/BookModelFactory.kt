@@ -1117,6 +1117,58 @@ class BookModelFactory {
                     return BookModel("Android插件化开发指南", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_8 }
                 }
                 // endregion
+
+                // region Android 热修复技术原理
+                BaseItem.action_book_9 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 热修复技术介绍", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("什么是热修复"))
+                            add(ItemSectionModel("基本概念"))
+                            add(ItemSectionModel("技术积淀"))
+                            add(ItemSectionModel("技术概览"))
+                        }))
+                        add(ItemChapterModel("第 2 章 热替换代码修复", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("底层热替换原理"))
+                            add(ItemSectionModel("突破底层差异的方法"))
+                            add(ItemSectionModel("编译期与语言特性的影响"))
+                        }))
+                        add(ItemChapterModel("第 3 章 冷启动代码修复", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("冷启动类加载原理"))
+                            add(ItemSectionModel("多态对冷启动类加载的影响"))
+                            add(ItemSectionModel("Dalvik 下完整 dex 方案的新探索"))
+                            add(ItemSectionModel("入口类与初始化时机的选择"))
+                        }))
+                        add(ItemChapterModel("第 4 章 资源热修复技术", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("普遍的实现方式"))
+                            add(ItemSectionModel("资源文件的格式"))
+                            add(ItemSectionModel("运行时资源的解析"))
+                            add(ItemSectionModel("另辟蹊径的资源修复方案"))
+                            add(ItemSectionModel("更优雅地替换 AssetManager"))
+                            add(ItemSectionModel("一个意料之外的资源问题"))
+                        }))
+                        add(ItemChapterModel("第 5 章 so 库热修复技术", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("so 库加载原理"))
+                            add(ItemSectionModel("so 库热部署实时生效的可行性分析"))
+                            add(ItemSectionModel("so 库冷部署重启生效实现方案"))
+                            add(ItemSectionModel("如何正确复制补丁 so 库"))
+                        }))
+                        add(ItemChapterModel("第 6 章 其他优秀的热修复方案", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Dexposed 浅析"))
+                            add(ItemSectionModel("AndFix 探索历程"))
+                            add(ItemSectionModel("Amigo 核心解读"))
+                            add(ItemSectionModel("腾讯系热修复方案简介"))
+                        }))
+                        add(ItemChapterModel("第 7 章 热修复技术的未来展望", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("热修复的专业性"))
+                            add(ItemSectionModel("对 Android 生态的影响"))
+                            add(ItemSectionModel("Android 与 ios 热修复的不同"))
+                            add(ItemSectionModel("未来，无限可能"))
+                        }))
+                    }
+                    return BookModel("Android热修复技术原理", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_9 }
+                }
+                // endregion
+
             }
 
             return BookModel("空", itemAction, chapterModelList)
