@@ -1462,6 +1462,58 @@ class BookModelFactory {
                     return BookModel("Python 编程从入门到实践", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_12 }
                 }
                 // endregion
+
+                // region Http
+                BaseItem.action_book_13 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 了解 Web 及网络基础", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 2 章 简单的 HTTP 协议", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 3 章 HTTP 报文的 HTTP 信息", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 4 章 返回结果的 HTTP 状态码", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 5 章 与 HTTP 协作的 Web 服务器", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 6 章 HTTP 首部", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 7 章 确保 Web 安全的 HTTPS", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 8 章 确认访问用户身份的认证", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 9 章 基于 HTTP 的功能追加协议", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 10 章 构建 Web 内容的技术", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                        add(ItemChapterModel("第 11 章 Web 的攻击技术", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel(""))
+                            add(ItemSectionModel(""))
+                        }))
+                    }
+                    return BookModel("图解 Http", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_13 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
