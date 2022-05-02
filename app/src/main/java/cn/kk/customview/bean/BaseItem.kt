@@ -39,6 +39,8 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_NET = 103
         val ACTION_MORE_DESIGN_PATTERN = 105 // 设计模式
         val ACTION_MORE_DATA_ARCH = 106 // 数据结构和算法
+        val ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE = 107 // Activity 生命周期和启动模式
+        val ACTION_MORE_ANDROID_HANDLER_MESSAGE = 108 // android 消息机制
         val ACTION_MORE_IPC = 109 // IPC 机制
         val ACTION_MORE_AUDIO = 117 // 音频
         val ACTION_MORE_VIDEO = 118 // 视频
