@@ -1365,6 +1365,103 @@ class BookModelFactory {
                     return BookModel("大话数据结构", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_11 }
                 }
                 // endregion
+
+                // region Python 编程
+                BaseItem.action_book_12 -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 起步", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("搭建编程环境"))
+                            add(ItemSectionModel("在不同操作系统中搭建 Python 编程环境"))
+                            add(ItemSectionModel("解决安装问题"))
+                            add(ItemSectionModel("从终端运行 Python 程序"))
+                        }))
+                        add(ItemChapterModel("第 2 章 变量和简单数据类型", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("运行 hello_world.py 时发生的情况"))
+                            add(ItemSectionModel("变量"))
+                            add(ItemSectionModel("字符串"))
+                            add(ItemSectionModel("数字"))
+                            add(ItemSectionModel("注释"))
+                            add(ItemSectionModel("Python 之禅"))
+                        }))
+                        add(ItemChapterModel("第 3 章 列表简介", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("列表是什么"))
+                            add(ItemSectionModel("修改、添加和删除元素"))
+                            add(ItemSectionModel("组织列表"))
+                            add(ItemSectionModel("使用列表时避免索引错误"))
+                        }))
+                        add(ItemChapterModel("第 4 章 操作列表", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("遍历整个列表"))
+                            add(ItemSectionModel("避免缩进错误"))
+                            add(ItemSectionModel("创建数值列表"))
+                            add(ItemSectionModel("使用列表的一部分"))
+                            add(ItemSectionModel("元组"))
+                            add(ItemSectionModel("设置代码格式"))
+                        }))
+                        add(ItemChapterModel("第 5 章 if 语句", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("一个简单示例"))
+                            add(ItemSectionModel("条件测试"))
+                            add(ItemSectionModel("if 语句"))
+                            add(ItemSectionModel("使用 if 语句处理列表"))
+                            add(ItemSectionModel("设置 if 语句的格式"))
+                        }))
+                        add(ItemChapterModel("第 6 章 字典", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("一个简单的字典"))
+                            add(ItemSectionModel("使用字典"))
+                            add(ItemSectionModel("遍历字典"))
+                            add(ItemSectionModel("嵌套"))
+                        }))
+                        add(ItemChapterModel("第 7 章 用户输入和 while 循环", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("函数 input() 的工作原理"))
+                            add(ItemSectionModel("while 循环简介"))
+                            add(ItemSectionModel("使用 while 循环来处理列表和字典"))
+                        }))
+                        add(ItemChapterModel("第 8 章 函数", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("定义函数"))
+                            add(ItemSectionModel("传递实参"))
+                            add(ItemSectionModel("返回值"))
+                            add(ItemSectionModel("传递列表"))
+                            add(ItemSectionModel("传递任意数量的实参"))
+                            add(ItemSectionModel("将函数存储在模块中"))
+                            add(ItemSectionModel("函数编写指南"))
+                        }))
+                        add(ItemChapterModel("第 9 章 类", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("创建和使用类"))
+                            add(ItemSectionModel("使用类和实例"))
+                            add(ItemSectionModel("继承"))
+                            add(ItemSectionModel("导入类"))
+                            add(ItemSectionModel("Python 标准库"))
+                            add(ItemSectionModel("类编码风格"))
+                        }))
+                        add(ItemChapterModel("第 10 章 文件和异常", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("从文件中读取数据"))
+                            add(ItemSectionModel("写入文件"))
+                            add(ItemSectionModel("异常"))
+                            add(ItemSectionModel("存储数据"))
+                        }))
+                        add(ItemChapterModel("第 11 章 测试代码", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("测试函数"))
+                            add(ItemSectionModel("测试类"))
+                        }))
+                        add(ItemChapterModel("项目1：外星人入侵", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("武装飞船"))
+                            add(ItemSectionModel("外星人"))
+                            add(ItemSectionModel("记分"))
+                        }))
+                        add(ItemChapterModel("项目2：数据可视化", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("生成数据"))
+                            add(ItemSectionModel("下载数据"))
+                            add(ItemSectionModel("使用 API"))
+                        }))
+                        add(ItemChapterModel("项目3：Web 应用程序", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("Django 入门"))
+                            add(ItemSectionModel("用户账户"))
+                            add(ItemSectionModel("设置应用程序的样式并对其进行部署"))
+                        }))
+
+                    }
+                    return BookModel("Python 编程从入门到实践", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_12 }
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)
