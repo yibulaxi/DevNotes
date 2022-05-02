@@ -42,6 +42,7 @@ class MoreFragment: BaseFragment() {
                 val title = data[position].title
                 when (data[position].item_action) {
                     BaseItem.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
+                    BaseItem.ACTION_MORE_MULTI_THREAD -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 3 })
                     BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
                     BaseItem.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
                     BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
@@ -63,7 +64,7 @@ class MoreFragment: BaseFragment() {
     private fun getItems(): MutableList<ItemSimpleCard>{
         return  mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("工作中汇总", true).apply { item_action = BaseItem.ACTION_MORE_WORK })
-            add(ItemSimpleCard("多线程", true))
+            add(ItemSimpleCard("多线程", true).apply { item_action =  BaseItem.ACTION_MORE_MULTI_THREAD})
             add(ItemSimpleCard("网络", true).apply { item_action = BaseItem.ACTION_MORE_NET })
             add(ItemSimpleCard("Android Sqlite 数据库使用"))
             add(ItemSimpleCard("设计模式"))

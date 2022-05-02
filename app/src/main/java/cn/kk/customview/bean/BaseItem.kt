@@ -35,6 +35,7 @@ abstract  class BaseItem: Serializable {
 
         // 更多：工作中总结
         val ACTION_MORE_WORK = 100
+        val ACTION_MORE_MULTI_THREAD = 102 // 多线程
         val ACTION_MORE_NET = 103
         val ACTION_MORE_AUDIO = 117 // 音频
         val ACTION_MORE_VIDEO = 118 // 视频

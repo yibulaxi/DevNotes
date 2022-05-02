@@ -19,7 +19,7 @@ class BookDetailActivity: BaseActivity() {
         val rvChapter = findViewById<RecyclerView>(R.id.rv_chapter_list)
         rvChapter.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = BaseChapterAdapter(bookModel.chapterModelList)
+            adapter = BaseChapterAdapter(bookModel.chapterModelList).apply { expandIndex = bookModel.expandChapterIndex }
         }
     }
 }

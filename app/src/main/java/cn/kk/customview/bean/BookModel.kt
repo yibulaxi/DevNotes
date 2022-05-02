@@ -7,4 +7,5 @@ class BookModel(val title: String, val itemAction: Int, val chapterModelList: Mu
     constructor(): this("", -1, mutableListOf())
 
     var bookImgRes: Int = -1
+    var expandChapterIndex = 0
 }

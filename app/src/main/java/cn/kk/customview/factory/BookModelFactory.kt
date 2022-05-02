@@ -610,7 +610,7 @@ class BookModelFactory {
                         }))
                     }
 
-                    return BookModel("Android\n开发艺术探索", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_4 }
+                    return BookModel("Android\n进阶之光", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_4 }
                 }
                 // endregion
 
