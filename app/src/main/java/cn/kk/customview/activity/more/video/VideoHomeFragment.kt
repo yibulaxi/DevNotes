@@ -24,7 +24,8 @@ class VideoHomeFragment: BaseChapterListFragment() {
             }
             BaseItem.ACTION_MORE_VIDEO_basic -> {
                 val sectionsName = resources.getStringArray(R.array.video_basic).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
+                // section1 finish
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, sectionModelList.size == 0).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_VIDEO_decode -> {
                 val sectionsName = resources.getStringArray(R.array.video_decode).toMutableList()
@@ -50,6 +51,7 @@ class VideoHomeFragment: BaseChapterListFragment() {
     override fun onSectionViewClick(item: ItemSectionModel) {
         when(item.item_action) {
             BaseItem.ACTION_MORE_VIDEO_start_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_1.html"))
+            BaseItem.ACTION_MORE_VIDEO_basic_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_2_1.html"))
         }
 
     }
