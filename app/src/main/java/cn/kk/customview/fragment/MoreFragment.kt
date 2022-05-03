@@ -42,13 +42,28 @@ class MoreFragment: BaseFragment() {
                 val title = data[position].title
                 when (data[position].item_action) {
                     BaseItem.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
-                    BaseItem.ACTION_MORE_MULTI_THREAD -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 3 })
+                    BaseItem.ACTION_MORE_MULTI_THREAD -> {
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 3 }
+                        startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
+                    }
                     BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
-                    BaseItem.ACTION_MORE_DESIGN_PATTERN -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 5 })
-                    BaseItem.ACTION_MORE_DATA_ARCH -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_11))
+                    BaseItem.ACTION_MORE_DESIGN_PATTERN -> {
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 5 }
+                        startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
+                    }
+                    BaseItem.ACTION_MORE_DATA_ARCH -> {
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_11)
+                        startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
+                    }
                     BaseItem.ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_1))
-                    BaseItem.ACTION_MORE_ANDROID_HANDLER_MESSAGE -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 9 })
-                    BaseItem.ACTION_MORE_IPC -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 1 })
+                    BaseItem.ACTION_MORE_ANDROID_HANDLER_MESSAGE -> {
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 9 }
+                        startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
+                    }
+                    BaseItem.ACTION_MORE_IPC -> {
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 1 }
+                        startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
+                    } 
                     BaseItem.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
                     BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
                     BaseItem.ACTION_MORE_HOT_FIX -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_9))
