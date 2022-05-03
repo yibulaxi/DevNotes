@@ -1,6 +1,8 @@
 package cn.kk.customview.activity.more.video
 
+import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSectionModel
 import cn.kk.customview.ui.fragment.BaseChapterListFragment
@@ -47,6 +49,8 @@ class VideoHomeFragment: BaseChapterListFragment() {
 
     override fun onSectionViewClick(item: ItemSectionModel) {
         when(item.item_action) {
+            BaseItem.ACTION_MORE_VIDEO_start_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_1.html"))
         }
+
     }
 }
