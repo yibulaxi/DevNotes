@@ -1,25 +1,22 @@
 package cn.kk.customview.activity.book
 
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import cn.kk.base.activity.BaseActivity
-import cn.kk.customview.R
-import cn.kk.customview.adapter.BaseChapterAdapter
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import cn.kk.customview.activity.BaseFragmentActivity
 import cn.kk.customview.bean.BookModel
+import cn.kk.customview.fragment.BookDetailFragment
 
-class BookDetailActivity: BaseActivity() {
+/**
+ * Book 详情页面 - Activity
+ */
+class BookDetailActivity : BaseFragmentActivity() {
 
-    override fun getLayout(): Int = R.layout.fragment_book_detail_layout
-
-    override fun doWhenOnCreate() {
-        super.doWhenOnCreate()
-
-        val bookModel = intent.getSerializableExtra(INTENT_MODEL_KEY) as BookModel
-
-        val rvChapter = findViewById<RecyclerView>(R.id.rv_chapter_list)
-        rvChapter.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = BaseChapterAdapter(bookModel.chapterModelList).apply { expandIndex = bookModel.expandChapterIndex }
+    override fun getFragment(): Fragment = BookDetailFragment().apply {
+        arguments = Bundle().apply {
+            putSerializable(
+                INTENT_MODEL_KEY,
+                intent.getSerializableExtra(INTENT_MODEL_KEY) as BookModel
+            )
         }
     }
 }

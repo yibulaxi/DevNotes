@@ -20,6 +20,11 @@ abstract class BaseFragment: Fragment() {
     protected lateinit var rootView: View
     protected lateinit var mProgressDialog: ProgressDialog
 
+    // region Intent
+    protected val INTENT_MODEL_KEY = "model"
+
+    // endregion
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(getLayoutId(), container, false)
         mProgressDialog = ProgressDialog(context)
