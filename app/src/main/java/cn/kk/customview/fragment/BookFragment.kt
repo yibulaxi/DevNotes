@@ -26,22 +26,22 @@ class BookFragment: BaseFragment() {
         val rvBookList = rootView.findViewById<RecyclerView>(R.id.rv_book)
         // init book data
         val bookList = mutableListOf<BookModel>().apply {
-            add(BookModelFactory.createBook(BaseItem.action_book_1))
-            add(BookModelFactory.createBook(BaseItem.action_book_2))
-            add(BookModelFactory.createBook(BaseItem.action_book_3))
-            add(BookModelFactory.createBook(BaseItem.action_book_4))
-            add(BookModelFactory.createBook(BaseItem.action_book_5))
-            add(BookModelFactory.createBook(BaseItem.action_book_6))
-            add(BookModelFactory.createBook(BaseItem.action_book_7))
-            add(BookModelFactory.createBook(BaseItem.action_book_8))
-            add(BookModelFactory.createBook(BaseItem.action_book_9))
-            add(BookModelFactory.createBook(BaseItem.action_book_10))
-            add(BookModelFactory.createBook(BaseItem.action_book_11))
-            add(BookModelFactory.createBook(BaseItem.action_book_12))
-            add(BookModelFactory.createBook(BaseItem.action_book_13))
-            add(BookModelFactory.createBook(BaseItem.action_book_14))
-            add(BookModelFactory.createBook(BaseItem.action_book_15))
-            add(BookModelFactory.createBook(BaseItem.action_book_16))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_dev_art))
+            add(BookModelFactory.createBook(BaseItem.action_book_linux))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_custom_view_elementary))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_advance))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_programming))
+            add(BookModelFactory.createBook(BaseItem.action_book_git))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_arch))
+            add(BookModelFactory.createBook(BaseItem.action_book__android_plugin))
+            add(BookModelFactory.createBook(BaseItem.action_book_android_hot_fix))
+            add(BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
+            add(BookModelFactory.createBook(BaseItem.action_book_data_arch))
+            add(BookModelFactory.createBook(BaseItem.action_book_python))
+            add(BookModelFactory.createBook(BaseItem.action_book_http))
+            add(BookModelFactory.createBook(BaseItem.action_book_java_easy_coding))
+            add(BookModelFactory.createBook(BaseItem.action_book_c_plus))
+            add(BookModelFactory.createBook(BaseItem.action_book_c))
         }
 
         rvBookList.apply {
@@ -60,7 +60,7 @@ class BookFragment: BaseFragment() {
                     startNextUI(BookDetailActivity::class.java, data[position].title, data[position])
 
                     when (data[position].itemAction) {
-                        BaseItem.action_book_1 -> {
+                        BaseItem.action_book_android_dev_art -> {
                         }
                         else -> {
                         }

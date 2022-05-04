@@ -11,22 +11,22 @@ abstract  class BaseItem: Serializable {
     companion object {
 
         // region book:
-        val action_book_1 = 201
-        val action_book_2 = 202
-        val action_book_3 = 203
-        val action_book_4 = 204
-        val action_book_5 = 205
-        val action_book_6 = 206
-        val action_book_7 = 207
-        val action_book_8 = 208
-        val action_book_9 = 209
-        val action_book_10 = 210
-        val action_book_11 = 211
-        val action_book_12 = 212
-        val action_book_13 = 213
-        val action_book_14 = 214
-        val action_book_15 = 215
-        val action_book_16 = 216
+        val action_book_android_dev_art = 201
+        val action_book_linux = 202
+        val action_book_android_custom_view_elementary = 203
+        val action_book_android_advance = 204
+        val action_book_android_programming = 205 // Android 编程权威指南
+        val action_book_git = 206
+        val action_book_android_arch = 207
+        val action_book__android_plugin = 208
+        val action_book_android_hot_fix = 209
+        val action_book_ffmpeg = 210
+        val action_book_data_arch = 211
+        val action_book_python = 212
+        val action_book_http = 213
+        val action_book_java_easy_coding = 214 // 码出高效 Java 开发手册
+        val action_book_c_plus = 215
+        val action_book_c = 216
         val action_book_17 = 217
         val action_book_18 = 218
         val action_book_19 = 219

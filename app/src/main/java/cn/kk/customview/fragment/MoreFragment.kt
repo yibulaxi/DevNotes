@@ -43,35 +43,35 @@ class MoreFragment: BaseFragment() {
                 when (data[position].item_action) {
                     BaseItem.ACTION_MORE_WORK -> startNextUI(WorkActivity::class.java, title)
                     BaseItem.ACTION_MORE_MULTI_THREAD -> {
-                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 3 }
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_android_advance).apply { expandChapterIndex = 3 }
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     }
                     BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
                     BaseItem.ACTION_MORE_DESIGN_PATTERN -> {
-                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_4).apply { expandChapterIndex = 5 }
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_android_advance).apply { expandChapterIndex = 5 }
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     }
                     BaseItem.ACTION_MORE_DATA_ARCH -> {
-                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_11)
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_data_arch)
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     }
-                    BaseItem.ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_1))
+                    BaseItem.ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_android_dev_art))
                     BaseItem.ACTION_MORE_ANDROID_HANDLER_MESSAGE -> {
-                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 9 }
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_android_dev_art).apply { expandChapterIndex = 9 }
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     }
                     BaseItem.ACTION_MORE_IPC -> {
-                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_1).apply { expandChapterIndex = 1 }
+                        val bookModel = BookModelFactory.createBook(BaseItem.action_book_android_dev_art).apply { expandChapterIndex = 1 }
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     } 
                     BaseItem.ACTION_MORE_AUDIO -> startNextUI(AudioActivity::class.java, title)
                     BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
-                    BaseItem.ACTION_MORE_HOT_FIX -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_9))
-                    BaseItem.ACTION_MORE_PLUGIN -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_8))
+                    BaseItem.ACTION_MORE_HOT_FIX -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_android_hot_fix))
+                    BaseItem.ACTION_MORE_PLUGIN -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book__android_plugin))
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
-                    BaseItem.ACTION_MORE_Git -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_6))
+                    BaseItem.ACTION_MORE_Git -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_git))
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
-                    BaseItem.ACTION_MORE_Python -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_16))
+                    BaseItem.ACTION_MORE_Python -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_c))
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
                     BaseItem.ACTION_MORE_REGEX -> startNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
                     else -> {

@@ -33,9 +33,9 @@ class LinuxActivity : BaseActivity() {
         supportFragmentManager.beginTransaction().add(
             R.id.fragment_container,
             BookDetailFragment().apply {
-                arguments = Bundle().apply { putSerializable(INTENT_MODEL_KEY, BookModelFactory.createBook(BaseItem.action_book_2)) }
+                arguments = Bundle().apply { putSerializable(INTENT_MODEL_KEY, BookModelFactory.createBook(BaseItem.action_book_linux)) }
             }).commit()
-        
+
         // endregion
 
         // region bottom Card item

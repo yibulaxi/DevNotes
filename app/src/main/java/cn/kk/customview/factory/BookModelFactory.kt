@@ -17,7 +17,7 @@ class BookModelFactory {
             val chapterModelList = mutableListOf<ItemChapterModel>()
             when(itemAction) {
                 // region 《Android 开发艺术探索》
-                BaseItem.action_book_1 -> {
+                BaseItem.action_book_android_dev_art -> {
                      chapterModelList.apply {
                         // chapter 1
                         add(ItemChapterModel("第一章 Activity 的生命周期和启动模式", mutableListOf<ItemSectionModel>().apply {
@@ -138,7 +138,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 《Linux 命令行与 shell 脚本编程大全》
-                BaseItem.action_book_2 -> {
+                BaseItem.action_book_linux -> {
                         chapterModelList.apply {
                         // chapter 1
                         add(ItemChapterModel("第 1 章 初识 Linux shell", mutableListOf<ItemSectionModel>().apply {
@@ -374,7 +374,7 @@ class BookModelFactory {
                 // endregion
 
                 // region《Android\n自定义控件开发入门与实践》, 图书网址：(http://www.broadview.com.cn/book/93)
-                BaseItem.action_book_3 -> {
+                BaseItem.action_book_android_custom_view_elementary -> {
                     // chapter 1
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 绘图基础", mutableListOf<ItemSectionModel>().apply {
@@ -504,7 +504,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 《Android 进阶之光》
-                BaseItem.action_book_4 -> {
+                BaseItem.action_book_android_advance -> {
 
                     // chapter 1
                     chapterModelList.apply {
@@ -615,7 +615,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 《Android编程权威指南》
-                BaseItem.action_book_5 -> {
+                BaseItem.action_book_android_programming -> {
                     chapterModelList.apply {
                         // chapter 1
                         add(ItemChapterModel("第 1 章 Android 开发初体验", mutableListOf<ItemSectionModel>().apply {
@@ -828,7 +828,7 @@ class BookModelFactory {
                 // endregion
 
                 // region Git
-                BaseItem.action_book_6 -> {
+                BaseItem.action_book_git -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("介绍", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("背景"))
@@ -900,7 +900,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 最强Android书架构大剖析
-                BaseItem.action_book_7 -> {
+                BaseItem.action_book_android_arch -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 Android 体系结构的变革之路", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("Android 系统版本的历史变迁"))
@@ -957,7 +957,7 @@ class BookModelFactory {
                 // endregion
 
                 // region Android 插件化开发指南
-                BaseItem.action_book_8 -> {
+                BaseItem.action_book__android_plugin -> {
                      chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 插件化技术的昨天、今天和明天", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("插件化技术是什么"))
@@ -1119,7 +1119,7 @@ class BookModelFactory {
                 // endregion
 
                 // region Android 热修复技术原理
-                BaseItem.action_book_9 -> {
+                BaseItem.action_book_android_hot_fix -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 热修复技术介绍", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("什么是热修复"))
@@ -1170,7 +1170,7 @@ class BookModelFactory {
                 // endregion
 
                 // region FFmpeg
-                BaseItem.action_book_10 -> {
+                BaseItem.action_book_ffmpeg -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 FFmpeg", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("定义"))
@@ -1253,7 +1253,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 数据结构
-                BaseItem.action_book_11 -> {
+                BaseItem.action_book_data_arch -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 数据结绪论", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("开场白"))
@@ -1367,7 +1367,7 @@ class BookModelFactory {
                 // endregion
 
                 // region Python 编程
-                BaseItem.action_book_12 -> {
+                BaseItem.action_book_python -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 起步", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("搭建编程环境"))
@@ -1464,7 +1464,7 @@ class BookModelFactory {
                 // endregion
 
                 // region Http
-                BaseItem.action_book_13 -> {
+                BaseItem.action_book_http -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 了解 Web 及网络基础", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("使用 HTTP 协议访问 Web"))
@@ -1551,7 +1551,7 @@ class BookModelFactory {
                 // endregion
 
                 // region 码出高效 Java 开发手册
-                BaseItem.action_book_14 -> {
+                BaseItem.action_book_java_easy_coding -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 计算机基础", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("信息安全"))
@@ -1668,7 +1668,7 @@ class BookModelFactory {
                 // endregion
 
                 // region C++
-                BaseItem.action_book_15 -> {
+                BaseItem.action_book_c_plus -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 开始", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("一个简单的 C++ 程序"))
@@ -1832,7 +1832,7 @@ class BookModelFactory {
                 // endregion
 
                 // region C语言
-                BaseItem.action_book_16 -> {
+                BaseItem.action_book_c -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 导言", mutableListOf<ItemSectionModel>().apply{
                             add(ItemSectionModel("入门"))
