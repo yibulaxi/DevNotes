@@ -25,8 +25,8 @@ class VideoHomeFragment: BaseChapterListFragment() {
             }
             BaseItem.ACTION_MORE_VIDEO_basic -> {
                 val sectionsName = resources.getStringArray(R.array.video_basic).toMutableList()
-                // section1 finish
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, sectionModelList.size == 0).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
+                // section1 & section2 finish
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, sectionModelList.size == 0 || sectionModelList.size == 1).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_VIDEO_decode -> {
                 val sectionsName = resources.getStringArray(R.array.video_decode).toMutableList()
