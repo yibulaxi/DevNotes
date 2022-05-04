@@ -81,6 +81,10 @@ abstract class BaseFragment: Fragment() {
         (activity as BaseActivity).openNextUI(targetActivity, title, type, webUrl)
     }
 
+    open fun <T: Activity> openNextUIWithMarkdown(targetActivity: Class<T>, title: String,  markdownFilePath: String){
+        (activity as BaseActivity).openNextUIWithMarkdown(targetActivity, title, markdownFilePath)
+    }
+
 
     open fun <T: Activity, K: Serializable> startNextUI(targetActivity: Class<T>, title: String, model: K){
         (activity as BaseActivity).openNextUI(targetActivity, title, model)

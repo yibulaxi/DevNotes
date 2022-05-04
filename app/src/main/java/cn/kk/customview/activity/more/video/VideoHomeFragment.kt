@@ -2,6 +2,7 @@ package cn.kk.customview.activity.more.video
 
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
+import cn.kk.customview.activity.NormalMarkDownViewActivity
 import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSectionModel
@@ -52,6 +53,7 @@ class VideoHomeFragment: BaseChapterListFragment() {
         when(item.item_action) {
             BaseItem.ACTION_MORE_VIDEO_start_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_1.html"))
             BaseItem.ACTION_MORE_VIDEO_basic_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_2_1.html"))
+            BaseItem.ACTION_MORE_VIDEO_basic_2 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title,  AssetsHelper.getMarkdownFilePath("section_2.md"))
         }
 
     }

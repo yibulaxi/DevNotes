@@ -11,4 +11,8 @@ object AssetsHelper {
     fun getHtmlFilePath(fileName: String): String{
         return "file:android_asset/".plus("html").plus("/").plus(fileName)
     }
+
+    fun getMarkdownFilePath(fileName: String): String {
+        return "md/".plus(fileName)
+    }
 }
