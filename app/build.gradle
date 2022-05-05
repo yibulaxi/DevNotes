@@ -31,8 +31,24 @@ android {
         testFunctionalTest true
         testHandleProfiling true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 配置 NDK
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++11'
+            }
+        }
     }
 
+    // 配置 NDK
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.6.0'
+        }
+    }
+
+    
     kotlinOptions{
         jvmTarget = "1.8"
     }

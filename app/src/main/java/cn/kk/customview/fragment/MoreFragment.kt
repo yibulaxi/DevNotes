@@ -14,6 +14,7 @@ import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.activity.more.*
 import cn.kk.customview.activity.more.audio.AudioActivity
 import cn.kk.customview.activity.more.video.VideoActivity
+import cn.kk.customview.activity.ndk.NdkHomeActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.factory.BookModelFactory
@@ -68,6 +69,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_VIDEO -> startNextUI(VideoActivity::class.java, title)
                     BaseItem.ACTION_MORE_HOT_FIX -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_android_hot_fix))
                     BaseItem.ACTION_MORE_PLUGIN -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book__android_plugin))
+                    BaseItem.ACTION_MORE_NDK -> startNextUI(NdkHomeActivity::class.java, title)
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
                     BaseItem.ACTION_MORE_Git -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_git))
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
@@ -106,7 +108,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("全埋点解决方案"))
             add(ItemSimpleCard("Android 插件化开发指南", true).apply { item_action = BaseItem.ACTION_MORE_PLUGIN })
             add(ItemSimpleCard("Gradle"))
-            add(ItemSimpleCard("JNI 和 NDK"))
+            add(ItemSimpleCard("JNI 和 NDK", true).apply { item_action = BaseItem.ACTION_MORE_NDK })
             add(ItemSimpleCard("C/C++"))
             add(ItemSimpleCard("OpenGL"))
             add(ItemSimpleCard("综合技术", true).apply { item_action = BaseItem.ACTION_MORE_ZONGHE })
