@@ -24,8 +24,8 @@ class BaseChapterAdapter(chapterData: MutableList<ItemChapterModel>): BaseQuickA
         }
 
         chapterView.sectionClickListener = object : ItemFolderView.SectionClickListener {
-            override fun onSectionClick(item: ItemSectionModel) {
-                mItemSectionClickListener?.onSectionClick(item)
+            override fun onSectionClick(itemSection: ItemSectionModel) {
+                mItemSectionClickListener?.onSectionClick(item.bookType ,itemSection)
             }
 
         }
@@ -33,6 +33,6 @@ class BaseChapterAdapter(chapterData: MutableList<ItemChapterModel>): BaseQuickA
 
     interface OnItemSectionClickListener {
 
-        fun onSectionClick(item: ItemSectionModel)
+        fun onSectionClick(bookType: Int,item: ItemSectionModel)
     }
 }

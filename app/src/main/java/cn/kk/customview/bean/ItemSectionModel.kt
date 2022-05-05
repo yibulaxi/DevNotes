@@ -8,4 +8,10 @@ class ItemSectionModel(val title: String): BaseItem(), Serializable {
         super.finishTag = finishTag
     }
 
+    constructor(title: String,  chapterAction: Int = 0, sectionAction: Int = 0, finishTag: Boolean = false):this(title) {
+        super.chapter_action = chapterAction
+        super.section_action = sectionAction
+        super.finishTag = finishTag
+    }
+
 }

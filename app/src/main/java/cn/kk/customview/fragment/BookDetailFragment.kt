@@ -5,9 +5,13 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.fragment.BaseFragment
+import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
+import cn.kk.customview.activity.NormalMarkDownViewActivity
 import cn.kk.customview.adapter.BaseChapterAdapter
+import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
+import cn.kk.customview.bean.ItemSectionModel
 
 /**
  * Book 详情页面 - Fragment
@@ -23,7 +27,25 @@ class BookDetailFragment: BaseFragment() {
         val rvChapter = rootView.findViewById<RecyclerView>(R.id.rv_chapter_list)
         rvChapter.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = BaseChapterAdapter(bookModel.chapterModelList).apply { expandIndex = bookModel.expandChapterIndex }
+            adapter = BaseChapterAdapter(bookModel.chapterModelList).apply {
+                expandIndex = bookModel.expandChapterIndex
+                mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
+                    override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
+                        when(bookType) {
+                            BaseItem.action_book_c_plus -> {
+                                when(item.chapter_action) {
+                                    1 -> {
+                                        when(item.section_action) {
+                                            1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_1.md"))
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

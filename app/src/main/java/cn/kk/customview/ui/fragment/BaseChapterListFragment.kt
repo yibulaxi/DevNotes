@@ -52,7 +52,7 @@ abstract class BaseChapterListFragment: BaseFragment() {
         }
         rv_chapter_list.adapter = BaseChapterAdapter(chapterModelList).apply {
             mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
-                override fun onSectionClick(item: ItemSectionModel) {
+                override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                     onSectionViewClick(item)
                 }
 

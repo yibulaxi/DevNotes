@@ -4,6 +4,9 @@ import java.io.Serializable
 
 abstract  class BaseItem: Serializable {
     public  var item_action = 0
+    var chapter_action = 0
+    var section_action = 0
+
     var finishTag = false
 
 
@@ -31,6 +34,45 @@ abstract  class BaseItem: Serializable {
         val action_book_18 = 218
         val action_book_19 = 219
         val action_book_20 = 220
+        // endregion
+
+        // region normal chapter and section
+        val action_chapter_1 = 1
+        val action_chapter_2 = 2
+        val action_chapter_3 = 3
+        val action_chapter_4 = 4
+        val action_chapter_5 = 5
+        val action_chapter_6 = 6
+        val action_chapter_7 = 7
+        val action_chapter_8 = 8
+        val action_chapter_9 = 9
+        val action_chapter_10 = 10
+        val action_chapter_11 = 11
+        val action_chapter_12 = 12
+        val action_chapter_13 = 13
+        val action_chapter_14 = 14
+        val action_chapter_15 = 15
+        val action_chapter_16 = 16
+        val action_chapter_17 = 17
+        val action_chapter_18 = 18
+        val action_chapter_19 = 19
+        val action_chapter_20 = 20
+        val action_chapter_21 = 21
+        val action_chapter_22 = 22
+        val action_chapter_23 = 23
+        val action_chapter_24 = 24
+        val action_chapter_205 = 25
+
+        val action_section_1 = 1
+        val action_section_2 = 2
+        val action_section_3 = 3
+        val action_section_4 = 4
+        val action_section_5 = 5
+        val action_section_6 = 6
+        val action_section_7 = 7
+        val action_section_8 = 8
+        val action_section_9 = 9
+        val action_section_10 = 10
         // endregion
 
         // 更多：工作中总结

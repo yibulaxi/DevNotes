@@ -1671,13 +1671,13 @@ class BookModelFactory {
                 BaseItem.action_book_c_plus -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 开始", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("一个简单的 C++ 程序"))
-                            add(ItemSectionModel("输入输出"))
+                            add(ItemSectionModel("一个简单的 C++ 程序", 1, 1, true))
+                            add(ItemSectionModel("输入输出", 1, 2))
                             add(ItemSectionModel("注释简介"))
                             add(ItemSectionModel("控制流"))
                             add(ItemSectionModel("类简介"))
                             add(ItemSectionModel("书店程序"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 2 章 变量和基本类型", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("基本内置类型"))
                             add(ItemSectionModel("变量"))
