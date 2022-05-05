@@ -30,7 +30,7 @@ class VideoHomeFragment: BaseChapterListFragment() {
             }
             BaseItem.ACTION_MORE_VIDEO_decode -> {
                 val sectionsName = resources.getStringArray(R.array.video_decode).toMutableList()
-                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, false).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
+                sectionsName.forEach { sectionModelList.add(ItemSectionModel(it, sectionModelList.size == 0).apply { item_action =  chapterType * 10 + (sectionModelList.size + 1)}) }
             }
             BaseItem.ACTION_MORE_VIDEO_trans_and_net -> {
                 val sectionsName = resources.getStringArray(R.array.video_trans_and_net).toMutableList()
@@ -55,6 +55,7 @@ class VideoHomeFragment: BaseChapterListFragment() {
             BaseItem.ACTION_MORE_VIDEO_basic_1 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, AssetsHelper.getHtmlFilePath("video_part_2_1.html"))
             BaseItem.ACTION_MORE_VIDEO_basic_2 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title,  AssetsHelper.getMarkdownFilePath("section_2.md"))
             BaseItem.ACTION_MORE_VIDEO_basic_3 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title,  AssetsHelper.getMarkdownFilePath("section_3.md"))
+            BaseItem.ACTION_MORE_VIDEO_decode_1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title,  AssetsHelper.getMarkdownFilePath("section_4.md"))
         }
 
     }
