@@ -34,9 +34,10 @@ class BookDetailFragment: BaseFragment() {
                         when(bookType) {
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {
-                                    1 -> {
+                                    1 -> { // chapter1
                                         when(item.section_action) {
                                             1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_1.md"))
+                                            2 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_2.md"))
                                         }
                                     }
                                 }

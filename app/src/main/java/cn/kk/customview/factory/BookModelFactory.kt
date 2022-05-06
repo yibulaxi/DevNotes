@@ -1672,7 +1672,7 @@ class BookModelFactory {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 开始", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("一个简单的 C++ 程序", 1, 1, true))
-                            add(ItemSectionModel("输入输出", 1, 2))
+                            add(ItemSectionModel("输入输出", 1, 2, true))
                             add(ItemSectionModel("注释简介"))
                             add(ItemSectionModel("控制流"))
                             add(ItemSectionModel("类简介"))
