@@ -39,6 +39,7 @@ class BookDetailFragment: BaseFragment() {
                                             1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_1.md"))
                                             2 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_2.md"))
                                             3 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_3.md"))
+                                            4 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_4.md"))
                                         }
                                     }
                                 }

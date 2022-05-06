@@ -1674,7 +1674,7 @@ class BookModelFactory {
                             add(ItemSectionModel("一个简单的 C++ 程序", 1, 1, true))
                             add(ItemSectionModel("输入输出", 1, 2, true))
                             add(ItemSectionModel("注释简介", 1, 3, true))
-                            add(ItemSectionModel("控制流"))
+                            add(ItemSectionModel("控制流", 1, 4, true))
                             add(ItemSectionModel("类简介"))
                             add(ItemSectionModel("书店程序"))
                         }, itemAction))
