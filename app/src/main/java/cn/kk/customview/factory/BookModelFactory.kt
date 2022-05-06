@@ -1675,8 +1675,8 @@ class BookModelFactory {
                             add(ItemSectionModel("输入输出", 1, 2, true))
                             add(ItemSectionModel("注释简介", 1, 3, true))
                             add(ItemSectionModel("控制流", 1, 4, true))
-                            add(ItemSectionModel("类简介"))
-                            add(ItemSectionModel("书店程序"))
+                            add(ItemSectionModel("类简介", 1, 5, true))
+                            add(ItemSectionModel("书店程序", 1, 6, true))
                         }, itemAction))
                         add(ItemChapterModel("第 2 章 变量和基本类型", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("基本内置类型"))
