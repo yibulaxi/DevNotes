@@ -15,9 +15,14 @@ class NormalMarkDownViewActivity: BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
         val markDownPath = intent.getStringExtra(INTENT_MARKDOWN_PATH_KEY).toString()
+        val local = intent.getBooleanExtra(INTENT_MARKDOWN_LOCAL_KEY, true)
 
         val markDownView = findViewById<MarkdownView>(R.id.markdown_view)
-        markDownView.loadMarkdownFromAssets(markDownPath)
+        if (local) {
+            markDownView.loadMarkdownFromAssets(markDownPath)
+        } else {
+            markDownView.loadUrl(markDownPath)
+        }
     }
 
 }

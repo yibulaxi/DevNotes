@@ -1679,13 +1679,13 @@ class BookModelFactory {
                             add(ItemSectionModel("书店程序", 1, 6, true))
                         }, itemAction))
                         add(ItemChapterModel("第 2 章 变量和基本类型", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("基本内置类型"))
+                            add(ItemSectionModel("基本内置类型", 2, 1, true))
                             add(ItemSectionModel("变量"))
                             add(ItemSectionModel("复合类型"))
                             add(ItemSectionModel("const 限定符"))
                             add(ItemSectionModel("处理类型"))
                             add(ItemSectionModel("自定义数据结构"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 3 章 字符串、向量和数组", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("命名空间的 using 声明"))
                             add(ItemSectionModel("标准库类型 string"))

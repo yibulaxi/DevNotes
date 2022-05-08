@@ -15,4 +15,8 @@ object AssetsHelper {
     fun getMarkdownFilePath(fileName: String): String {
         return "md/".plus(fileName)
     }
+
+    fun getMarkdownURL(): String{
+        return "https://gitee.com/kamaihamaiha/life#/kamaihamaiha/life/blob/master/Healthy.md"
+    }
 }

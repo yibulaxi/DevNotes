@@ -86,8 +86,8 @@ abstract class BaseFragment: Fragment() {
         (activity as BaseActivity).openNextUI(targetActivity, title, type, webUrl)
     }
 
-    open fun <T: Activity> openNextUIWithMarkdown(targetActivity: Class<T>, title: String,  markdownFilePath: String){
-        (activity as BaseActivity).openNextUIWithMarkdown(targetActivity, title, markdownFilePath)
+    open fun <T: Activity> openNextUIWithMarkdown(targetActivity: Class<T>, title: String,  markdownFilePath: String, localFile: Boolean = true){
+        (activity as BaseActivity).openNextUIWithMarkdown(targetActivity, title, markdownFilePath, localFile)
     }
 
 

@@ -34,6 +34,7 @@ abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TYPE_KEY = "type"
     protected val INTENT_WEB_URL_KEY = "web_url"
     protected val INTENT_MARKDOWN_PATH_KEY = "markdown_path"
+    protected val INTENT_MARKDOWN_LOCAL_KEY = "markdown_is_local"
     protected val INTENT_MODEL_KEY = "model"
 
     protected lateinit var mSelf: BaseActivity
@@ -243,10 +244,11 @@ abstract class BaseActivity: BasicActivity() {
         slideAnimEnter()
     }
 
-    open fun <T: Activity> openNextUIWithMarkdown(targetActivity: Class<T>, title:  String, markdownFilePath: String){
+    open fun <T: Activity> openNextUIWithMarkdown(targetActivity: Class<T>, title:  String, markdownFilePath: String, local: Boolean = true){
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
             putExtra(INTENT_MARKDOWN_PATH_KEY, markdownFilePath)
+            putExtra(INTENT_MARKDOWN_LOCAL_KEY, local)
         })
         slideAnimEnter()
     }
