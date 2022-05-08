@@ -1,6 +1,7 @@
 package cn.kk.base.utils
 
 import android.content.Context
+import cn.kk.customview.bean.BaseItem
 
 object AssetsHelper {
 
@@ -16,7 +17,30 @@ object AssetsHelper {
         return "md/".plus(fileName)
     }
 
-    fun getMarkdownURL(): String{
-        return "https://gitee.com/kamaihamaiha/life#/kamaihamaiha/life/blob/master/Healthy.md"
+    fun getMarkdownURL(bookType: Int, item: BaseItem): String {
+
+       val url = when(bookType) {
+            BaseItem.action_book_c_plus -> {
+                when(item.chapter_action) {
+
+                    2 -> { // chapter2
+                        when(item.section_action) {
+                            // section 1
+                            1 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_1.md"
+
+                            else -> { ""}
+                        }
+
+                    }
+
+                    else -> {
+                        ""
+                    }
+                }
+            }
+           else -> { "" }
+        }
+
+        return url
     }
 }

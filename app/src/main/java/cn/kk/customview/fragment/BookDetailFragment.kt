@@ -45,9 +45,8 @@ class BookDetailFragment: BaseFragment() {
                                         }
                                     }
                                     2 -> {
-                                        when(item.section_action) {
-                                            1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(), false)
-                                        }
+                                        // open markdown from online
+                                        openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
                                     }
                                 }
                             }
