@@ -3,7 +3,7 @@ package cn.kk.customview.bean
 import java.io.Serializable
 
 abstract  class BaseItem: Serializable {
-    public  var item_action = 0
+    var item_action = 0
     var chapter_action = 0
     var section_action = 0
 
@@ -173,6 +173,10 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_VIDEO_mix_and_play_2 = ACTION_MORE_VIDEO_mix_and_play * 10 + 2
         val ACTION_MORE_VIDEO_mix_and_play_3 = ACTION_MORE_VIDEO_mix_and_play * 10 + 3
         val ACTION_MORE_VIDEO_end_1 = ACTION_MORE_VIDEO_end * 10 + 1
+        // endregion
+
+        // 更多 Git 笔记
+        val ACTION_MORE_GIT_1 = 1291
         // endregion
 
         // 更多 Linux 笔记

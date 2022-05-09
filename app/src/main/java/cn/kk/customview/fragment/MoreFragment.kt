@@ -71,7 +71,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_PLUGIN -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book__android_plugin))
                     BaseItem.ACTION_MORE_NDK -> startNextUI(NdkHomeActivity::class.java, title)
                     BaseItem.ACTION_MORE_ZONGHE -> startNextUI(ZongHeActivity::class.java, title)
-                    BaseItem.ACTION_MORE_Git -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_git))
+                    BaseItem.ACTION_MORE_Git -> startNextUI(GitActivity::class.java, title)
                     BaseItem.ACTION_MORE_Linux -> startNextUI(LinuxActivity::class.java, title)
                     BaseItem.ACTION_MORE_Python -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_c))
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)

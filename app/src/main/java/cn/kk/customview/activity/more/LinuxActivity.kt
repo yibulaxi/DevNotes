@@ -1,21 +1,10 @@
 package cn.kk.customview.activity.more
 
-import android.os.Bundle
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.LinearLayoutManager
-import cn.kk.base.UIHelper
-import cn.kk.base.activity.BaseActivity
-import cn.kk.customview.R
 import cn.kk.customview.activity.BaseMixListActivity
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
-import cn.kk.customview.factory.BookModelFactory
-import cn.kk.customview.fragment.BookDetailFragment
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import kotlinx.android.synthetic.main.activity_normal_list.*
 
 /**
  * Linux 总结
@@ -24,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_normal_list.*
  */
 class LinuxActivity : BaseMixListActivity() {
 
-    override fun getBookAction(): Int= BaseItem.action_book_linux
+    override fun getBookAction(): Int = BaseItem.action_book_linux
 
 
     /**
@@ -52,14 +41,14 @@ class LinuxActivity : BaseMixListActivity() {
                 openNextUI(
                     NormalWebViewActivity::class.java,
                     item.title,
-                    BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE,
+                    -1,
                     item.web_url
                 )
             BaseItem.ACTION_MORE_LINUX_MAC_TRANS_LINUX ->
                 openNextUI(
                     NormalWebViewActivity::class.java,
                     item.title,
-                    BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE,
+                    -1,
                     item.web_url
                 )
         }

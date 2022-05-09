@@ -123,6 +123,7 @@
         <activity android:name=".activity.more.WorkActivity"/>
         <activity android:name=".activity.more.NetActivity"/>
         <activity android:name=".activity.more.LinuxActivity"/>
+        <activity android:name=".activity.more.GitActivity"/>
         <activity android:name=".activity.more.audio.AudioActivity"/>
         <activity android:name=".activity.more.video.VideoActivity"/>
         <activity android:name=".activity.more.ZongHeActivity"/>
