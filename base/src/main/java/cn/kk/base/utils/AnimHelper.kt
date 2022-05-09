@@ -33,10 +33,15 @@ object AnimHelper {
         anim.duration = 500
         anim.addListener(object : Animator.AnimatorListener{
             override fun onAnimationStart(animation: Animator?) {
+                if (!hide) {
+                    view.visibility = View.VISIBLE
+                }
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                view.visibility = if (hide) View.GONE else View.VISIBLE
+                if (hide) {
+                    view.visibility = View.GONE
+                }
             }
 
             override fun onAnimationCancel(animation: Animator?) {
