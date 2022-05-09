@@ -235,7 +235,7 @@ class BookModelFactory {
                         }))
 
                         // chapter 13
-                        add(ItemChapterModel("第 14 章 更多的结构化命令", mutableListOf<ItemSectionModel>().apply {
+                        add(ItemChapterModel("第 13 章 更多的结构化命令", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("for 命令"))
                             add(ItemSectionModel("C 语音风格的 for 命令"))
                             add(ItemSectionModel("while 命令"))

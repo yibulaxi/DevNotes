@@ -3,18 +3,16 @@ package cn.kk.customview.activity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.AnimHelper
 import cn.kk.customview.R
-import cn.kk.customview.activity.BaseTabActivity
-import cn.kk.customview.activity.NormalWebViewActivity
-import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.factory.BookModelFactory
 import cn.kk.customview.fragment.BookDetailFragment
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import kotlinx.android.synthetic.main.activity_normal_list.*
 
 /**
  * 页面说明：
@@ -32,18 +30,31 @@ abstract class BaseMixListActivity : BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
+        val rvList = findViewById<RecyclerView>(R.id.rv_list)
+
         // region book detail part
         supportFragmentManager.beginTransaction().add(
             R.id.fragment_container,
             BookDetailFragment().apply {
-                arguments = Bundle().apply { putSerializable(INTENT_MODEL_KEY, BookModelFactory.createBook(getBookAction())) }
+                arguments = Bundle().apply {
+                    putSerializable(INTENT_MODEL_KEY, BookModelFactory.createBook(getBookAction()))
+                }
+                scrollOrientationListener = object : BookDetailFragment.ScrollOrientationListener {
+
+                    override fun onScroll(up: Boolean) {
+//                        showToast("scroll: ".plus(if (up) "上" else "下"))
+
+                        AnimHelper.hideViewByObjectAnim(rvList, up)
+                    }
+
+                }
             }).commit()
 
         // endregion
 
         // region bottom Card item
-        rv_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rv_list.adapter = object : BaseQuickAdapter<ItemSimpleCard, BaseViewHolder>(
+        rvList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvList.adapter = object : BaseQuickAdapter<ItemSimpleCard, BaseViewHolder>(
             R.layout.item_card_list_horzontal,
             getItemCardList()
         ) {
@@ -59,6 +70,7 @@ abstract class BaseMixListActivity : BaseActivity() {
 
             }
         }
+
 
         // endregion
     }
