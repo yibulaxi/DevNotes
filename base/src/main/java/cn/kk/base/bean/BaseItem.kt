@@ -30,7 +30,7 @@ abstract  class BaseItem: Serializable {
         val action_book_java_easy_coding = 214 // 码出高效 Java 开发手册
         val action_book_c_plus = 215
         val action_book_c = 216
-        val action_book_17 = 217
+        val action_book_kotlin = 217
         val action_book_18 = 218
         val action_book_19 = 219
         val action_book_20 = 220

@@ -1681,7 +1681,7 @@ class BookModelFactory {
                         add(ItemChapterModel("第 2 章 变量和基本类型", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("基本内置类型", 2, 1, true))
                             add(ItemSectionModel("变量", 2, 2, true))
-                            add(ItemSectionModel("复合类型"))
+                            add(ItemSectionModel("复合类型", 2, 3, true))
                             add(ItemSectionModel("const 限定符"))
                             add(ItemSectionModel("处理类型"))
                             add(ItemSectionModel("自定义数据结构"))
@@ -1930,6 +1930,141 @@ class BookModelFactory {
 
                     }
                     return BookModel("C程序设计语言", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_16 }
+                }
+                // endregion
+
+                // region Kotlin
+                BaseItem.action_book_kotlin -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("第 1 章 课程导学与准备工作", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("课程介绍与学习指南"))
+                        }))
+                        add(ItemChapterModel("第 2 章 开发环境搭建", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("Kotlin 开发环境配置"))
+                            add(ItemSectionModel("Kotlin 开发环境配置 - IntellJ"))
+                            add(ItemSectionModel("Kotlin 开发环境配置 - Android Studio"))
+                            add(ItemSectionModel("Gradle 工程简介"))
+                            add(ItemSectionModel("Gradle 常见问题解决"))
+                        }))
+                        add(ItemChapterModel("第 3 章 内置类型", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("基本类型"))
+                            add(ItemSectionModel("数组"))
+                            add(ItemSectionModel("区间"))
+                            add(ItemSectionModel("集合框架"))
+                            add(ItemSectionModel("函数"))
+                            add(ItemSectionModel("案例：四则计算器"))
+                        }))
+                        add(ItemChapterModel("第 4 章 类型初步", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("类和接口"))
+                            add(ItemSectionModel("扩展方法"))
+                            add(ItemSectionModel("空类型安全"))
+                            add(ItemSectionModel("智能类型转换"))
+                            add(ItemSectionModel("案列：使用 Retrofit 发送网络请求"))
+                        }))
+                        add(ItemChapterModel("第 5章 表达式", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("常量和变量"))
+                            add(ItemSectionModel("分支表达式"))
+                            add(ItemSectionModel("运算符与中缀表达式"))
+                            add(ItemSectionModel("Lambda 表达式"))
+                            add(ItemSectionModel("案例：为 Person 实现 equals 和 hashCode"))
+                            add(ItemSectionModel("案例：为 String 实现四则运算"))
+                        }))
+                        add(ItemChapterModel("第 6 章 函数进阶", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("高阶函数"))
+                            add(ItemSectionModel("内联函数"))
+                            add(ItemSectionModel("几个有用的高阶函数"))
+                            add(ItemSectionModel("集合变换与序列"))
+                            add(ItemSectionModel("SAM 转换"))
+                            add(ItemSectionModel("案例：统计字符个数"))
+                            add(ItemSectionModel("案例：HTML DSL"))
+                            add(ItemSectionModel("实践：体验 Gradle Kotlin DSL"))
+                        }))
+                        add(ItemChapterModel("第 7 章 类型进阶", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("类的构造器"))
+                            add(ItemSectionModel("类与成员的可见行"))
+                            add(ItemSectionModel("类属性的延迟初始化"))
+                            add(ItemSectionModel("代理 Delegate"))
+                            add(ItemSectionModel("案例：使用属性代理读写 Properties"))
+                            add(ItemSectionModel("单例：object"))
+                            add(ItemSectionModel("内部类"))
+                            add(ItemSectionModel("数据类 data class"))
+                            add(ItemSectionModel("枚举类 enum class"))
+                            add(ItemSectionModel("密封类 sealed class"))
+                            add(ItemSectionModel("内联类 inner class"))
+                            add(ItemSectionModel("案例：数据类的 Json 序列化"))
+                            add(ItemSectionModel("案例：递归整型列表的简单实现"))
+                        }))
+                        add(ItemChapterModel("第 8 章 泛型", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("泛型的基本概念"))
+                            add(ItemSectionModel("泛型约束"))
+                            add(ItemSectionModel("泛型的型变"))
+                            add(ItemSectionModel("UnsaveVariance"))
+                            add(ItemSectionModel("星投影 Start Projection"))
+                            add(ItemSectionModel("泛型的实现类型与内联特化"))
+                            add(ItemSectionModel("案例：模拟 Self Type"))
+                            add(ItemSectionModel("案例：基于泛型实现 Model 实例的注入"))
+                        }))
+                        add(ItemChapterModel("第 9 章 反射", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("反射的基本概念"))
+                            add(ItemSectionModel("实践：获取泛型实参"))
+                            add(ItemSectionModel("案例：为数据实现 DeepCopy"))
+                            add(ItemSectionModel("案例：Model 映射"))
+                            add(ItemSectionModel("案例：可释放对象引用的不可空类型"))
+                            add(ItemSectionModel("案例：插件化加载类"))
+                        }))
+                        add(ItemChapterModel("第 10 章 注解", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("注解的基本概念"))
+                            add(ItemSectionModel("常见内置注解的使用"))
+                            add(ItemSectionModel("案例：仿 Retrofit 反射读取注解请求玩过"))
+                            add(ItemSectionModel("案例：注解加持反射版 Model 映射"))
+                            add(ItemSectionModel("扩展：Kotlin 编译器插件介绍"))
+                        }))
+                        add(ItemChapterModel("第 11 章 协程初步", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("Kotlin 协程学习指引"))
+                            add(ItemSectionModel("协程的基本概念"))
+                            add(ItemSectionModel("协程的常见实现1"))
+                            add(ItemSectionModel("协程的常见实现2"))
+                            add(ItemSectionModel("Kotlin 协程的基本要素1"))
+                            add(ItemSectionModel("Kotlin 协程的基本要素2"))
+                            add(ItemSectionModel("案例：Generator 与标准库的序列生成器"))
+                            add(ItemSectionModel("案例：仿 Lua 协程实现非对称协程 API"))
+                            add(ItemSectionModel("案例：基于非对称协程 API 实现对称协程"))
+                            add(ItemSectionModel("案例：仿 Go 的 Channel 实现协程通信"))
+                            add(ItemSectionModel("案例：仿 Js 实现 async await"))
+                            add(ItemSectionModel("延伸：揭秘 suspend fun main"))
+                        }))
+                        add(ItemChapterModel("第 12 章 协程进阶", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("案例：仿官方框架实现 launch 1"))
+                            add(ItemSectionModel("案例：仿官方框架实现 launch 2"))
+                            add(ItemSectionModel("案例：仿官方框架实现 delay"))
+                            add(ItemSectionModel("案例：仿官方框架实现调度器"))
+                            add(ItemSectionModel("案例：仿官方框架实现 runBlocking"))
+                            add(ItemSectionModel("案例：仿官方框架实现 async"))
+                            add(ItemSectionModel("案例：仿官方框架实现取消响应1"))
+                            add(ItemSectionModel("案例：仿官方框架实现取消响应2"))
+                            add(ItemSectionModel("案例：仿官方框架实现异常处理"))
+                            add(ItemSectionModel("案例：仿官方框架实现作用域1"))
+                            add(ItemSectionModel("案例：仿官方框架实现作用域2"))
+                        }))
+                        add(ItemChapterModel("第 13 章 协程应用", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("协程框架概述"))
+                            add(ItemSectionModel("实践：回调转协程的完整写法"))
+                            add(ItemSectionModel("Channel"))
+                            add(ItemSectionModel("Select"))
+                            add(ItemSectionModel("案例：统计代码行数"))
+                            add(ItemSectionModel("Flow"))
+                            add(ItemSectionModel("案例：协程在 Ktor 服务中的应用"))
+                            add(ItemSectionModel("案例：协程在 Spring 服务中的应用"))
+                            add(ItemSectionModel("案例：协程在 Android 服务中的应用"))
+                        }))
+                        add(ItemChapterModel("第 14 章 课程总结", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("总结"))
+                        }))
+                        add(ItemChapterModel("第 135章 赠送：弹药补充", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("Kotlin1.4 新特性介绍"))
+                        }))
+                    }
+                    return BookModel("Kotlin 突破开发语言瓶颈", itemAction, chapterModelList)
                 }
                 // endregion
             }

@@ -42,6 +42,7 @@ class BookFragment: BaseFragment() {
             add(BookModelFactory.createBook(BaseItem.action_book_java_easy_coding))
             add(BookModelFactory.createBook(BaseItem.action_book_c_plus))
             add(BookModelFactory.createBook(BaseItem.action_book_c))
+            add(BookModelFactory.createBook(BaseItem.action_book_kotlin))
         }
 
         rvBookList.apply {
