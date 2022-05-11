@@ -1,8 +1,10 @@
 package cn.kk.customview.activity
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import com.mukesh.MarkdownView
+import kotlinx.android.synthetic.main.activity_normal_markdown_view.*
 
 /**
  * 通用显示 Markdown 文件
@@ -22,6 +24,14 @@ class NormalMarkDownViewActivity: BaseActivity() {
             markDownView.loadMarkdownFromAssets(markDownPath)
         } else {
             markDownView.loadUrl(markDownPath)
+        }
+
+        // pull refresh
+        refresh_view.setOnRefreshListener {
+            if (!local) {
+                markDownView.loadUrl(markDownPath)
+                refresh_view.isRefreshing = false
+            }
         }
     }
 
