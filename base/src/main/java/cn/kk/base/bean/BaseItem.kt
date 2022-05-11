@@ -95,6 +95,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_Python = 131
         val ACTION_MORE_MIX_DEV = 132 // 混合开发
         val ACTION_MORE_REGEX = 133 // 正则表达式
+        val ACTION_MORE_android_debug = 134 // Android Debug
 
 
         // 更多：工作中总结，细分

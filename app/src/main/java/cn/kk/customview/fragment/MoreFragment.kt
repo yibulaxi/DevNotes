@@ -9,6 +9,7 @@ import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
+import cn.kk.customview.activity.NormalMarkDownViewActivity
 import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.activity.more.*
@@ -76,6 +77,7 @@ class MoreFragment: BaseFragment() {
                     BaseItem.ACTION_MORE_Python -> startNextUI(BookDetailActivity::class.java, title, BookModelFactory.createBook(BaseItem.action_book_c))
                     BaseItem.ACTION_MORE_MIX_DEV -> startNextUI(MixDevActivity::class.java, title)
                     BaseItem.ACTION_MORE_REGEX -> startNextUI(NormalWebViewActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE, data[position].web_url)
+                    BaseItem.ACTION_MORE_android_debug -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, title, data[position].markdown_url, data[position].markdownLocalFlag)
                     else -> {
                     }
                 }
@@ -120,6 +122,10 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("正则表达式", true).apply {
                 item_action = BaseItem.ACTION_MORE_REGEX
                 web_url = "https://www.runoob.com/java/java-regular-expressions.html"
+            })
+            add(ItemSimpleCard("Android 调试", true).apply {
+                item_action = BaseItem.ACTION_MORE_android_debug
+                markdown_url = "https://gitee.com/kamaihamaiha/Android_Debug/blob/main/README.md"
             })
         }
     }

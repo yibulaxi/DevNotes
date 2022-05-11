@@ -1680,7 +1680,7 @@ class BookModelFactory {
                         }, itemAction))
                         add(ItemChapterModel("第 2 章 变量和基本类型", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("基本内置类型", 2, 1, true))
-                            add(ItemSectionModel("变量"))
+                            add(ItemSectionModel("变量", 2, 2, true))
                             add(ItemSectionModel("复合类型"))
                             add(ItemSectionModel("const 限定符"))
                             add(ItemSectionModel("处理类型"))
