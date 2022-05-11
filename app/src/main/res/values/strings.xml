@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">CustomView</string>
-    <string name="app_name_cn">自定义View</string>
+    <string name="app_name">速查手册</string>
     <string name="name">Name</string>
     <string name="feature_right_now">敬请期待...</string>
     <string name="title_activity_main">MainActivity</string>

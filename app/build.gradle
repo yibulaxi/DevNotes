@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "cn.kk.customeview"
+        applicationId "cn.kk.search"
         minSdkVersion appMinSdkVersion
         targetSdkVersion  appTargetSdkVersion
         versionCode appVersionCode
