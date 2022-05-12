@@ -2,6 +2,7 @@
 
 - [架构](./doc/arch/README.md)
 - [混合开发](./doc/mix_dev/README.md)
+- [WindowInsets](./doc/window_insets.md)
 
 ---
 

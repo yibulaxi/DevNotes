@@ -49,6 +49,7 @@ class MoreFragment: BaseFragment() {
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
                     }
                     BaseItem.ACTION_MORE_NET -> startNextUI(NetActivity::class.java, title)
+                    BaseItem.ACTION_MORE_BLOGS -> startNextUI(BlogsActivity::class.java, title)
                     BaseItem.ACTION_MORE_DESIGN_PATTERN -> {
                         val bookModel = BookModelFactory.createBook(BaseItem.action_book_android_advance).apply { expandChapterIndex = 5 }
                         startNextUI(BookDetailActivity::class.java, bookModel.title, bookModel)
@@ -90,7 +91,7 @@ class MoreFragment: BaseFragment() {
             add(ItemSimpleCard("工作中汇总", true).apply { item_action = BaseItem.ACTION_MORE_WORK })
             add(ItemSimpleCard("多线程", true).apply { item_action =  BaseItem.ACTION_MORE_MULTI_THREAD})
             add(ItemSimpleCard("网络", true).apply { item_action = BaseItem.ACTION_MORE_NET })
-            add(ItemSimpleCard("Android Sqlite 数据库使用"))
+            add(ItemSimpleCard("技术博客", true).apply { item_action = BaseItem.ACTION_MORE_BLOGS })
             add(ItemSimpleCard("设计模式", true).apply { item_action = BaseItem.ACTION_MORE_DESIGN_PATTERN })
             add(ItemSimpleCard("数据结构和算法", true).apply { item_action = BaseItem.ACTION_MORE_DATA_ARCH })
             add(ItemSimpleCard("Activity 的生命周期和启动模式", true).apply { item_action = BaseItem.ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE })

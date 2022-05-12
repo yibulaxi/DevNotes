@@ -79,6 +79,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_MORE_WORK = 100
         val ACTION_MORE_MULTI_THREAD = 102 // 多线程
         val ACTION_MORE_NET = 103
+        val ACTION_MORE_BLOGS = 104 // 技术博客
         val ACTION_MORE_DESIGN_PATTERN = 105 // 设计模式
         val ACTION_MORE_DATA_ARCH = 106 // 数据结构和算法
         val ACTION_MORE_ACTIVITY_LIFECYCLE_LAUNCH_MODE = 107 // Activity 生命周期和启动模式
