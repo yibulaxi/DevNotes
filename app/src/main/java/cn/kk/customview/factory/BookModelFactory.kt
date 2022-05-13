@@ -1682,7 +1682,7 @@ class BookModelFactory {
                             add(ItemSectionModel("基本内置类型", 2, 1, true))
                             add(ItemSectionModel("变量", 2, 2, true))
                             add(ItemSectionModel("复合类型", 2, 3, true))
-                            add(ItemSectionModel("const 限定符"))
+                            add(ItemSectionModel("const 限定符", 2, 4, true))
                             add(ItemSectionModel("处理类型"))
                             add(ItemSectionModel("自定义数据结构"))
                         }, itemAction))
