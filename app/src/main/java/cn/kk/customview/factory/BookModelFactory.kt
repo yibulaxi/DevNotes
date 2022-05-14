@@ -1683,8 +1683,8 @@ class BookModelFactory {
                             add(ItemSectionModel("变量", 2, 2, true))
                             add(ItemSectionModel("复合类型", 2, 3, true))
                             add(ItemSectionModel("const 限定符", 2, 4, true))
-                            add(ItemSectionModel("处理类型"))
-                            add(ItemSectionModel("自定义数据结构"))
+                            add(ItemSectionModel("处理类型", 2, 5, true))
+                            add(ItemSectionModel("自定义数据结构", 2, 6, true))
                         }, itemAction))
                         add(ItemChapterModel("第 3 章 字符串、向量和数组", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("命名空间的 using 声明"))
