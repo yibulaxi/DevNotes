@@ -57,7 +57,7 @@ object AssetsHelper {
                 when(item.chapter_action) {
                     1 -> {
                         when(item.section_action) {
-                            1 -> "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_1/1.1.md"
+                            in 1..8 -> "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_1/1.".plus(item.section_action).plus(".md")
                             else -> { "" }
                         }
                     }

@@ -1176,13 +1176,13 @@ class BookModelFactory {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 FFmpeg", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("定义", 1, 1, true))
-                            add(ItemSectionModel("历史"))
-                            add(ItemSectionModel("基本组成"))
-                            add(ItemSectionModel("FFmpeg 的编解码工具 ffmpeg"))
-                            add(ItemSectionModel("FFmpeg 的播放器 ffplay"))
-                            add(ItemSectionModel("FFmpeg 的多媒体分析器 ffprobe"))
-                            add(ItemSectionModel("FFmpeg 编译"))
-                            add(ItemSectionModel("编码支持与定制"))
+                            add(ItemSectionModel("历史", 1, 2, true))
+                            add(ItemSectionModel("基本组成", 1, 3, true))
+                            add(ItemSectionModel("FFmpeg 的编解码工具 ffmpeg", 1, 4, true))
+                            add(ItemSectionModel("FFmpeg 的播放器 ffplay", 1, 5, true))
+                            add(ItemSectionModel("FFmpeg 的多媒体分析器 ffprobe", 1, 6, true))
+                            add(ItemSectionModel("FFmpeg 编译", 1, 7, true))
+                            add(ItemSectionModel("编码支持与定制", 1, 8, true))
                         }, itemAction))
                         add(ItemChapterModel("第 2 章 FFmpeg 工具使用基础", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("ffmpeg 常用命令"))
