@@ -1831,7 +1831,7 @@ class BookModelFactory {
                     }
                     // more info
                     moreInfoList.apply {
-                        add(BaseMoreItem("C++ 那些事", "https://github.com/Light-City/CPlusPlusThings"))
+                        add(BaseMoreItem("C++ 那些事", "https://github.com/Light-City/CPlusPlusThings.git"))
                     }
                     return BookModel("C++ Primer", itemAction, chapterModelList).apply {
                         bookImgRes = R.drawable.bg_book_15

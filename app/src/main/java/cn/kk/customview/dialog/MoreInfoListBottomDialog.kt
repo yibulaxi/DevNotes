@@ -2,6 +2,7 @@ package cn.kk.customview.dialog
 
 import android.os.Bundle
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import cn.kk.base.R
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.BaseMoreItem
@@ -21,10 +22,11 @@ class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableLi
     override fun fillItem(holder: BaseViewHolder, item: BaseMoreItem) {
 
         holder.setText(R.id.tv_item_home_name, item.title)
+        holder.setTextColor(R.id.tv_item_home_name, ContextCompat.getColor(mActivity, R.color.LightPink))
     }
 
     override fun onItemClick(model: BaseMoreItem) {
-        mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, model.url)
+        mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, -1, model.url)
     }
 
 
