@@ -61,7 +61,7 @@ class HomeTabActivity: BaseActivity() {
                 R.id.navigation_tab_views -> fragmentList.put(id, ViewHomeFragment())
                 R.id.navigation_tab_player -> fragmentList.put(id, PlayerFragment())
                 R.id.navigation_tab_arch -> fragmentList.put(id, ArchFragment())
-                R.id.navigation_tab_book -> fragmentList.put(id, BookFragment())
+                R.id.navigation_tab_book -> fragmentList.put(id, BookListFragment())
                 R.id.navigation_tab_more -> fragmentList.put(id, MoreFragment())
             }
         }

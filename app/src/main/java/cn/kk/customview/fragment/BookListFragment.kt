@@ -15,7 +15,7 @@ import cn.kk.customview.factory.BookModelFactory
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
-class BookFragment: BaseFragment() {
+class BookListFragment: BaseFragment() {
     override fun getLayoutId(): Int {
         return R.layout.fragment_book
     }

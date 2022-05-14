@@ -66,7 +66,7 @@ class DrawBasicActivity: BaseActivity() {
         return true
     }
 
-    override fun titleMoreClick() {
+    override fun onTitleMoreClick() {
 
         when (pageIndex) {
             1 -> showWikiHtmlDialog(mSelf, HtmlWikiModel(AssetsHelper.getHtmlFilePath("basic_line_view.html")).apply { title = "BasicLineView" })

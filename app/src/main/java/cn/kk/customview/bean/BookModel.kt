@@ -1,5 +1,6 @@
 package cn.kk.customview.bean
 
+import cn.kk.base.bean.BaseMoreItem
 import java.io.Serializable
 
 class BookModel(val title: String, val itemAction: Int, val chapterModelList: MutableList<ItemChapterModel>): Serializable {
@@ -8,4 +9,6 @@ class BookModel(val title: String, val itemAction: Int, val chapterModelList: Mu
 
     var bookImgRes: Int = -1
     var expandChapterIndex = 0
+    // 更多信息：在页面标题栏上调出
+    var moreItemList: MutableList<BaseMoreItem>? = null
 }

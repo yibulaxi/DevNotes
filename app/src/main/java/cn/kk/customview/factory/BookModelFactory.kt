@@ -1,5 +1,6 @@
 package cn.kk.customview.factory
 
+import cn.kk.base.bean.BaseMoreItem
 import cn.kk.customview.R
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
@@ -15,6 +16,7 @@ class BookModelFactory {
 
         open fun createBook(itemAction: Int): BookModel {
             val chapterModelList = mutableListOf<ItemChapterModel>()
+            val moreInfoList = mutableListOf<BaseMoreItem>()
             when(itemAction) {
                 // region 《Android 开发艺术探索》
                 BaseItem.action_book_android_dev_art -> {
@@ -1827,7 +1829,16 @@ class BookModelFactory {
                             add(ItemSectionModel("随机数"))
                         }))
                     }
-                    return BookModel("C++ Primer", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_15 }
+                    // more info
+                    moreInfoList.apply {
+                        add(BaseMoreItem("C++ 那些事", "https://github.com/Light-City/CPlusPlusThings"))
+                    }
+                    return BookModel("C++ Primer", itemAction, chapterModelList).apply {
+                        bookImgRes = R.drawable.bg_book_15
+                        if (moreInfoList.isNotEmpty()) {
+                            moreItemList = moreInfoList
+                        }
+                    }
                 }
                 // endregion
 
@@ -2070,6 +2081,6 @@ class BookModelFactory {
             }
 
             return BookModel("空", itemAction, chapterModelList)
+            }
         }
     }
-}

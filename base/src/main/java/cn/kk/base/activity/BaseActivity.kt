@@ -6,13 +6,10 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.LogHelper
@@ -22,7 +19,6 @@ import cn.kk.base.adapter.ListV2Adapter
 import cn.kk.base.bean.HtmlWikiModel
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.dialog.HtmlBottomDialog
-import cn.kk.base.dialog.SimpleBottomDialog
 import kotlinx.android.synthetic.main.layout_title.*
 import java.io.Serializable
 
@@ -183,7 +179,7 @@ abstract class BaseActivity: BasicActivity() {
      */
     private fun clickTitleMore(){
         findViewById<ImageButton>(R.id.btn_title_more)?.setOnClickListener {
-            titleMoreClick()
+            onTitleMoreClick()
         }
     }
 
@@ -201,10 +197,23 @@ abstract class BaseActivity: BasicActivity() {
         window.statusBarColor = Color.TRANSPARENT
     }
 
-    protected open fun titleMoreClick(){}
+    /**
+     * 标题栏 more icon 点击操作
+     */
+    protected open fun onTitleMoreClick(){}
 
 
+    /**
+     * 标题栏 more icon 是否显示。默认是隐藏的，要显示需要子类重写
+     */
     protected open fun showTitleMoreBtn(): Boolean = false
+
+    /**
+     * 显示标题栏 more icon
+     */
+    protected open fun showTitleMoreBtnIcon(){
+        btn_title_more?.visibility = View.VISIBLE
+    }
 
     /**
      * 打开下一个页面
