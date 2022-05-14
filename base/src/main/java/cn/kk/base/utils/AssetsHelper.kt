@@ -25,6 +25,8 @@ object AssetsHelper {
     fun getMarkdownURL(bookType: Int, item: BaseItem): String {
 
        val url = when(bookType) {
+
+            // region cpp
             BaseItem.action_book_c_plus -> {
                 when(item.chapter_action) {
 
@@ -48,8 +50,25 @@ object AssetsHelper {
                     }
                 }
             }
+            // endregion
+
+           // region FFMpeg
+           BaseItem.action_book_ffmpeg -> {
+                when(item.chapter_action) {
+                    1 -> {
+                        when(item.section_action) {
+                            1 -> "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_1/1.1.md"
+                            else -> { "" }
+                        }
+                    }
+                    else ->{ "" }
+                }
+           }
+           // endregion
            else -> { "" }
         }
+
+
 
         return url
     }

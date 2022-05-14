@@ -55,6 +55,7 @@ class BookDetailFragment: BaseFragment() {
                 mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
+                            // region cpp
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {
                                     1 -> { // chapter1
@@ -73,6 +74,13 @@ class BookDetailFragment: BaseFragment() {
                                     }
                                 }
                             }
+                            // endregion
+
+                            // region FFMpeg
+                            BaseItem.action_book_ffmpeg -> {
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
+                            }
+                            // endregion
                         }
                     }
 

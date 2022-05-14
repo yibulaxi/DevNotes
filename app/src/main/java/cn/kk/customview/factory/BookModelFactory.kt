@@ -1175,7 +1175,7 @@ class BookModelFactory {
                 BaseItem.action_book_ffmpeg -> {
                     chapterModelList.apply {
                         add(ItemChapterModel("第 1 章 FFmpeg", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("定义"))
+                            add(ItemSectionModel("定义", 1, 1, true))
                             add(ItemSectionModel("历史"))
                             add(ItemSectionModel("基本组成"))
                             add(ItemSectionModel("FFmpeg 的编解码工具 ffmpeg"))
@@ -1183,12 +1183,12 @@ class BookModelFactory {
                             add(ItemSectionModel("FFmpeg 的多媒体分析器 ffprobe"))
                             add(ItemSectionModel("FFmpeg 编译"))
                             add(ItemSectionModel("编码支持与定制"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 2 章 FFmpeg 工具使用基础", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("ffmpeg 常用命令"))
                             add(ItemSectionModel("ffprobe 常用命令"))
                             add(ItemSectionModel("ffplay 常用命令"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 3 章 FFmpeg 转封装", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("音视频文件转 MP4 格式"))
                             add(ItemSectionModel("视频文件转 FLV"))
@@ -1196,14 +1196,14 @@ class BookModelFactory {
                             add(ItemSectionModel("视频文件切片"))
                             add(ItemSectionModel("音视频文件音视频流抽取"))
                             add(ItemSectionModel("系统资源的使用情况"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 4 章 FFmpeg 转码", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("软编码 H.264 与 H.265"))
                             add(ItemSectionModel("硬编解码"))
                             add(ItemSectionModel("输入 MP3"))
                             add(ItemSectionModel("输出 AAC"))
                             add(ItemSectionModel("系统资源使用情况"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 5 章 FFmpeg 流媒体", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("发布与录制 RTMP 流"))
                             add(ItemSectionModel("录制 RTSP 流"))
@@ -1212,7 +1212,7 @@ class BookModelFactory {
                             add(ItemSectionModel("推多路流"))
                             add(ItemSectionModel("生成 HDS 流"))
                             add(ItemSectionModel("生成 DASH 流"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 6 章 FFmpeg 滤镜使用", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("Filter 描述格式"))
                             add(ItemSectionModel("为视频添加水印"))
@@ -1226,29 +1226,29 @@ class BookModelFactory {
                             add(ItemSectionModel("定时视频截图"))
                             add(ItemSectionModel("生成测试元数据"))
                             add(ItemSectionModel("对音视频倍速处理"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 7 章 FFmpeg 采集设备", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("FFmpeg 中 Linux 设备操作"))
                             add(ItemSectionModel("FFmpeg 中 OS X 设备操作"))
                             add(ItemSectionModel("FFmpeg 中 Windows 设备操作"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 8 章 FFmpeg 接口 libavformat 的使用", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("音视频流封装"))
                             add(ItemSectionModel("音视频文件解封装"))
                             add(ItemSectionModel("音视频文件转封装"))
                             add(ItemSectionModel("视频截取"))
                             add(ItemSectionModel("avio 内存数据操作"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 9 章 FFmpeg 接口 libavcodec 的使用", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("FFmpeg 旧接口的使用"))
                             add(ItemSectionModel("FFmpeg 新接口的使用"))
-                        }))
+                        }, itemAction))
                         add(ItemChapterModel("第 10 章 FFmpeg 接口 libavfilter 的使用", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("filtergraph 和 filter 简述"))
                             add(ItemSectionModel("FFmpeg 中预留的滤镜"))
                             add(ItemSectionModel("avfilter 流程图"))
                             add(ItemSectionModel("使用滤镜加 LOGO 操作"))
-                        }))
+                        }, itemAction))
                     }
                     return BookModel("FFmpeg 从入门到精通", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_10 }
                 }
