@@ -1185,9 +1185,9 @@ class BookModelFactory {
                             add(ItemSectionModel("编码支持与定制", 1, 8, true))
                         }, itemAction))
                         add(ItemChapterModel("第 2 章 FFmpeg 工具使用基础", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("ffmpeg 常用命令"))
-                            add(ItemSectionModel("ffprobe 常用命令"))
-                            add(ItemSectionModel("ffplay 常用命令"))
+                            add(ItemSectionModel("ffmpeg 常用命令", 2, 1, true))
+                            add(ItemSectionModel("ffprobe 常用命令", 2, 2, true))
+                            add(ItemSectionModel("ffplay 常用命令", 2, 3, true))
                         }, itemAction))
                         add(ItemChapterModel("第 3 章 FFmpeg 转封装", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("音视频文件转 MP4 格式"))

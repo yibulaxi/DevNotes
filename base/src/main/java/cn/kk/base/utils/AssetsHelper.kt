@@ -55,9 +55,11 @@ object AssetsHelper {
            // region FFMpeg
            BaseItem.action_book_ffmpeg -> {
                 when(item.chapter_action) {
-                    1 -> {
+                    1, 2 -> {
                         when(item.section_action) {
-                            in 1..8 -> "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_1/1.".plus(item.section_action).plus(".md")
+                            in 1..8 -> ("https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1" +
+                                    "/chapter_" +
+                                    "${item.chapter_action}/${item.chapter_action}.").plus(item.section_action).plus(".md")
                             else -> { "" }
                         }
                     }
