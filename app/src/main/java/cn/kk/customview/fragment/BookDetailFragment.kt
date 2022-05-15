@@ -55,6 +55,11 @@ class BookDetailFragment: BaseFragment() {
                 mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
+                            // region Android 开发高手课
+                            BaseItem.action_book_android_dev_performance -> {
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
+                            }
+                            // endregion
                             // region cpp
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {
