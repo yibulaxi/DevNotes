@@ -18,6 +18,56 @@ class BookModelFactory {
             val chapterModelList = mutableListOf<ItemChapterModel>()
             val moreInfoList = mutableListOf<BaseMoreItem>()
             when(itemAction) {
+                // region Android 开发高手课
+                BaseItem.action_book_android_dev_performance -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("高质量开发", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("崩溃优化", 1, 1, true))
+                            add(ItemSectionModel("内存优化", 1, 2, true))
+                            add(ItemSectionModel("卡顿优化", 1, 3, true))
+                            add(ItemSectionModel("启动优化", 1, 4, true))
+                            add(ItemSectionModel("IO 优化", 1, 5, true))
+                            add(ItemSectionModel("存储优化", 1, 6, true))
+                            add(ItemSectionModel("网络优化", 1, 7, true))
+                            add(ItemSectionModel("耗电优化", 1, 8, true))
+                            add(ItemSectionModel("UI 优化", 1, 9, true))
+                            add(ItemSectionModel("包体积优化", 1, 10, true))
+                            add(ItemSectionModel("想成为 Android 高手，你需要先搞定这三个问题", 1, 11, true))
+                        }, itemAction))
+                        add(ItemChapterModel("高效开发", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("如何提升组织与个人的研发效能", 2, 1, true))
+                            add(ItemSectionModel("关于编译，你需要了解什么？", 2, 2, true))
+                            add(ItemSectionModel("编译插桩的三种方法: AspectJ、ASM、ReDex", 2, 3, true))
+                            add(ItemSectionModel("大数据与 AI，如何高效地测试？", 2, 4, true))
+                            add(ItemSectionModel("从每月到每天，如何给版本发布提速？", 2, 5, true))
+                            add(ItemSectionModel("数据评估", 2, 6, true))
+                            add(ItemSectionModel("线上疑难问题该如何排查和跟踪？", 2, 7, true))
+                            add(ItemSectionModel("做一名有高度的移动开发工程师", 2, 8, true))
+                        }, itemAction))
+                        add(ItemChapterModel("架构演进", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("聊聊重构：优秀的架构都是演进而来的", 3, 1, true))
+                            add(ItemSectionModel("Native Hook 技术，天使还是魔鬼？", 3, 2, true))
+                            add(ItemSectionModel("移动开发新大陆", 3, 3, true))
+                            add(ItemSectionModel("动态化实践，如何选择适合自己的方案？", 3, 4, true))
+                            add(ItemSectionModel("聊聊 Flutter，面对层出不穷的新技术该如何跟进？", 3, 5, true))
+                            add(ItemSectionModel("Android 开发高手课学习心得", 3, 6, true))
+                        }, itemAction))
+                        add(ItemChapterModel("让 Sample 跑起来", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("AMS 插桩强化练习", 4, 1, true))
+                        }, itemAction))
+                        add(ItemChapterModel("特别放送", mutableListOf<ItemSectionModel>().apply{
+                            add(ItemSectionModel("Android JVM TI 机制详解", 5, 1, true))
+                            add(ItemSectionModel("专栏学得苦？可能是方法没找对", 5, 2, true))
+                            add(ItemSectionModel("专栏学得苦？可能你还需要一套配套学习书单", 5, 3, true))
+                            add(ItemSectionModel("Native 下如何获取调用栈？", 5, 4, true))
+                            add(ItemSectionModel("聊聊 Framework 的学习方法", 5, 5, true))
+                            add(ItemSectionModel("Android 工程师的 “面试指南”", 5, 6, true))
+                            add(ItemSectionModel("程序员修炼之路，设计能力的提升途径", 5, 6, true))
+                        }, itemAction))
+                    }
+                    return BookModel("Android 开发高手课", itemAction, chapterModelList)
+                }
+                // endregion
                 // region 《Android 开发艺术探索》
                 BaseItem.action_book_android_dev_art -> {
                      chapterModelList.apply {
