@@ -179,10 +179,10 @@ class BookModelFactory {
 
                         // chapter 15
                         add(ItemChapterModel("第十五章 Android 性能优化", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("性能优化方法"))
-                            add(ItemSectionModel("内存泄漏分析之 MAT 工具"))
-                            add(ItemSectionModel("提高程序的可维护性"))
-                        }))
+                            add(ItemSectionModel("性能优化方法", 15, 1, true))
+                            add(ItemSectionModel("内存泄漏分析之 MAT 工具", 15, 2, true))
+                            add(ItemSectionModel("提高程序的可维护性", 15, 3, true))
+                        }, itemAction))
                     }
 
                     return BookModel("Android\n开发艺术探索", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_1 }

@@ -1,7 +1,7 @@
 ## 开发笔记整理
 
 ### 书籍
-
+-[Android 开发艺术探索](./doc/books/android_dev_art/readme.md)
 
 ### Android 相关
 - [架构](./doc/arch/README.md)

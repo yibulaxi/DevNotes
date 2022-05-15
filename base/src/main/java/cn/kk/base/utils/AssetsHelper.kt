@@ -36,6 +36,17 @@ object AssetsHelper {
                }
            // endregion
 
+           // region Android 开发艺术探索
+           BaseItem.action_book_android_dev_art -> {
+               // doc/books/android_dev_art/chapter_15/section_1.md
+               val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/android_dev_art"
+               val partPath = "/chapter_${item.chapter_action}"
+               val sectionPath = "/section_${item.section_action}.md"
+
+               bookBasePath.plus(partPath).plus(sectionPath)
+           }
+           // endregion
+
             // region cpp
             BaseItem.action_book_c_plus -> {
                 when(item.chapter_action) {
