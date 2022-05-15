@@ -28,7 +28,7 @@ object AssetsHelper {
 
            // region Android 开发高手课
                BaseItem.action_book_android_dev_performance -> {
-                   val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/masterdoc/android_dev_performance"
+                   val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/android_dev_performance"
                    val partPath = "/part_${item.chapter_action}"
                    val sectionPath = "/section_${item.section_action}.md"
 
