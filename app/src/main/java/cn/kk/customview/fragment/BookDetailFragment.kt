@@ -68,7 +68,7 @@ class BookDetailFragment: BaseFragment() {
                                             6 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_6.md"))
                                         }
                                     }
-                                    2 -> {
+                                    2, 3 -> { // chapter2 & chapter3
                                         // open markdown from online
                                         openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
                                     }
