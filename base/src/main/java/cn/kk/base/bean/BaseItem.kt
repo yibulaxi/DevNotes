@@ -32,7 +32,7 @@ abstract  class BaseItem: Serializable {
         val action_book_c = 216
         val action_book_kotlin = 217
         val action_book_android_dev_performance = 218 // Android 开发高手课
-        val action_book_19 = 219
+        val ACTION_BOOK_IDE = 219 // IDE
         val action_book_20 = 220
         // endregion
 

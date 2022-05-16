@@ -39,7 +39,7 @@ object AssetsHelper {
            // region Android 开发艺术探索
            BaseItem.action_book_android_dev_art -> {
                // doc/books/android_dev_art/chapter_15/section_1.md
-               val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/android_dev_art"
+               val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/books/android_dev_art"
                val partPath = "/chapter_${item.chapter_action}"
                val sectionPath = "/section_${item.section_action}.md"
 
@@ -98,6 +98,13 @@ object AssetsHelper {
                 }
            }
            // endregion
+
+           // region IDE
+           BaseItem.ACTION_BOOK_IDE -> {
+               "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/readme.md"
+           }
+           // endregion
+
            else -> { "" }
         }
 

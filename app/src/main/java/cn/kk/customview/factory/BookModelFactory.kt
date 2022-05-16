@@ -2128,6 +2128,18 @@ class BookModelFactory {
                     return BookModel("Kotlin 突破开发语言瓶颈", itemAction, chapterModelList)
                 }
                 // endregion
+
+                // region IDE
+                BaseItem.ACTION_BOOK_IDE -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("Android Studio", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("常见问题", 1, 1, true))
+                        }, itemAction))
+
+                    }
+                    return BookModel("IDE", itemAction, chapterModelList)
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)

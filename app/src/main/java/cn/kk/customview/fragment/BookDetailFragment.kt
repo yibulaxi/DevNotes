@@ -93,6 +93,12 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
                             }
                             // endregion
+
+                            // region IDE
+                            BaseItem.ACTION_BOOK_IDE -> {
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
+                            }
+                            // endregion
                         }
                     }
 
