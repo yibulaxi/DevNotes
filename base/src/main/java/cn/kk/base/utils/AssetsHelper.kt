@@ -101,7 +101,18 @@ object AssetsHelper {
 
            // region IDE
            BaseItem.ACTION_BOOK_IDE -> {
-               "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/readme.md"
+               when(item.chapter_action) {
+                   1 -> {
+                       when(item.section_action) {
+                           1 -> "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/android_studio/android_studio.md"
+                           2 -> "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/android_studio/as_1.md"
+
+                           else -> ""
+                       }
+                   }
+
+                   else -> ""
+               }
            }
            // endregion
 

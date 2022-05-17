@@ -1741,7 +1741,7 @@ class BookModelFactory {
                         add(ItemChapterModel("第 3 章 字符串、向量和数组", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("命名空间的 using 声明", 3, 1, true))
                             add(ItemSectionModel("标准库类型 string", 3, 2, true))
-                            add(ItemSectionModel("标准库类型 vector"))
+                            add(ItemSectionModel("标准库类型 vector", 3, 3, true))
                             add(ItemSectionModel("迭代器介绍"))
                             add(ItemSectionModel("数组"))
                             add(ItemSectionModel("多维数组"))
@@ -2134,6 +2134,7 @@ class BookModelFactory {
                     chapterModelList.apply {
                         add(ItemChapterModel("Android Studio", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("常见问题", 1, 1, true))
+                            add(ItemSectionModel("Gradle 插件", 1, 2, true))
                         }, itemAction))
 
                     }
