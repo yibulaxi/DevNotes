@@ -106,6 +106,7 @@ object AssetsHelper {
                        when(item.section_action) {
                            1 -> "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/android_studio/android_studio.md"
                            2 -> "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/android_studio/as_1.md"
+                           3 -> "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/ide/android_studio/as_2.md"
 
                            else -> ""
                        }

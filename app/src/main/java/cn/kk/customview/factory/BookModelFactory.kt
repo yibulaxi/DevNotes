@@ -2135,6 +2135,7 @@ class BookModelFactory {
                         add(ItemChapterModel("Android Studio", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("常见问题", 1, 1, true))
                             add(ItemSectionModel("Gradle 插件", 1, 2, true))
+                            add(ItemSectionModel("大量的类报红，但是能正常编译运行", 1, 3, true))
                         }, itemAction))
 
                     }
