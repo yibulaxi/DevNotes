@@ -20,12 +20,8 @@
 ---
 ### [音视频相关](./doc/av/README.md)
 
-- [音视频知识](./doc/av/README.md)
-- [Android 音视频开发](./doc/av/android_audio_video_dev/readme.md)
-
 ---
 
-### IDE
+### [IDE](./doc/ide/readme.md)
 
-- [IDE](./doc/ide/readme.md)
 

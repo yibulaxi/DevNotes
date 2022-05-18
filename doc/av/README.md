@@ -22,7 +22,7 @@
 
 ### 课程或书本
 
-- [搞定音频技术]()
+- [搞定音频技术- 极客时间](https://time.geekbang.org/column/article/447712)
 - [搞定视频技术]()
 - [极课时间，简介地址](https://time.geekbang.org/column/article/88846)
 - [音视频基础+ffmpeg原理 一课完成音视频技术开发入门](https://gitee.com/kamaihamaiha/AV_Part1.git)
