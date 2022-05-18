@@ -1742,7 +1742,7 @@ class BookModelFactory {
                             add(ItemSectionModel("命名空间的 using 声明", 3, 1, true))
                             add(ItemSectionModel("标准库类型 string", 3, 2, true))
                             add(ItemSectionModel("标准库类型 vector", 3, 3, true))
-                            add(ItemSectionModel("迭代器介绍"))
+                            add(ItemSectionModel("迭代器介绍", 3, 4, true))
                             add(ItemSectionModel("数组"))
                             add(ItemSectionModel("多维数组"))
                         }, itemAction))

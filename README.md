@@ -7,6 +7,8 @@
 - [架构](./doc/arch/README.md)
 - [混合开发](./doc/mix_dev/README.md)
 - [WindowInsets](./doc/window_insets.md)
+- [Material Design](./doc/material_design/readme.md)
+- [svg 相关](./doc/svg_note/README.md)
 
 #### 购买课程
 

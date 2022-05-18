@@ -7,7 +7,9 @@ import android.webkit.WebView
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.bean.BaseMoreItem
 import cn.kk.customview.R
+import cn.kk.customview.dialog.MoreInfoListBottomDialog
 import kotlinx.android.synthetic.main.activity_mix_dev.*
 
 /**
@@ -19,6 +21,15 @@ class MixDevActivity: BaseActivity() {
 
     override fun getLayout(): Int {
        return R.layout.activity_mix_dev
+    }
+
+    override fun showTitleMoreBtn(): Boolean = true
+
+    override fun onTitleMoreClick() {
+        val dialog = MoreInfoListBottomDialog(this, mutableListOf<BaseMoreItem>().apply {
+            add(BaseMoreItem("前端开发", "https://gitee.com/kamaihamaiha/h5/blob/master/README.md"))
+        })
+        dialog.show()
     }
 
     lateinit var webView: WebView
