@@ -18,6 +18,79 @@ class BookModelFactory {
             val chapterModelList = mutableListOf<ItemChapterModel>()
             val moreInfoList = mutableListOf<BaseMoreItem>()
             when(itemAction) {
+                // region audio video dev 音视频开发
+                BaseItem.ACTION_BOOK_AV_DEV -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("知识树", mutableListOf<ItemSectionModel>().apply {
+                             add(ItemSectionModel("音频和视频知识", 1, 1, true))
+                             add(ItemSectionModel("C & Cpp", 1, 2, true))
+                             add(ItemSectionModel("FFMpeg", 1, 2, true))
+                             add(ItemSectionModel("Linux", 1, 3, true))
+                             add(ItemSectionModel("WebRTC", 1, 4, true))
+                             add(ItemSectionModel("Android 上的音视频API", 1, 5, true))
+                             add(ItemSectionModel("JNI/NDK", 1, 6, true))
+                             add(ItemSectionModel("OpenGL 渲染", 1, 7, true))
+                             add(ItemSectionModel("libyuv", 1, 8, true))
+                             add(ItemSectionModel("Vulkan", 1, 9, true))
+                             add(ItemSectionModel("开发通用技能", 1, 10, true))
+                        }, itemAction))
+                        add(ItemChapterModel("课程或书本", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("搞定音频技术- 极客时间", 2, 1, true))
+                            add(ItemSectionModel("搞定视频技术", 2, 2, true))
+                            add(ItemSectionModel("极课时间，简介地址", 2, 2, true))
+                            add(ItemSectionModel("音视频基础+ffmpeg原理 一课完成音视频技术开发入门", 2, 2, true))
+                            add(ItemSectionModel("FFmpeg音视频核心技术全面精讲+实战（进阶）", 2, 2, true))
+                            add(ItemSectionModel("实时互动直播技术（进阶）", 2, 2, true))
+                            add(ItemSectionModel("企业级流媒体服务器设计与开发（高级", 2, 2, true))
+                            add(ItemSectionModel("《FFmpeg 从入门到精通》", 2, 2, true))
+                            add(ItemSectionModel("开发商业级热门短视频App 掌握Jetpack组件库", 2, 2, true))
+                        }, itemAction))
+                        add(ItemChapterModel("入门到提高 —— 任务列表", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("1. 在 Android 平台绘制一张图片，使用至少 3 种不同的 API，ImageView，SurfaceView，自定义 View", 3, 1, true))
+                            add(ItemSectionModel("2. 在 Android 平台使用 AudioRecord 和 AudioTrack API 完成音频 PCM 数据的采集和播放，并实现读写音频 wav 文件", 3, 2, true))
+                            add(ItemSectionModel("3. 在 Android 平台使用 Camera API 进行视频的采集，分别使用 SurfaceView、TextureView 来预览 Camera 数据，取到 NV21 的数据回调", 3, 2, true))
+                            add(ItemSectionModel("4. 学习 Android 平台的 MediaExtractor 和 MediaMuxer API，知道如何解析和封装 mp4 文件", 3, 2, true))
+                            add(ItemSectionModel("5. 学习 Android 平台 OpenGL ES API，了解 OpenGL 开发的基本流程，使用 OpenGL 绘制一个三角形", 3, 2, true))
+                            add(ItemSectionModel("6. 学习 Android 平台 OpenGL ES API，学习纹理绘制，能够使用 OpenGL 显示一张图片", 3, 2, true))
+                            add(ItemSectionModel("7. 学习 MediaCodec API，完成音频 AAC 硬编、硬解", 3, 2, true))
+                            add(ItemSectionModel("8. 学习 MediaCodec API，完成视频 H.264 的硬编、硬解", 3, 2, true))
+                            add(ItemSectionModel("9. 串联整个音视频录制流程，完成音视频的采集、编码、封包成 mp4 输出", 3, 2, true))
+                            add(ItemSectionModel("10. 串联整个音视频播放流程，完成 mp4 的解析、音视频的解码、播放和渲染", 3, 2, true))
+                            add(ItemSectionModel("11. 进一步学习 OpenGL，了解如何实现视频的剪裁、旋转、水印、滤镜，并学习 OpenGL 高级特性，如：VBO，VAO，FBO 等等", 3, 2, true))
+                            add(ItemSectionModel("12. 学习 Android 图形图像架构，能够使用 GLSurfaceviw 绘制 Camera 预览画面", 3, 2, true))
+                            add(ItemSectionModel("13. 深入研究音视频相关的网络协议，如 rtmp，hls，以及封包格式，如：flv，mp4", 3, 2, true))
+                            add(ItemSectionModel("14. 深入学习一些音视频领域的开源项目，如 webrtc，ffmpeg，ijkplayer，librtmp 等等", 3, 2, true))
+                            add(ItemSectionModel("15. 将 ffmpeg 库移植到 Android 平台，结合上面积累的经验，编写一款简易的音视频播放器", 3, 2, true))
+                            add(ItemSectionModel("16. 将 x264 库移植到 Android 平台，结合上面积累的经验，完成视频数据 H264 软编功能", 3, 2, true))
+                            add(ItemSectionModel("17. 将 librtmp 库移植到 Android 平台，结合上面积累的经验，完成 Android RTMP 推流功能", 3, 2, true))
+                            add(ItemSectionModel("18. 上面积累的经验，做一款短视频 APP，完成如：断点拍摄、添加水印、本地转码、视频剪辑、视频拼接、MV 特效等功能", 3, 2, true))
+                        }, itemAction))
+                        add(ItemChapterModel("开源项目", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("grafika", 4, 1, true))
+                            add(ItemSectionModel("android-gpuimage", 4, 2, true))
+                            add(ItemSectionModel("AudioVideoRecordingSample", 4, 2, true))
+                            add(ItemSectionModel("ijkplayer", 4, 2, true))
+                            add(ItemSectionModel("ExoPlayer", 4, 2, true))
+                        }, itemAction))
+                        add(ItemChapterModel("行业大佬", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("glums", 5, 1, true))
+                            add(ItemSectionModel("李超", 5, 1, true))
+                            add(ItemSectionModel("Jhuster", 5, 2, true))
+                            add(ItemSectionModel("雷霄骅", 5, 2, true))
+                        }, itemAction))
+                        add(ItemChapterModel("Android 官方文档", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("文档", 6, 1, true))
+                        }, itemAction))
+                        add(ItemChapterModel("其他", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("入门的技术博客", 7, 1, true))
+                            add(ItemSectionModel("流媒体开发主要工作内容", 7, 2, true))
+                            add(ItemSectionModel("音视频基础 148 题", 7, 2, true))
+                            add(ItemSectionModel("glums 公众号(音视频开发进阶)开放的 播放器实战项目", 7, 2, true))
+                        }, itemAction))
+                    }
+                    return BookModel("音视频开发", itemAction, chapterModelList)
+                }
+                // endregion
                 // region Android 开发高手课
                 BaseItem.action_book_android_dev_performance -> {
                     chapterModelList.apply {

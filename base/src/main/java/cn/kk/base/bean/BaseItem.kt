@@ -33,7 +33,7 @@ abstract  class BaseItem: Serializable {
         val action_book_kotlin = 217
         val action_book_android_dev_performance = 218 // Android 开发高手课
         val ACTION_BOOK_IDE = 219 // IDE
-        val action_book_20 = 220
+        val ACTION_BOOK_AV_DEV = 220        // 音视频开发
         // endregion
 
         // region normal chapter and section

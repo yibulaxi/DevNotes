@@ -61,6 +61,11 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
                             }
                             // endregion
+                            // region 音视频开发
+                            BaseItem.ACTION_BOOK_AV_DEV -> {
+
+                            }
+                            // endregion
                             // region Android 开发艺术探索
                             BaseItem.action_book_android_dev_art -> {
                                 val url = AssetsHelper.getMarkdownURL(bookType, item)
