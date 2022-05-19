@@ -1816,7 +1816,7 @@ class BookModelFactory {
                             add(ItemSectionModel("标准库类型 string", 3, 2, true))
                             add(ItemSectionModel("标准库类型 vector", 3, 3, true))
                             add(ItemSectionModel("迭代器介绍", 3, 4, true))
-                            add(ItemSectionModel("数组"))
+                            add(ItemSectionModel("数组", 3, 5, true))
                             add(ItemSectionModel("多维数组"))
                         }, itemAction))
                         add(ItemChapterModel("第 4 章 表达式", mutableListOf<ItemSectionModel>().apply {
