@@ -2,6 +2,7 @@ package cn.kk.customview.ui.work
 
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.SystemHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_expand_view_touch.*
 
@@ -18,9 +19,11 @@ class ExpandViewTouchDemo: BaseActivity() {
 
         tv_expand_before.setOnClickListener {
             showToast("click")
+            SystemHelper.vibrate(mSelf, 200)
         }
         tv_expand_after.setOnClickListener {
             showToast("click...")
+            SystemHelper.vibrate(mSelf, 200)
         }
     }
 }
