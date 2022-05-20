@@ -8,6 +8,7 @@ import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
 import cn.kk.customview.ui.system.HtmlText
+import cn.kk.customview.ui.work.ExpandViewTouchDemo
 import cn.kk.customview.ui.work.MenuDemoActivity
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
 
@@ -27,6 +28,7 @@ class WorkActivity: NormalCardListActivity() {
             add(ItemSimpleCard("菜单 使用总结", true).apply { item_action = BaseItem.ACTION_MORE_WORK_MENU })
             add(ItemSimpleCard("EditText/TextView 高亮文本", true).apply { item_action = BaseItem.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT })
             add(ItemSimpleCard("TextView 显示 html 格式", true).apply { item_action = BaseItem.ACTION_MORE_WORK_TEXTVIEW_HTML })
+            add(ItemSimpleCard("扩大 View 点击范围", true).apply { item_action = BaseItem.ACTION_MORE_WORK_EXPAND_VIEW_CLICK })
         }
     }
 
@@ -37,6 +39,7 @@ class WorkActivity: NormalCardListActivity() {
             BaseItem.ACTION_MORE_WORK_MENU -> openNextUI(MenuDemoActivity::class.java, item.title, BaseTabActivity.TabType.SystemUI.MENU_TYPE)
             BaseItem.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT -> openNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_HIGHLIGHT)
             BaseItem.ACTION_MORE_WORK_TEXTVIEW_HTML -> openNextUI(HtmlText::class.java, item.title)
+            BaseItem.ACTION_MORE_WORK_EXPAND_VIEW_CLICK -> openNextUI(ExpandViewTouchDemo::class.java, item.title)
         }
     }
 

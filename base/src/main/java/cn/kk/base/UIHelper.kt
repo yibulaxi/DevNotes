@@ -4,10 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Point
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.SpannableString
@@ -15,13 +12,13 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
+import android.view.TouchDelegate
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.kk.base.utils.PatternHelper
-import java.util.regex.Matcher
 
 
 object UIHelper {
@@ -222,5 +219,30 @@ object UIHelper {
         }
         return bitmap
     }
+    // endregion
+
+    // region click
+
+    /**
+     * 扩大控件大点击范围
+     * @param view
+     * @param expendSize
+     */
+    fun expendTouchArea(view: View?, expendSize: Int) {
+        if (view != null) {
+            val parentView = view.parent as View
+            parentView.post {
+                val rect = Rect()
+                //如果太早执行本函数，会获取rect失败，因为此时UI界面尚未开始绘制，无法获得正确的坐标
+                view.getHitRect(rect)
+                rect.left -= expendSize
+                rect.top -= expendSize
+                rect.right += expendSize
+                rect.bottom += expendSize
+                parentView.touchDelegate = TouchDelegate(rect, view)
+            }
+        }
+    }
+
     // endregion
 }
