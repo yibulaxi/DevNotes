@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.kk.av.task_list.Task1DrawPicture
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
@@ -63,7 +64,14 @@ class BookDetailFragment: BaseFragment() {
                             // endregion
                             // region 音视频开发
                             BaseItem.ACTION_BOOK_AV_DEV -> {
-
+                                when(item.chapter_action) {
+                                    3 -> {
+                                        when(item.section_action) {
+                                            // 三种方式绘制 Bitmap
+                                            1 -> startNextUI(Task1DrawPicture::class.java, item.title)
+                                        }
+                                    }
+                                }
                             }
                             // endregion
                             // region Android 开发艺术探索
