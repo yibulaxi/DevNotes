@@ -60,6 +60,7 @@ class ItemFolderView(context: Context, attributeSet: AttributeSet) :
                 holder.getView<TextView>(R.id.tv_item_home_name).apply {
                     textSize = 14f
                     text = item.title
+                    isSelected = true
                     setTextColor(ContextCompat.getColor(context, R.color.ForestGreen))
                 }
             }
