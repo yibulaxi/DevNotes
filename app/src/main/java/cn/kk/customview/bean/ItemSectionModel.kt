@@ -1,5 +1,6 @@
 package cn.kk.customview.bean
 
+import cn.kk.base.utils.AssetsHelper
 import java.io.Serializable
 
 class ItemSectionModel(val title: String): BaseItem(), Serializable {
@@ -14,4 +15,7 @@ class ItemSectionModel(val title: String): BaseItem(), Serializable {
         super.finishTag = finishTag
     }
 
+    fun getMarkdownFileUrl(bookType: Int): String {
+       return AssetsHelper.getMarkdownURL(bookType , this)
+    }
 }

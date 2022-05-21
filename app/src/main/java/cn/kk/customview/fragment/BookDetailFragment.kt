@@ -75,19 +75,10 @@ class BookDetailFragment: BaseFragment() {
                             // region cpp
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {
-                                    1 -> { // chapter1
-                                        when(item.section_action) {
-                                            1 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_1.md"))
-                                            2 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_2.md"))
-                                            3 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_3.md"))
-                                            4 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_4.md"))
-                                            5 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_5.md"))
-                                            6 -> openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownFilePath("cpp/chapter_1/section_6.md"))
-                                        }
-                                    }
-                                    2, 3 -> { // chapter2 & chapter3
+                                    1, 2, 3 -> { //chapter1 chapter2 & chapter3
                                         // open markdown from online
-                                        openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
+                                        val markdownURL = AssetsHelper.getMarkdownURL(bookType, item)
+                                        openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownURL, false)
                                     }
                                 }
                             }
@@ -101,7 +92,7 @@ class BookDetailFragment: BaseFragment() {
 
                             // region IDE
                             BaseItem.ACTION_BOOK_IDE -> {
-                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, AssetsHelper.getMarkdownURL(bookType, item), false)
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.getMarkdownFileUrl(bookType), false)
                             }
                             // endregion
                         }

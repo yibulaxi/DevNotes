@@ -49,29 +49,8 @@ object AssetsHelper {
 
             // region cpp
             BaseItem.action_book_c_plus -> {
-                when(item.chapter_action) {
-
-                    2 -> { // chapter2
-                        when(item.section_action) {
-                            // section 1
-                            1 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_1.md"
-                            2 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_2.md"
-                            3 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_3.md"
-                            4 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_4.md"
-                            5 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_5.md"
-                            6 ->  "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_2/section_6.md"
-
-                            else -> { ""}
-                        }
-                    }
-                    3 -> {
-                        "https://gitee.com/kamaihamaiha/study_-for_-cpp/blob/master/doc/chapter_3/section_${item.section_action}.md"
-                    }
-
-                    else -> {
-                        ""
-                    }
-                }
+                val repPreUrl = "https://github.com/kamaihamaiha/StudyForCpp/blob/master/doc/"
+                repPreUrl.plus("chapter_${item.chapter_action}/section_${item.section_action}.md")
             }
             // endregion
 
