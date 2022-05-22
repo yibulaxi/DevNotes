@@ -138,6 +138,7 @@
 
         <!--Audio & Video-->
         <activity android:name="cn.kk.av.task_list.Task1DrawPicture"/>
+        <activity android:name="cn.kk.av.task_list.Task2AudioRecord"/>
 
     </application>
 

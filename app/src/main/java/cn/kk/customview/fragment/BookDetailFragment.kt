@@ -6,6 +6,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.av.task_list.Task1DrawPicture
+import cn.kk.av.task_list.Task2AudioRecord
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
@@ -69,6 +70,7 @@ class BookDetailFragment: BaseFragment() {
                                         when(item.section_action) {
                                             // 三种方式绘制 Bitmap
                                             1 -> startNextUI(Task1DrawPicture::class.java, item.title)
+                                            2 -> startNextUI(Task2AudioRecord::class.java, item.title)
                                         }
                                     }
                                 }
