@@ -12,6 +12,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="audio_record_start">录音</string>
+    <string name="audio_record_stop">停止</string>
+    <string name="audio_play_pcm_start">播放 PCM</string>
+    <string name="audio_play_wav_start">播放 Wav</string>
+    <string name="audio_play_stop">停止</string>
+
     <string name="delete">删除</string>
     <string name="not_yet">还没做...</string>
     <string name="section_count">（%d 篇）</string>

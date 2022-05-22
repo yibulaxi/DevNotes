@@ -5,6 +5,8 @@ import java.util.*;
 
 public class DateHelper {
 
+    private volatile boolean good = false;
+
     /**
      * 根据地区和语言，获取本地化的日期。
      * @param language
@@ -85,7 +87,7 @@ public class DateHelper {
         for (Map.Entry<Integer, Integer> entry : dayOfWeek.entrySet()) {
             System.out.println("星期 " + entry.getKey() + " -> " + entry.getValue());
         }*/
-
+        byte[] data = new byte[4];
         System.out.println(getDay());
 
     }
