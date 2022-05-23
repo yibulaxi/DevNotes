@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_texture_view"
+        android:title="@string/camera_preview_texture_view"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_surface_view"
+        android:title="@string/camera_preview_surface_view"
+        app:showAsAction="never" />
+</menu>

@@ -31,7 +31,7 @@
     <style name="Base.Theme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <!--生效范围：Context Menu bg color 其他还不知道-->
-        <item name="android:itemBackground">@color/Orange</item>
+        <item name="android:itemBackground">?android:selectableItemBackground</item>
         <item name="android:actionMenuTextColor">@color/teal</item>
         <!--生效范围：Context Menu text color 其他还不知道-->
         <item name="android:textColor">@color/teal</item>

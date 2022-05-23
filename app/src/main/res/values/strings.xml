@@ -18,6 +18,9 @@
     <string name="audio_play_wav_start">播放 Wav</string>
     <string name="audio_play_stop">停止</string>
 
+    <string name="camera_preview_texture_view">TextureView 预览</string>
+    <string name="camera_preview_surface_view">SurfaceView 预览</string>
+
     <string name="delete">删除</string>
     <string name="not_yet">还没做...</string>
     <string name="section_count">（%d 篇）</string>
