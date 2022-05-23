@@ -1,20 +1,22 @@
 package cn.kk.av.task_list.task3
 
+import android.content.Intent
 import android.graphics.*
 import android.hardware.Camera
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
-import android.view.MenuItem
+import android.view.SurfaceHolder
+import android.view.SurfaceView
 import android.view.TextureView
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.BitmapHelper
 import cn.kk.base.utils.ThreadHelper
 import cn.kk.customview.R
-import okhttp3.internal.wait
 import java.io.ByteArrayOutputStream
 
 /**
@@ -28,20 +30,23 @@ class Task3CameraPreview: BaseActivity() {
         return R.layout.activity_task3_camera_preview
     }
 
+    val PREVIEW_MODE_KEY = "preview_mode"
     val PREVIEW_TEXTURE_VIEW_MODE = 1
     val PREVIEW_SURFACE_VIEW_MODE = 2
 
     // 预览模式
     private var previewMode = PREVIEW_TEXTURE_VIEW_MODE
-    private lateinit var camera: Camera
-    private var frameData: ByteArray? = null
+    private var mCamera: Camera? = null
+    private var previewSize: Camera.Size?= null
 
-    private lateinit var cameraView: TextureView
+    private lateinit var cameraTextureView: TextureView
+    private lateinit var cameraSurfaceView: SurfaceView
     private lateinit var imgFrame: ImageView
     private lateinit var previewModeTip: TextView
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
+
 
         // config toolbar
         baseToolbar?.setBackgroundColor(ContextCompat.getColor(this, R.color.primary_20))
@@ -50,13 +55,14 @@ class Task3CameraPreview: BaseActivity() {
             when (item?.itemId) {
                 R.id.menu_texture_view -> {
                     if (previewMode == PREVIEW_TEXTURE_VIEW_MODE) false
-
-                    previewMode = PREVIEW_TEXTURE_VIEW_MODE
+                    finish()
+                    startActivity(Intent(this, Task3CameraPreview::class.java).apply { putExtra(PREVIEW_MODE_KEY, PREVIEW_TEXTURE_VIEW_MODE) })
                 }
                 R.id.menu_surface_view -> {
                     if (previewMode == PREVIEW_SURFACE_VIEW_MODE) false
-
-                    previewMode = PREVIEW_SURFACE_VIEW_MODE
+                    finish()
+                    startActivity(Intent(mSelf, Task3CameraPreview::class.java).apply { putExtra(PREVIEW_MODE_KEY, PREVIEW_SURFACE_VIEW_MODE) })
+                    true
                 }
                 else -> {}
             }
@@ -65,44 +71,64 @@ class Task3CameraPreview: BaseActivity() {
 
 
         previewModeTip = findViewById(R.id.tv_preview_mode)
-        cameraView = findViewById(R.id.texture_view)
+        cameraTextureView = findViewById(R.id.texture_view)
+        cameraSurfaceView = findViewById(R.id.surface_view)
         imgFrame = findViewById(R.id.iv_frame)
 
-
+        previewMode = intent.getIntExtra(PREVIEW_MODE_KEY, PREVIEW_TEXTURE_VIEW_MODE)
         showPreviewModeTip()
 
-        cameraView.surfaceTextureListener = mSurfaceTextureListener
+        if (previewMode == PREVIEW_TEXTURE_VIEW_MODE) {
+            cameraTextureView.surfaceTextureListener = mSurfaceTextureListener
+        } else {
+            cameraTextureView.visibility = View.GONE
+            cameraSurfaceView.visibility = View.VISIBLE
+            cameraSurfaceView.holder.addCallback(mSurfaceHolderCallback)
+        }
 
-        camera = Camera.open(1)
-        camera.setDisplayOrientation(90)
+        // open Camera
+        mCamera = Camera.open(1)
+        mCamera?.setDisplayOrientation(90)
     }
 
-    fun showPreviewModeTip(){
+    override fun onDestroy() {
+        super.onDestroy()
+        mCamera?.setPreviewCallback(null)
+        mCamera?.stopPreview()
+        mCamera?.release()
+        mCamera = null
+    }
+
+
+   private fun showPreviewModeTip(){
         previewModeTip.text = if(previewMode == PREVIEW_TEXTURE_VIEW_MODE) getString(R.string.camera_preview_texture_view) else getString(R.string.camera_preview_surface_view)
     }
 
+    // TextureView 用
     private val mSurfaceTextureListener = object: TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
 
-            camera.setPreviewTexture(surface)
-            camera.setPreviewCallback(object : Camera.PreviewCallback{
+            mCamera?.setPreviewTexture(surface)
+            mCamera?.setPreviewCallback(object : Camera.PreviewCallback{
                 override fun onPreviewFrame(data: ByteArray?, camera: Camera?) {
                     if (data == null || camera == null) return
 
                     ThreadHelper.runTask {
-                        val previewSize = camera.parameters.previewSize
+                        if (previewSize == null) {
+                            previewSize = camera.parameters.previewSize
+                        }
                         val yuvImage = YuvImage(
                             data,
                             ImageFormat.NV21,
-                            previewSize.width,
-                            previewSize.height,
+                            previewSize!!.width,
+                            previewSize!!.height,
                             null
                         )
                         val baos = ByteArrayOutputStream()
 
                         // yuv 转 jpg
                         yuvImage.compressToJpeg(
-                            Rect(0, 0, previewSize.width, previewSize.height),
+                            Rect(0, 0, previewSize!!.width, previewSize!!.height),
                             100,
                             baos
                         )
@@ -123,16 +149,16 @@ class Task3CameraPreview: BaseActivity() {
                 }
 
             })
-            camera.startPreview()
+            mCamera?.startPreview()
 
             // 支持分辨率
-            val sizes = camera.parameters.supportedPictureSizes
-            sizes.forEach {
+            val sizes = mCamera?.parameters?.supportedPictureSizes
+            sizes?.forEach {
                 Log.d(TAG, "支持分辨率: ${it.width} * ${it.height}")
             }
             // 预览分辨率
-            val previewSize = camera.parameters.previewSize
-            Log.d(TAG, "预览分辨率: ${previewSize.width} * ${previewSize.height}")
+            val previewSize = mCamera?.parameters?.previewSize
+            Log.d(TAG, "预览分辨率: ${previewSize?.width} * ${previewSize?.height}")
 
             // 镜像设置
             val matrix = Matrix()
@@ -146,12 +172,33 @@ class Task3CameraPreview: BaseActivity() {
         }
 
         override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
-            camera.release()
+            mCamera?.setPreviewCallback(null)
+            mCamera?.stopPreview()
+            mCamera?.release()
+            mCamera = null
             return false
         }
 
         override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
             // todo
+        }
+
+    }
+
+    private val mSurfaceHolderCallback = object: SurfaceHolder.Callback {
+        override fun surfaceCreated(holder: SurfaceHolder) {
+            mCamera?.setPreviewDisplay(holder)
+            mCamera?.startPreview()
+        }
+
+        override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
+        }
+
+        override fun surfaceDestroyed(holder: SurfaceHolder) {
+            mCamera?.setPreviewCallback(null)
+            mCamera?.stopPreview()
+            mCamera?.release()
+            mCamera = null
         }
 
     }
