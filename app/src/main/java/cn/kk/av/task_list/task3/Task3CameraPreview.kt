@@ -109,46 +109,7 @@ class Task3CameraPreview: BaseActivity() {
         override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
 
             mCamera?.setPreviewTexture(surface)
-            mCamera?.setPreviewCallback(object : Camera.PreviewCallback{
-                override fun onPreviewFrame(data: ByteArray?, camera: Camera?) {
-                    if (data == null || camera == null) return
-
-                    ThreadHelper.runTask {
-                        if (previewSize == null) {
-                            previewSize = camera.parameters.previewSize
-                        }
-                        val yuvImage = YuvImage(
-                            data,
-                            ImageFormat.NV21,
-                            previewSize!!.width,
-                            previewSize!!.height,
-                            null
-                        )
-                        val baos = ByteArrayOutputStream()
-
-                        // yuv 转 jpg
-                        yuvImage.compressToJpeg(
-                            Rect(0, 0, previewSize!!.width, previewSize!!.height),
-                            100,
-                            baos
-                        )
-                        val imgBytes = baos.toByteArray()
-
-                        // ImageByte 转  bitmap
-                        val options = BitmapFactory.Options()
-                            .apply { inPreferredConfig = Bitmap.Config.RGB_565 }
-                        val bitmap =
-                            BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.size, options)
-                        // bitmap 需要旋转角度
-                        val correctBitmap = BitmapHelper.rotateBitmap(bitmap, -90f)
-
-                        ThreadHelper.runOnUIThread { imgFrame.setImageBitmap(correctBitmap) }
-                    }
-
-
-                }
-
-            })
+            mCamera?.setPreviewCallback(mPreviewCallback)
             mCamera?.startPreview()
 
             // 支持分辨率
@@ -185,9 +146,52 @@ class Task3CameraPreview: BaseActivity() {
 
     }
 
+    /**
+     * Camera 预览回调
+     */
+    private val mPreviewCallback = object : Camera.PreviewCallback {
+        override fun onPreviewFrame(data: ByteArray?, camera: Camera?) {
+            if (data == null || camera == null) return
+
+            ThreadHelper.runTask {
+                if (previewSize == null) {
+                    previewSize = camera.parameters.previewSize
+                }
+                val yuvImage = YuvImage(
+                    data,
+                    ImageFormat.NV21,
+                    previewSize!!.width,
+                    previewSize!!.height,
+                    null
+                )
+                val baos = ByteArrayOutputStream()
+
+                // yuv 转 jpg
+                yuvImage.compressToJpeg(
+                    Rect(0, 0, previewSize!!.width, previewSize!!.height),
+                    100,
+                    baos
+                )
+                val imgBytes = baos.toByteArray()
+
+                // ImageByte 转  bitmap
+                val options = BitmapFactory.Options()
+                    .apply { inPreferredConfig = Bitmap.Config.RGB_565 }
+                val bitmap =
+                    BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.size, options)
+                // bitmap 需要旋转角度
+                val correctBitmap = BitmapHelper.rotateBitmap(bitmap, -90f)
+
+                ThreadHelper.runOnUIThread { imgFrame.setImageBitmap(correctBitmap) }
+            }
+        }
+
+    }
+
     private val mSurfaceHolderCallback = object: SurfaceHolder.Callback {
         override fun surfaceCreated(holder: SurfaceHolder) {
             mCamera?.setPreviewDisplay(holder)
+            mCamera?.setPreviewCallback(mPreviewCallback)
             mCamera?.startPreview()
         }
 
