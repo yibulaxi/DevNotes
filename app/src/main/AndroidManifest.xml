@@ -3,11 +3,15 @@
     package="cn.kk.customview">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="com.android.hardware.Camera"/>
+    <uses-feature android:name="com.android.hardware.Camera.autofocus"/>
 
     <application
         android:name=".MyApp"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/icon_cat"
         android:label="@string/app_name"
         android:roundIcon="@drawable/app_icon"
@@ -139,6 +143,7 @@
         <!--Audio & Video-->
         <activity android:name="cn.kk.av.task_list.Task1DrawPicture"/>
         <activity android:name="cn.kk.av.task_list.Task2AudioRecord"/>
+        <activity android:name="cn.kk.av.task_list.task3.Task3CameraPreview"/>
 
     </application>
 
