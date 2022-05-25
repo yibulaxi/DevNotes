@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.20"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.35"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <Button
+        android:id="@+id/btn_extra_video"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:text="抽取视频"
+        app:layout_constraintTop_toTopOf="@id/guide_line_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <Button
+        android:id="@+id/btn_extra_audio"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:text="抽取音频"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guide_line_2" />
+
+    <Button
+        android:id="@+id/btn_mux_audio_video"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:text="合成音视频"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guide_line_3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.av.task_list.Task1DrawPicture
 import cn.kk.av.task_list.Task2AudioRecord
+import cn.kk.av.task_list.Task4MediaExtractor
 import cn.kk.av.task_list.task3.Task3CameraPreview
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
@@ -73,6 +74,7 @@ class BookDetailFragment: BaseFragment() {
                                             1 -> startNextUI(Task1DrawPicture::class.java, item.title)
                                             2 -> startNextUI(Task2AudioRecord::class.java, item.title)
                                             3 -> startNextUI(Task3CameraPreview::class.java, item.title)
+                                            4 -> startNextUI(Task4MediaExtractor::class.java, item.title)
                                         }
                                     }
                                 }

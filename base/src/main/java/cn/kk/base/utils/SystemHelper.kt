@@ -2,6 +2,7 @@ package cn.kk.base.utils
 
 import android.app.Service
 import android.content.Context
+import android.os.Environment
 import android.os.Vibrator
 
 object SystemHelper {
@@ -21,5 +22,9 @@ object SystemHelper {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    fun getSdcardPath(): String{
+        return Environment.getExternalStorageDirectory().path
     }
 }

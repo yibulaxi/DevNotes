@@ -96,8 +96,6 @@ class Task2AudioRecord: BaseActivity() {
 
     private fun checkPermissions(){
         //6.0 动态权限判断
-
-        //6.0 动态权限判断
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             for (i in permissions.indices) {
                 if (ContextCompat.checkSelfPermission(applicationContext, permissions.get(i))

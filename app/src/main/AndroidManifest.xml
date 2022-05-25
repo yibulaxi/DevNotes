@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.kk.customview">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-feature android:name="com.android.hardware.Camera"/>
@@ -144,6 +146,7 @@
         <activity android:name="cn.kk.av.task_list.Task1DrawPicture"/>
         <activity android:name="cn.kk.av.task_list.Task2AudioRecord"/>
         <activity android:name="cn.kk.av.task_list.task3.Task3CameraPreview"/>
+        <activity android:name="cn.kk.av.task_list.Task4MediaExtractor"/>
 
     </application>
 

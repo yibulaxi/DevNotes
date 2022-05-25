@@ -4,5 +4,5 @@ ext {
 
     appCompileSdkVersion = 30
     appMinSdkVersion = 21
-    appTargetSdkVersion = 30
+    appTargetSdkVersion = 26
 }
