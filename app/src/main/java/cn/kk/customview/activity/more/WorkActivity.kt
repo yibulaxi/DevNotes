@@ -4,6 +4,7 @@ import cn.kk.customview.R
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalCardListActivity
 import cn.kk.customview.activity.NormalViewActivity
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.ItemSimpleCard
 import cn.kk.customview.bean.SimpleWikiModel
@@ -29,6 +30,10 @@ class WorkActivity: NormalCardListActivity() {
             add(ItemSimpleCard("EditText/TextView 高亮文本", true).apply { item_action = BaseItem.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT })
             add(ItemSimpleCard("TextView 显示 html 格式", true).apply { item_action = BaseItem.ACTION_MORE_WORK_TEXTVIEW_HTML })
             add(ItemSimpleCard("扩大 View 点击范围", true).apply { item_action = BaseItem.ACTION_MORE_WORK_EXPAND_VIEW_CLICK })
+            add(ItemSimpleCard("Adapter 数据源改变，无法刷新", true).apply {
+                item_action = BaseItem.ACTION_MORE_WORK_ADAPTER_LIST
+                web_url = "https://www.jianshu.com/p/aa23911c6681"
+            })
         }
     }
 
@@ -40,6 +45,7 @@ class WorkActivity: NormalCardListActivity() {
             BaseItem.ACTION_MORE_WORK_TEXTVIEW_HIGHLIGHT -> openNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_HIGHLIGHT)
             BaseItem.ACTION_MORE_WORK_TEXTVIEW_HTML -> openNextUI(HtmlText::class.java, item.title)
             BaseItem.ACTION_MORE_WORK_EXPAND_VIEW_CLICK -> openNextUI(ExpandViewTouchDemo::class.java, item.title)
+            BaseItem.ACTION_MORE_WORK_ADAPTER_LIST -> openNextUI(NormalWebViewActivity::class.java, item.title, -1, item.web_url)
         }
     }
 
