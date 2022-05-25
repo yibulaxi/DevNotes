@@ -17,7 +17,6 @@ import cn.kk.base.activity.BaseActivity
 import cn.kk.base.utils.SystemHelper
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_task4_meida_extractor.*
-import java.io.IOException
 import java.nio.ByteBuffer
 
 /**
@@ -32,21 +31,22 @@ class Task4MediaExtractor: BaseActivity() {
     private val SDCARD_PATH = Environment.getExternalStorageDirectory().path
     val INPUT_FILE_PATH = SystemHelper.getSdcardPath().plus("/input.mp4")
     val OUTPUT_VIDEO_FILE_PATH = SystemHelper.getSdcardPath().plus("/output_video.mp4")
+    val OUTPUT_AUDIO_FILE_PATH = SystemHelper.getSdcardPath().plus("/output_audio.mp3")
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
         checkPermissions()
 
-        btn_extra_video.setOnClickListener { extractorVideoData() }
-        btn_extra_audio.setOnClickListener { }
+        btn_extra_video.setOnClickListener { extractorVideoOrVideoData(true) }
+        btn_extra_audio.setOnClickListener { extractorVideoOrVideoData(false) }
         btn_mux_audio_video.setOnClickListener {  }
     }
 
     /**
      * 抽取视频
      */
-    private fun extractorVideoData(){
+    private fun extractorVideoOrVideoData(video: Boolean){
         val mediaExtractor = MediaExtractor()
         var mediaMuxer: MediaMuxer?=null
         // 轨道索引
@@ -59,7 +59,7 @@ class Task4MediaExtractor: BaseActivity() {
             for (i in 0 until trackCount) {
                 // 视频轨道格式信息
                 val trackFormat = mediaExtractor.getTrackFormat(i)
-                if (trackFormat.getString(MediaFormat.KEY_MIME)!!.startsWith("video/")) {
+                if (trackFormat.getString(MediaFormat.KEY_MIME)!!.startsWith(if(video) "video/" else "audio/")) {
                     // 该轨道是视频轨道？会不会多次赋值，那是什么情况呢？？？
                     videoTrackIndex = i
                 }
@@ -71,7 +71,7 @@ class Task4MediaExtractor: BaseActivity() {
             // 视频轨道格式信息
             val trackFormat = mediaExtractor.getTrackFormat(videoTrackIndex)
 
-            mediaMuxer = MediaMuxer(OUTPUT_VIDEO_FILE_PATH, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
+            mediaMuxer = MediaMuxer(if(video) OUTPUT_VIDEO_FILE_PATH else OUTPUT_AUDIO_FILE_PATH, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
 
             // 添加媒体通道
             val trackIndex = mediaMuxer.addTrack(trackFormat)
@@ -138,9 +138,18 @@ class Task4MediaExtractor: BaseActivity() {
             mediaExtractor.release()
             mediaMuxer.release()
 
-            Toast.makeText(this, "抽取视频完成: count=${count}, size=${size}", Toast.LENGTH_LONG).show()
+            if (video) {
+                Toast.makeText(this, "抽取视频完成: count=${count}, size=${size}", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "抽取音频完成: count=${count}, size=${size}", Toast.LENGTH_LONG).show()
+            }
         } catch (e: Exception) {
-            showToast("抽取视频失败：${e.toString()}")
+            if (video) {
+                showToast("抽取视频失败：${e.toString()}")
+            } else {
+                showToast("抽取音频失败：${e.toString()}")
+            }
+
         }
     }
 
