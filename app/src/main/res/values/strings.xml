@@ -156,6 +156,10 @@
 
     <string name="html_ting"><![CDATA[<html><font color=\'#F83D54\'>红色</font>代表发音有待提高，<font color=\'#969EA7\'>灰色</font>代表发音还行，<font color=\'#7ED321\'>绿色</font>代表发音很好</html>]]></string>
 
+    <string name="recite_learning_progress_new_word">
+        <![CDATA[答对&nbsp;<font color=\'#7ED321\'>%d</font>&nbsp;&nbsp;|&nbsp;&nbsp;答错&nbsp;<font color=\'#F83D54\'>%d</font>&nbsp;&nbsp;|&nbsp;&nbsp;未作答&nbsp;<font color=\'#969EA7\'>%d</font>]]>
+    </string>
+
     <string name="appwidget_text">简单的一个桌面小组件</string>
     <string name="appwidget_text_night">简单的一个桌面小组件-夜间</string>
     <string name="appwidget_day">小组件-白天</string>
