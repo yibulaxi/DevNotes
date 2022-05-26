@@ -32,6 +32,7 @@ class Task4MediaExtractor: BaseActivity() {
     val INPUT_FILE_PATH = SystemHelper.getSdcardPath().plus("/input.mp4")
     val OUTPUT_VIDEO_FILE_PATH = SystemHelper.getSdcardPath().plus("/output_video.mp4")
     val OUTPUT_AUDIO_FILE_PATH = SystemHelper.getSdcardPath().plus("/output_audio.mp3")
+    val OUTPUT_MUXER_MEDIA_FILE_PATH = SystemHelper.getSdcardPath().plus("/output_media.mp4")
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -40,7 +41,7 @@ class Task4MediaExtractor: BaseActivity() {
 
         btn_extra_video.setOnClickListener { extractorVideoOrVideoData(true) }
         btn_extra_audio.setOnClickListener { extractorVideoOrVideoData(false) }
-        btn_mux_audio_video.setOnClickListener {  }
+        btn_mux_audio_video.setOnClickListener { muxerVideoAndVideo() }
     }
 
     /**
@@ -153,31 +154,118 @@ class Task4MediaExtractor: BaseActivity() {
         }
     }
 
+    /**
+     * 合成音视频
+     */
+    private fun muxerVideoAndVideo() {
+        try {// step1 找到 output_video.mp4 中的视频轨道
+            val videoExtractor = MediaExtractor().apply { setDataSource(OUTPUT_VIDEO_FILE_PATH) }
+            var videoTractIndex = -1
+            var videoFormat: MediaFormat?=null
+            for (index in 0 until videoExtractor.trackCount) {
+                if (videoExtractor.getTrackFormat(index).getString(MediaFormat.KEY_MIME)?.startsWith("video/") == true) {
+                    videoFormat = videoExtractor.getTrackFormat(index)
+                    videoTractIndex = index
+                    break
+                }
+            }
+
+            // step2 找到 output_audio.mp3 中的音频轨道
+            val audioExtractor = MediaExtractor().apply { setDataSource(OUTPUT_AUDIO_FILE_PATH) }
+            var audioTractIndex = -1
+            var audioFormat: MediaFormat?=null
+            for (index in 0 until audioExtractor.trackCount) {
+                if (audioExtractor.getTrackFormat(index).getString(MediaFormat.KEY_MIME)?.startsWith("audio/") == true) {
+                    audioFormat = audioExtractor.getTrackFormat(index)
+                    audioTractIndex = index
+                    break
+                }
+            }
+
+            // step3 合成前准备工作
+            videoExtractor.selectTrack(videoTractIndex)
+            audioExtractor.selectTrack(audioTractIndex)
+
+            val videoBufferInfo = MediaCodec.BufferInfo()
+            val audioBufferInfo = MediaCodec.BufferInfo()
+
+            // 合成文件设置
+            val mediaMuxer = MediaMuxer(OUTPUT_MUXER_MEDIA_FILE_PATH, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
+            val writeVideoTractIndex = mediaMuxer.addTrack(videoFormat!!)   // 添加视频通道
+            val writeAudioTractIndex = mediaMuxer.addTrack(audioFormat!!)   // 添加音频通道
+
+            // 开始合成
+            mediaMuxer.start()
+
+            val byteBuffer = ByteBuffer.allocate(500 * 1024)
+            var sampleTime = 0L
+
+            videoExtractor.readSampleData(byteBuffer, 0)
+            if (videoExtractor.sampleFlags == MediaExtractor.SAMPLE_FLAG_SYNC) {
+                videoExtractor.advance()
+            }
+
+            videoExtractor.readSampleData(byteBuffer, 0)
+            val secondTime = videoExtractor.sampleTime
+            videoExtractor.advance()
+
+            sampleTime = Math.abs(videoExtractor.sampleTime - secondTime)
+
+            videoExtractor.apply {
+                unselectTrack(videoTractIndex)
+                selectTrack(videoTractIndex)
+            }
+
+            // step4 写视频数据
+            while (true) {
+                val readSampleSize = videoExtractor.readSampleData(byteBuffer ,0)
+                if (readSampleSize < 0) {
+                    break
+                }
+
+                videoBufferInfo.apply {
+                    size = readSampleSize
+                    presentationTimeUs += sampleTime
+                    offset = 0
+                    flags = videoExtractor.sampleFlags
+                }
+                mediaMuxer.writeSampleData(writeVideoTractIndex, byteBuffer, videoBufferInfo)
+                videoExtractor.advance()
+            }
+
+            // step5 写音频数据
+            while (true) {
+                val readAudioSampleSize = audioExtractor.readSampleData(byteBuffer, 0)
+                if (readAudioSampleSize < 0) break
+
+                audioBufferInfo.apply {
+                    size = readAudioSampleSize
+                    presentationTimeUs += sampleTime
+                    offset = 0
+                    flags = audioExtractor.sampleFlags
+                }
+                mediaMuxer.writeSampleData(writeAudioTractIndex, byteBuffer, audioBufferInfo)
+                audioExtractor.advance()
+            }
+
+            // step6 释放资源
+            mediaMuxer.stop()
+            mediaMuxer.release()
+            videoExtractor.release()
+            audioExtractor.release()
+
+            showToast("合成完成！")
+        } catch (e: Exception) {
+            showToast("合成失败：${e.message}")
+        }
+    }
+
     private val REQUEST_EXTERNAL_STORAGE = 1
     private val PERMISSIONS_STORAGE = arrayOf(
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"
     )
 
-   private fun verifyStoragePermissions(activity: Activity?) {
-        try {
-            // 检测是否有写的权限
-            val permission = ActivityCompat.checkSelfPermission(
-                activity!!,
-                "android.permission.WRITE_EXTERNAL_STORAGE"
-            )
-            if (permission != PackageManager.PERMISSION_GRANTED) {
-                // 没有写的权限，去申请写的权限，会弹出对话框
-                ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-                )
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
 
     private fun checkPermissions(){
