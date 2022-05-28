@@ -13,10 +13,14 @@ import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
 import cn.kk.customview.activity.NormalMarkDownViewActivity
+import cn.kk.customview.activity.book.BookDetailActivity
+import cn.kk.customview.activity.more.audio.AudioActivity
+import cn.kk.customview.activity.more.video.VideoActivity
 import cn.kk.customview.adapter.BaseChapterAdapter
 import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
 import cn.kk.customview.bean.ItemSectionModel
+import cn.kk.customview.factory.BookModelFactory
 
 /**
  * Book 详情页面 - Fragment
@@ -65,10 +69,28 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
                             }
                             // endregion
-                            // region 音视频开发
+                            // region audio video 音视频开发
                             BaseItem.ACTION_BOOK_AV_DEV -> {
                                 when(item.chapter_action) {
-                                    3 -> {
+                                    1 -> {  // 第一章 知识树
+                                        when(item.section_action) {
+                                            1 -> startNextUI(AudioActivity::class.java, item.title)
+                                            2 -> startNextUI(VideoActivity::class.java, item.title)
+                                            3 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c))
+                                            4 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c_plus))
+                                            5 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
+                                            6 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_linux))
+                                        }
+                                    }
+                                    2 -> { // 课程或书本
+                                        when(item.section_action) {
+                                            1 -> startNextUI(AudioActivity::class.java, item.title)
+                                            2 -> startNextUI(VideoActivity::class.java, item.title)
+                                            8 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
+                                        }
+
+                                    }
+                                    3 -> { // 第三章：任务列表
                                         when(item.section_action) {
                                             // 三种方式绘制 Bitmap
                                             1 -> startNextUI(Task1DrawPicture::class.java, item.title)
