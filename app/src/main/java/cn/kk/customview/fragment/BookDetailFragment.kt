@@ -89,7 +89,7 @@ class BookDetailFragment: BaseFragment() {
                             // region cpp
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {
-                                    1, 2, 3 -> { //chapter1 chapter2 & chapter3
+                                    1, 2, 3, 4 -> { //chapter1 chapter2 & chapter3
                                         // open markdown from online
                                         val markdownURL = AssetsHelper.getMarkdownURL(bookType, item)
                                         openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownURL, false)
