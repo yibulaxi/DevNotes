@@ -25,6 +25,9 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
         open_gl_lib
 
+        EGL
+        GLESv2
+        android
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
