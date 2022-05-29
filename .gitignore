@@ -7,3 +7,5 @@
 .externalNativeBuild
 .cxx
 .idea/
+/doc/av/output_audio.mp3
+/doc/av/output_media.mp4
