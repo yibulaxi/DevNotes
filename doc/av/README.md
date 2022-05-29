@@ -10,7 +10,7 @@
 - WebRTC
 - Android 上的音视频 API
 - [JNI / NDK](./knowledge_tree/ndk/readme.md)
-- OpenGL 渲染
+- [OpenGL](./knowledge_tree/open_GL/README.md)
 - libyuv
 - Vulkan
 - 开发通用技能

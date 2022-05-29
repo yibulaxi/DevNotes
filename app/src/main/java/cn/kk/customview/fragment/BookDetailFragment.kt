@@ -21,6 +21,7 @@ import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
 import cn.kk.customview.bean.ItemSectionModel
 import cn.kk.customview.factory.BookModelFactory
+import com.kk.opengl.OpenGLDemoActivity
 
 /**
  * Book 详情页面 - Fragment
@@ -80,6 +81,7 @@ class BookDetailFragment: BaseFragment() {
                                             4 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c_plus))
                                             5 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
                                             6 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_linux))
+                                            10 -> startNextUI(OpenGLDemoActivity::class.java, item.title)
                                         }
                                     }
                                     2 -> { // 课程或书本

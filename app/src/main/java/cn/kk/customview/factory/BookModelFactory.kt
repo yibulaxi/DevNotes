@@ -32,7 +32,7 @@ class BookModelFactory {
                              add(ItemSectionModel("WebRTC", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("Android 上的音视频API", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("JNI/NDK", chapterOrder, this.size + 1, false))
-                             add(ItemSectionModel("OpenGL 渲染", chapterOrder, this.size + 1, false))
+                             add(ItemSectionModel("OpenGL 渲染", chapterOrder, this.size + 1, true))
                              add(ItemSectionModel("libyuv", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("Vulkan", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("开发通用技能", chapterOrder, this.size + 1, false))

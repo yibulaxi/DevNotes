@@ -114,6 +114,9 @@ def buildTime(){
 
 dependencies {
     api project(path: ':elementary')
+    api project(path: ':openGL')
+    api project(path: ':hencoder')
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.1.0'
@@ -125,9 +128,6 @@ dependencies {
 
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
-
-    implementation project(path: ':base')
-    api project(path: ':hencoder')
 
     // test lib
     testImplementation 'junit:junit:4.12'
