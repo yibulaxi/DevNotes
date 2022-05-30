@@ -81,6 +81,7 @@ class BookDetailFragment: BaseFragment() {
                                             4 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c_plus))
                                             5 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
                                             6 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_linux))
+                                            9 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.ACTION_BOOK_NDK))
                                             10 -> startNextUI(OpenGLDemoActivity::class.java, item.title)
                                         }
                                     }
@@ -104,6 +105,14 @@ class BookDetailFragment: BaseFragment() {
                                 }
                             }
                             // endregion
+
+                            // region Android NDK
+                            BaseItem.ACTION_BOOK_NDK -> {
+                                val url = AssetsHelper.getMarkdownURL(bookType, item)
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
+                            }
+                            // endregion
+
                             // region Android 开发艺术探索
                             BaseItem.action_book_android_dev_art -> {
                                 val url = AssetsHelper.getMarkdownURL(bookType, item)

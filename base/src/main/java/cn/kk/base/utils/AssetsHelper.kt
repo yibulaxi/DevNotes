@@ -36,6 +36,41 @@ object AssetsHelper {
                }
            // endregion
 
+           // region Android NDK
+           BaseItem.ACTION_BOOK_NDK -> {
+               val bookBasePath = "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/av/knowledge_tree/ndk"
+               when(item.chapter_action) {
+                   1 -> { // 第一章 入门 = 简介 + JNI 基本概念
+                       when(item.section_action) {
+                           1 -> bookBasePath.plus("/intro.md")
+                           2 -> bookBasePath.plus("/jni/readme.md")
+                           else -> ""
+                       }
+                   }
+                   2 -> { // 第二章 Mooc 网学习 NDK
+                       val partPath = bookBasePath.plus("/mooc/")
+                       when(item.section_action) {
+                           1 -> partPath.plus("1.2.md")
+                           2 -> partPath.plus("1.3.md")
+                           3 -> partPath.plus("2.0.md")
+                           4 -> partPath.plus("2.1.md")
+                           5 -> partPath.plus("2.5.md")
+                           6 -> partPath.plus("2.6.md")
+                           7 -> partPath.plus("2.7.md")
+                           8 -> partPath.plus("2.8.md")
+                           9 -> partPath.plus("2.9.md")
+                           10 -> partPath.plus("3.1.md")
+                           11 -> partPath.plus("3.2.md")
+                           12 -> partPath.plus("4.1.md")
+                           else -> ""
+                       }
+                   }
+
+                   else -> ""
+               }
+           }
+           // endregion
+
            // region Android 开发艺术探索
            BaseItem.action_book_android_dev_art -> {
                // doc/books/android_dev_art/chapter_15/section_1.md

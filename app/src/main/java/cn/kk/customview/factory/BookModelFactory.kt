@@ -31,7 +31,7 @@ class BookModelFactory {
                              add(ItemSectionModel("Linux", chapterOrder, this.size + 1, true))
                              add(ItemSectionModel("WebRTC", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("Android 上的音视频API", chapterOrder, this.size + 1, false))
-                             add(ItemSectionModel("JNI/NDK", chapterOrder, this.size + 1, false))
+                             add(ItemSectionModel("JNI/NDK", chapterOrder, this.size + 1, true))
                              add(ItemSectionModel("OpenGL 渲染", chapterOrder, this.size + 1, true))
                              add(ItemSectionModel("libyuv", chapterOrder, this.size + 1, false))
                              add(ItemSectionModel("Vulkan", chapterOrder, this.size + 1, false))
@@ -93,6 +93,35 @@ class BookModelFactory {
                         }, itemAction))
                     }
                     return BookModel("音视频开发", itemAction, chapterModelList)
+                }
+                // endregion
+                // region Android NDK
+                BaseItem.ACTION_BOOK_NDK -> {
+                    chapterModelList.apply {
+
+                        add(ItemChapterModel("入门", mutableListOf<ItemSectionModel>().apply {
+                            val chapterOrder = chapterModelList.size + 1
+                                   add(ItemSectionModel("简介", chapterOrder, this.size + 1, true))
+                                   add(ItemSectionModel("JNI 基本概念", chapterOrder, this.size + 1, true))
+                        }, itemAction))
+
+                        add(ItemChapterModel("基础 Demo 之 Mooc 网学习 NDK", mutableListOf<ItemSectionModel>().apply {
+                            val chapterOrder = chapterModelList.size + 1
+                            add(ItemSectionModel("NDK 工程结构", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("CMake 编译", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("Java 调用 C/C++ 方式一：静态注册", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("Java 调用 C/C++ 方式二：动态注册", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("Java 与 JNI 引用类型转换", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 访问 Java 类字段", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 访问 Java 类方法", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 访问 Java 类回调方法 和 子线程访问 Java 类的回调方法", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 创建 Java 类", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 引用类型", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 异常处理", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("JNI 线程操作", chapterOrder, this.size + 1, true))
+                        }, itemAction))
+                    }
+                    return BookModel("NDK 开发", itemAction, chapterModelList)
                 }
                 // endregion
                 // region Android 开发高手课

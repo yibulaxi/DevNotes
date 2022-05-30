@@ -28,6 +28,7 @@ class BookListFragment: BaseFragment() {
         val bookList = mutableListOf<BookModel>().apply {
             add(BookModelFactory.createBook(BaseItem.action_book_android_dev_performance))
             add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_AV_DEV))
+            add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_NDK))
             add(BookModelFactory.createBook(BaseItem.action_book_android_dev_art))
             add(BookModelFactory.createBook(BaseItem.action_book_linux))
             add(BookModelFactory.createBook(BaseItem.action_book_android_custom_view_elementary))
