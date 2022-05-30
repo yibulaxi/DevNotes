@@ -24,7 +24,7 @@ class GitActivity : BaseMixListActivity() {
         return mutableListOf<ItemSimpleCard>().apply {
             add(ItemSimpleCard("常见操作", true).apply {
                 item_action = BaseItem.ACTION_MORE_GIT_1
-                markdown_url = "https://gitee.com/kamaihamaiha/git-note/blob/master/README.md"
+                markdown_url = "https://github.com/kamaihamaiha/StudyForGit/blob/master/README.md"
             })
         }
     }
