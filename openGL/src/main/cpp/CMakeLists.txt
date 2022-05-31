@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 project("open_gl_lib")
 
+include_directories(./log/)
 
 add_library( # Sets the name of the library.
         open_gl_lib
@@ -11,7 +12,10 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        open_gl_lib.cpp)
+        open_gl_lib.cpp
+        log/KKAndroidLog.cpp
+        egl/EglHelper.cpp
+        )
 
 
 find_library( # Sets the name of the path variable.
