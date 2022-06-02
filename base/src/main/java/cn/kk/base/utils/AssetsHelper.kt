@@ -96,6 +96,16 @@ object AssetsHelper {
            }
            // endregion
 
+           // region Android 进阶之光
+           BaseItem.action_book_android_advance -> {
+               val bookBasePath = "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/books/android_advance_light"
+               val partPath = "/chapter_${item.chapter_action}"
+               val sectionPath = "/section_${item.section_action}.md"
+
+               bookBasePath.plus(partPath).plus(sectionPath)
+           }
+           // endregion
+
             // region cpp
             BaseItem.action_book_c_plus -> {
                 val repPreUrl = "https://github.com/kamaihamaiha/StudyForCpp/blob/master/doc/"

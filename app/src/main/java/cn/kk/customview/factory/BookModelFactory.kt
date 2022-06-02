@@ -719,12 +719,13 @@ class BookModelFactory {
                     // chapter 4
                     chapterModelList.apply {
                         add(ItemChapterModel("第 4 章 多线程编程", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("线程基础"))
-                            add(ItemSectionModel("同步"))
-                            add(ItemSectionModel("阻塞队列"))
-                            add(ItemSectionModel("线程池"))
-                            add(ItemSectionModel("AsyncTask 原理"))
-                        }))
+                            val chapterOrder = chapterModelList.size + 1
+                            add(ItemSectionModel("线程基础", chapterModelList.size + 1, this.size + 1, false))
+                            add(ItemSectionModel("同步", chapterModelList.size + 1, this.size + 1, false))
+                            add(ItemSectionModel("阻塞队列", chapterModelList.size + 1, this.size + 1, true))
+                            add(ItemSectionModel("线程池", chapterModelList.size + 1, this.size + 1, true))
+                            add(ItemSectionModel("AsyncTask 原理", chapterModelList.size + 1, this.size + 1, false))
+                        }, itemAction))
                     }
                     // chapter 5
                     chapterModelList.apply {

@@ -132,6 +132,14 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
                             }
                             // endregion
+
+                            // region Android 进阶之光
+                            BaseItem.action_book_android_advance -> {
+                                val url = AssetsHelper.getMarkdownURL(bookType, item)
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
+                            }
+                            // endregion
+
                             // region cpp
                             BaseItem.action_book_c_plus -> {
                                 when(item.chapter_action) {

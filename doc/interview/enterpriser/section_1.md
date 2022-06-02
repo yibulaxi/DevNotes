@@ -9,3 +9,15 @@
 - 线程池有几种
 - okhttp 拦截器有哪些
 
+
+---
+
+#### 相关知识点
+
+- [动态代理]()
+- [线程池](../../books/android_advance_light/chapter_4/section_4.md)
+- [阻塞队列](../../books/android_advance_light/chapter_4/section_3.md)
+
+
+
+
