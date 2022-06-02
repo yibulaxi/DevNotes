@@ -28,7 +28,7 @@ object AssetsHelper {
 
            // region 面试
            BaseItem.ACTION_BOOK_INTERVIEW -> {
-               val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/interview"
+               val bookBasePath = "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/interview"
                val partPath = when(item.chapter_action) {
                    1 -> "/tips"
                    2 -> "/enterpriser"
