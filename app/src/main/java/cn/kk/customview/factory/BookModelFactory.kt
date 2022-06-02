@@ -98,10 +98,12 @@ class BookModelFactory {
                             add(ItemSectionModel("ExoPlayer", 4, 2, false))
                         }, itemAction))
                         add(ItemChapterModel("行业大佬", mutableListOf<ItemSectionModel>().apply {
-                            add(ItemSectionModel("glums", 5, 1, false))
-                            add(ItemSectionModel("李超", 5, 1, false))
-                            add(ItemSectionModel("Jhuster", 5, 2, false))
-                            add(ItemSectionModel("雷霄骅", 5, 2, false))
+                            val chapterOrder = chapterModelList.size + 1
+                            add(ItemSectionModel("glums", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("李超", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("Jhuster", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("雷霄骅", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("DevYK", chapterOrder, this.size + 1, true))
                         }, itemAction))
                         add(ItemChapterModel("Android 官方文档", mutableListOf<ItemSectionModel>().apply {
                             add(ItemSectionModel("文档", 6, 1, false))
@@ -2009,6 +2011,7 @@ class BookModelFactory {
                     // more info
                     moreInfoList.apply {
                         add(BaseMoreItem("C++ 那些事", "https://github.com/Light-City/CPlusPlusThings.git"))
+                        add(BaseMoreItem("C++ 入门", "https://juejin.cn/post/6844904039407173646"))
                     }
                     return BookModel("C++ Primer", itemAction, chapterModelList).apply {
                         bookImgRes = R.drawable.bg_book_15
@@ -2117,7 +2120,14 @@ class BookModelFactory {
                         }))
 
                     }
-                    return BookModel("C程序设计语言", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_16 }
+                    // more info
+                    moreInfoList.apply {
+                        add(BaseMoreItem("C++ 入门", "https://juejin.cn/post/6844904022827073543"))
+                    }
+                    return BookModel("C程序设计语言", itemAction, chapterModelList).apply {
+                        bookImgRes = R.drawable.bg_book_16
+                        moreItemList = moreInfoList
+                    }
                 }
                 // endregion
 

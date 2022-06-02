@@ -75,6 +75,7 @@
     - Android 开发高手课，38课提到
 - [Jhuster](https://blog.51cto.com/ticktick/1956269)
 - [雷霄骅](https://blog.csdn.net/leixiaohua1020)
+- [DevYK]("https://github.com/yangkun19921001)
 
 ### Android 官方文档
 
@@ -87,3 +88,4 @@
 - [音视频基础 148 题](https://mp.weixin.qq.com/s/X1idBFp7T5zhnqPmYSbQDw)
 - [glums 公众号(音视频开发进阶)开放的 播放器实战项目](https://mp.weixin.qq.com/s/lKwpfDmN1vnXW5Oim7DrUg)
     - [代码仓库](https://github.com/glumes/PlanetPlayer)
+- [较完整的音视频开发学习记录](https://github.com/yangkun19921001/NDK_AV_SAMPLE)

@@ -13,6 +13,7 @@ import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.customview.R
 import cn.kk.customview.activity.NormalMarkDownViewActivity
+import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.activity.more.audio.AudioActivity
 import cn.kk.customview.activity.more.video.VideoActivity
@@ -107,6 +108,11 @@ class BookDetailFragment: BaseFragment() {
                                             2 -> startNextUI(Task2AudioRecord::class.java, item.title)
                                             3 -> startNextUI(Task3CameraPreview::class.java, item.title)
                                             4 -> startNextUI(Task4MediaExtractor::class.java, item.title)
+                                        }
+                                    }
+                                    5 -> { // 行业大佬
+                                        when(item.section_action) {
+                                            5 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, "https://github.com/yangkun19921001")
                                         }
                                     }
                                 }
