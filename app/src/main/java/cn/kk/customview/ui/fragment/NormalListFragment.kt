@@ -160,6 +160,8 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     3 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DRAG_LEVEL)
                     5 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHECKIN_WEEK)
                     6 -> startNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
+                    7 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_HIGHLIGHT)
+                    8 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_MARQUEE)
                 }
             }
             // endregion

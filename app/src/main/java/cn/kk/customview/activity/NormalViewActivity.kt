@@ -48,6 +48,7 @@ class NormalViewActivity: BaseActivity() {
         // about work
         val VIEW_TYPE_CHECKIN_WEEK = 100
         val VIEW_TYPE_TEXTVIEW_HIGHLIGHT = 101 // TextView 高亮特定内容
+        val VIEW_TYPE_TEXTVIEW_MARQUEE = 102   // 跑马灯效果
     }
 
     override fun getLayout(): Int {
@@ -100,7 +101,7 @@ class NormalViewActivity: BaseActivity() {
                 UIHelper.highlightTag(tvInfo, ContextCompat.getColor(this, R.color.colorPrimary))
             }
             // region TextView highlight
-
+            VIEW_TYPE_TEXTVIEW_MARQUEE -> view_container.addView(getMarqueeTextView())
             // endregion
             else -> {
             }
@@ -125,5 +126,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getTextViewWithHighLightView(): View {
         return layoutInflater.inflate(R.layout.view_at_textview_highlight_layout, null)
+    }
+
+    private fun getMarqueeTextView(): View {
+        return layoutInflater.inflate(R.layout.view_at_marquee_textview_layout, null)
     }
 }

@@ -93,6 +93,8 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("拼写组件", false)
                 addItem("日历打卡组件", true)
                 addItem("RecyclerView 用法", true)
+                addItem("EditText/TextView 高亮文本", true)
+                addItem("TextView 跑马灯效果", true)
             })
             // endregion
         })
