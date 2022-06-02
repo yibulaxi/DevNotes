@@ -27,6 +27,7 @@ class BookModelFactory {
                             add(ItemSectionModel("要点", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("准备", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("简历要点", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("提高面试通过率", chapterOrder, this.size + 1, true))
                         }, itemAction))
                         add(ItemChapterModel("面试公司记录", mutableListOf<ItemSectionModel>().apply {
                             val chapterOrder = chapterModelList.size + 1
