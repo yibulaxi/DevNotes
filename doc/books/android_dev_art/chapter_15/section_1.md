@@ -13,7 +13,7 @@
 #### 布局优化
 
 - 减少布局文件的层级
-- 复杂的揭秘使用约束布局
+- 复杂的界面使用约束布局
 - 使用性能较低的 ViewGroup，能用 LinearLayout/FrameLayout，就不用 RelativeLayout。
 - 使用：`<include>` 标签、`<merge>` 标签和 ViewStub
     - `<include>` 主要用于布局重用

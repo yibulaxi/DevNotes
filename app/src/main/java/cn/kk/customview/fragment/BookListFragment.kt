@@ -26,6 +26,7 @@ class BookListFragment: BaseFragment() {
         val rvBookList = rootView.findViewById<RecyclerView>(R.id.rv_book)
         // init book data
         val bookList = mutableListOf<BookModel>().apply {
+            add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_INTERVIEW))
             add(BookModelFactory.createBook(BaseItem.action_book_android_dev_performance))
             add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_AV_DEV))
             add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_NDK))

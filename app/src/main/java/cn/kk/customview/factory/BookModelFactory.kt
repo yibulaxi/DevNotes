@@ -18,6 +18,25 @@ class BookModelFactory {
             val chapterModelList = mutableListOf<ItemChapterModel>()
             val moreInfoList = mutableListOf<BaseMoreItem>()
             when(itemAction) {
+
+                // region 面试
+                BaseItem.ACTION_BOOK_INTERVIEW -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("面试攻略", mutableListOf<ItemSectionModel>().apply {
+                            val chapterOrder = chapterModelList.size + 1
+                            add(ItemSectionModel("要点", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("准备", chapterOrder, this.size + 1, true))
+                            add(ItemSectionModel("简历要点", chapterOrder, this.size + 1, true))
+                        }, itemAction))
+                        add(ItemChapterModel("面试公司记录", mutableListOf<ItemSectionModel>().apply {
+                            val chapterOrder = chapterModelList.size + 1
+                            add(ItemSectionModel("湘财证券", chapterOrder, this.size + 1, true))
+                        }, itemAction))
+                    }
+                    return BookModel("面试", itemAction, chapterModelList)
+                }
+                // endregion
+
                 // region audio video dev 音视频开发
                 BaseItem.ACTION_BOOK_AV_DEV -> {
                     chapterModelList.apply {

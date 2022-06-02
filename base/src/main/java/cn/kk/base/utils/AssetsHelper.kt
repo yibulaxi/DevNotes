@@ -26,6 +26,20 @@ object AssetsHelper {
 
        val url = when(bookType) {
 
+           // region 面试
+           BaseItem.ACTION_BOOK_INTERVIEW -> {
+               val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/interview"
+               val partPath = when(item.chapter_action) {
+                   1 -> "/tips"
+                   2 -> "/enterpriser"
+                   else -> ""
+               }
+               val sectionPath = "/section_${item.section_action}.md"
+
+               bookBasePath.plus(partPath).plus(sectionPath)
+           }
+           // endregion
+
            // region Android 开发高手课
                BaseItem.action_book_android_dev_performance -> {
                    val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/android_dev_performance"
