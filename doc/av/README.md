@@ -6,7 +6,7 @@
 - [音频](./audio/README.md)和[视频](./video/README.md)知识
 - [C & Cpp](./knowledge_tree/c_and_cpp/readme.md) 
 - [FFMpeg](./knowledge_tree/ffmpeg/readme.md)
-- Linux
+- [Linux](./knowledge_tree/Linux/README.md)
 - WebRTC
 - Android 上的音视频 API
 - [JNI / NDK](./knowledge_tree/ndk/readme.md)
