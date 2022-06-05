@@ -6,3 +6,4 @@ rootProject.name = "CustomeView"
 include ':hencoder'
 include ':work'
 include ':openGL'
+include ':design_pattern'

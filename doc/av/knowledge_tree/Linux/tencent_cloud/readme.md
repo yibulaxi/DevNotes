@@ -5,3 +5,5 @@
 - [修改主机名](./change_host_name.md)
 - [防火墙设置](../config/ufw.md)
 - [安装配置 VNC](../config/vnc.md)
+- [文件服务器 samba](../config/samba.md)
+- [ftp 配置](../config/ftp.md)

@@ -16,7 +16,7 @@
 - 开发通用技能
     - 数据结构与算法
     - 计算机网络
-    - 设计模式
+    - [设计模式](./knowledge_tree/design_pattern/readme.md)
     - Git
     - 数据库
 
