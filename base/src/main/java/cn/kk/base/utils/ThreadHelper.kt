@@ -6,14 +6,22 @@ import java.util.concurrent.Executors
 
 object ThreadHelper {
 
+    val singleExecutors = Executors.newSingleThreadExecutor()
     val executors = Executors.newCachedThreadPool()
 
     fun runOnUIThread(runnable: Runnable){
         Handler(Looper.getMainLooper()).post(runnable)
     }
 
-    fun runTask(runnable: Runnable) {
+    /**
+     * 执行轻量级大量的
+     */
+    fun runTightTask(runnable: Runnable) {
         executors.execute(runnable)
+    }
+
+    fun runTask(runnable: Runnable) {
+        singleExecutors.execute(runnable)
     }
 
 }

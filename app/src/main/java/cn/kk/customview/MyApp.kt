@@ -2,6 +2,7 @@ package cn.kk.customview
 
 import android.app.Application
 import cn.kk.customview.io.NetOkHttpHelper
+import cn.kk.io.db.BookRepository
 
 class MyApp: Application() {
 
@@ -10,5 +11,8 @@ class MyApp: Application() {
 
         // init Net okhttp helper
         NetOkHttpHelper.init(this)
+
+        // init Database
+        BookRepository.init(this)
     }
 }

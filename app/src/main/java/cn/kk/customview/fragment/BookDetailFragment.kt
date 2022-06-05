@@ -3,6 +3,10 @@ package cn.kk.customview.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.NestedScrollView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.av.task_list.Task1DrawPicture
@@ -11,6 +15,7 @@ import cn.kk.av.task_list.Task4MediaExtractor
 import cn.kk.av.task_list.task3.Task3CameraPreview
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
+import cn.kk.bean.BookViewModel
 import cn.kk.customview.R
 import cn.kk.customview.activity.NormalMarkDownViewActivity
 import cn.kk.customview.activity.NormalWebViewActivity
@@ -22,6 +27,8 @@ import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
 import cn.kk.customview.bean.ItemSectionModel
 import cn.kk.customview.factory.BookModelFactory
+import cn.kk.io.db.Book
+import cn.kk.io.db.BookRepository
 import com.kk.opengl.OpenGLDemoActivity
 
 /**
@@ -29,6 +36,10 @@ import com.kk.opengl.OpenGLDemoActivity
  */
 class BookDetailFragment: BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_book_detail_layout
+
+    private val bookListViewModel by lazy {
+        ViewModelProviders.of(this).get(BookViewModel::class.java)
+    }
 
     var scrollOrientationListener: ScrollOrientationListener ?= null
     var scrollUp = false
@@ -38,6 +49,17 @@ class BookDetailFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bookModel = arguments?.getSerializable(INTENT_MODEL_KEY) as BookModel
+
+        // region 添加书籍信息到本地数据库
+        bookListViewModel.getBook(bookModel.itemAction).observe(viewLifecycleOwner, Observer { book ->
+            if (book == null) {
+                showToast("add book: ${bookModel.title}")
+                BookRepository.getInstance().addBook(Book(bookModel.itemAction, bookModel.title, bookModel.bookImgRes))
+            } else {
+                showToast(bookModel.title.plus(" 已经添加过了"))
+            }
+         })
+        // endregion
 
         val rvChapter = rootView.findViewById<RecyclerView>(R.id.rv_chapter_list)
 

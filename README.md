@@ -1,6 +1,8 @@
 ## 开发笔记整理
 
 ### 书籍
+
+- [数据库说明](./doc/books/README.md)
 - [Android 开发艺术探索](./doc/books/android_dev_art/readme.md)
 - [Android 进阶之光](./doc/books/android_advance_light/README.md)
 - [自定义控件入门](./elementary/README.md)
