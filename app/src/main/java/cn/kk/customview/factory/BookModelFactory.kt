@@ -77,7 +77,7 @@ class BookModelFactory {
                             add(ItemSectionModel("4. 学习 Android 平台的 MediaExtractor 和 MediaMuxer API，知道如何解析和封装 mp4 文件", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("5. 学习 Android 平台 OpenGL ES API，了解 OpenGL 开发的基本流程，使用 OpenGL 绘制一个三角形", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("6. 学习 Android 平台 OpenGL ES API，学习纹理绘制，能够使用 OpenGL 显示一张图片", chapterOrder, this.size + 1, false))
-                            add(ItemSectionModel("7. 学习 MediaCodec API，完成音频 AAC 硬编、硬解", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("7. 学习 MediaCodec API，完成音频 AAC 硬编、硬解", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("8. 学习 MediaCodec API，完成视频 H.264 的硬编、硬解", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("9. 串联整个音视频录制流程，完成音视频的采集、编码、封包成 mp4 输出", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("10. 串联整个音视频播放流程，完成 mp4 的解析、音视频的解码、播放和渲染", chapterOrder, this.size + 1, false))

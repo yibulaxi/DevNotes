@@ -13,6 +13,7 @@ import cn.kk.av.task_list.Task1DrawPicture
 import cn.kk.av.task_list.Task2AudioRecord
 import cn.kk.av.task_list.Task4MediaExtractor
 import cn.kk.av.task_list.task3.Task3CameraPreview
+import cn.kk.av.task_list.task7.Task7MediaCodecAAC
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
 import cn.kk.bean.BookViewModel
@@ -130,6 +131,7 @@ class BookDetailFragment: BaseFragment() {
                                             2 -> startNextUI(Task2AudioRecord::class.java, item.title)
                                             3 -> startNextUI(Task3CameraPreview::class.java, item.title)
                                             4 -> startNextUI(Task4MediaExtractor::class.java, item.title)
+                                            7 -> startNextUI(Task7MediaCodecAAC::class.java, item.title)
                                         }
                                     }
                                     5 -> { // 行业大佬
