@@ -7,6 +7,8 @@
 - [Android 进阶之光](./doc/books/android_advance_light/README.md)
 - [自定义控件入门](./elementary/README.md)
 
+### [设计模式](./doc/design_pattern/readme.md)
+
 ### Android 相关
 - [架构](./doc/arch/README.md)
 - [混合开发](./doc/mix_dev/README.md)
