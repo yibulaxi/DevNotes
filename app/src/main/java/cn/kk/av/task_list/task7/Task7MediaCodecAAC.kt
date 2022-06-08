@@ -4,7 +4,6 @@ import android.media.*
 import android.os.Environment
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import cn.kk.base.activity.BaseActivity
@@ -14,7 +13,10 @@ import cn.kk.customview.R
 import java.io.*
 import java.nio.ByteBuffer
 
-
+/**
+ * MediaCodec 播放 pcm：
+ * https://juejin.cn/post/7002158083925360647
+ */
 class Task7MediaCodecAAC: BaseActivity() {
     override fun getLayout(): Int {
         return R.layout.activity_task7_media_codec_aac
@@ -23,6 +25,7 @@ class Task7MediaCodecAAC: BaseActivity() {
     companion object {
         val fileAACPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo.aac"
         val filePcmPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo.pcm"
+        val filePcmOriginalPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo-original.pcm"
     }
 
     private lateinit var permissionsHelper: PermissionsHelper
@@ -48,7 +51,9 @@ class Task7MediaCodecAAC: BaseActivity() {
     private var chunkAudio = ByteArray(0)
     private var out: BufferedOutputStream? = null
     private var audioRecordThread: AudioRecordThread? = null
+    private var audioRecordPCMThread: AudioRecordPcmThread? = null
     private lateinit var btnRecordAAC: TextView
+    private lateinit var btnRecordPCM: TextView
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
@@ -59,6 +64,7 @@ class Task7MediaCodecAAC: BaseActivity() {
         }
 
         btnRecordAAC = findViewById(R.id.btn_record_aac)
+        btnRecordPCM = findViewById(R.id.btn_record_pcm)
         btnRecordAAC.setOnClickListener {
             if (isRecord) {
                 stopRecordAudio()
@@ -66,9 +72,17 @@ class Task7MediaCodecAAC: BaseActivity() {
                 startRecordAudio()
             }
         }
+        btnRecordPCM.setOnClickListener {
+            if (isRecord) {
+                stopRecordPCMAudio()
+            } else {
+                startRecordPcmAudio()
+            }
+        }
 
         findViewById<View>(R.id.btn_aac_convert_pcm).setOnClickListener { aac2Pcm() }
         findViewById<View>(R.id.btn_play_aac).setOnClickListener { startPlayAudio() }
+        findViewById<View>(R.id.btn_play_pcm).setOnClickListener { startPlayAudioOriginal() }
 
     }
 
@@ -81,13 +95,30 @@ class Task7MediaCodecAAC: BaseActivity() {
         audioRecordThread?.start()
     }
 
+    private fun startRecordPcmAudio(){
+        isRecord = true
+        audioRecordPCMThread = AudioRecordPcmThread()
+        audioRecordPCMThread?.start()
+        btnRecordPCM.text = "正在录制..."
+
+    }
+
     private fun stopRecordAudio() {
         btnRecordAAC.text = "录制 AAC 音频"
         isRecord = false
     }
 
+    private fun stopRecordPCMAudio() {
+        btnRecordPCM.text = "录制 pcm 音频"
+        isRecord = false
+    }
+
     private fun startPlayAudio(){
         PlayPcmUtils(filePcmPath).playPcm()
+    }
+
+    private fun startPlayAudioOriginal(){
+        PlayPcmUtils(filePcmOriginalPath).playPcm()
     }
 
     private fun aac2Pcm(){
@@ -263,4 +294,52 @@ class Task7MediaCodecAAC: BaseActivity() {
         packet[5] = ((packetLen and 7 shl 5) + 0x1F).toByte()
         packet[6] = 0xFC.toByte()
     }
+
+    inner class AudioRecordPcmThread internal constructor() : Thread() {
+        private val audioRecord: AudioRecord
+        private val bufferSize: Int
+        override fun run() {
+            super.run()
+            var fos: FileOutputStream? = null
+            try {
+                fos = FileOutputStream(filePcmOriginalPath)
+                audioRecord.startRecording()
+                val byteBuffer = ByteArray(bufferSize)
+                while (isRecord) {
+                    //3.不断读取录音数据并保存至文件中
+                    val end = audioRecord.read(byteBuffer, 0, byteBuffer.size)
+                    fos!!.write(byteBuffer, 0, end)
+                    fos.flush()
+                }
+                //4.当执行stop()方法后state != RecordState.RECORDING，终止循环，停止录音
+                audioRecord.stop()
+            } catch (e: Exception) {
+            } finally {
+                try {
+                    fos?.close()
+                } catch (e: IOException) {
+                }
+            }
+        }
+
+        init {
+            /**
+             * 1.设置缓冲区大小
+             * 参数:采样率 16k; 通道数 单通道; 采样位数
+             */
+            bufferSize = AudioRecord.getMinBufferSize(
+                16000,
+                AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT * 1
+            )
+            /**
+             * 2.初始化AudioRecord
+             * 参数:录音来源 麦克风; 采样率 16k; 通道数 单通道 ;采样位数/数据格式 pcm; 缓冲区大小
+             */
+            audioRecord = AudioRecord(
+                MediaRecorder.AudioSource.MIC, 16000,
+                AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, bufferSize
+            )
+        }
+    }
+
 }
