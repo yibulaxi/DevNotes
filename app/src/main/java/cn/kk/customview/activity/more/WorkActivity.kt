@@ -35,6 +35,7 @@ class WorkActivity: NormalCardListActivity() {
                 web_url = "https://www.jianshu.com/p/aa23911c6681"
             })
             add(ItemSimpleCard("TextView 跑马灯效果", true).apply { item_action = BaseItem.ACTION_MORE_WORK_TEXTVIEW_MARQUEE })
+            add(ItemSimpleCard("ImageView svg 锯齿", true).apply { item_action = BaseItem.ACTION_MORE_WORK_IMAGE_VIEW_SVG })
         }
     }
 
@@ -48,6 +49,7 @@ class WorkActivity: NormalCardListActivity() {
             BaseItem.ACTION_MORE_WORK_EXPAND_VIEW_CLICK -> openNextUI(ExpandViewTouchDemo::class.java, item.title)
             BaseItem.ACTION_MORE_WORK_ADAPTER_LIST -> openNextUI(NormalWebViewActivity::class.java, item.title, -1, item.web_url)
             BaseItem.ACTION_MORE_WORK_TEXTVIEW_MARQUEE -> openNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_MARQUEE)
+            BaseItem.ACTION_MORE_WORK_IMAGE_VIEW_SVG -> openNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_image_view_svg)
         }
     }
 

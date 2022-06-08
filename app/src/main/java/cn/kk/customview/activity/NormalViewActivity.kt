@@ -49,6 +49,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_CHECKIN_WEEK = 100
         val VIEW_TYPE_TEXTVIEW_HIGHLIGHT = 101 // TextView 高亮特定内容
         val VIEW_TYPE_TEXTVIEW_MARQUEE = 102   // 跑马灯效果
+        val VIEW_TYPE_image_view_svg = 103  // svg
     }
 
     override fun getLayout(): Int {
@@ -102,6 +103,7 @@ class NormalViewActivity: BaseActivity() {
             }
             // region TextView highlight
             VIEW_TYPE_TEXTVIEW_MARQUEE -> view_container.addView(getMarqueeTextView())
+            VIEW_TYPE_image_view_svg -> view_container.addView(getImageViewForSVG())
             // endregion
             else -> {
             }
@@ -130,5 +132,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getMarqueeTextView(): View {
         return layoutInflater.inflate(R.layout.view_at_marquee_textview_layout, null)
+    }
+
+    private fun getImageViewForSVG(): View {
+        return layoutInflater.inflate(R.layout.view_at_image_view_svg_layout, null)
     }
 }
