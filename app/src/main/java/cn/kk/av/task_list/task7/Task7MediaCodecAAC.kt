@@ -24,6 +24,7 @@ class Task7MediaCodecAAC: BaseActivity() {
 
     companion object {
         val fileAACPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo.aac"
+        val fileAACFromPcmPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo-from-pcm.aac"
         val filePcmPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo.pcm"
         val filePcmOriginalPath: String = Environment.getExternalStorageDirectory().toString() + "/av/task7/" + "demo-original.pcm"
     }
@@ -81,6 +82,7 @@ class Task7MediaCodecAAC: BaseActivity() {
         }
 
         findViewById<View>(R.id.btn_aac_convert_pcm).setOnClickListener { aac2Pcm() }
+        findViewById<View>(R.id.btn_pcm_convert_aac).setOnClickListener { pcm2Aac() }
         findViewById<View>(R.id.btn_play_aac).setOnClickListener { startPlayAudio() }
         findViewById<View>(R.id.btn_play_pcm).setOnClickListener { startPlayAudioOriginal() }
 
@@ -123,6 +125,20 @@ class Task7MediaCodecAAC: BaseActivity() {
 
     private fun aac2Pcm(){
         ThreadHelper.run { AACToPCM(fileAACPath, filePcmPath).decode() }
+    }
+    private fun pcm2Aac(){
+        ThreadHelper.run { PCMToAAC(fileAACFromPcmPath, filePcmOriginalPath).apply { readInputStream(
+            File(filePcmOriginalPath), object : ResultCallback {
+                override fun onSuccess(res: String) {
+                    showToast(res)
+                }
+
+                override fun onError(err: String) {
+                    showToast(err)
+                }
+
+            }
+        ) } }
     }
 
     /**

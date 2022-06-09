@@ -12,7 +12,16 @@
         android:id="@+id/guide_line_top_1"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_percent="0.2"
+        app:layout_constraintGuide_percent="0.1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_top_2"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.4"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -61,12 +70,18 @@
         app:layout_constraintStart_toStartOf="@id/guide_line_left_1"
         app:layout_constraintTop_toBottomOf="@id/btn_record_aac" />
 
+    <View
+        android:background="@color/grey_a"
+        app:layout_constraintStart_toStartOf="@id/guide_line_left_1"
+        app:layout_constraintTop_toTopOf="@id/guide_line_top_2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"/>
 
     <TextView
         android:text="录制 pcm 音频"
         android:id="@+id/btn_record_pcm"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_aac_convert_pcm"
+        app:layout_constraintTop_toBottomOf="@id/guide_line_top_2"
         app:layout_constraintStart_toStartOf="@id/guide_line_left_1"
         android:drawableBottom="@drawable/icon_audio_record"
         android:drawablePadding="10dp"
@@ -85,6 +100,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="0dp"/>
+
+    <Button
+        android:id="@+id/btn_pcm_convert_aac"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="pcm => aac"
+        android:textAllCaps="false"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="@id/guide_line_left_1"
+        app:layout_constraintTop_toBottomOf="@id/btn_record_pcm" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
