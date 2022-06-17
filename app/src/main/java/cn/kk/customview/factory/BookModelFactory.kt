@@ -78,7 +78,7 @@ class BookModelFactory {
                             add(ItemSectionModel("5. 学习 Android 平台 OpenGL ES API，了解 OpenGL 开发的基本流程，使用 OpenGL 绘制一个三角形", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("6. 学习 Android 平台 OpenGL ES API，学习纹理绘制，能够使用 OpenGL 显示一张图片", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("7. 学习 MediaCodec API，完成音频 AAC 硬编、硬解", chapterOrder, this.size + 1, true))
-                            add(ItemSectionModel("8. 学习 MediaCodec API，完成视频 H.264 的硬编、硬解", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("8. 学习 MediaCodec API，完成视频 H.264 的硬编、硬解", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("9. 串联整个音视频录制流程，完成音视频的采集、编码、封包成 mp4 输出", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("10. 串联整个音视频播放流程，完成 mp4 的解析、音视频的解码、播放和渲染", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("11. 进一步学习 OpenGL，了解如何实现视频的剪裁、旋转、水印、滤镜，并学习 OpenGL 高级特性，如：VBO，VAO，FBO 等等", chapterOrder, this.size + 1, false))
