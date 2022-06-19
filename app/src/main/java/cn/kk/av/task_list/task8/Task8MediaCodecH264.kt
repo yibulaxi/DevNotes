@@ -31,6 +31,7 @@ class Task8MediaCodecH264: BaseActivity() {
     )
 
 
+    private var canDecode = true
     private var mSurfaceView: SurfaceView? = null
     private var mSurfaceHolder: SurfaceHolder? = null
     private var mDecodeThread: Thread? = null
@@ -55,6 +56,12 @@ class Task8MediaCodecH264: BaseActivity() {
         initMediaCodec()
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        canDecode = true
+    }
+
 
     private fun verifyStoragePermissions(ctx: Activity) {
         try {
@@ -180,44 +187,46 @@ class Task8MediaCodecH264: BaseActivity() {
             // 定义记录剩余字节的变量
             val remaining = bytes_cnt
             // while(true)大括号内的内容是获取一帧，解码，然后显示；直到获取最后一帧，解码，结束
-            while (true) {
-                // 当剩余的字节=0或者开始的读取的字节下标大于可用的字节数时  不在继续读取
-                if (remaining == 0 || startIndex >= remaining) {
-                    break
-                }
-
-                // 寻找帧头部
-                var nextFrameStart: Int = findHeadFrame(streamBuffer!!, startIndex + 2, remaining)
-
-                // 找不到头部返回-1
-                if (nextFrameStart == -1) {
-                    nextFrameStart = remaining
-                }
-                // 得到可用的缓存区
-                val inputIndex: Int = mMediaCodec!!.dequeueInputBuffer(timeoutUs)
-                // 有可用缓存区
-                startIndex = if (inputIndex >= 0) {
-                    val byteBuffer = inputBuffers[inputIndex]
-                    byteBuffer.clear()
-                    // 将可用的字节数组(一帧)，传入缓冲区
-                    byteBuffer.put(streamBuffer, startIndex, nextFrameStart - startIndex)
-                    // 把数据传递给解码器
-                    mMediaCodec?.queueInputBuffer(inputIndex, 0, nextFrameStart - startIndex, 0, 0)
-                    // 指定下一帧的位置
-                    nextFrameStart
-                } else {
-                    continue
-                }
-                val outputIndex: Int = mMediaCodec!!.dequeueOutputBuffer(info, timeoutUs)
-                if (outputIndex >= 0) {
-                    // 加入try catch的目的是让界面显示的慢一点，这个步骤可以省略
-                    try {
-                        Thread.sleep(33)
-                    } catch (e: InterruptedException) {
-                        e.printStackTrace()
+            while (canDecode) {
+                try {// 当剩余的字节=0或者开始的读取的字节下标大于可用的字节数时  不在继续读取
+                    if (remaining == 0 || startIndex >= remaining) {
+                        break
                     }
-                    // 将处理过的数据交给surfaceview显示
-                    mMediaCodec!!.releaseOutputBuffer(outputIndex, true)
+
+                    // 寻找帧头部
+                    var nextFrameStart: Int = findHeadFrame(streamBuffer!!, startIndex + 2, remaining)
+
+                    // 找不到头部返回-1
+                    if (nextFrameStart == -1) {
+                        nextFrameStart = remaining
+                    }
+                    // 得到可用的缓存区
+                    val inputIndex: Int = mMediaCodec!!.dequeueInputBuffer(timeoutUs)
+                    // 有可用缓存区
+                    startIndex = if (inputIndex >= 0) {
+                        val byteBuffer = inputBuffers[inputIndex]
+                        byteBuffer.clear()
+                        // 将可用的字节数组(一帧)，传入缓冲区
+                        byteBuffer.put(streamBuffer, startIndex, nextFrameStart - startIndex)
+                        // 把数据传递给解码器
+                        mMediaCodec?.queueInputBuffer(inputIndex, 0, nextFrameStart - startIndex, 0, 0)
+                        // 指定下一帧的位置
+                        nextFrameStart
+                    } else {
+                        continue
+                    }
+                    val outputIndex: Int = mMediaCodec!!.dequeueOutputBuffer(info, timeoutUs)
+                    if (outputIndex >= 0) {
+                        // 加入try catch的目的是让界面显示的慢一点，这个步骤可以省略
+                        try {
+                            Thread.sleep(33)
+                        } catch (e: InterruptedException) {
+                            e.printStackTrace()
+                        }
+                        // 将处理过的数据交给surfaceview显示
+                        mMediaCodec!!.releaseOutputBuffer(outputIndex, true)
+                    }
+                } catch (e: Exception) {
                 }
             }
         }
