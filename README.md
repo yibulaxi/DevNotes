@@ -11,6 +11,7 @@
 
 ### Android 相关
 - [架构](./doc/arch/README.md)
+- [常见开源框架](./doc/open_source_arch/readme.md)
 - [混合开发](./doc/mix_dev/README.md)
 - [WindowInsets](./doc/window_insets.md)
 - [Material Design](./doc/material_design/readme.md)
@@ -31,5 +32,7 @@
 ---
 
 ### [IDE](./doc/ide/readme.md)
+
+### [电脑其他操作](./doc/pc_other_opera.md)
 
 
