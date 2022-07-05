@@ -17,7 +17,7 @@
     - 数据结构与算法
     - 计算机网络
     - [设计模式](../design_pattern/readme.md)
-    - Git
+    - [Git](./knowledge_tree/git/readme.md)
     - 数据库
 
 ### 课程或书本
