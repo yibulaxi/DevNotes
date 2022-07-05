@@ -1,0 +1,1 @@
+来自 shell 脚本 /home/kk/learn_shell/day5 的测试输入

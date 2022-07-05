@@ -1,5 +1,7 @@
 ## build ffmpeg for android sh file
 
+这里的脚本不对，要用知乎专栏上的。
+
 ```shell
 #!/bin/bash
 #在ffmpeg目录下执行该脚本，输出在ffmpeg目录下的android-build 目录里
