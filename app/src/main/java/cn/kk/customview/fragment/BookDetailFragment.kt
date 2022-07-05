@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.kk.av.task_list.Task1DrawPicture
 import cn.kk.av.task_list.Task2AudioRecord
 import cn.kk.av.task_list.Task4MediaExtractor
+import cn.kk.av.task_list.task15.Task15SimplePlayer
 import cn.kk.av.task_list.task3.Task3CameraPreview
 import cn.kk.av.task_list.task7.Task7MediaCodecAAC
 import cn.kk.av.task_list.task8.Task8MediaCodecH264
@@ -134,6 +135,7 @@ class BookDetailFragment: BaseFragment() {
                                             4 -> startNextUI(Task4MediaExtractor::class.java, item.title)
                                             7 -> startNextUI(Task7MediaCodecAAC::class.java, item.title)
                                             8 -> startNextUI(Task8MediaCodecH264::class.java, item.title)
+                                            15 -> startNextUI(Task15SimplePlayer::class.java, item.title)
                                         }
                                     }
                                     5 -> { // 行业大佬

@@ -1,8 +1,8 @@
 ## 经典再升级-FFmpeg 音视频核心技术全面精讲
 
-[课程地址](https://coding.imooc.com/learn/list/279.html)
-
-[课程代码仓库](https://git.imooc.com/coding-279/coding-279/src/master)
+- [课程地址](https://coding.imooc.com/learn/list/279.html)
+- [课程代码仓库](https://git.imooc.com/coding-279/coding-279/src/master)
+- [FFmpeg 专项学习](../../knowledge_tree/ffmpeg/readme.md)
 
 ---
 

@@ -115,6 +115,7 @@ def buildTime(){
 dependencies {
     api project(path: ':elementary')
     api project(path: ':openGL')
+    api project(path: ':FFmpegDemo')
     api project(path: ':hencoder')
 
     implementation fileTree(dir: "libs", include: ["*.jar"])

@@ -150,6 +150,7 @@
         <activity android:name="cn.kk.av.task_list.Task4MediaExtractor"/>
         <activity android:name="cn.kk.av.task_list.task7.Task7MediaCodecAAC"/>
         <activity android:name="cn.kk.av.task_list.task8.Task8MediaCodecH264"/>
+        <activity android:name="cn.kk.av.task_list.task15.Task15SimplePlayer"/>
 
     </application>
 

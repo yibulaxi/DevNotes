@@ -85,7 +85,7 @@ class BookModelFactory {
                             add(ItemSectionModel("12. 学习 Android 图形图像架构，能够使用 GLSurfaceviw 绘制 Camera 预览画面", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("13. 深入研究音视频相关的网络协议，如 rtmp，hls，以及封包格式，如：flv，mp4", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("14. 深入学习一些音视频领域的开源项目，如 webrtc，ffmpeg，ijkplayer，librtmp 等等", chapterOrder, this.size + 1, false))
-                            add(ItemSectionModel("15. 将 ffmpeg 库移植到 Android 平台，结合上面积累的经验，编写一款简易的音视频播放器", chapterOrder, this.size + 1, false))
+                            add(ItemSectionModel("15. 将 ffmpeg 库移植到 Android 平台，结合上面积累的经验，编写一款简易的音视频播放器", chapterOrder, this.size + 1, true))
                             add(ItemSectionModel("16. 将 x264 库移植到 Android 平台，结合上面积累的经验，完成视频数据 H264 软编功能", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("17. 将 librtmp 库移植到 Android 平台，结合上面积累的经验，完成 Android RTMP 推流功能", chapterOrder, this.size + 1, false))
                             add(ItemSectionModel("18. 上面积累的经验，做一款短视频 APP，完成如：断点拍摄、添加水印、本地转码、视频剪辑、视频拼接、MV 特效等功能", chapterOrder, this.size + 1, false))
