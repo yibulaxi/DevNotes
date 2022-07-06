@@ -31,6 +31,7 @@
 - 企业级流媒体服务器设计与开发（高级）
 - 《FFmpeg 从入门到精通》
 - 开发商业级热门短视频App 掌握Jetpack组件库
+- [OpenCV 实战开发视频编辑器-夏曹俊](./course/xiacaojun/readme.md)
 
 ### 入门到提高 —— 任务列表
 [源博客地址](https://blog.51cto.com/ticktick/1956269)   
