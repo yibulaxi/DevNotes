@@ -10,11 +10,14 @@ class Task15SimplePlayer: BaseActivity() {
         return R.layout.activity_task15_simple_player
     }
 
+    val videoPath = "/sdcard/av/videos/out.mp4"
+
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
-        val ffmpegDemo = NativeFFmpegDemo()
 
-        tv_info.text = ffmpegDemo.fFmpegInfo
+        btn_play_video.setOnClickListener {
+            ff_video.playVideo(videoPath)
+        }
     }
 }
