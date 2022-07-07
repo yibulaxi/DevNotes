@@ -96,6 +96,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("EditText/TextView 高亮文本", true)
                 addItem("TextView 跑马灯效果", true)
                 addItem("EditText 滚动时焦点不跳", true)
+                addItem("TextView 日期+斜线", true)
             })
             // endregion
         })

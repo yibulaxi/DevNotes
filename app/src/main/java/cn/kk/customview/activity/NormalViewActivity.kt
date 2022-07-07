@@ -51,6 +51,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_TEXTVIEW_MARQUEE = 102   // 跑马灯效果
         val VIEW_TYPE_image_view_svg = 103  // svg
         val VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED = 104  // EditText 焦点不跳
+        val VIEW_TYPE_DATE_TEXT_VIEW = 105 // TextView 日期+斜线
     }
 
     override fun getLayout(): Int {
@@ -106,6 +107,7 @@ class NormalViewActivity: BaseActivity() {
             VIEW_TYPE_TEXTVIEW_MARQUEE -> view_container.addView(getMarqueeTextView())
             VIEW_TYPE_image_view_svg -> view_container.addView(getImageViewForSVG())
             VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED -> view_container.addView(getEditTextFixFocus())
+            VIEW_TYPE_DATE_TEXT_VIEW -> view_container.addView(getTextViewWithDate())
             // endregion
             else -> {
             }
@@ -142,5 +144,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getEditTextFixFocus(): View {
         return layoutInflater.inflate(R.layout.view_at_fix_focus_edit_text_layout, null)
+    }
+
+    private fun getTextViewWithDate(): View {
+        return layoutInflater.inflate(R.layout.view_at_text_view_date, null)
     }
 }

@@ -163,6 +163,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     7 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_HIGHLIGHT)
                     8 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_MARQUEE)
                     9 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED)
+                    10 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DATE_TEXT_VIEW)
                 }
             }
             // endregion
