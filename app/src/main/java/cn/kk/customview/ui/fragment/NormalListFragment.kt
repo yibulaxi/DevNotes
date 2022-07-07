@@ -162,6 +162,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     6 -> startNextUI(RecyclerViewDemoActivity::class.java, title, BaseTabActivity.TabType.SystemUI.RECYCLER_VIEW_TYPE)
                     7 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_HIGHLIGHT)
                     8 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_TEXTVIEW_MARQUEE)
+                    9 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED)
                 }
             }
             // endregion

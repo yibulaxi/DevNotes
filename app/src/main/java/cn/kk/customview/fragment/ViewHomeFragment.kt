@@ -95,6 +95,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("RecyclerView 用法", true)
                 addItem("EditText/TextView 高亮文本", true)
                 addItem("TextView 跑马灯效果", true)
+                addItem("EditText 滚动时焦点不跳", true)
             })
             // endregion
         })
