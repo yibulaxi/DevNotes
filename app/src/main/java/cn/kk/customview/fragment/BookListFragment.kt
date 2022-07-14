@@ -48,6 +48,7 @@ class BookListFragment: BaseFragment() {
             add(BookModelFactory.createBook(BaseItem.action_book_c))
             add(BookModelFactory.createBook(BaseItem.action_book_kotlin))
             add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_IDE))
+            add(BookModelFactory.createBook(BaseItem.ACTION_BOOK_TEMP))
         }
 
         rvBookList.apply {
@@ -64,6 +65,7 @@ class BookListFragment: BaseFragment() {
                 }
             }.apply {
                 setOnItemClickListener { adapter, view, position ->
+
                     startNextUI(BookDetailActivity::class.java, data[position].title, data[position])
 
                     when (data[position].itemAction) {

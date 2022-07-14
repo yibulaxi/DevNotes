@@ -14,6 +14,8 @@ import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
 import android.view.TouchDelegate
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.RotateAnimation
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -245,4 +247,20 @@ object UIHelper {
     }
 
     // endregion
+
+    // anim
+
+    /**
+     * 改变展开状态
+     */
+     fun changeExpandUI(expandState: Boolean, arrowView: View){
+        val rotateAnim = RotateAnimation(if (expandState) -90f else 0f, if (expandState) 0f else -90f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f).apply {
+            duration = 300
+            fillAfter = true
+        }
+        arrowView.startAnimation(rotateAnim)
+    }
+
+    // endregion
+
 }

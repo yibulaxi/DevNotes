@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<!--  groupIndicator 去掉一级列表的箭头  -->
+<!--  divider 去掉一级列表的分割线  -->
+    <ExpandableListView
+        android:id="@+id/book_expand_list_view"
+        android:groupIndicator="@null"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

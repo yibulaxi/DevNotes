@@ -2280,6 +2280,18 @@ class BookModelFactory {
                     return BookModel("IDE", itemAction, chapterModelList)
                 }
                 // endregion
+
+                // region temp
+                BaseItem.ACTION_BOOK_TEMP -> {
+                    chapterModelList.apply {
+                        add(ItemChapterModel("first chapter", mutableListOf<ItemSectionModel>().apply {
+                            add(ItemSectionModel("1.1", 1, 1, true))
+                        }, itemAction))
+
+                    }
+                    return BookModel("Temp", itemAction, chapterModelList)
+                }
+                // endregion
             }
 
             return BookModel("空", itemAction, chapterModelList)

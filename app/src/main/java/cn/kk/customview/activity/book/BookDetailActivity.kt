@@ -3,9 +3,11 @@ package cn.kk.customview.activity.book
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import cn.kk.customview.activity.BaseFragmentActivity
+import cn.kk.customview.bean.BaseItem
 import cn.kk.customview.bean.BookModel
 import cn.kk.customview.dialog.MoreInfoListBottomDialog
 import cn.kk.customview.fragment.BookDetailFragment
+import cn.kk.customview.fragment.BookDetailFragmentV2
 
 /**
  * Book 详情页面 - Activity
@@ -16,17 +18,24 @@ class BookDetailActivity : BaseFragmentActivity() {
         intent.getSerializableExtra(INTENT_MODEL_KEY) as BookModel
     }
 
-    override fun getFragment(): Fragment = BookDetailFragment().apply {
-        if (bookModel.moreItemList != null) {
-            showTitleMoreBtnIcon()
+    override fun getFragment(): Fragment =
+        when (bookModel.itemAction) {
+            BaseItem.ACTION_BOOK_TEMP -> BookDetailFragmentV2()
+            else -> {
+                BookDetailFragment().apply {
+                    if (bookModel.moreItemList != null) {
+                        showTitleMoreBtnIcon()
+                    }
+                    arguments = Bundle().apply {
+                        putSerializable(
+                            INTENT_MODEL_KEY,
+                            bookModel
+                        )
+                    }
+                }
+            }
+
         }
-        arguments = Bundle().apply {
-            putSerializable(
-                INTENT_MODEL_KEY,
-                bookModel
-            )
-        }
-    }
 
     override fun onTitleMoreClick() {
         showMoreInfoDialog()

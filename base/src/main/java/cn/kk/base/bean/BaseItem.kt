@@ -36,6 +36,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_BOOK_AV_DEV = 220        // 音视频开发
         val ACTION_BOOK_NDK = 221        // NDK 开发
         val ACTION_BOOK_INTERVIEW = 222        // 面试整理
+        val ACTION_BOOK_TEMP = 223        // temp
         // endregion
 
         // region normal chapter and section
