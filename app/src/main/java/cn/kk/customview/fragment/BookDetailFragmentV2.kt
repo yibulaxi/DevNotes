@@ -23,13 +23,10 @@ class BookDetailFragmentV2: BaseFragment() {
     val MENU_ID_MENU_DELETE = 100
     val MENU_ID_MENU_DETAIL = 100
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    val bookID = 100
 
-        val expandChapterListView = rootView.findViewById<ExpandableListView>(R.id.book_expand_list_view)
-
-        val bookID = 100
-        val bookItem = BookItem(bookID, "Temp", mutableListOf<BookChapterItem>().apply {
+    val bookItem: BookItem by lazy {
+        BookItem(bookID, "Temp", mutableListOf<BookChapterItem>().apply {
             addChapter(bookID, "First chapter", this.size, 12)
             addChapter(bookID, "Second chapter", this.size, 5)
             addChapter(bookID, "Third chapter", this.size, 19)
@@ -38,7 +35,18 @@ class BookDetailFragmentV2: BaseFragment() {
             addChapter(bookID, "Sixth chapter", this.size, 9)
 
         })
-        expandChapterListView.setAdapter(BookExpandableListAdapter(bookItem, activity!!))
+    }
+
+    val mBookExpandableListAdapter: BookExpandableListAdapter by lazy {
+        BookExpandableListAdapter(bookItem, activity!!)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val expandChapterListView = rootView.findViewById<ExpandableListView>(R.id.book_expand_list_view)
+
+        expandChapterListView.setAdapter(mBookExpandableListAdapter)
 
         // ExpandableListView menu context
         expandChapterListView.setOnCreateContextMenuListener(this)
@@ -69,6 +77,10 @@ class BookDetailFragmentV2: BaseFragment() {
                     childPos = ExpandableListView.getPackedPositionChild(info.packedPosition)
 
                     showToast("delete: ${groupPos}->${childPos}")
+
+                    // delete
+                    bookItem.bookChapterItemList[groupPos].bookSectionItemList.removeAt(childPos)
+                    mBookExpandableListAdapter.notifyDataSetChanged()
                 }
             }
             MENU_ID_MENU_DETAIL -> {
