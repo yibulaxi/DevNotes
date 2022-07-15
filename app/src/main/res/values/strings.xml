@@ -25,6 +25,9 @@
     <string name="not_yet">还没做...</string>
     <string name="section_count">（%d 篇）</string>
 
+    <string name="menu_delete">删除</string>
+    <string name="menu_detail">查看</string>
+
     <string-array name="cool_300">
         <item>常用控件</item>
         <item>通知栏</item>

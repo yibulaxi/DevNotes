@@ -52,6 +52,7 @@ class BookExpandableListAdapter(val bookItem: BookItem, val mActivity: FragmentA
         val sectionTitleView = sectionView.findViewById<TextView>(R.id.tv_item_home_name)
 
         sectionTitleView.text = sectionItem.title
+        sectionView.isLongClickable = true
         return sectionView
     }
 
