@@ -52,6 +52,8 @@ public class StringHelper {
             return sentence.replace("<span", String.format("<span style='color:%s' ", hexColor));
         } else if (sentence.contains(key.concat(key))) {
             return sentence.replace(key, String.format("<span style='color:%s'>%s</span>", hexColor, key));
+        } else if (sentence.contains(word2Cap(key))) {
+            return sentence.replace(word2Cap(key), String.format("<span style='color:%s'>%s</span>", hexColor, word2Cap(key)));
         }
         return sentence;
     }
@@ -93,14 +95,10 @@ public class StringHelper {
 
         String sentence1 = "Allergens are anything harmless (or neutral) that can be inhaled in air by nose and trigger excessive immune reaction.";
         String keyWord = "allergen";
-        String keyWord_1 = "AlLergen";
-        String keyWord_2 = "aLlergen";
-        String keyWord_3 = "ALLERGEN";
 
-        System.out.println(word2Cap(keyWord));
-        System.out.println(keyWord_1 + ", " + word2Cap(keyWord_1));
-        System.out.println(keyWord_2 + ", " + word2Cap(keyWord_2));
-        System.out.println(keyWord_3 + ", " + word2Cap(keyWord_3));
+//        System.out.println(word2Cap(keyWord));
+
+        System.out.println(highLightWord(sentence1, keyWord));
 
     }
 }
