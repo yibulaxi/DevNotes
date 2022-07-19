@@ -1,6 +1,9 @@
 package cn.kk.base.utils;
 
 
+import android.graphics.Color;
+import android.text.TextUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,13 +44,63 @@ public class StringHelper {
         }
     }
 
+    public static String highLightWord(String sentence, String key){
+        // Allergens are anything harmless (or neutral) that can be inhaled in air by nose and trigger excessive immune reaction.
+        // allergen
+        String hexColor = Integer.toHexString(Color.RED);
+        if (sentence.contains("<span")) {
+            return sentence.replace("<span", String.format("<span style='color:%s' ", hexColor));
+        } else if (sentence.contains(key.concat(key))) {
+            return sentence.replace(key, String.format("<span style='color:%s'>%s</span>", hexColor, key));
+        }
+        return sentence;
+    }
+
+
+    /**
+     * 转化成大些字幕
+     * @param character
+     * @return
+     */
+    private Character letter2Capital(Character character) {
+        char c = character;
+        // 小写字母范围
+        if (c >= 97 && c <= 122) {
+            c = (char) (c - 32);
+        }
+        return c;
+    }
+
+    public static String word2Cap(String word){
+//        if (TextUtils.isEmpty(word)) return word;
+
+        char startC = word.charAt(0);
+        char targetC = startC;
+        if (startC >= 97 && startC <= 122) {
+            // 小写字母开头
+            targetC = (char) (startC - 32);
+            return word.toLowerCase().replace(startC, targetC);
+        }
+        return word;
+    }
+
+
+
     public static void main(String[] args) {
 
-//        String answer = "<div id=\"exp\" class=\".expDiv\">亲兄弟</div><div id=\"lj_recite\" class=\"sentence\"><div><div>Alicia tiene un hermano y una hermana.<br><span class=\"exp\">Alicia 有一个哥哥和一个姐姐</span></div></div></div>";
-//        System.out.println("answer: " + answer);
-//        System.out.println("filterHtml: " + filterHtml(answer));
-//        String[] split = filterHtml(answer).split("\n");
 
-        list2arrayDemo();
+//        list2arrayDemo();
+
+        String sentence1 = "Allergens are anything harmless (or neutral) that can be inhaled in air by nose and trigger excessive immune reaction.";
+        String keyWord = "allergen";
+        String keyWord_1 = "AlLergen";
+        String keyWord_2 = "aLlergen";
+        String keyWord_3 = "ALLERGEN";
+
+        System.out.println(word2Cap(keyWord));
+        System.out.println(keyWord_1 + ", " + word2Cap(keyWord_1));
+        System.out.println(keyWord_2 + ", " + word2Cap(keyWord_2));
+        System.out.println(keyWord_3 + ", " + word2Cap(keyWord_3));
+
     }
 }
