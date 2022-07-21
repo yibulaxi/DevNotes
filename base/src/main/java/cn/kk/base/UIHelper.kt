@@ -20,10 +20,28 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import cn.kk.base.utils.PatternHelper
 
 
 object UIHelper {
+
+
+    /**
+     * 上下/左右约束
+     */
+    fun relayoutByConstraintLayout(startViewId: Int, endViewId: Int, margin: Int, parentView: ConstraintLayout, vertical: Boolean = false) {
+        val constraintSet = ConstraintSet().apply {
+            clone(parentView)
+            if (vertical) {
+                connect(startViewId, ConstraintSet.TOP, endViewId, ConstraintSet.BOTTOM, margin)
+            } else {
+                connect(startViewId, ConstraintSet.LEFT, endViewId, ConstraintSet.RIGHT, margin)
+            }
+            applyTo(parentView)
+        }
+    }
 
     // region dip px
     fun dip2px(context: Context?, dpValue: Double): Int {
