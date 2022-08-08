@@ -8,7 +8,7 @@
         android:id="@+id/ll_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground"
+        android:background="@drawable/bg_press_ripple"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
         android:paddingTop="10dp"

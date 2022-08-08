@@ -58,22 +58,14 @@ class BookListFragment: BaseFragment() {
                     if (item.bookImgRes == -1) {
                         holder.setText(R.id.tv_name, item.title)
                         holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(UIHelper.generaRandomColor())
-                        holder.setBackgroundResource(R.id.tv_name, 0)
                     } else {
                         holder.setBackgroundResource(R.id.tv_name, item.bookImgRes)
                     }
+
                 }
             }.apply {
                 setOnItemClickListener { adapter, view, position ->
-
                     startNextUI(BookDetailActivity::class.java, data[position].title, data[position])
-
-                    when (data[position].itemAction) {
-                        BaseItem.action_book_android_dev_art -> {
-                        }
-                        else -> {
-                        }
-                    }
                 }
             }
         }
