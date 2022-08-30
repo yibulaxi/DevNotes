@@ -2,6 +2,7 @@ package com.kk.work.widget
 
 import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.Drawable
 import android.preference.PreferenceManager
 import android.util.AttributeSet
 import android.util.Log
@@ -108,7 +109,7 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 strokeWidth = getDrawHeight() / 2 - levelAnchorRadius
             }
         }
-
+        Drawable
     }
 
     override fun onDraw(canvas: Canvas) {

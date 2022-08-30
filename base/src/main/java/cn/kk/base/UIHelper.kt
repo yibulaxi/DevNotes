@@ -19,9 +19,12 @@ import android.view.animation.RotateAnimation
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.graphics.drawable.RoundedBitmapDrawable
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import cn.kk.base.utils.PatternHelper
 
 
@@ -237,6 +240,22 @@ object UIHelper {
             setBounds(0, 0, canvas.width, canvas.height)
             draw(canvas)
         }
+        return bitmap
+    }
+
+    /**
+     * 获取圆角 bitmap
+     * 该方法还没有测试
+     */
+    fun getRoundBitmap(ctx: Context, res: Int): Bitmap {
+        val roundBitmapDrawable = RoundedBitmapDrawableFactory.create(ctx.resources, BitmapFactory.decodeResource(ctx.resources, res))
+        roundBitmapDrawable.isCircular = true
+        val bitmap = Bitmap.createBitmap(roundBitmapDrawable.intrinsicWidth, roundBitmapDrawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
+
+        val canvas = Canvas(bitmap)
+        roundBitmapDrawable.setBounds(0, 0, canvas.width, canvas.height)
+        roundBitmapDrawable.draw(canvas)
+
         return bitmap
     }
     // endregion
