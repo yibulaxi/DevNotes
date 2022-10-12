@@ -60,7 +60,7 @@ public class StringHelper {
 
 
     /**
-     * 转化成大些字幕
+     * 转化成大些字母
      * @param character
      * @return
      */

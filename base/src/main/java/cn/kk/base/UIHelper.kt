@@ -182,6 +182,21 @@ object UIHelper {
         return String.format("#%06X", (0xFFFFFF and color))
     }
 
+    // region navigation bar
+
+
+    /**
+     * 判断 navigation bar 是否显示
+     */
+    fun getNavigationBarState(activity: Activity, callback: BooleanCallback){
+        activity.window.decorView.setOnApplyWindowInsetsListener { v, insets ->
+            callback.onResult(insets.systemWindowInsetBottom > 80) // 超过 80 认为是显示了 navigation bar
+            insets
+        }
+    }
+
+    // endregion
+
     /**
      * 生成随机颜色
      */
@@ -300,4 +315,7 @@ object UIHelper {
 
     // endregion
 
+    interface BooleanCallback {
+        fun onResult(result: Boolean)
+    }
 }
