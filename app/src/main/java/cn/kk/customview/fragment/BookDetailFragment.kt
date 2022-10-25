@@ -56,10 +56,10 @@ class BookDetailFragment: BaseFragment() {
         // region 添加书籍信息到本地数据库
         bookListViewModel.getBook(bookModel.itemAction).observe(viewLifecycleOwner, Observer { book ->
             if (book == null) {
-                showToast("add book: ${bookModel.title}")
+//                showToast("add book: ${bookModel.title}")
                 BookRepository.getInstance().addBook(Book(bookModel.itemAction, bookModel.title, bookModel.bookImgRes))
             } else {
-                showToast(bookModel.title.plus(" 已经添加过了"))
+//                showToast(bookModel.title.plus(" 已经添加过了"))
             }
          })
         // endregion

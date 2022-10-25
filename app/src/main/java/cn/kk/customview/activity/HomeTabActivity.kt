@@ -54,13 +54,6 @@ class HomeTabActivity: BaseActivity() {
         // 默认选中第一个 tab 页面
         bottom_navi.selectedItemId = R.id.navigation_tab_views
 
-
-        UIHelper.getNavigationBarState(this@HomeTabActivity, object : UIHelper.BooleanCallback {
-            override fun onResult(result: Boolean) {
-                UIHelper.toast(if(result) "经典导航键" else "全面屏", applicationContext)
-            }
-
-        })
     }
 
    private fun getFragment(id: Int): Fragment {
