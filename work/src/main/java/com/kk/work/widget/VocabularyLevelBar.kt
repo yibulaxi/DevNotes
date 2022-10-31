@@ -109,7 +109,6 @@ class VocabularyLevelBar(mContext: Context,val attributeSet: AttributeSet?): Vie
                 strokeWidth = getDrawHeight() / 2 - levelAnchorRadius
             }
         }
-        Drawable
     }
 
     override fun onDraw(canvas: Canvas) {
