@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BeatBoxButton" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_beat_box</item>
+    </style>
+
+   <!--通过命名方式，继承 BeatBoxButton-->
+    <style name="BeatBoxButton.Strong">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BeatBoxButton.Small" parent="@style/Widget.AppCompat.Button.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/button_beat_box</item>
+    </style>
+</resources>

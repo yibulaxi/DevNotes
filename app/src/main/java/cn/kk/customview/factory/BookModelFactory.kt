@@ -1005,7 +1005,16 @@ class BookModelFactory {
                             add(ItemSectionModel("..."))
                         }))
                     }
-                    return BookModel("Android\n编程权威指南", itemAction, chapterModelList).apply { bookImgRes = R.drawable.bg_book_5 }
+                    // more info
+                    moreInfoList.apply {
+                        add(BaseMoreItem("BeatBox", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                    }
+                    return BookModel("Android\n编程权威指南", itemAction, chapterModelList).apply {
+                        bookImgRes = R.drawable.bg_book_5
+                        if(moreInfoList.isNotEmpty()) {
+                            moreItemList = moreInfoList
+                        }
+                    }
                 }
                 // endregion
 

@@ -129,6 +129,7 @@ dependencies {
 
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation project(path: ':design_pattern')
+    implementation project(path: ':BeatBox')
 
 
     // test lib

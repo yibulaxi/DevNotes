@@ -9,6 +9,7 @@ import cn.kk.base.bean.BaseMoreItem
 import cn.kk.base.dialog.BaseListBottomDialog
 import cn.kk.customview.activity.NormalWebViewActivity
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.kk.beatbox.MainActivity
 
 class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableList<BaseMoreItem>): BaseListBottomDialog<BaseMoreItem>(mActivity, modelList) {
 
@@ -26,7 +27,12 @@ class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableLi
     }
 
     override fun onItemClick(model: BaseMoreItem) {
-        mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, -1, model.url)
+        if (model.url.isEmpty()) {
+//            mActivity.openNextUI()
+            mActivity.openNextUI(MainActivity::class.java, model.title)
+        } else {
+            mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, -1, model.url)
+        }
     }
 
 

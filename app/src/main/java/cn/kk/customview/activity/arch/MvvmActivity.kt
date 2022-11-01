@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import cn.kk.customview.activity.arch.mvvm.BeatBox
 import cn.kk.customview.activity.arch.mvvm.Sound
 import cn.kk.customview.activity.arch.mvvm.SoundViewModel
 import cn.kk.customview.databinding.ActivityMvvmBinding
-import cn.kk.customview.databinding.ListItemSoundBinding
 
 /**
  * 1. kapt plugin & dataBinding in build.gradle
@@ -30,10 +27,10 @@ class MvvmActivity: AppCompatActivity() {
 
         beatBox = BeatBox(assets)
 
-        binding.rvListSound.apply {
+        /*binding.rvListSound.apply {
             layoutManager = GridLayoutManager(context, 4)
             adapter = SoundAdapter(beatBox.sounds)
-        }
+        }*/
 
 
     }
@@ -44,9 +41,9 @@ class MvvmActivity: AppCompatActivity() {
     }
 
 
-    private inner class SoundAdapter(val sounds: List<Sound>): RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
+   /* private inner class SoundAdapter(val sounds: List<Sound>): RecyclerView.Adapter<SoundAdapter.SoundHolder>() {
 
-        inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root) {
+        inner class SoundHolder(private val binding: ListItemSoundBindingCopy): RecyclerView.ViewHolder(binding.root) {
             init {
                 binding.viewModel = SoundViewModel(beatBox)
             }
@@ -59,7 +56,7 @@ class MvvmActivity: AppCompatActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SoundHolder {
-            val binding = DataBindingUtil.inflate<ListItemSoundBinding>(layoutInflater, R.layout.list_item_sound, parent ,false)
+            val binding = DataBindingUtil.inflate<ListItemSoundBinding>(layoutInflater, R.layout.list_item_sound_copy, parent ,false)
             return SoundHolder(binding)
         }
 
@@ -70,5 +67,5 @@ class MvvmActivity: AppCompatActivity() {
         override fun getItemCount(): Int {
             return sounds.size
         }
-    }
+    }*/
 }
