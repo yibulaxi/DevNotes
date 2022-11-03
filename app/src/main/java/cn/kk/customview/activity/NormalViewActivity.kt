@@ -52,6 +52,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_image_view_svg = 103  // svg
         val VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED = 104  // EditText 焦点不跳
         val VIEW_TYPE_DATE_TEXT_VIEW = 105 // TextView 日期+斜线
+        val VIEW_TYPE_CHANNEL_TAB_VIEW = 106 // channel tab view
     }
 
     override fun getLayout(): Int {
@@ -108,6 +109,7 @@ class NormalViewActivity: BaseActivity() {
             VIEW_TYPE_image_view_svg -> view_container.addView(getImageViewForSVG())
             VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED -> view_container.addView(getEditTextFixFocus())
             VIEW_TYPE_DATE_TEXT_VIEW -> view_container.addView(getTextViewWithDate())
+            VIEW_TYPE_CHANNEL_TAB_VIEW -> view_container.addView(getChannelTabView())
             // endregion
             else -> {
             }
@@ -148,5 +150,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getTextViewWithDate(): View {
         return layoutInflater.inflate(R.layout.view_at_text_view_date, null)
+    }
+
+    private fun getChannelTabView(): View {
+        return layoutInflater.inflate(R.layout.view_at_channel_tab_view, null)
     }
 }

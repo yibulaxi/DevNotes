@@ -97,6 +97,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("TextView 跑马灯效果", true)
                 addItem("EditText 滚动时焦点不跳", true)
                 addItem("TextView 日期+斜线", true)
+                addItem("channel tab view", true)
             })
             // endregion
         })
