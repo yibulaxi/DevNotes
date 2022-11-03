@@ -24,7 +24,8 @@ import com.example.hencoder.dp
  *      1. 第一行和第二行摆放的 tab 数量大致相当(手机、pad 分屏时)
  *      2. 第一行摆满，剩下的摆第二行(宽度足够大时，也就是 pad（全屏） 下)
  * 3. 分状态：选中、非选中 ok
- * 4. 点击后刷新选中 item
+ * 4. 点击后刷新选中 item ok
+ * 5. 选中变化监听 ok
  */
 class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
 
@@ -47,13 +48,14 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
     }
 
     val tabNames = arrayListOf<String>()
+    var mTabItemSelectedChangeListener : TabItemSelectedChangeListener ?= null
 
     init {
         for (i in 1 until tab_count + 1) {
             tabNames.add(String.format("星期 · %d", i))
         }
 
-        createTabViews()
+//        createTabViews()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -154,7 +156,7 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
     }
 
     // region create tab item view
-    private fun createTabViews(){
+    fun createTabViews(){
 
         var tabIndex = 0
         tabNames.forEach {
@@ -169,13 +171,15 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
                 setBackgroundResource(R.drawable.bg_channel_tab_selector)
                 setPadding(10.dp.toInt(), 0, 10.dp.toInt(), 0)
                 setOnClickListener {
-                    // todo 点击后刷新状态
+                    // 点击后刷新状态
                     if (isSelected) return@setOnClickListener
                     isSelected = true
                     setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
 
                     // 取消之前选中的 tab view
                     cancelSelectedTabView(tag as Int)
+
+                    mTabItemSelectedChangeListener?.onSelectedChange(tag as Int)
                 }
             }
 
@@ -220,4 +224,9 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
         }
     }
     // endregion
+
+    interface TabItemSelectedChangeListener {
+
+        fun onSelectedChange(selectedIndex: Int)
+    }
 }

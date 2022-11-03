@@ -13,6 +13,7 @@ import cn.kk.base.utils.DateHelper
 import cn.kk.customview.R
 import cn.kk.customview.widget.GradientImageView
 import cn.kk.customview.widget.VocabularyLevelBar
+import cn.kk.customview.widget.work.ChannelTabView
 import cn.kk.customview.widget.work.CheckInWeekView
 import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
@@ -21,6 +22,7 @@ import com.example.hencoder.draw.SimpleDrawable
 import com.example.hencoder.touch.ScalableImageView
 import com.example.hencoder.touch.TouchView
 import kotlinx.android.synthetic.main.activity_normal_view.*
+import kotlinx.android.synthetic.main.view_at_channel_tab_view.*
 
 /**
  * 用来显示单纯的 View(各种自定义的 View) 页面
@@ -109,7 +111,16 @@ class NormalViewActivity: BaseActivity() {
             VIEW_TYPE_image_view_svg -> view_container.addView(getImageViewForSVG())
             VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED -> view_container.addView(getEditTextFixFocus())
             VIEW_TYPE_DATE_TEXT_VIEW -> view_container.addView(getTextViewWithDate())
-            VIEW_TYPE_CHANNEL_TAB_VIEW -> view_container.addView(getChannelTabView())
+            VIEW_TYPE_CHANNEL_TAB_VIEW -> {
+                view_container.addView(getChannelTabView())
+                channel_tab_view.createTabViews()
+                channel_tab_view.mTabItemSelectedChangeListener = object : ChannelTabView.TabItemSelectedChangeListener {
+                    override fun onSelectedChange(selectedIndex: Int) {
+                        UIHelper.toast("tab item ${selectedIndex} 选中了!", applicationContext)
+                    }
+
+                }
+            }
             // endregion
             else -> {
             }
