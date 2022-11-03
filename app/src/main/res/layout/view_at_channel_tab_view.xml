@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,8 +16,8 @@
             android:layout_height="wrap_content">
 
             <cn.kk.customview.widget.work.ChannelTabView
-                android:layout_centerInParent="true"
-                android:layout_marginTop="12dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="8dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="15dp"
                 android:layout_width="wrap_content"
@@ -26,5 +27,10 @@
 
     </HorizontalScrollView>
 
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
 
-</RelativeLayout>
+
+</LinearLayout>

@@ -102,6 +102,9 @@ class ViewHomeFragment: BaseFragment() {
             // endregion
         })
 
+        // 默认定位到最后一个 tab 页
+        viewPager.currentItem = (viewPager.adapter as BaseFragmentAdapter).itemCount - 1
+
         // bind tabLayout and viewPager
         TabLayoutMediator(tabs, viewPager, true, object: TabLayoutMediator.TabConfigurationStrategy{
             override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {

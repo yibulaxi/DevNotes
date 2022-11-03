@@ -19,11 +19,9 @@ import android.view.animation.RotateAnimation
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import cn.kk.base.utils.PatternHelper
 
@@ -124,6 +122,32 @@ object UIHelper {
     fun getScreenSize(activity: Activity): Point {
         return Point(activity.windowManager.currentWindowMetrics.bounds.right, activity.windowManager.currentWindowMetrics.bounds.bottom)
     }
+
+    fun getScreenWidth(activity: Activity?): Int {
+        if (activity == null) return 0
+        val display = activity.windowManager.defaultDisplay
+        try {
+            val size = Point()
+            display.getSize(size)
+            return size.x
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return display.width
+    }
+
+    fun getScreenHeight(activity: Activity): Int {
+        val display = activity.windowManager.defaultDisplay
+        try {
+            val size = Point()
+            display.getSize(size)
+            return size.y
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return display.height
+    }
+
 
     // endregion
 

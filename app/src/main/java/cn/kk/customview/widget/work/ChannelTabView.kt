@@ -1,5 +1,6 @@
 package cn.kk.customview.widget.work
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Canvas
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import cn.kk.base.UIHelper
 import cn.kk.customview.R
 import com.example.hencoder.dp
 
@@ -18,23 +20,35 @@ import com.example.hencoder.dp
  * todo
  * 1. 课指定行数 ok
  * 2. 分状态：选中、非选中
- * 3. 指定最大行数
+ * 3. 指定最大行数 ok
+ *    换行有两种效果：
+ *      1. 第一行和第二行摆放的 tab 数量大致相当(手机、pad 分屏时)
+ *      2. 第一行摆满，剩下的摆第二行(宽度足够大时，也就是 pad（全屏） 下)
  */
 class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
 
-    val tab_count = 4
-    var lineCount = 2 // 默认2行
+    val LINE_MODE_PHONE = 0 // 第一种换行效果
+    val LINE_MODE_PAD = 1 // 第二种换行效果
+
+    val tab_count = 6
+    var maxLineCount = 2 // 默认2行
+    // 多行模式，目前有两种效果
+    var multiLineMode = LINE_MODE_PHONE
 
     val TAB_VIEW_HEIGHT = dp2pxInt(30f)
     val TEXT_SZIE_OF_NORMAL_WORD = 15f
     val TAB_INTERVAL_MARGIN = dp2px(12f).toInt() // tab item view 左右间距
     val TAB_INTERVAL_MARGIN_VERTICAL = dp2px(10f).toInt() // tab item view 上下间距
 
+    val visibleWidth: Int by lazy { // 可见区域的宽度，这里默认用屏幕宽度。根据实际情况定
+        UIHelper.getScreenWidth(context as Activity)
+    }
+
     val tabNames = arrayListOf<String>()
 
     init {
         for (i in 1 until tab_count + 1) {
-            tabNames.add(String.format("星期 · %d", i + 1))
+            tabNames.add(String.format("星期 · %d", i))
         }
 
         createTabViews()
@@ -68,20 +82,36 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
             }
         }
 
-        // 根据要分几行，粗略计算一行的大致宽度，也就是父容器的宽度
-        containerWidth = totalTabViewWidth / lineCount
 
-        // 计算实际需要的一行宽度，也就是容器总宽度
-        var tempWidth = 0
-        for(i in 0 until childCount) {
-            tempWidth += getChildAt(i).measuredWidth
-            if (tempWidth >= containerWidth) {
-                containerWidth = tempWidth;
-                break
+        if (totalTabViewWidth <= visibleWidth) { // 一行
+            maxLineCount = 1
+            containerWidth = totalTabViewWidth + paddingStart + paddingEnd
+        } else { // 2行,
+            // 如果 2行的 visibleWidth 都摆不开，则只能支持 LINE_MODE_PHONE 模式
+            if (totalTabViewWidth > 2 * visibleWidth) {
+                multiLineMode = LINE_MODE_PHONE
             }
+            if (multiLineMode == LINE_MODE_PHONE) { // 粗略计算一行的大致宽度，也就是父容器的宽度
+                containerWidth = totalTabViewWidth / maxLineCount
+                // 计算实际需要的一行宽度，也就是容器总宽度
+                var tempWidth = 0
+                for(i in 0 until childCount) {
+                    val curChildWidth = getChildAt(i).measuredWidth
+                    tempWidth += curChildWidth
+                    if (tempWidth >= containerWidth) { // 满足条件后，containerWidth 就是刚好超过总 tabs 宽度一半的 width
+                        containerWidth = tempWidth + paddingStart + paddingEnd
+                        break
+                    }
+                }
+            } else if (multiLineMode == LINE_MODE_PAD) {
+                containerWidth = visibleWidth
+            }
+
+
         }
 
-        containerHeight = getChildAt(0).measuredHeight * lineCount + (lineCount - 1) * TAB_INTERVAL_MARGIN_VERTICAL
+        // 单行高度 * 行数 + 行间距 + paddingTop + paddingBottom
+        containerHeight = getChildAt(0).measuredHeight * maxLineCount + (maxLineCount - 1) * TAB_INTERVAL_MARGIN_VERTICAL + paddingTop + paddingBottom
         // 测量完成后，设置给系统
         setMeasuredDimension(containerWidth, containerHeight)
 
