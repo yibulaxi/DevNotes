@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
-import cn.kk.base.utils.DateHelper
 import cn.kk.customview.R
 import cn.kk.customview.widget.GradientImageView
 import cn.kk.customview.widget.VocabularyLevelBar
@@ -19,8 +18,6 @@ import com.example.hencoder.AvatarView
 import com.example.hencoder.CameraView
 import com.example.hencoder.MultilineTextView
 import com.example.hencoder.draw.SimpleDrawable
-import com.example.hencoder.touch.ScalableImageView
-import com.example.hencoder.touch.TouchView
 import kotlinx.android.synthetic.main.activity_normal_view.*
 import kotlinx.android.synthetic.main.view_at_channel_tab_view.*
 
@@ -28,6 +25,8 @@ import kotlinx.android.synthetic.main.view_at_channel_tab_view.*
  * 用来显示单纯的 View(各种自定义的 View) 页面
  */
 class NormalViewActivity: BaseActivity() {
+
+    var channelVisibleWidth = 0
 
     companion object {
         // 混合模式
@@ -116,9 +115,22 @@ class NormalViewActivity: BaseActivity() {
                 channel_tab_view.createTabViews()
                 channel_tab_view.mTabItemSelectedChangeListener = object : ChannelTabView.TabItemSelectedChangeListener {
                     override fun onSelectedChange(selectedIndex: Int) {
-                        UIHelper.toast("tab item ${selectedIndex} 选中了!", applicationContext)
+                        showToast("tab item ${selectedIndex} 选中了!")
                     }
 
+                }
+                channelVisibleWidth = UIHelper.getScreenWidth(this@NormalViewActivity)
+                tv_width.text = String.format("width: %d", channelVisibleWidth)
+                btn_change_size_add.setOnClickListener {
+                    channelVisibleWidth += UIHelper.dp2px(20f).toInt()
+                    channel_tab_view.changeWidth(channelVisibleWidth)
+                    tv_width.text = String.format("channel visible width: %d", channelVisibleWidth)
+                }
+
+                btn_change_size_minus.setOnClickListener {
+                    channelVisibleWidth -= UIHelper.dp2px(20f).toInt()
+                    channel_tab_view.changeWidth(channelVisibleWidth)
+                    tv_width.text = String.format("channel visible width: %d", channelVisibleWidth)
                 }
             }
             // endregion

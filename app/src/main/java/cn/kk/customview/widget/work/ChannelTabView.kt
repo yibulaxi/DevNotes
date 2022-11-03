@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -18,7 +19,7 @@ import com.example.hencoder.dp
 /**
  * 流式布局
  * todo
- * 1. 课指定行数 ok
+ * 1. 可指定行数 ok
  * 2. 指定最大行数 ok
  *    换行有两种效果：
  *      1. 第一行和第二行摆放的 tab 数量大致相当(手机、pad 分屏时)
@@ -26,13 +27,15 @@ import com.example.hencoder.dp
  * 3. 分状态：选中、非选中 ok
  * 4. 点击后刷新选中 item ok
  * 5. 选中变化监听 ok
+ * 6. 根据宽度重新排布
  */
 class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
+    private val TAG = "ChannelTabView--"
 
     val LINE_MODE_PHONE = 0 // 第一种换行效果
     val LINE_MODE_PAD = 1 // 第二种换行效果
 
-    val tab_count = 16
+    val tab_count = 5
     var maxLineCount = 2 // 默认2行
     // 多行模式，目前有两种效果
     var multiLineMode = LINE_MODE_PHONE
@@ -43,14 +46,14 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
     val TAB_INTERVAL_MARGIN = dp2px(12f).toInt() // tab item view 左右间距
     val TAB_INTERVAL_MARGIN_VERTICAL = dp2px(10f).toInt() // tab item view 上下间距
 
-    val visibleWidth: Int by lazy { // 可见区域的宽度，这里默认用屏幕宽度。根据实际情况定
-        UIHelper.getScreenWidth(context as Activity)
-    }
+    var visibleWidth: Int
 
     val tabNames = arrayListOf<String>()
     var mTabItemSelectedChangeListener : TabItemSelectedChangeListener ?= null
 
     init {
+        // 可见区域的宽度，这里默认用屏幕宽度。根据实际情况定
+        visibleWidth = UIHelper.getScreenWidth(context as Activity)
         for (i in 1 until tab_count + 1) {
             tabNames.add(String.format("星期 · %d", i))
         }
@@ -87,12 +90,14 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
         }
 
 
+        Log.d(TAG, "onMeasure: totalTabViewWidth: ${totalTabViewWidth}, visibleWidth: ${visibleWidth}")
         if (totalTabViewWidth <= visibleWidth) { // 一行
             maxLineCount = 1
             containerWidth = totalTabViewWidth + paddingStart + paddingEnd
         } else { // 2行,
             // 如果 2行的 visibleWidth 都摆不开，则只能支持 LINE_MODE_PHONE 模式
-            if (totalTabViewWidth > 2 * visibleWidth) {
+            maxLineCount = 2
+            if (totalTabViewWidth > maxLineCount * visibleWidth) {
                 multiLineMode = LINE_MODE_PHONE
             }
             if (multiLineMode == LINE_MODE_PHONE) { // 粗略计算一行的大致宽度，也就是父容器的宽度
@@ -189,7 +194,7 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
 
     }
 
-    fun cancelSelectedTabView(tabIndex: Int) {
+    private fun cancelSelectedTabView(tabIndex: Int) {
         if (getChildAt(curSelectedTabIndex)  == null) {
             UIHelper.toast("tab view at ${curSelectedTabIndex} is null", context)
             return
@@ -200,6 +205,11 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
         }
 
         curSelectedTabIndex = tabIndex
+    }
+
+    fun changeWidth(width: Int) {
+        visibleWidth = width
+        requestLayout()
     }
 
 
