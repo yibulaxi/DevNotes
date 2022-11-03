@@ -19,11 +19,12 @@ import com.example.hencoder.dp
  * 流式布局
  * todo
  * 1. 课指定行数 ok
- * 2. 分状态：选中、非选中
- * 3. 指定最大行数 ok
+ * 2. 指定最大行数 ok
  *    换行有两种效果：
  *      1. 第一行和第二行摆放的 tab 数量大致相当(手机、pad 分屏时)
  *      2. 第一行摆满，剩下的摆第二行(宽度足够大时，也就是 pad（全屏） 下)
+ * 3. 分状态：选中、非选中 ok
+ * 4. 点击后刷新选中 item
  */
 class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
 
@@ -154,18 +155,22 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
     // region create tab item view
     private fun createTabViews(){
 
+        var tabIndex = 0
         tabNames.forEach {
             val tab = TextView(context).apply {
                 height = TAB_VIEW_HEIGHT
                 textSize = TEXT_SZIE_OF_NORMAL_WORD
                 text = it
                 gravity = Gravity.CENTER
-                setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                isSelected = tabIndex == 0
+                setTextColor(ContextCompat.getColor(context, if(tabIndex == 0) R.color.colorPrimary else R.color.grey_2))
+                setBackgroundResource(R.drawable.bg_channel_tab_selector)
                 setPadding(10.dp.toInt(), 0, 10.dp.toInt(), 0)
-                setBackgroundResource(R.drawable.bg_shape_corner_primary_frame)
+
             }
 
             addView(tab)
+            tabIndex++
         }
 
     }
