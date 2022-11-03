@@ -31,10 +31,11 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
     val LINE_MODE_PHONE = 0 // 第一种换行效果
     val LINE_MODE_PAD = 1 // 第二种换行效果
 
-    val tab_count = 6
+    val tab_count = 16
     var maxLineCount = 2 // 默认2行
     // 多行模式，目前有两种效果
     var multiLineMode = LINE_MODE_PHONE
+    var curSelectedTabIndex = 0
 
     val TAB_VIEW_HEIGHT = dp2pxInt(30f)
     val TEXT_SZIE_OF_NORMAL_WORD = 15f
@@ -162,17 +163,39 @@ class ChannelTabView(ctx: Context, attrs: AttributeSet): ViewGroup(ctx, attrs) {
                 textSize = TEXT_SZIE_OF_NORMAL_WORD
                 text = it
                 gravity = Gravity.CENTER
-                isSelected = tabIndex == 0
-                setTextColor(ContextCompat.getColor(context, if(tabIndex == 0) R.color.colorPrimary else R.color.grey_2))
+                tag = tabIndex
+                isSelected = tabIndex == curSelectedTabIndex
+                setTextColor(ContextCompat.getColor(context, if(tabIndex == curSelectedTabIndex) R.color.colorPrimary else R.color.grey_2))
                 setBackgroundResource(R.drawable.bg_channel_tab_selector)
                 setPadding(10.dp.toInt(), 0, 10.dp.toInt(), 0)
+                setOnClickListener {
+                    // todo 点击后刷新状态
+                    if (isSelected) return@setOnClickListener
+                    isSelected = true
+                    setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
 
+                    // 取消之前选中的 tab view
+                    cancelSelectedTabView(tag as Int)
+                }
             }
 
             addView(tab)
             tabIndex++
         }
 
+    }
+
+    fun cancelSelectedTabView(tabIndex: Int) {
+        if (getChildAt(curSelectedTabIndex)  == null) {
+            UIHelper.toast("tab view at ${curSelectedTabIndex} is null", context)
+            return
+        }
+        (getChildAt(curSelectedTabIndex) as TextView).apply {
+            isSelected = false
+            setTextColor(ContextCompat.getColor(context, R.color.grey_2))
+        }
+
+        curSelectedTabIndex = tabIndex
     }
 
 
