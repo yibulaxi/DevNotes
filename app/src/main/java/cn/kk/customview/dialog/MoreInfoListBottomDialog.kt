@@ -23,7 +23,7 @@ class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableLi
     override fun fillItem(holder: BaseViewHolder, item: BaseMoreItem) {
 
         holder.setText(R.id.tv_item_home_name, item.title)
-        holder.setTextColor(R.id.tv_item_home_name, ContextCompat.getColor(mActivity, R.color.LightPink))
+//        holder.setTextColor(R.id.tv_item_home_name, ContextCompat.getColor(mActivity, R.color.LightPink))
     }
 
     override fun onItemClick(model: BaseMoreItem) {

@@ -6,46 +6,47 @@
     android:paddingLeft="15dp"
     android:paddingRight="15dp">
 
+    <View
+        android:layout_width="80dp"
+        android:layout_height="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_shape_corner_100_gray" />
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Simple bottom dialog"
-        android:textSize="25sp" />
+        android:textColor="@color/Chocolate"
+        android:textSize="15sp" />
 
-    <View
-        android:id="@+id/view_divider_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_below="@id/tv_title"
-        android:layout_marginTop="10dp"
-        android:background="@color/grey_b" />
 
     <androidx.core.widget.NestedScrollView
-        android:layout_below="@id/view_divider_line"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title">
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_dialog_list"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_dialog_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="300dp"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-
-    <Button
-        android:id="@+id/btn_exit"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:background="?selectableItemBackground"
-        android:text="Close"
-        android:textAllCaps="false"
-        android:textColor="@color/red_1"
-        android:textSize="22sp" />
 </RelativeLayout>

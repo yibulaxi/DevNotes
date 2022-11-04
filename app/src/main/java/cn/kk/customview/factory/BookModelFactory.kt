@@ -1007,7 +1007,13 @@ class BookModelFactory {
                     }
                     // more info
                     moreInfoList.apply {
+                        add(BaseMoreItem("GeoQuiz", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
                         add(BaseMoreItem("BeatBox", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                        add(BaseMoreItem("CriminalIntent", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                        add(BaseMoreItem("NerdLauncher", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                        add(BaseMoreItem("PhotoGallery", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                        add(BaseMoreItem("DragAndDraw", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
+                        add(BaseMoreItem("Sunset", "").apply { item_action = BaseItem.ACTION_BOOK_ANDROID_PROGRAMMING_APP_BEATBOX})
                     }
                     return BookModel("Android\n编程权威指南", itemAction, chapterModelList).apply {
                         bookImgRes = R.drawable.bg_book_5

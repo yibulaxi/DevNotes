@@ -23,11 +23,10 @@ abstract  class  BaseListBottomDialog<B: BaseItem> (mActivity: BaseActivity, val
         setContentView(R.layout.dialog_base_list)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
-        findViewById<View>(R.id.btn_exit)?.setOnClickListener { dismiss() }
 
         val rvList = findViewById<RecyclerView>(R.id.rv_dialog_list)
         rvList?.layoutManager = LinearLayoutManager(context)
-        rvList?.adapter = object : BaseQuickAdapter<B, BaseViewHolder>(R.layout.item_list_v4, models) {
+        rvList?.adapter = object : BaseQuickAdapter<B, BaseViewHolder>(R.layout.item_list_card, models) {
             override fun convert(holder: BaseViewHolder, item: B) {
                 fillItem(holder, item)
             }

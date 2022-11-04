@@ -19,8 +19,7 @@
         android:icon="@drawable/icon_cat"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        tools:replace="android:theme"
-        android:theme="@style/NoTitle">
+        android:theme="@style/KKTheme">
 
         <receiver android:name=".appwidget.KKAppWidgetNight"
             android:label="@string/appwidget_night">
