@@ -3,6 +3,7 @@ package cn.kk.customview.activity
 import android.util.Log
 import android.view.View
 import android.view.WindowInsets
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import cn.kk.base.UIHelper
@@ -25,6 +26,19 @@ class HomeTabActivity: BaseActivity() {
 
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
+
+        // edge to edge
+        ViewCompat.setOnApplyWindowInsetsListener(home_root_view, object : OnApplyWindowInsetsListener {
+            override fun onApplyWindowInsets(
+                v: View,
+                windowInsets: WindowInsetsCompat
+            ): WindowInsetsCompat {
+                val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.updatePadding(top = -1 * insets.top)
+                bottom_navi.updatePadding(bottom = insets.bottom)
+               return WindowInsetsCompat.CONSUMED
+            }
+        })
 
         bottom_navi.setOnItemSelectedListener {
             Log.d(TAG, "doWhenOnCreate: 0")

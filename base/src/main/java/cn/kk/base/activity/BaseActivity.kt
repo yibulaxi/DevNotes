@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.LogHelper
@@ -62,6 +63,7 @@ abstract class BaseActivity: BasicActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setTheme()
         super.onCreate(savedInstanceState)
         setStatusBarTrans()
@@ -78,8 +80,7 @@ abstract class BaseActivity: BasicActivity() {
     }
 
     fun setTheme(){
-        // 设置主体
-
+        // 设置主题
         val theme = UIHelper.getCurrentTheme(this)
         super.setTheme(theme)
     }
