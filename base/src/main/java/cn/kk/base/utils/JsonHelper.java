@@ -1,9 +1,13 @@
 package cn.kk.base.utils;
 
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 public class JsonHelper {
 
@@ -27,6 +31,10 @@ public class JsonHelper {
 
         return str;
     }
+
+    /*public static <T> List<T> parseJsonArray(String jsonArray) {
+        new Gson().fromJson<List<T>>();
+    }*/
 
     public static void main(String[] args) {
 
