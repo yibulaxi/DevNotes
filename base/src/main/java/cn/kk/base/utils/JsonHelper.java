@@ -2,11 +2,13 @@ package cn.kk.base.utils;
 
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JsonHelper {
@@ -32,9 +34,17 @@ public class JsonHelper {
         return str;
     }
 
-    /*public static <T> List<T> parseJsonArray(String jsonArray) {
-        new Gson().fromJson<List<T>>();
-    }*/
+    /**
+     * 这个方法写的不对. [参考](https://howtodoinjava.com/gson/gson-parse-json-array/)
+     * @param jsonArray
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public  static  <T> List<T> parseJsonArray(String jsonArray, Class<T> clazz) {
+        List<T> resList = new Gson().fromJson(jsonArray, new TypeToken<List<T>>(){}.getType());
+       return resList;
+    }
 
     public static void main(String[] args) {
 

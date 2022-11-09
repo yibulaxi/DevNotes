@@ -37,7 +37,7 @@ abstract class BaseMixListActivity : BaseActivity() {
             R.id.fragment_container,
             BookDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(INTENT_MODEL_KEY, BookModelFactory.createBook(getBookAction()))
+                    putSerializable(INTENT_MODEL_KEY, BookModelFactory.getBookByAction(getBookAction()))
                 }
                 scrollOrientationListener = object : BookDetailFragment.ScrollOrientationListener {
 

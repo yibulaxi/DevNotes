@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.UIHelper
 import cn.kk.base.fragment.BaseFragment
 import cn.kk.base.utils.AssetsHelper
+import cn.kk.base.utils.JsonHelper
 import cn.kk.customview.R
 import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.bean.BaseItem
@@ -34,6 +35,9 @@ class BookListFragment: BaseFragment() {
         val typeToken = object : TypeToken<List<BookModel>>() {}.type
 
         val bookListV2 = Gson().fromJson<List<BookModel>>(bookLisJson, typeToken).toMutableList()
+
+        //
+        val bookListV3 = JsonHelper.parseJsonArray(bookLisJson, BookModel::class.java).toMutableList()
 
         rvBookList.apply {
             layoutManager = GridLayoutManager(context, 3)

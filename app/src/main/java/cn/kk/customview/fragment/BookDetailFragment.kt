@@ -110,11 +110,11 @@ class BookDetailFragment: BaseFragment() {
                                         when(item.section_action) {
                                             1 -> startNextUI(AudioActivity::class.java, item.title)
                                             2 -> startNextUI(VideoActivity::class.java, item.title)
-                                            3 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c))
-                                            4 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_c_plus))
-                                            5 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
-                                            6 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_linux))
-                                            9 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.ACTION_BOOK_NDK))
+                                            3 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.action_book_c))
+                                            4 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.action_book_c_plus))
+                                            5 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.action_book_ffmpeg))
+                                            6 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.action_book_linux))
+                                            9 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.ACTION_BOOK_NDK))
                                             10 -> startNextUI(OpenGLDemoActivity::class.java, item.title)
                                         }
                                     }
@@ -122,7 +122,7 @@ class BookDetailFragment: BaseFragment() {
                                         when(item.section_action) {
                                             1 -> startNextUI(AudioActivity::class.java, item.title)
                                             2 -> startNextUI(VideoActivity::class.java, item.title)
-                                            8 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.createBook(BaseItem.action_book_ffmpeg))
+                                            8 -> startNextUI(BookDetailActivity::class.java, item.title, BookModelFactory.getBookByAction(BaseItem.action_book_ffmpeg))
                                         }
 
                                     }
