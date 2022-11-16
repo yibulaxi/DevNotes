@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_shape_corner_5"
+        android:backgroundTint="@color/grey_a"
+        android:gravity="top"
+        android:hint="输入要分享的内容..."
+        android:padding="10dp"
+        android:textColor="@color/OrangeRed" />
+
+    <Button
+        android:id="@+id/btn_share"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:text="分享"
+        android:textColor="@color/colorPrimary" />
+</LinearLayout>

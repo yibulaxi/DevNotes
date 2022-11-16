@@ -3,6 +3,9 @@ package cn.kk.customview.bean
 import cn.kk.base.bean.BaseMoreItem
 import java.io.Serializable
 
+/**
+ * @param itemAction 区分 book
+ */
 class BookModel(val title: String, val itemAction: Int, val chapterModelList: MutableList<ItemChapterModel>): Serializable {
 
     constructor(): this("", -1, mutableListOf())

@@ -20,18 +20,15 @@ class BookDetailActivity : BaseFragmentActivity() {
 
     override fun getFragment(): Fragment =
         when (bookModel.itemAction) {
+            // 二级列表，ExpandableListView
             BaseItem.ACTION_BOOK_TEMP -> BookDetailFragmentV2()
             else -> {
+                // 二级列表，使用两层 RecyclerView 实现
                 BookDetailFragment().apply {
                     if (bookModel.moreItemList != null) {
                         showTitleMoreBtnIcon()
                     }
-                    arguments = Bundle().apply {
-                        putSerializable(
-                            INTENT_MODEL_KEY,
-                            bookModel
-                        )
-                    }
+                    arguments = Bundle().apply { putSerializable(INTENT_MODEL_KEY, bookModel) }
                 }
             }
 

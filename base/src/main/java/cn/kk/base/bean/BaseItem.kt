@@ -37,6 +37,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_BOOK_NDK = 221        // NDK 开发
         val ACTION_BOOK_INTERVIEW = 222        // 面试整理
         val ACTION_BOOK_TEMP = 223        // temp
+        val ACTION_BOOK_COOL_300 = 224        // COOL 300
         // endregion
 
         // region normal chapter and section
@@ -306,6 +307,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_COOL300_intent_212 = 98212
         val ACTION_COOL300_intent_213 = 98213
         val ACTION_COOL300_intent_214 = 98214
+        val ACTION_COOL300_intent_223 = 98223
         val ACTION_COOL300_intent_252 = 98252
 
         val ACTION_COOL300_third_part_sdk_253 = 99253

@@ -71,6 +71,7 @@
         <activity android:name=".ui.cool300.chapter3.Simple_071" />
         <activity android:name=".ui.cool300.chapter3.Simple_072" />
         <activity android:name=".ui.cool300.chapter5.Simple_143" /> <!-- system ui -->
+        <activity android:name=".ui.cool300.chapter8.SimpleIntentActivity" />
         <activity android:name=".ui.system.ImageViewActivity" />
         <activity android:name=".ui.system.DialogActivity" />
         <activity android:name=".ui.system.ImmersiveModeActivity" />
