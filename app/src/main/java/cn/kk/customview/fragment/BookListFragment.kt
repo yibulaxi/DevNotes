@@ -32,12 +32,9 @@ class BookListFragment: BaseFragment() {
 
         val bookLisJson = AssetsHelper.getBooksValue(context!!)
 
-        val typeToken = object : TypeToken<List<BookModel>>() {}.type
-
-        val bookListV2 = Gson().fromJson<List<BookModel>>(bookLisJson, typeToken).toMutableList()
+        val bookListV2 = getBooks(bookLisJson)
 
         //
-        val bookListV3 = JsonHelper.parseJsonArray(bookLisJson, BookModel::class.java).toMutableList()
 
         rvBookList.apply {
             layoutManager = GridLayoutManager(context, 3)
@@ -46,7 +43,9 @@ class BookListFragment: BaseFragment() {
                     if (item.bookImgRes == -1) {
                         holder.setText(R.id.tv_name, item.title)
                         holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(UIHelper.generaRandomColor())
+                        holder.setBackgroundResource(R.id.tv_name, 0)
                     } else {
+                        holder.setText(R.id.tv_name, "")
                         holder.setBackgroundResource(R.id.tv_name, item.bookImgRes)
                     }
 
@@ -58,5 +57,12 @@ class BookListFragment: BaseFragment() {
             }
         }
 
+    }
+
+    private fun getBooks(bookLisJson: String): MutableList<BookModel> {
+        val typeToken = object : TypeToken<List<BookModel>>() {}.type
+
+        val bookListV2 = Gson().fromJson<List<BookModel>>(bookLisJson, typeToken).toMutableList()
+        return bookListV2
     }
 }
