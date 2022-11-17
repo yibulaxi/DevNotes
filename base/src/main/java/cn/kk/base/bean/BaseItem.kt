@@ -308,6 +308,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_COOL300_intent_213 = 98213
         val ACTION_COOL300_intent_214 = 98214
         val ACTION_COOL300_intent_223 = 98223
+        val ACTION_COOL300_intent_244 = 98244
         val ACTION_COOL300_intent_252 = 98252
 
         val ACTION_COOL300_third_part_sdk_253 = 99253

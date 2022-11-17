@@ -107,6 +107,7 @@ class Cool300HomeFragment: BaseChapterListFragment() {
                 sectionModelList.add(ItemSectionModel("210. 启动百度地图查询步行路线", ).apply { item_action = BaseItem.ACTION_COOL300_intent_210 })
                 sectionModelList.add(ItemSectionModel("...").apply { item_action = BaseItem.ACTION_COOL300_anim_143 })
                 sectionModelList.add(ItemSectionModel("223 使用 Intent 将文本内容仅分享到微信").apply { item_action = BaseItem.ACTION_COOL300_intent_223; finishTag = true})
+                sectionModelList.add(ItemSectionModel("244 使用 Intent 指定应用打开 PDF 文件").apply { item_action = BaseItem.ACTION_COOL300_intent_244; finishTag = true})
                 sectionModelList.add(ItemSectionModel("252. 跳转到系统无障碍设置页面").apply { item_action = BaseItem.ACTION_COOL300_intent_252 })
 
             }
@@ -137,6 +138,7 @@ class Cool300HomeFragment: BaseChapterListFragment() {
             BaseItem.ACTION_COOL300_anim_143-> startNextUI(Simple_143::class.java, item.title)
 
             BaseItem.ACTION_COOL300_intent_223-> startNextUI(SimpleIntentActivity::class.java, item.title)
+            BaseItem.ACTION_COOL300_intent_244-> startNextUI(SimpleIntentActivity::class.java, item.title, SimpleIntentActivity.TYPE_OPEN_PDF)
         }
     }
 
