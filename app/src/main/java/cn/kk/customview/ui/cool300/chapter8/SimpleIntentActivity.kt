@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import android.text.TextUtils
+import androidx.core.net.toUri
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_simple_intent.*
@@ -97,5 +98,11 @@ class SimpleIntentActivity: BaseActivity() {
             setDataAndType(Uri.fromFile(File(et_input.text.toString())), "application/pdf")
         }
         startActivity(intent)
+    }
+
+    // 不能使用 Uri.from() 或者 File().toUri()
+    // 要用：FileProvider，参考：https://stackoverflow.com/questions/38200282/android-os-fileuriexposedexception-file-storage-emulated-0-test-txt-exposed
+    private fun sharePic2QQ(){
+       val file = File("").toUri()
     }
 }
