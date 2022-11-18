@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.IOUtils
 import cn.kk.base.utils.JsonHelper
 import cn.kk.customview.R
 import cn.kk.customview.fragment.*
@@ -67,6 +68,8 @@ class HomeTabActivity: BaseActivity() {
 
         // 默认选中第一个 tab 页面
         bottom_navi.selectedItemId = R.id.navigation_tab_views
+
+        IOUtils.write2SDCard("hello android!")
 
     }
 
