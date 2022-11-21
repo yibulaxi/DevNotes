@@ -15,6 +15,7 @@ import cn.kk.customview.chapter.c1.DrawBasicActivity
 import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.activity.NormalViewActivity
+import cn.kk.customview.activity.work.WebViewOperaLogsToClientActivity
 import cn.kk.customview.chapter.AnimInterpolatorActivity
 import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.customview.ui.cool300.chapter1.*
@@ -165,6 +166,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     9 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED)
                     10 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DATE_TEXT_VIEW)
                     11 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
+                    12 -> startNextUI(WebViewOperaLogsToClientActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
                 }
             }
             // endregion

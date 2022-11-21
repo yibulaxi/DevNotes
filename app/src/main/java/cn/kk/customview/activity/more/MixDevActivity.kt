@@ -87,8 +87,7 @@ class MixDevActivity: BaseActivity() {
         }
 
         // 刷新
-        findViewById<Button>(R.id.btn_refresh_web_dialog).setOnClickListener { webView.loadUrl(
-            web_url) }
+        findViewById<Button>(R.id.btn_refresh_web_dialog).setOnClickListener { webView.loadUrl(web_url) }
     }
 
 
