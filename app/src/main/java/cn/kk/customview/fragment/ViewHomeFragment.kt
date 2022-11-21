@@ -98,6 +98,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("EditText 滚动时焦点不跳", true)
                 addItem("TextView 日期+斜线", true)
                 addItem("channel tab view", true)
+                addItem("save log to internal storage tab view", true)
             })
             // endregion
         })

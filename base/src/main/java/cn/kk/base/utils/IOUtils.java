@@ -59,6 +59,27 @@ public class IOUtils {
         return ret;
     }
 
+    public static boolean saveData2File(String data, String filePath){
+        File logFile = new File(filePath);
+        File logDir = logFile.getParentFile();
+        if (!logDir.exists()) {
+            logDir.mkdirs();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(logFile, true);
+            OutputStreamWriter ow = new OutputStreamWriter(fos);
+            ow.append( data);
+            ow.append("\n\n");
+            ow.close();
+            fos.flush();
+            fos.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static void write2SDCard(String data) {
         String dirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/kk/";
         File logDir = new File(dirPath);

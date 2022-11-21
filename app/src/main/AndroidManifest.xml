@@ -114,6 +114,7 @@
         <activity android:name=".ui.work.RecyclerViewDemoActivity" />
         <activity android:name=".ui.work.MenuDemoActivity" />
         <activity android:name=".ui.work.ExpandViewTouchDemo" />
+        <activity android:name=".activity.work.SaveLogActivity" />
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>
