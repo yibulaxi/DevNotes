@@ -1,6 +1,7 @@
 package cn.kk.customview.activity
 
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 import com.mukesh.MarkdownView
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_normal_markdown_view.*
  * 通用显示 Markdown 文件
  */
 class NormalMarkDownViewActivity: BaseActivity() {
+    lateinit var markDownView: MarkdownView
     override fun getLayout(): Int {
        return R.layout.activity_normal_markdown_view
     }
@@ -19,10 +21,18 @@ class NormalMarkDownViewActivity: BaseActivity() {
         val markDownPath = intent.getStringExtra(INTENT_MARKDOWN_PATH_KEY).toString()
         val local = intent.getBooleanExtra(INTENT_MARKDOWN_LOCAL_KEY, true)
 
-        val markDownView = findViewById<MarkdownView>(R.id.markdown_view)
+        markDownView = findViewById(R.id.markdown_view)
+
         if (local) {
             markDownView.loadMarkdownFromAssets(markDownPath)
         } else {
+            refresh_view.isRefreshing = true
+            markDownView.webViewClient = object : WebViewClient(){
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    refresh_view?.isRefreshing = false
+                }
+            }
             markDownView.loadUrl(markDownPath)
         }
 
@@ -35,4 +45,11 @@ class NormalMarkDownViewActivity: BaseActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (markDownView.canGoBack()) { // 处理网页返回
+            markDownView.goBack()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }
