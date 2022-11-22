@@ -99,6 +99,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("TextView 日期+斜线", true)
                 addItem("channel tab view", true)
                 addItem("webView opera logs to client", true)
+                addItem("save log to internal storage tab view", true)
             })
             // endregion
         })

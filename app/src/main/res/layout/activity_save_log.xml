@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title" />
+
+    <Button
+        android:id="@+id/btn_save_log"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:text="Save log"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_log"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_shape_corner_5"
+        android:backgroundTint="@color/grey_c"
+        android:gravity="start"
+        android:padding="12dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/black_primary_50" />
+
+    <Button
+        android:id="@+id/btn_read_log"
+        style="@style/Button_Corner_Primary_Alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:text="Read log"
+        android:textAllCaps="false" />
+</RelativeLayout>

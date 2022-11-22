@@ -16,6 +16,7 @@ import cn.kk.customview.config.UIConfig
 import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.activity.NormalViewActivity
 import cn.kk.customview.activity.work.WebViewOperaLogsToClientActivity
+import cn.kk.customview.activity.work.SaveLogActivity
 import cn.kk.customview.chapter.AnimInterpolatorActivity
 import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.customview.ui.cool300.chapter1.*
@@ -27,7 +28,6 @@ import cn.kk.customview.ui.hencoder.GraphicLocationAndSizeMeasureActivity
 import cn.kk.customview.ui.system.*
 import cn.kk.customview.ui.system.drawable.DrawableSample
 import cn.kk.customview.ui.system.material.MaterialActivity
-import cn.kk.customview.ui.work.DragListFragment
 import cn.kk.customview.ui.work.FlickerActivity
 import cn.kk.customview.ui.work.RecyclerViewDemoActivity
 import cn.kk.customview.ui.work.TimeProgressActivity
@@ -167,6 +167,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     10 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_DATE_TEXT_VIEW)
                     11 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
                     12 -> startNextUI(WebViewOperaLogsToClientActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
+                    13 -> startNextUI(SaveLogActivity::class.java, title)
                 }
             }
             // endregion
