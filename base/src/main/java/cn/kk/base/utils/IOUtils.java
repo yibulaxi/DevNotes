@@ -59,6 +59,38 @@ public class IOUtils {
         return ret;
     }
 
+    /**
+     * 读取文件结尾的几行内容
+     * @param filePath
+     * @param limitLine
+     * @return
+     */
+    public static String tailFile(String filePath, int limitLine) {
+        StringBuilder line = new StringBuilder();
+        BufferedReader input = null;
+        String tempLine;
+        try {
+            Process p = Runtime.getRuntime().exec("tail -" + limitLine + " " + filePath);
+            input = new BufferedReader(new InputStreamReader(p.getInputStream()), 1024);
+            while ( (tempLine = input.readLine()) != null) {
+                line.append(tempLine);
+            }
+            input.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return line.toString();
+    }
+
     public static boolean saveData2File(String data, String filePath){
         File logFile = new File(filePath);
         File logDir = logFile.getParentFile();
