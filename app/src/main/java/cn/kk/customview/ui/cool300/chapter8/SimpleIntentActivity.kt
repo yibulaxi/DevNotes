@@ -2,8 +2,12 @@ package cn.kk.customview.ui.cool300.chapter8
 
 import android.content.ComponentName
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.net.Uri
+import android.os.Build
 import android.text.TextUtils
+import androidx.core.content.FileProvider
 import androidx.core.net.toUri
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
@@ -11,7 +15,11 @@ import kotlinx.android.synthetic.main.activity_simple_intent.*
 import java.io.File
 
 class SimpleIntentActivity: BaseActivity() {
-    val TEST_PDF_PATH = "/sdcard/Download/squirrel.pdf/squirrel.pdf"
+    val WECHAT_PKG_NAME = "com.tencent.mm"
+    val QQ_PKG_NAME = "com.tencent.mobileqq"
+    val YINXIANG_PKG_NAME = "com.yinxiang"
+
+    val TEST_PDF_PATH = "/sdcard/Download/2.pdf"
 
     companion object {
         val TYPE_OPEN_PDF = 1
@@ -24,7 +32,7 @@ class SimpleIntentActivity: BaseActivity() {
         super.doWhenOnCreate()
 
         if (isTypeOpenPDF()) {
-            btn_share.text = "Open PDF"
+            btn_share.text = "Share PDF"
             et_input.hint = "请输入 PDF 文件路径!"
             et_input.setText(TEST_PDF_PATH)
         }
@@ -91,12 +99,23 @@ class SimpleIntentActivity: BaseActivity() {
             showToast("路径不能为空!")
             return
         }
-        val intent = Intent("android.intent.action.VIEW").apply {
-            addCategory("android.intent.category.DEFAULT")
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            // Android 7.0 以上不能这么用了：https://www.jianshu.com/p/558f90275c7c
-            setDataAndType(Uri.fromFile(File(et_input.text.toString())), "application/pdf")
+        val uri = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            FileProvider.getUriForFile(this@SimpleIntentActivity, application.packageName.plus(".file.provider"), File(et_input.text.toString()))
+        } else {
+            Uri.fromFile(File(et_input.text.toString()))
         }
+
+        val intent = Intent().apply {
+            setAction(Intent.ACTION_SEND)
+            setType("application/pdf")
+            setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            // Android 7.0 以上不能这么用了：https://www.jianshu.com/p/558f90275c7c
+            putExtra(Intent.EXTRA_STREAM, uri)
+            setComponent(getMComponentName(ShareTypeMedia.QQ)) // 微信没有登录，因此会报错：「获取资源失败」很坑
+        }
+
         startActivity(intent)
     }
 
@@ -105,4 +124,37 @@ class SimpleIntentActivity: BaseActivity() {
     private fun sharePic2QQ(){
        val file = File("").toUri()
     }
+
+    fun getMComponentName(systemShareMedia: ShareTypeMedia?): ComponentName? {
+        when (systemShareMedia) {
+            ShareTypeMedia.WECHAT -> return ComponentName(
+                WECHAT_PKG_NAME,
+                "com.tencent.mm.ui.tools.ShareImgUI"
+            )
+            ShareTypeMedia.WECHAT_CIRCLE -> return ComponentName(
+                WECHAT_PKG_NAME,
+                "com.tencent.mm.ui.tools.ShareToTimeLineUI"
+            )
+            ShareTypeMedia.QQ -> return ComponentName(
+                QQ_PKG_NAME,
+                "com.tencent.mobileqq.activity.JumpActivity"
+            )
+            ShareTypeMedia.QQ_ZONE -> return ComponentName(
+                QQ_PKG_NAME,
+                "com.tencent.mobileqq.cooperation.qzone.share.QZoneShareActivity"
+            )
+            ShareTypeMedia.YINXIANG -> return ComponentName(
+                YINXIANG_PKG_NAME,
+                "com.evernote.note.composer.NewNoteAloneActivity"
+            )
+        }
+        return null
+    }
+
 }
+    enum class ShareTypeMedia {
+        WECHAT,
+        WECHAT_CIRCLE,
+        QQ, QQ_ZONE,
+        YINXIANG
+    }
