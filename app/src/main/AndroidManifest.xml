@@ -116,6 +116,7 @@
         <activity android:name=".ui.work.ExpandViewTouchDemo" />
         <activity android:name=".activity.work.WebViewOperaLogsToClientActivity" />
         <activity android:name=".activity.work.SaveLogActivity" />
+        <activity android:name=".activity.work.WebViewScrollCapActivity" />
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>

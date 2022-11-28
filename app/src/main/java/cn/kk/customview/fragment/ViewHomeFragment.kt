@@ -100,6 +100,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("channel tab view", true)
                 addItem("webView opera logs to client", true)
                 addItem("save log to internal storage tab view", true)
+                addItem("WebView 滚动截图", true)
             })
             // endregion
         })

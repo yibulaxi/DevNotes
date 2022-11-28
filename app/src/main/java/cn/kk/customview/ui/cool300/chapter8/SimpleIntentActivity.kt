@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_simple_intent.*
 import java.io.File
 
 /**
- * QQ 空间不支持原生分享，只能用 SDK 分享: https://www.cnhackhy.com/107547.htm
+ * QQ 空间不支持原生分享，只能用 SDK 分享: https://wiki.connect.qq.com
  */
 class SimpleIntentActivity: BaseActivity() {
     val TEST_PDF_PATH = "/sdcard/Download/squirrel.pdf/squirrel.pdf"

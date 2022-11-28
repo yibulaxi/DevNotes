@@ -1,18 +1,22 @@
 package cn.kk.base.activity
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import cn.kk.base.LogHelper
 import cn.kk.base.R
 import cn.kk.base.UIHelper
@@ -36,6 +40,7 @@ abstract class BaseActivity: BasicActivity() {
 
     protected lateinit var mSelf: BaseActivity
     protected var baseToolbar: Toolbar?= null
+    private var baseProgressDialog: ProgressDialog?= null
 
     private val title by lazy {
         intent.getStringExtra(INTENT_TITLE_KEY)
@@ -282,4 +287,28 @@ abstract class BaseActivity: BasicActivity() {
         return if (ignoreSystemFontSize()) createConfigurationContext(Configuration().apply { setToDefaults() }).resources else super.getResources()
     }
 
+    open fun showProgressDialog(msg: String?) {
+        try {
+            runOnUiThread(Runnable {
+                if (baseProgressDialog == null) {
+                    val themeValue = TypedValue()
+                    theme.resolveAttribute(R.attr.alertDialogTheme, themeValue, true)
+                    baseProgressDialog = ProgressDialog(this@BaseActivity, themeValue.data)
+                }
+                baseProgressDialog?.apply {
+                    setCancelable(true)
+                    setMessage(msg)
+//                    window.attributes.windowAnimations =
+                }
+//                baseProgressDialog.getWindow().getAttributes().windowAnimations = R.style.EuDialogAnimation
+                baseProgressDialog?.show()
+            })
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    open fun hideProgressDialog(){
+        runOnUiThread {  baseProgressDialog?.dismiss() }
+    }
 }

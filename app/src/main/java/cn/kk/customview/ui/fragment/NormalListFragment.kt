@@ -17,6 +17,7 @@ import cn.kk.customview.ui.LottieAnimActivity
 import cn.kk.customview.activity.NormalViewActivity
 import cn.kk.customview.activity.work.WebViewOperaLogsToClientActivity
 import cn.kk.customview.activity.work.SaveLogActivity
+import cn.kk.customview.activity.work.WebViewScrollCapActivity
 import cn.kk.customview.chapter.AnimInterpolatorActivity
 import cn.kk.customview.chapter.ViewAnimIntrosActivity
 import cn.kk.customview.ui.cool300.chapter1.*
@@ -168,6 +169,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     11 -> startNextUI(NormalViewActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
                     12 -> startNextUI(WebViewOperaLogsToClientActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
                     13 -> startNextUI(SaveLogActivity::class.java, title)
+                    14 -> startNextUI(WebViewScrollCapActivity::class.java, title)
                 }
             }
             // endregion
