@@ -38,6 +38,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_BOOK_INTERVIEW = 222        // 面试整理
         val ACTION_BOOK_TEMP = 223        // temp
         val ACTION_BOOK_COOL_300 = 224        // COOL 300
+        val ACTION_10_works_method = 225        // 10X 工作法
         // endregion
 
         // region normal chapter and section

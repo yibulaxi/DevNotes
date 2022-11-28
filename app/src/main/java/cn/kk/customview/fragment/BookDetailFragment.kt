@@ -191,6 +191,12 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.getMarkdownFileUrl(bookType), false)
                             }
                             // endregion
+
+                            // region 10x 程序员工作法
+                            BaseItem.ACTION_10_works_method -> {
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.getMarkdownFileUrl(bookType), false)
+                            }
+                            // endregion
                         }
                     }
 

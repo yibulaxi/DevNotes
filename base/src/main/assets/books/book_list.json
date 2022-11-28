@@ -11212,6 +11212,132 @@
     "bookImgRes": -1,
     "chapterModelList": [
       {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "开篇词",
+            "chapter_action": 0,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "开篇词"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "思考框架",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "思考框架"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "如何让努力不白费",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          },
+          {
+            "title": "你完成了工作，为什么他们还是不满意？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          },
+          {
+            "title": "接到需求任务，你要先做哪件事？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "以终为始"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "任务分解",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "以终为始"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "沟通反馈",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "沟通反馈"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "自动化",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "自动化"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "综合运用",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "综合运用"
+      },
+      {
+        "bookType": 225,
+        "sections": [
+          {
+            "title": "结束语",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "结束语"
+      }
+    ],
+    "expandChapterIndex": 0,
+    "itemAction": 225,
+    "title": "10x 程序员工作法"
+  },
+  {
+    "bookImgRes": -1,
+    "chapterModelList": [
+      {
         "bookType": 223,
         "sections": [
           {

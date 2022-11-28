@@ -27,6 +27,7 @@
 - [开发商业级热门短视频App 掌握Jetpack组件库]()
 - [Top团队大牛带你玩转Android性能分析与优化](./doc/android_perforrmance_and_optimize/README.md)
 - [Android 应用程序构建实战+原理精讲]()
+- [10x 程序员工作法](./doc/geek_time/effective_work_method/readme.md)
 
 ---
 ### [音视频](./doc/av/README.md)

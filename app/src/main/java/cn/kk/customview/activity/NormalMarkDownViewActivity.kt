@@ -1,5 +1,6 @@
 package cn.kk.customview.activity
 
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import cn.kk.base.activity.BaseActivity
@@ -23,14 +24,19 @@ class NormalMarkDownViewActivity: BaseActivity() {
 
         markDownView = findViewById(R.id.markdown_view)
 
+        markDownView.settings.javaScriptEnabled = true
+        markDownView.webChromeClient = WebChromeClient()
+
         if (local) {
             markDownView.loadMarkdownFromAssets(markDownPath)
         } else {
             refresh_view.isRefreshing = true
+            showProgressDialog("loading")
             markDownView.webViewClient = object : WebViewClient(){
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
                     refresh_view?.isRefreshing = false
+                    hideProgressDialog()
                 }
             }
             markDownView.loadUrl(markDownPath)
