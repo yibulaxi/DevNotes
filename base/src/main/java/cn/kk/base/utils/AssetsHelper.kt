@@ -5,12 +5,14 @@ import cn.kk.customview.bean.BaseItem
 
 object AssetsHelper {
 
+    val BOOK_LIST_FILE = "book_list.json"
+
     fun getHtmlValue(ctx: Context, dirName: String, fileName: String): String {
         return ctx.assets.open(String.format("%s/%s", dirName, fileName)).bufferedReader().use { it.readText() }
     }
 
     fun getBooksValue(ctx: Context): String{
-        return ctx.assets.open(String.format("%s/%s", "books", "book_list.json")).bufferedReader().use { it.readText() }
+        return ctx.assets.open(String.format("%s/%s", "books", BOOK_LIST_FILE)).bufferedReader().use { it.readText() }
     }
 
     fun getHtmlFilePath(fileName: String): String{
