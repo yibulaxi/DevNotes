@@ -11242,24 +11242,66 @@
         "sections": [
           {
             "title": "如何让努力不白费",
-            "chapter_action": 1,
+            "chapter_action": 2,
             "finishTag": true,
             "item_action": 0,
-            "section_action": 1
+            "section_action": 0
           },
           {
             "title": "你完成了工作，为什么他们还是不满意？",
-            "chapter_action": 1,
+            "chapter_action": 2,
             "finishTag": true,
             "item_action": 0,
             "section_action": 1
           },
           {
             "title": "接到需求任务，你要先做哪件事？",
-            "chapter_action": 1,
+            "chapter_action": 2,
             "finishTag": true,
             "item_action": 0,
-            "section_action": 1
+            "section_action": 2
+          },
+          {
+            "title": "持续集成：集成本身就是写代码的一个环节",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 3
+          },
+          {
+            "title": "精益创业：产品经理不靠谱，你该怎么办？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 4
+          },
+          {
+            "title": "解决了很多技术问题，为什么你依然在\"坑\"里？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 5
+          },
+          {
+            "title": "为什么说做事之前要先进行推演？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 6
+          },
+          {
+            "title": "你的工作可以用数字衡量吗？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 7
+          },
+          {
+            "title": "迭代0：启动开发之前，你应该准备什么？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 8
           }
         ],
         "title": "以终为始"
@@ -11275,7 +11317,7 @@
             "section_action": 1
           }
         ],
-        "title": "以终为始"
+        "title": "任务分解"
       },
       {
         "bookType": 225,
