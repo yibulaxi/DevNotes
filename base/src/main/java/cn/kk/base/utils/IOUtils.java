@@ -1,7 +1,12 @@
 package cn.kk.base.utils;
 
+import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.format.DateUtils;
 
 import java.io.BufferedReader;
@@ -12,7 +17,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.Random;
 
 public class IOUtils {
 
@@ -141,6 +148,48 @@ public class IOUtils {
         }
         reader.close();
         return sb.toString();
+    }
+
+    public static String saveBitmap2File(Bitmap bm){
+        String path = null;
+        String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
+        File myDir = new File(root + "/req_images");
+        myDir.mkdirs();
+        Random generator = new Random();
+        int n = 10000;
+        n = generator.nextInt(n);
+        String fname = "Image-" + n + ".jpg";
+        File file = new File(myDir, fname);
+        if (file.exists())
+            file.delete();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+            path = file.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
+    }
+
+    public static String saveBitmap2Pictures(Activity act, Bitmap bitmap) {
+        // MediaStore.Images.Media.EXTERNAL_CONTENT_URI; 相册目录，在 /storage/emulated/0/Pictures/
+        String path = null;
+        Uri uri = act.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new ContentValues());
+        if (uri != null) {
+            OutputStream outputStream = null;
+            try {
+                outputStream = act.getContentResolver().openOutputStream(uri);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, outputStream);
+                path = uri.toString() + ".jpg";
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                path = e.toString();
+            }
+        }
+        return path;
     }
 
 }

@@ -3,13 +3,13 @@ package cn.kk.customview.activity.work
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Picture
-import android.os.SystemClock
-import android.view.MotionEvent
+import android.util.Log
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import cn.kk.base.activity.BaseActivity
+import cn.kk.base.utils.IOUtils
 import cn.kk.customview.R
 import kotlinx.android.synthetic.main.activity_webview_scroll_cap.*
 
@@ -55,38 +55,35 @@ class WebViewScrollCapActivity: BaseActivity() {
                 iv_cap.setImageBitmap(bitmap)
             }
             capState = !capState
-
         }
-    }
 
-    private fun capWebView(){
-        val bitmap = Bitmap.createBitmap(webView.width, webView.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas()
-        canvas.setBitmap(bitmap)
-        webView.draw(canvas)
+        // save bitmap to local
+        btn_save.setOnClickListener {
+            captureWebView(webView)?.let {
+                IOUtils.saveBitmap2File(it)?.let {
+                    showToast("图片已保存至存储卡: ${it}")
+                }
 
-        val motionEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
-            MotionEvent.ACTION_DOWN, webView.width / 2f, webView.height / 2f, 0)
-
-        webView.postDelayed(object : Runnable{
-            override fun run() {
-                motionEvent.action = MotionEvent.ACTION_MOVE
-                motionEvent.setLocation(motionEvent.x, motionEvent.y - 1)
-                webView.dispatchTouchEvent(motionEvent)
-                webView.postDelayed(this, 300)
             }
+        }
 
-        }, 300)
+        btn_save_pictures.setOnClickListener {
+            captureWebView(webView)?.let {
+                IOUtils.saveBitmap2Pictures(this@WebViewScrollCapActivity, it)?.let {
+                    showToast("图片已保存至相册: ${it}")
+                }
+
+            }
+        }
     }
 
     private fun captureWebView(webView: WebView): Bitmap? {
         val snapShot: Picture = webView.capturePicture()
-        val bitmap = Bitmap.createBitmap(
-            snapShot.getWidth(),
-            snapShot.getHeight(), Bitmap.Config.ARGB_4444
-        )
+        val bitmap = Bitmap.createBitmap(snapShot.width, snapShot.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         snapShot.draw(canvas)
+        Log.d(TAG, "captureWebView: bitmap size: ${bitmap.width} * ${bitmap.height}")
         return bitmap
     }
+
 }

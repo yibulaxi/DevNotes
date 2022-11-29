@@ -61,4 +61,8 @@
         <item name="android:textSize">15sp</item>
         <item name="textAllCaps">false</item>
     </style>
+
+    <style name="Button_Corner_Primary_Alpha_60" parent="Button_Corner_Primary_Alpha">
+        <item name="android:background">@drawable/bg_shape_corner_primary_alpha_60</item>
+    </style>
 </resources>
