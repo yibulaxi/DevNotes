@@ -163,15 +163,10 @@ object AssetsHelper {
 
            // region 10x 程序员工作法
            BaseItem.ACTION_10_works_method-> {
+               val BOOK_BASE_URL = "https://github.com/kamaihamaiha/DevNotes/tree/master/doc/geek_time/effective_work_method/"
                when(item.chapter_action) {
-                   0 -> {
-                       when(item.section_action) {
-                           1 -> "https://github.com/kamaihamaiha/DevNotes/tree/master/doc/geek_time/effective_work_method/readme.md"
-                           else -> ""
-                       }
-                   }
-
-                   else -> ""
+                   0 -> BOOK_BASE_URL.plus("readme.md")
+                   else -> BOOK_BASE_URL.plus("c_${item.chapter_action}/section_${item.section_action}.md")
                }
            }
            // endregion

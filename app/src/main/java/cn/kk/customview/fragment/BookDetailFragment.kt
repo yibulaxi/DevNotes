@@ -194,7 +194,9 @@ class BookDetailFragment: BaseFragment() {
 
                             // region 10x 程序员工作法
                             BaseItem.ACTION_10_works_method -> {
-                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.getMarkdownFileUrl(bookType), false)
+                                // https://github.com/kamaihamaiha/DevNotes/tree/master/doc/geek_time/effective_work_method/c_2/section_5.md
+                                val markdownFileUrl = item.getMarkdownFileUrl(bookType)
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownFileUrl, false)
                             }
                             // endregion
                         }
