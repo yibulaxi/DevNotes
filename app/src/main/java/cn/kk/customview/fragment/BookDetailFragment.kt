@@ -140,6 +140,8 @@ class BookDetailFragment: BaseFragment() {
                                     }
                                     5 -> { // 行业大佬
                                         when(item.section_action) {
+                                            2 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, item.webUrl)
+                                            // DevYK
                                             5 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, "https://github.com/yangkun19921001")
                                         }
                                     }

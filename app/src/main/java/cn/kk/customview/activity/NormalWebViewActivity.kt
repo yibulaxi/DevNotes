@@ -2,6 +2,7 @@ package cn.kk.customview.activity
 
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import cn.kk.base.activity.BaseActivity
 import cn.kk.customview.R
 
@@ -21,6 +22,14 @@ class NormalWebViewActivity: BaseActivity() {
         webView.loadUrl(webUrl)
         webView.settings.javaScriptEnabled = true
         webView.webChromeClient = WebChromeClient()
+
+        showProgressDialog("Loading...")
+        webView.webViewClient = object : WebViewClient(){
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                hideProgressDialog()
+            }
+        }
     }
 
 }

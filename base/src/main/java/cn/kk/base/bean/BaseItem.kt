@@ -6,7 +6,7 @@ abstract  class BaseItem: Serializable {
     var item_action = 0
     var chapter_action = 0
     var section_action = 0
-
+    var webUrl = ""
     var finishTag = false
 
 

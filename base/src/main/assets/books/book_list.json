@@ -678,9 +678,10 @@
           {
             "title": "李超",
             "chapter_action": 5,
-            "finishTag": false,
+            "finishTag": true,
             "item_action": 0,
-            "section_action": 2
+            "section_action": 2,
+            "webUrl": "https://avdancedu.com/categories/"
           },
           {
             "title": "Jhuster",
