@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.RemoteViews
 import cn.kk.base.UIHelper
 import cn.kk.customview.R
+import cn.kk.customview.utils.SystemUtil
 
 /**
  * Implementation of App Widget functionality.
@@ -61,7 +62,7 @@ import cn.kk.customview.R
         val themeBgColor = if (darkMode) Color.BLACK else Color.WHITE
         val widgetText = context.getString(R.string.appwidget_text).plus(if(darkMode) "- black" else "- white")
         views.setTextViewText(R.id.appwidget_text, widgetText)
-
+        views.setTextViewText(R.id.tv_info, "是否支持MIUI widget: ${SystemUtil.isMiuiWidgetSupported(context)}\n 是否是 Pad: ${SystemUtil.checkTablet(context)}")
 
         views.setInt(R.id.container, "setBackgroundColor", themeBgColor)
 

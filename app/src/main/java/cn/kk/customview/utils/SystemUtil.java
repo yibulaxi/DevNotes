@@ -4,10 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 
 import androidx.annotation.NonNull;
 
+import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -66,6 +71,54 @@ public class SystemUtil {
         }
         return false;
     }
+
+    public static boolean isMiuiWidgetSupported(Context context) {
+        Uri uri = Uri.parse("content://com.miui.personalassistant.widget.external");
+        boolean isMiuiWidgetSupported = false;
+        try {
+            Bundle bundle = context.getContentResolver().call(uri,
+                    "isMiuiWidgetSupported", null, null);
+            if (bundle != null) {
+                isMiuiWidgetSupported = bundle.getBoolean("isMiuiWidgetSupported");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isMiuiWidgetSupported;
+    }
+
+    public static boolean checkTablet(Context context) {
+        String systemProperty = getSystemProperty("ro.build.characteristics", "");
+        if (systemProperty.contains("tablet")){
+            return true;
+        }
+
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        float yInches= metrics.heightPixels/metrics.ydpi;
+        float xInches= metrics.widthPixels/metrics.xdpi;
+        double diagonalInches = Math.sqrt(xInches*xInches + yInches*yInches);
+        if (diagonalInches >= 8) {
+            // 存在平板误判（如1440*810）
+            boolean adjustTable = metrics.widthPixels > 0 && metrics.heightPixels * 1f / metrics.widthPixels < 1.7f;
+            return  ((context.getResources().getConfiguration().screenLayout
+                    & Configuration.SCREENLAYOUT_SIZE_MASK)
+                    >= Configuration.SCREENLAYOUT_SIZE_LARGE) && adjustTable;
+        }
+        return false;
+    }
+
+    public static String getSystemProperty(String key, String defaultValue) {
+        String value = defaultValue;
+        try {
+            Class<?> c = Class.forName("android.os.SystemProperties");
+            Method get = c.getMethod("get", String.class, String.class);
+            value = (String)(get.invoke(c, key, "unknown" ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
+
 
     public static void main(String[] args) {
     }
