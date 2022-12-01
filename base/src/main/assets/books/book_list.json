@@ -11641,6 +11641,17 @@
     ],
     "expandChapterIndex": 0,
     "itemAction": 225,
+    "moreItemList": [
+      {
+        "title": "极客时间App",
+        "url": "",
+        "chapter_action": 0,
+        "finishTag": false,
+        "item_action": 0,
+        "section_action": 0,
+        "appPkgName": "org.geekbang.geekTime"
+      }
+    ],
     "title": "10x 程序员工作法"
   },
   {

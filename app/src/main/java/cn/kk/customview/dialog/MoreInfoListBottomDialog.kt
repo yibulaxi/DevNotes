@@ -2,12 +2,12 @@ package cn.kk.customview.dialog
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import cn.kk.base.R
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.BaseMoreItem
 import cn.kk.base.dialog.BaseListBottomDialog
 import cn.kk.customview.activity.NormalWebViewActivity
+import cn.kk.customview.utils.SystemUtil
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.kk.beatbox.MainActivity
 
@@ -27,12 +27,17 @@ class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableLi
     }
 
     override fun onItemClick(model: BaseMoreItem) {
-        if (model.url.isEmpty()) {
-//            mActivity.openNextUI()
-            mActivity.openNextUI(MainActivity::class.java, model.title)
+        if (model.appPkgName.isNotEmpty()) {
+            SystemUtil.startAppByPkgName(mActivity, model.appPkgName)
         } else {
-            mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, -1, model.url)
+            if (model.url.isEmpty()) {
+//            mActivity.openNextUI()
+                mActivity.openNextUI(MainActivity::class.java, model.title)
+            } else {
+                mActivity.openNextUI(NormalWebViewActivity::class.java, model.title, -1, model.url)
+            }
         }
+
     }
 
 
