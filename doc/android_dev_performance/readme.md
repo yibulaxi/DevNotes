@@ -35,7 +35,7 @@
   - [Native Hook 技术，天使还是魔鬼？]()
   - [移动开发新大陆]()
     - 移动开发转型手游开发
-    - [Android 音视频开发](./android_audio_video_dev/readme.md)
+    - [Android 音视频开发](./part_3/section_3.md)
     - 边缘智能计算的趋势
   - [动态化实践，如何选择适合自己的方案？]()
   - [聊聊 Flutter，面对层出不穷的新技术该如何跟进？](./arch/flutter.md)

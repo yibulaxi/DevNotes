@@ -6,6 +6,9 @@ import cn.kk.customview.bean.BaseItem
 object AssetsHelper {
 
     val BOOK_LIST_FILE = "book_list.json"
+    val BASE_BOOK_URL = "https://github.com/kamaihamaiha/DevNotes/blob/master/doc"
+    val BOOK_ANDROID_DEV_PERFORMANCE_URL = "/android_dev_performance"
+    val README_NAME = "readme.md"
 
     fun getHtmlValue(ctx: Context, dirName: String, fileName: String): String {
         return ctx.assets.open(String.format("%s/%s", dirName, fileName)).bufferedReader().use { it.readText() }
@@ -48,7 +51,7 @@ object AssetsHelper {
 
            // region Android 开发高手课
                BaseItem.action_book_android_dev_performance -> {
-                   val bookBasePath = "https://gitee.com/kamaihamaiha/custom-view/tree/master/doc/android_dev_performance"
+                   val bookBasePath = BASE_BOOK_URL.plus(BOOK_ANDROID_DEV_PERFORMANCE_URL)
                    val partPath = "/part_${item.chapter_action}"
                    val sectionPath = "/section_${item.section_action}.md"
 
