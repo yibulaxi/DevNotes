@@ -32,7 +32,6 @@ class NormalMarkDownViewActivity: BaseActivity() {
         } else {
             refresh_view.isRefreshing = true
             showProgressDialog("loading")
-            showToast(markDownPath)
             markDownView.webViewClient = object : WebViewClient(){
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)

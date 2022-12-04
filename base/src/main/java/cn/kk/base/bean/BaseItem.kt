@@ -40,6 +40,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_BOOK_TEMP = 223        // temp
         val ACTION_BOOK_COOL_300 = 224        // COOL 300
         val ACTION_10_works_method = 225        // 10X 工作法
+        val ACTION_BOOK_ALGORITHMS_IN_C = 226       // 算法：C语言实现
         // endregion
 
         // region normal chapter and section

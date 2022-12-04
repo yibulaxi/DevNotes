@@ -99,6 +99,10 @@ class BookDetailFragment: BaseFragment() {
 
                             // region Android 开发高手课
                             BaseItem.action_book_android_dev_performance -> {
+                                if (!item.finishTag) {
+                                    showToast("未完成。。。")
+                                    return
+                                }
                                 val url = AssetsHelper.getMarkdownURL(bookType, item)
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, url, false)
                             }

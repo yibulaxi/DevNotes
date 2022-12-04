@@ -70,70 +70,70 @@
           {
             "title": "内存优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 2
           },
           {
             "title": "卡顿优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 3
           },
           {
             "title": "启动优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 4
           },
           {
             "title": "IO 优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 5
           },
           {
             "title": "存储优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 6
           },
           {
             "title": "网络优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 7
           },
           {
             "title": "耗电优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 8
           },
           {
             "title": "UI 优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 9
           },
           {
             "title": "包体积优化",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 10
           },
           {
             "title": "想成为 Android 高手，你需要先搞定这三个问题",
             "chapter_action": 1,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 11
           }
@@ -146,56 +146,56 @@
           {
             "title": "如何提升组织与个人的研发效能",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 1
           },
           {
             "title": "关于编译，你需要了解什么？",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 2
           },
           {
             "title": "编译插桩的三种方法: AspectJ、ASM、ReDex",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 3
           },
           {
             "title": "大数据与 AI，如何高效地测试？",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 4
           },
           {
             "title": "从每月到每天，如何给版本发布提速？",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 5
           },
           {
             "title": "数据评估",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 6
           },
           {
             "title": "线上疑难问题该如何排查和跟踪？",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 7
           },
           {
             "title": "做一名有高度的移动开发工程师",
             "chapter_action": 2,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 8
           }
@@ -208,14 +208,14 @@
           {
             "title": "聊聊重构：优秀的架构都是演进而来的",
             "chapter_action": 3,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 1
           },
           {
             "title": "Native Hook 技术，天使还是魔鬼？",
             "chapter_action": 3,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 2
           },
@@ -229,21 +229,21 @@
           {
             "title": "动态化实践，如何选择适合自己的方案？",
             "chapter_action": 3,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 4
           },
           {
             "title": "聊聊 Flutter，面对层出不穷的新技术该如何跟进？",
             "chapter_action": 3,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 5
           },
           {
             "title": "Android 开发高手课学习心得",
             "chapter_action": 3,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 6
           }
@@ -256,7 +256,7 @@
           {
             "title": "AMS 插桩强化练习",
             "chapter_action": 4,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 1
           }
@@ -269,49 +269,49 @@
           {
             "title": "Android JVM TI 机制详解",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 1
           },
           {
             "title": "专栏学得苦？可能是方法没找对",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 2
           },
           {
             "title": "专栏学得苦？可能你还需要一套配套学习书单",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 3
           },
           {
             "title": "Native 下如何获取调用栈？",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 4
           },
           {
             "title": "聊聊 Framework 的学习方法",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 5
           },
           {
             "title": "Android 工程师的 “面试指南”",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 6
           },
           {
             "title": "程序员修炼之路，设计能力的提升途径",
             "chapter_action": 5,
-            "finishTag": true,
+            "finishTag": false,
             "item_action": 0,
             "section_action": 6
           }
@@ -758,6 +758,222 @@
     "expandChapterIndex": 0,
     "itemAction": 220,
     "title": "音视频开发"
+  },
+  {
+    "bookImgRes": -1,
+    "expandChapterIndex": 0,
+    "itemAction": 226,
+    "title": "算法：C语言实现",
+    "chapterModelList": [
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "1.1 算法",
+            "chapter_action": 1,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第1章 引言"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "2.1 实现和经验分析",
+            "chapter_action": 2,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第2章 算法分析的原理"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "3.1 构建组建",
+            "chapter_action": 3,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第3章 基本数据结构"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "4.1 抽象对象和对象集",
+            "chapter_action": 4,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第4章 抽象数据结构"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "5.1 递归算法",
+            "chapter_action": 5,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第5章 递归与树"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "6.1 游戏规则",
+            "chapter_action": 6,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第6章 基本排序方法"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "7.1 基本算法",
+            "chapter_action": 7,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第7章 快速排序"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "8.1 两路归并",
+            "chapter_action": 8,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第8章 归并与归并排序"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "9.1 基本操作的实现",
+            "chapter_action": 9,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第9章 优先队列和堆排序"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "10.1 位、字节和字",
+            "chapter_action": 10,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第10章 基数排序"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "11.1 Batcher奇偶归并排序",
+            "chapter_action": 11,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第11章 特殊用途的排序方法"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "12.1 符号表抽象数据类型",
+            "chapter_action": 12,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第12章 符号表和二叉搜索树"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "13.1 随机化BST",
+            "chapter_action": 13,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第13章 平衡树"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "14.1 散列函数",
+            "chapter_action": 14,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第14章 散列"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "15.1 数字搜索树",
+            "chapter_action": 15,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第15章 基数搜索"
+      },
+      {
+        "bookType": 226,
+        "sections": [
+          {
+            "title": "16.1 游戏规则",
+            "chapter_action": 16,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 1
+          }
+        ],
+        "title": "第16章 外部搜索"
+      }
+    ]
   },
   {
     "bookImgRes": -1,
