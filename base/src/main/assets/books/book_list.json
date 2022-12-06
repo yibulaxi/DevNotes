@@ -11206,7 +11206,7 @@
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
-            "section_action": 4,
+            "section_action": 5,
             "webUrl": "https://zhuanlan.zhihu.com/p/163338988"
           },
           {
@@ -11214,7 +11214,7 @@
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
-            "section_action": 5
+            "section_action": 4
           }
         ],
         "title": "Android Studio"

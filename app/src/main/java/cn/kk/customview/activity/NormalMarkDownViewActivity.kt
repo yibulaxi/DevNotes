@@ -30,24 +30,24 @@ class NormalMarkDownViewActivity: BaseActivity() {
         if (local) {
             markDownView.loadMarkdownFromAssets(markDownPath)
         } else {
-            refresh_view.isRefreshing = true
-            showProgressDialog("loading")
-            showToast(markDownPath)
             markDownView.webViewClient = object : WebViewClient(){
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
                     refresh_view?.isRefreshing = false
-                    hideProgressDialog()
                 }
             }
             markDownView.loadUrl(markDownPath)
+            // 延时show 加载，否则显示不出来
+            markDownView.postDelayed({
+                refresh_view.isRefreshing = true
+            }, 50)
         }
 
         // pull refresh
         refresh_view.setOnRefreshListener {
             if (!local) {
                 markDownView.loadUrl(markDownPath)
-                refresh_view.isRefreshing = false
+                refresh_view.isRefreshing = true
             }
         }
     }
