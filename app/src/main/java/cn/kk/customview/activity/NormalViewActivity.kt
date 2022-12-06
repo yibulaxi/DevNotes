@@ -20,6 +20,7 @@ import com.example.hencoder.MultilineTextView
 import com.example.hencoder.draw.SimpleDrawable
 import kotlinx.android.synthetic.main.activity_normal_view.*
 import kotlinx.android.synthetic.main.view_at_channel_tab_view.*
+import kotlinx.android.synthetic.main.view_at_input_word_view.*
 
 /**
  * 用来显示单纯的 View(各种自定义的 View) 页面
@@ -54,6 +55,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_EDIT_TEXT_FOCUS_FIXED = 104  // EditText 焦点不跳
         val VIEW_TYPE_DATE_TEXT_VIEW = 105 // TextView 日期+斜线
         val VIEW_TYPE_CHANNEL_TAB_VIEW = 106 // channel tab view
+        val VIEW_TYPE_WORD_INPUT_VIEW = 107 // 拼写组件
     }
 
     override fun getLayout(): Int {
@@ -133,6 +135,11 @@ class NormalViewActivity: BaseActivity() {
                     tv_width.text = String.format("channel visible width: %d", channelVisibleWidth)
                 }
             }
+            VIEW_TYPE_WORD_INPUT_VIEW -> {
+                view_container.addView(getInputWordView())
+                val sentence = "That these United Colonies are, and of right ought to be, free and <span class=\"key\">independent</span> States, that they are absolved from all allegiance to the British Crown, and that all political connection between them and the State of Great Britain is, and ought to be, totally dissolved"
+                word_input_view.inflateSentence(sentence)
+            }
             // endregion
             else -> {
             }
@@ -177,5 +184,9 @@ class NormalViewActivity: BaseActivity() {
 
     private fun getChannelTabView(): View {
         return layoutInflater.inflate(R.layout.view_at_channel_tab_view, null)
+    }
+
+    private fun getInputWordView(): View {
+        return layoutInflater.inflate(R.layout.view_at_input_word_view, null)
     }
 }
