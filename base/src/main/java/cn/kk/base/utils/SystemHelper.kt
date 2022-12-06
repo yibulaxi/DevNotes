@@ -2,8 +2,11 @@ package cn.kk.base.utils
 
 import android.app.Service
 import android.content.Context
+import android.content.Intent
 import android.os.Environment
 import android.os.Vibrator
+import android.provider.Settings
+import androidx.core.app.NotificationManagerCompat
 
 object SystemHelper {
 
@@ -27,4 +30,23 @@ object SystemHelper {
     fun getSdcardPath(): String{
         return Environment.getExternalStorageDirectory().path
     }
+
+
+    fun openSysNotificationSetting(ctx: Context){
+        val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            putExtra(Settings.EXTRA_APP_PACKAGE, ctx.packageName)
+        }
+        ctx.startActivity(intent)
+    }
+
+
+    fun isNotificationEnable(ctx: Context): Boolean {
+        return try {
+            NotificationManagerCompat.from(ctx).areNotificationsEnabled()
+        } catch (e: Exception) {
+            false
+        }
+    }
+
 }

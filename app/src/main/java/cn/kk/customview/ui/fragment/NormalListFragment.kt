@@ -8,6 +8,7 @@ import cn.kk.base.R
 import cn.kk.base.adapter.ListAdapter
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.fragment.BaseFragment
+import cn.kk.base.utils.SystemHelper
 import cn.kk.customview.activity.BaseTabActivity
 import cn.kk.customview.activity.NormalListActivity
 import cn.kk.customview.activity.NormalTabActivity
@@ -170,6 +171,7 @@ class NormalListFragment: BaseFragment(), ListAdapter.ItemClickListener {
                     12 -> startNextUI(WebViewOperaLogsToClientActivity::class.java, title, NormalViewActivity.VIEW_TYPE_CHANNEL_TAB_VIEW)
                     13 -> startNextUI(SaveLogActivity::class.java, title)
                     14 -> startNextUI(WebViewScrollCapActivity::class.java, title)
+                    15 -> SystemHelper.openSysNotificationSetting(requireContext()) // 打开系统通知设置
                 }
             }
             // endregion

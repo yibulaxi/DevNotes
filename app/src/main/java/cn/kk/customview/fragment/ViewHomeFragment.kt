@@ -101,6 +101,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("webView opera logs to client", true)
                 addItem("save log to internal storage tab view", true)
                 addItem("WebView 滚动截图", true)
+                addItem("打开系统通知设置", true)
             })
             // endregion
         })
