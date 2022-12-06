@@ -11397,25 +11397,40 @@
         "bookType": 219,
         "sections": [
           {
-            "title": "常见问题",
+            "title": "Gradle 插件",
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
             "section_action": 1
           },
           {
-            "title": "Gradle 插件",
+            "title": "大量的类报红，但是能正常编译运行",
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
             "section_action": 2
           },
           {
-            "title": "大量的类报红，但是能正常编译运行",
+            "title": "NDK 项目创建新的 .h 头文件后，无法正常引入其他头系统的头文件",
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
             "section_action": 3
+          },
+          {
+            "title": "Android Studio 运行 Java 的 main 方法",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 5,
+            "webUrl": "https://zhuanlan.zhihu.com/p/163338988"
+          },
+          {
+            "title": "Run 按钮灰色了",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 4
           }
         ],
         "title": "Android Studio"
@@ -11531,77 +11546,77 @@
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 0
+            "section_action": 1
           },
           {
             "title": "12 | 测试也是程序员的事吗？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 1
+            "section_action": 2
           },
           {
             "title": "13 | 先写测试，就是测试驱动开发吗？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 2
+            "section_action": 3
           },
           {
             "title": "14 | 大师级程序员的工作秘笈",
             "chapter_action": 3,
-            "finishTag": false,
+            "finishTag": true,
             "item_action": 0,
-            "section_action": 3
+            "section_action": 4
           },
           {
             "title": "15 | 一起练习：手把手带你分解任务",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 4
+            "section_action": 5
           },
           {
             "title": "16 | 为什么你的测试不够好？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 5
+            "section_action": 6
           },
           {
             "title": "17 | 程序员也可以“砍”需求吗？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 6
+            "section_action": 7
           },
           {
             "title": "18 | 需求管理：太多人给你安排任务，怎么办？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 7
+            "section_action": 8
           },
           {
             "title": "19 | 如何用最小的代价做产品？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 8
+            "section_action": 9
           },
           {
             "title": "答疑解惑 | 如何分解一个你不了解的技术任务？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 9
+            "section_action": 10
           },
           {
             "title": "划重点 | 关于“任务分解”，你要重点掌握哪些事？",
             "chapter_action": 3,
             "finishTag": false,
             "item_action": 0,
-            "section_action": 10
+            "section_action": 11
           }
         ],
         "title": "任务分解"

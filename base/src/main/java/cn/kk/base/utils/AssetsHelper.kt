@@ -1,6 +1,7 @@
 package cn.kk.base.utils
 
 import android.content.Context
+import android.text.TextUtils
 import cn.kk.customview.bean.BaseItem
 
 object AssetsHelper {
@@ -148,15 +149,11 @@ object AssetsHelper {
 
            // region IDE
            BaseItem.ACTION_BOOK_IDE -> {
+               val BOOK_URL = "/ide/android_studio"
                when(item.chapter_action) {
-                   1 -> {
-                       when(item.section_action) {
-                           1 -> "https://github.com/kamaihamaiha/DevNotes/tree/master/doc/ide/android_studio/android_studio.md"
-                           2 -> "https://github.com/kamaihamaiha/DevNotes/tree/master/doc/ide/android_studio/as_1.md"
-                           3 -> "https://github.com/kamaihamaiha/DevNotes/tree/master/doc/ide/android_studio/as_2.md"
-
-                           else -> ""
-                       }
+                   1 -> { // Android Studio
+                       val sectionUrl = "/as_${item.section_action}.md"
+                       if (TextUtils.isEmpty(item.webUrl)) BASE_BOOK_URL.plus(BOOK_URL.plus(sectionUrl)) else item.webUrl
                    }
 
                    else -> ""
