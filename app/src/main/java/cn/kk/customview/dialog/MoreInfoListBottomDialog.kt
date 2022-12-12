@@ -1,6 +1,7 @@
 package cn.kk.customview.dialog
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.TextView
 import cn.kk.base.R
 import cn.kk.base.activity.BaseActivity
@@ -27,7 +28,7 @@ class MoreInfoListBottomDialog(val mActivity: BaseActivity, modelList: MutableLi
     }
 
     override fun onItemClick(model: BaseMoreItem) {
-        if (model.appPkgName.isNotEmpty()) {
+        if (!TextUtils.isEmpty(model.appPkgName)) {
             SystemUtil.startAppByPkgName(mActivity, model.appPkgName)
         } else {
             if (model.url.isEmpty()) {
