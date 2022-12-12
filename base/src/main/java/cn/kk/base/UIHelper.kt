@@ -2,6 +2,7 @@ package cn.kk.base
 
 import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.*
@@ -9,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.SpannableString
 import android.text.Spanned
+import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
@@ -19,6 +21,7 @@ import android.view.animation.RotateAnimation
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -337,9 +340,49 @@ object UIHelper {
         arrowView.startAnimation(rotateAnim)
     }
 
+    // endregion AlertDialog
+    /**
+     * 显示弹窗，自己处理确定按钮事件
+     */
+    fun showAlertDialog(ctx: Activity, res: Int, title: String, callback: StringCallback) {
+        val alertView = ctx.layoutInflater.inflate(res, null)
+        val builder = AlertDialog.Builder(ctx).apply {
+            setView(alertView)
+            setTitle(title)
+            setCancelable(false)
+            setNegativeButton("Cancel") { dialog, which ->
+
+            }
+            setPositiveButton("Confirm",null)
+        }
+        val alertDialog = builder.create()
+        alertDialog.show()
+
+        // show 之后再 getButton，否则 get不到
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            // get input
+            val etInput = alertView.findViewById<EditText>(R.id.et_input)
+            if (TextUtils.isEmpty(etInput.text.toString())) {
+                Toast.makeText(ctx, "Input must be not null!", Toast.LENGTH_SHORT).show()
+            } else {
+                callback.onResult(etInput.text.toString())
+                alertDialog.dismiss()
+            }
+        }
+
+
+    }
+    // region AlertDialog
+
+
     // endregion
 
     interface BooleanCallback {
         fun onResult(result: Boolean)
     }
+
+    interface StringCallback {
+        fun onResult(result: String)
+    }
+
 }

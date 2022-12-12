@@ -1,5 +1,6 @@
 package cn.kk.customview.ui.system
 
+import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
 import cn.kk.base.dialog.CommentFragment
@@ -17,6 +18,7 @@ class DialogActivity: BaseActivity() {
             add(ListItemAction("DialogFragment", true))
             add(ListItemAction("BottomSheetDialog", true))
             add(ListItemAction("BottomSheetDialog with theme", true))
+            add(ListItemAction("AlertDialog with input", true))
         }
     }
 
@@ -31,6 +33,12 @@ class DialogActivity: BaseActivity() {
                 0 ->  CommentFragment.showDialog(this)
                 1 ->  SimpleBottomDialog(this).show()
                 2 ->  SimpleBottomDialog(this, R.style.EdgeToEdgeDialogStyle).show()
+                3 ->  UIHelper.showAlertDialog(this@DialogActivity, R.layout.alert_dialog_input_view, "提示", object : UIHelper.StringCallback {
+                    override fun onResult(result: String) {
+                        showToast(result)
+                    }
+
+                })
             }
         }
     }
