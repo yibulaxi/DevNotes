@@ -11434,11 +11434,25 @@
           }
         ],
         "title": "Android Studio"
+      },
+      {
+        "bookType": 219,
+        "title": "Mac 上的工具",
+        "sections": [
+          {
+            "title": "Parallels Desktop 18",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://www.yuque.com/suanshibangeyouquderen-7szjy/pchkwl/giz4ip2bngkbm51g"
+          }
+        ]
       }
     ],
     "expandChapterIndex": 0,
     "itemAction": 219,
-    "title": "IDE"
+    "title": "IDE & Tools"
   },
   {
     "bookImgRes": -1,

@@ -151,7 +151,7 @@ object AssetsHelper {
            BaseItem.ACTION_BOOK_IDE -> {
                val BOOK_URL = "/ide/android_studio"
                when(item.chapter_action) {
-                   1 -> { // Android Studio
+                   1, 2 -> { // Android Studio, Mac 上的工具
                        val sectionUrl = "/as_${item.section_action}.md"
                        if (TextUtils.isEmpty(item.webUrl)) BASE_BOOK_URL.plus(BOOK_URL.plus(sectionUrl)) else item.webUrl
                    }
