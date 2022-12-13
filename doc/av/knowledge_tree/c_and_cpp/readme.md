@@ -6,4 +6,4 @@
 - [C++ 学习](https://gitee.com/kamaihamaiha/immoc_for_cpp)
     - [C++ 那些事](https://github.com/Light-City/CPlusPlusThings.git)
     - [C++ 入门](https://juejin.cn/post/6844904039407173646)
-    - [YouTube 教程](./cpp/readme.md)
+    - [TheCherno 教程](./cpp/readme.md)

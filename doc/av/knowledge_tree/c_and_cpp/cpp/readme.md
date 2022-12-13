@@ -15,3 +15,5 @@
 ---
 
 - [Variables in C++](./p_8_variables_in_cpp.md)
+- [Functions in C++](./p_9_functions_in_cpp.md)
+- [C++ Header Files](./p_10_cpp_header_files.md)
