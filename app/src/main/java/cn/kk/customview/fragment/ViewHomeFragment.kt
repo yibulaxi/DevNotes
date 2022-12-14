@@ -52,6 +52,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("桌面小组件", true)
                 addItem("Drawable", true)
                 addItem("RecyclerView 用法", true)
+                addItem("EditText 用法", true)
             })
             // endregion
 
