@@ -34,6 +34,7 @@ abstract class BaseActivity: BasicActivity() {
     protected val INTENT_TITLE_KEY = "title"
     protected val INTENT_TYPE_KEY = "type"
     protected val INTENT_WEB_URL_KEY = "web_url"
+    protected val INTENT_IMG_RES_KEY = "img_res"
     protected val INTENT_MARKDOWN_PATH_KEY = "markdown_path"
     protected val INTENT_MARKDOWN_LOCAL_KEY = "markdown_is_local"
     protected val INTENT_MODEL_KEY = "model"
@@ -246,6 +247,18 @@ abstract class BaseActivity: BasicActivity() {
         startActivity(Intent(this, targetActivity).apply {
             putExtra(INTENT_TITLE_KEY, title)
             putExtra(INTENT_TYPE_KEY, type)
+        })
+        slideAnimEnter()
+    }
+
+    /**
+     * @param type 这个参数暂时不用
+     */
+    open fun <T: Activity> openNextUI(targetActivity: Class<T>, title: String, type: Int ,imgRes: Int){
+        startActivity(Intent(this, targetActivity).apply {
+            putExtra(INTENT_TITLE_KEY, title)
+            putExtra(INTENT_TYPE_KEY, type)
+            putExtra(INTENT_IMG_RES_KEY, imgRes)
         })
         slideAnimEnter()
     }

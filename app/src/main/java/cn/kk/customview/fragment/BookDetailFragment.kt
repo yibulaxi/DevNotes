@@ -21,6 +21,7 @@ import cn.kk.base.utils.AssetsHelper
 import cn.kk.bean.BookViewModel
 import cn.kk.customview.R
 import cn.kk.customview.activity.NormalMarkDownViewActivity
+import cn.kk.customview.activity.NormalViewActivity
 import cn.kk.customview.activity.NormalWebViewActivity
 import cn.kk.customview.activity.book.BookDetailActivity
 import cn.kk.customview.activity.more.audio.AudioActivity
@@ -205,6 +206,27 @@ class BookDetailFragment: BaseFragment() {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownFileUrl, false)
                             }
                             // endregion
+
+                            BaseItem.ACTION_BOOK_HEALTH -> {
+                                when (item.chapter_action) {
+                                    0 -> { // 新冠
+                                        when (item.section_action) {
+                                            1 -> { // 小区情况
+                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_IMAGE_VIEW, R.drawable.covid_img_1)
+                                            }
+                                            2 -> { // 症状
+
+                                            }
+                                            3 -> { // 专家家交流会
+
+                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_IMAGE_VIEW, R.drawable.covid_img_3)
+                                            }
+                                            else -> {}
+                                        }
+                                    }
+                                    else -> {}
+                                }
+                            }
                         }
                     }
 

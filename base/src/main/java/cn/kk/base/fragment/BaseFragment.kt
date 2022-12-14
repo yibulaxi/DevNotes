@@ -81,6 +81,9 @@ abstract class BaseFragment: Fragment() {
         (activity as BaseActivity).openNextUI(targetActivity, title, type)
     }
 
+    protected fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int , imgRes: Int){
+        (activity as BaseActivity).openNextUI(targetActivity, title, type, imgRes)
+    }
 
     open fun <T: Activity> startNextUI(targetActivity: Class<T>, title: String, type: Int, webUrl: String){
         (activity as BaseActivity).openNextUI(targetActivity, title, type, webUrl)
