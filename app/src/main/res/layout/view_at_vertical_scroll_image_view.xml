@@ -12,7 +12,6 @@
 
        <ImageView
            android:id="@+id/iv_pic"
-           android:scaleType="centerInside"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"/>
 

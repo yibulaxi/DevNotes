@@ -1,5 +1,6 @@
 package cn.kk.customview.activity
 
+import android.graphics.BitmapFactory
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +22,8 @@ import com.example.hencoder.MultilineTextView
 import com.example.hencoder.draw.SimpleDrawable
 import kotlinx.android.synthetic.main.activity_normal_view.*
 import kotlinx.android.synthetic.main.view_at_channel_tab_view.*
-import kotlinx.android.synthetic.main.view_at_image_view.*
 import kotlinx.android.synthetic.main.view_at_input_word_view.*
+import kotlinx.android.synthetic.main.view_at_vertical_scroll_image_view.*
 
 /**
  * 用来显示单纯的 View(各种自定义的 View) 页面
@@ -58,7 +59,7 @@ class NormalViewActivity: BaseActivity() {
         val VIEW_TYPE_DATE_TEXT_VIEW = 105 // TextView 日期+斜线
         val VIEW_TYPE_CHANNEL_TAB_VIEW = 106 // channel tab view
         val VIEW_TYPE_WORD_INPUT_VIEW = 107 // 拼写组件
-        val VIEW_TYPE_IMAGE_VIEW = 108 // 图片
+        val VIEW_TYPE_VERTICAL_SCROLL_IMAGE_VIEW = 108 // 可上下滚动图片
     }
 
     override fun getLayout(): Int {
@@ -143,9 +144,14 @@ class NormalViewActivity: BaseActivity() {
                 val sentence = "That these United Colonies are, and of right ought to be, free and <span class=\"key\">independent</span> States, that they are absolved from all allegiance to the British Crown, and that all political connection between them and the State of Great Britain is, and ought to be, totally dissolved"
                 word_input_view.inflateSentence(sentence)
             }
-            VIEW_TYPE_IMAGE_VIEW-> {
-                view_container.addView(getImageView())
+            VIEW_TYPE_VERTICAL_SCROLL_IMAGE_VIEW-> {
+                view_container.addView(getVerticalScrollImageView())
                 val imgRes = intent.getIntExtra(INTENT_IMG_RES_KEY, -1)
+                val bitmap = BitmapFactory.decodeResource(resources, imgRes)
+                val ivPicHeight = UIHelper.getScreenWidth(this) * (bitmap.height * 1.0f / bitmap.width)
+                iv_pic.layoutParams.apply { // 动态改变 ImageView 高度
+                    height = ivPicHeight.toInt()
+                }
                 Glide.with(this@NormalViewActivity).load(ContextCompat.getDrawable(this, imgRes)).into(iv_pic)
             }
             // endregion
@@ -198,7 +204,7 @@ class NormalViewActivity: BaseActivity() {
         return layoutInflater.inflate(R.layout.view_at_input_word_view, null)
     }
 
-    private fun getImageView(): View {
-        return layoutInflater.inflate(R.layout.view_at_image_view, null)
+    private fun getVerticalScrollImageView(): View {
+        return layoutInflater.inflate(R.layout.view_at_vertical_scroll_image_view, null)
     }
 }

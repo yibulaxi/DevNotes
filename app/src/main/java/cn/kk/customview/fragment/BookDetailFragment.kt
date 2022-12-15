@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -212,14 +210,13 @@ class BookDetailFragment: BaseFragment() {
                                     0 -> { // 新冠
                                         when (item.section_action) {
                                             1 -> { // 小区情况
-                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_IMAGE_VIEW, R.drawable.covid_img_1)
+                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_VERTICAL_SCROLL_IMAGE_VIEW, R.drawable.covid_img_1)
                                             }
                                             2 -> { // 症状
 
                                             }
                                             3 -> { // 专家家交流会
-
-                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_IMAGE_VIEW, R.drawable.covid_img_3)
+                                                startNextUI(NormalViewActivity::class.java, item.title, NormalViewActivity.VIEW_TYPE_VERTICAL_SCROLL_IMAGE_VIEW, R.drawable.covid_img_3)
                                             }
                                             else -> {}
                                         }
