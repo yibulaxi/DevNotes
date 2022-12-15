@@ -9,13 +9,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import cn.kk.customview.R;
 
@@ -119,7 +123,68 @@ public class SystemUtil {
         return value;
     }
 
+    private static String filterHtmlImgTag(String source){
+        if (source != null && !source.isEmpty()) {
+            Pattern pattern = Pattern.compile("<img.*?src\\s*=\\s*\"(.*?)\".*?>"); // ios
+//            Pattern pattern = Pattern.compile("<img\\s+(?:[^>]*?\\s+)?src=\"([^\"]*)\"");
+            Matcher matcher = pattern.matcher(source);
+            if (matcher.find()) {
+                System.out.println("匹配了");
+                return matcher.group();
+            }
+                System.out.println("没有匹配");
+            return source;
+        }
+        return "";
+    }
+
+    /**
+     * 获取HTML文件里面的IMG标签的SRC地址
+     * @param htmlText 带html格式的文本
+     */
+    public static List<String> getHtmlImageSrcList(String htmlText) {
+        List<String> imgSrc = new ArrayList<String>();
+        Matcher m = Pattern.compile("src=\"?(.*?)(\"|>|\\s+)").matcher(htmlText);
+        while (m.find()) {
+            imgSrc.add(m.group(1));
+        }
+        return imgSrc;
+    }
+
+    public static String getLinkFormat(String link){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<a href=\"");
+        sb.append(link);
+        sb.append("\">");
+        sb.append("[图片]");
+        sb.append("</a>");
+        return sb.toString();
+    }
+
+    /**
+     * 去掉所有的HTML,获取其中的文本信息
+     * @param htmlText
+     * @return
+     */
+    public static String GetHtmlText(String htmlText)
+    {
+        String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式
+        Pattern p_html = Pattern.compile(regEx_html, Pattern.CASE_INSENSITIVE);
+        Matcher m_html = p_html.matcher(htmlText);
+        htmlText = m_html.replaceAll(""); // 过滤HTML标签
+        return htmlText;
+    }
+
 
     public static void main(String[] args) {
+        String testImg = "<img src=\"https://files.kf5.com/attachments/download/10434/13714718/00162eb887797f4b7729a632e41f7bb/\" alt=\"ScreenShot-2022-08-04-at-08.50.16.png\">";
+
+        // 替换成：<a href="https://files.kf5.com/attachments/download/10434/13714718/00162eb887797f4b7729a632e41f7bb/">[图片]</a>
+
+        System.out.println("提取 img 标签：" + filterHtmlImgTag(testImg));
+
+
+        System.out.println("提取 img 标签 src: " + getHtmlImageSrcList(testImg).get(0));
+        System.out.println("格式化 img 标签: " + getLinkFormat(getHtmlImageSrcList(testImg).get(0)));
     }
 }
