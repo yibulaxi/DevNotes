@@ -23,3 +23,24 @@
      sudo apt-get update
      sudo apt-get --reinstall install bcmwl-kernel-source 
     ```
+  
+#### Windows 环境基本配置
+
+- chrome
+- clash
+- git
+- jdk
+- typora
+- vs code
+- visual studio
+- android studio
+- python
+- cmake
+- notepad++
+- WindTerm
+- wps
+- BaiduNetdisk
+- source tree
+- ToDesk
+- 其他下载的源码
+- 其他存储的课程资料
