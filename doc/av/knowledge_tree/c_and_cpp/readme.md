@@ -7,3 +7,4 @@
     - [C++ 那些事](https://github.com/Light-City/CPlusPlusThings.git)
     - [C++ 入门](https://juejin.cn/post/6844904039407173646)
     - [TheCherno 教程](./cpp/readme.md)
+    - [皇叔训练营]()
