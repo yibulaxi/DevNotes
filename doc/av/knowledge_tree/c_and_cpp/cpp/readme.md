@@ -19,3 +19,4 @@
 - [C++ Header Files](./p_10_cpp_header_files.md)
 - [How to Debug C++ in Visual Studio](./p_11_how_to_debug_cpp_in_vs.md)
 - [Best Visual Studio Setup for cpp Projects](./p_13_best_setup.md)
+- [Classes vs Structs](./p_19_classes_vs_structs.md)
