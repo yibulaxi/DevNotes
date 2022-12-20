@@ -10,4 +10,5 @@ defaults write com.google.android.studio AppleWindowTabbingMode manual
 - [NDK 项目创建新的 .h 头文件后，无法正常引入其他头系统的头文件](./as_3.md)
 - [Android Studio 运行 Java 的 main 方法](https://zhuanlan.zhihu.com/p/163338988)
 - [Run 按钮灰色了](as_4.md)
+- [Gradle 依赖](as_5.md)
 

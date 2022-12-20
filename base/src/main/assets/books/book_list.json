@@ -11431,6 +11431,13 @@
             "finishTag": true,
             "item_action": 0,
             "section_action": 4
+          },
+          {
+            "title": "Gradle 依赖路径",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 5
           }
         ],
         "title": "Android Studio"
@@ -11446,6 +11453,20 @@
             "item_action": 0,
             "section_action": 1,
             "webUrl": "https://www.yuque.com/suanshibangeyouquderen-7szjy/pchkwl/giz4ip2bngkbm51g"
+          }
+        ]
+      },
+      {
+        "bookType": 219,
+        "title": "Windows 上的工具",
+        "sections": [
+          {
+            "title": "Win10 多种截屏方法",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://www.bilibili.com/read/cv9844037"
           }
         ]
       }
