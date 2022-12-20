@@ -1,11 +1,10 @@
 package cn.kk.base.utils;
 
-
 import android.graphics.Color;
-import android.text.TextUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringHelper {
 
@@ -86,19 +85,46 @@ public class StringHelper {
         return word;
     }
 
+    private static String filterHtmlImgTag(String source){
+        if (source != null && !source.isEmpty()) {
+            Pattern pattern = Pattern.compile("<img.*?src\\s*=\\s*\"(.*?)\".*?>"); // ios
+            Matcher matcher = pattern.matcher(source);
+            if (matcher.find()) {
+                System.out.println("匹配了");
+                return matcher.group();
+            }
+            System.out.println("没有匹配");
+            return source;
+        }
+        return "";
+    }
+
+    /**
+     * 获取HTML文件里面的IMG标签的SRC地址
+     * @param htmlText 带html格式的文本
+     */
+    public static List<String> getHtmlImageSrcList(String htmlText) {
+        List<String> imgSrc = new ArrayList<String>();
+        Matcher m = Pattern.compile("src=\"?(.*?)(\"|>|\\s+)").matcher(htmlText);
+        while (m.find()) {
+            imgSrc.add(m.group(1));
+        }
+        return imgSrc;
+    }
+
+    public static String getLinkFormat(String link){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<a href=\"");
+        sb.append(link);
+        sb.append("\">");
+        sb.append("[图片]");
+        sb.append("</a>");
+        return sb.toString();
+    }
 
 
     public static void main(String[] args) {
 
-
-//        list2arrayDemo();
-
-        String sentence1 = "Allergens are anything harmless (or neutral) that can be inhaled in air by nose and trigger excessive immune reaction.";
-        String keyWord = "allergen";
-
-//        System.out.println(word2Cap(keyWord));
-
-        System.out.println(highLightWord(sentence1, keyWord));
 
     }
 }

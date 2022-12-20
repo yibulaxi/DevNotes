@@ -177,6 +177,15 @@ public class SystemUtil {
 
 
     public static void main(String[] args) {
+
+        String receive = "您好，\n" +
+                "如果您在安卓平板中遇到了下图所示的情况（图一/图二）：\n" +
+                "对于华为平板，在系统设置中搜索“平行视界”，关闭欧路词典的这个选项（图三），就会恢复正常;\n" +
+                "对于小米平板, 相关设置的名称是“横屏模式”， 同样在系统设置中检索关闭即可；\n" +
+                "其他品牌的平板操作逻辑一致，但设置项名称可能会有不同。\n" +
+                "<img src=\"https://files.kf5.com/attachments/download/10434/12969600/001621735daa3f4714c787b5a612034/\" title=\"\" alt=\"图片.png\"><img src=\"https://files.kf5.com/attachments/download/10434/13530681/00162b436e2512ae59d837216ac6592/\" title=\"\" alt=\"Screenshot_2022-06-23-17-46-47-142_com.eusoft.eud.jpg\">\n" +
+                "<img src=\"https://files.kf5.com/attachments/download/10434/12969614/001621736542760352f522f8b6f1627/\" title=\"\" alt=\"图片.png\">";
+
         String testImg = "<img src=\"https://files.kf5.com/attachments/download/10434/13714718/00162eb887797f4b7729a632e41f7bb/\" alt=\"ScreenShot-2022-08-04-at-08.50.16.png\">";
 
         // 替换成：<a href="https://files.kf5.com/attachments/download/10434/13714718/00162eb887797f4b7729a632e41f7bb/">[图片]</a>
