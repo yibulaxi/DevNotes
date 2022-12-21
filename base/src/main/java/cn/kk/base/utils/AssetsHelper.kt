@@ -147,7 +147,7 @@ object AssetsHelper {
            }
            // endregion
 
-           // region IDE
+           // region IDE & Tools
            BaseItem.ACTION_BOOK_IDE -> {
                val BOOK_URL = "/ide/android_studio"
                when(item.chapter_action) {

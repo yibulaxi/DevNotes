@@ -191,7 +191,7 @@ class BookDetailFragment: BaseFragment() {
                             }
                             // endregion
 
-                            // region IDE
+                            // region IDE & Tools
                             BaseItem.ACTION_BOOK_IDE -> {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.getMarkdownFileUrl(bookType), false)
                             }

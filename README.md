@@ -34,7 +34,7 @@
 
 ---
 
-### [IDE](./doc/ide/readme.md)
+### [IDE & Tools](./doc/tools/readme.md)
 
 ### [电脑其他操作](./doc/pc_other_opera.md)
 
