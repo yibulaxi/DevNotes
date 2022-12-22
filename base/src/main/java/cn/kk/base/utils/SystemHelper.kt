@@ -1,8 +1,10 @@
 package cn.kk.base.utils
 
+import android.app.Activity
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Environment
 import android.os.Vibrator
 import android.provider.Settings
@@ -47,6 +49,20 @@ object SystemHelper {
         } catch (e: Exception) {
             false
         }
+    }
+
+    /**
+     * 设置屏幕竖屏
+     */
+    fun setScreenOrientationPortrait(activity: Activity){
+        activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
+
+    /**
+     * 设置屏幕横屏
+     */
+    fun setScreenOrientationLandscape(activity: Activity){
+        activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
     }
 
 }
