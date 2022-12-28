@@ -11474,7 +11474,21 @@
             "finishTag": true,
             "item_action": 0,
             "section_action": 1,
-            "webUrl": "https://www.bilibili.com/read/cv9844037"
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/tools/win/win_cap_wiki.md"
+          }
+        ]
+      },
+      {
+        "bookType": 219,
+        "title": "Visual Studio",
+        "sections": [
+          {
+            "title": "总览",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio/readme.md"
           }
         ]
       }
