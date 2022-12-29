@@ -10004,6 +10004,14 @@
         "finishTag": false,
         "item_action": 0,
         "section_action": 0
+      },
+      {
+        "title": "慕课网重学 C++",
+        "url": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/av/knowledge_tree/c_and_cpp/cpp/readme.md",
+        "chapter_action": 0,
+        "finishTag": false,
+        "item_action": 0,
+        "section_action": 0
       }
     ],
     "title": "C++ Primer"

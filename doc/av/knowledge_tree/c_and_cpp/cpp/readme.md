@@ -7,7 +7,7 @@
 - [第3章 运算符与表达式]()
 - [第4章 从C语言的陷阱到C++的改进]()
 - [第5章 基础容器](./from_mooc/chapter_5_basic_container.md)
-- [第6章 彻底学会 C++ 指针，引用]()
+- [第6章 彻底学会 C++ 指针，引用](./from_mooc/chapter_6_pointer_and_reference/readme.md)
 - [第7章 基础句法]()
 - [第8章 高级语法]()
 - [第9章 编程思想]()
