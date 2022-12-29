@@ -1,8 +1,8 @@
+rootProject.name = "DevNotes"
 include ':utils'
 include ':base'
 include ':elementary'
 include ':app'
-rootProject.name = "CustomeView"
 include ':hencoder'
 include ':work'
 include ':openGL'
