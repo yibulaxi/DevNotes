@@ -3,6 +3,6 @@ ext {
     appVersionName = "0.1"
 
     appCompileSdkVersion = 31
-    appMinSdkVersion = 21
+    appMinSdkVersion = 23
     appTargetSdkVersion = 26
 }

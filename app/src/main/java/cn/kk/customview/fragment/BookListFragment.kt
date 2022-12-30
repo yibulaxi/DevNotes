@@ -3,6 +3,7 @@ package cn.kk.customview.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kk.base.UIHelper
@@ -42,11 +43,12 @@ class BookListFragment: BaseFragment() {
                 override fun convert(holder: BaseViewHolder, item: BookModel) {
                     if (item.bookImgRes == -1) {
                         holder.setText(R.id.tv_name, item.title)
-                        holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(UIHelper.generaRandomColor())
+                        holder.getView<CardView>(R.id.root_view).setCardBackgroundColor(ContextCompat.getColor(context, R.color.primary_10))
                         holder.setBackgroundResource(R.id.tv_name, 0)
                     } else {
                         holder.setText(R.id.tv_name, "")
                         holder.setBackgroundResource(R.id.tv_name, item.bookImgRes)
+                        holder.itemView.foreground = ContextCompat.getDrawable(context, R.drawable.bg_press_dark_selector)
                     }
 
                 }

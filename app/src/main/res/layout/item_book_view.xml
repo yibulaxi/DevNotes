@@ -8,7 +8,8 @@
     app:cardBackgroundColor="@color/Wheat"
     android:foreground="@drawable/bg_press_dark_selector"
     app:cardCornerRadius="6dp"
-    app:cardElevation="4dp"
+    app:cardElevation="0dp"
+    android:background="?selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="150dp">
 
@@ -19,7 +20,7 @@
         android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
         tools:text="共产党宣言" />
