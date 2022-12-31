@@ -28,3 +28,4 @@
 ### Debug 相关
 
 - [给变量添加监视](./add_monitor.md)
+- [查看汇编代码](./cat_asm_code.md)
