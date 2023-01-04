@@ -15,6 +15,8 @@ class Task15SimplePlayer: BaseActivity() {
     override fun doWhenOnCreate() {
         super.doWhenOnCreate()
 
+        val nativeFFmpegDemo = NativeFFmpegDemo()
+        tv_av_format_info.text = nativeFFmpegDemo.fFmpegAvFormatVersion
 
         btn_play_video.setOnClickListener {
             ff_video.playVideo(videoPath)

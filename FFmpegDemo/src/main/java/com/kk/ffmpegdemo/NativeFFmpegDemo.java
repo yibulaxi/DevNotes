@@ -11,4 +11,6 @@ public class NativeFFmpegDemo {
 
 
     public native String getFFmpegInfo();
+
+    public native String getFFmpegAvFormatVersion();
 }

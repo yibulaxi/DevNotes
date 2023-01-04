@@ -365,3 +365,12 @@ Java_com_kk_ffmpegdemo_utils_FFUtils_playVideo(JNIEnv *env, jclass clazz, jstrin
 
 
 
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_kk_ffmpegdemo_NativeFFmpegDemo_getFFmpegAvFormatVersion(JNIEnv *env, jobject thiz) {
+    unsigned version = avformat_version();
+    char info[40000] = {0};
+    sprintf(info, "avformat_version: %u", version);
+    return env->NewStringUTF(info);
+}

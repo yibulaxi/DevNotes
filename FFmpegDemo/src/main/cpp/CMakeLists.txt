@@ -11,7 +11,7 @@ find_library(log-lib log)
 find_library(android-lib android)
 
 
-# 1. 定义so库和头文件所在目录，方面后面使用
+# 1. 定义so库和头文件所在目录，方便后面使用
 set(ffmpeg_lib_dir ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
 set(ffmpeg_head_dir ${CMAKE_SOURCE_DIR})
 
