@@ -148,6 +148,11 @@ class BookDetailFragment: BaseFragment() {
                                             5 -> startNextUI(NormalWebViewActivity::class.java, item.title, -1, "https://github.com/yangkun19921001")
                                         }
                                     }
+                                    7 -> { // 其他
+                                        if (item.finishTag) {
+                                            startNextUI(NormalWebViewActivity::class.java, item.title, -1, item.webUrl)
+                                        }
+                                    }
                                 }
                             }
                             // endregion

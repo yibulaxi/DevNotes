@@ -750,6 +750,14 @@
             "finishTag": false,
             "item_action": 0,
             "section_action": 2
+          },
+          {
+            "title": "音视频修炼路",
+            "chapter_action": 7,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 2,
+            "webUrl": "https://cloud.tencent.com/developer/column/90404"
           }
         ],
         "title": "其他"
