@@ -1,5 +1,7 @@
 ### Android Studio 常见问题
 
+- [官方使用指南](https://developer.android.com/studio/intro?hl=zh-cn)
+
 - Mac 下卡死
 ```shell
 // Terminal 执行
