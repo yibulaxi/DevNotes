@@ -89,6 +89,11 @@ class BookDetailFragment: BaseFragment() {
                 mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
+                            // 大佬分享
+                            BaseItem.ACTION_BOOK_SOMEONE_SHARE -> {
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.webUrl, false)
+                            }
+                            // endregion
                             // region 面试
                             BaseItem.ACTION_BOOK_INTERVIEW -> {
                                 val url = AssetsHelper.getMarkdownURL(bookType, item)
