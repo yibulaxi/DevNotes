@@ -6730,7 +6730,25 @@
     ],
     "expandChapterIndex": 0,
     "itemAction": 210,
-    "title": "FFmpeg 从入门到精通"
+    "title": "FFmpeg 从入门到精通",
+    "moreItemList": [
+      {
+        "title": "自己写的 CLion 练习代码",
+        "url": "https://github.com/kamaihamaiha/audio_video_dev_codes/tree/main/ffmpeg_dev/README.md",
+        "chapter_action": 0,
+        "finishTag": true,
+        "item_action": 0,
+        "section_action": 0
+      },
+      {
+        "title": "FFmpeg 原理(在线电子书)",
+        "url": "https://ffmpeg.xianwaizhiyin.net",
+        "chapter_action": 0,
+        "finishTag": true,
+        "item_action": 0,
+        "section_action": 0
+      }
+    ]
   },
   {
     "bookImgRes": 2131230831,

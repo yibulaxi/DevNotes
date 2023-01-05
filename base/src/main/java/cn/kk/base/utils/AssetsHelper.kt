@@ -125,22 +125,23 @@ object AssetsHelper {
 
            // region FFMpeg
            BaseItem.action_book_ffmpeg -> {
+               val base_url = "https://github.com/kamaihamaiha/audio_video_dev_codes/blob/main/ffmpeg_note/docs/"
                 when(item.chapter_action) {
                     1, 2 -> {
                         // https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_2/2.1.md
                         // https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_3/section_1/3.1.md
                         when(item.section_action) {
-                            in 1..8 -> ("https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1" +
+                            in 1..8 -> ("${base_url}part_1" +
                                     "/chapter_" +
                                     "${item.chapter_action}/${item.chapter_action}.").plus(item.section_action).plus(".md")
                             else -> { "" }
                         }
                     }
                     3 -> {
-                        "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_3/section_${item.section_action}/3.${item.section_action}.md"
+                        "${base_url}part_1/chapter_3/section_${item.section_action}/3.${item.section_action}.md"
                     }
                     4 -> {
-                        "https://gitee.com/kamaihamaiha/ffmpeg-note/blob/main/docs/part_1/chapter_4/4.${item.section_action}.md"
+                        "${base_url}part_1/chapter_4/4.${item.section_action}.md"
                     }
                     else ->{ "" }
                 }
