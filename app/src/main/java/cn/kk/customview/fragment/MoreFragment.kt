@@ -37,7 +37,7 @@ class MoreFragment: BaseFragment() {
                 holder.setText(R.id.tv_name, item.title)
                 holder.setText(R.id.tv_index, (holder.layoutPosition + 1).toString())
                 holder.setVisible(R.id.iv_ok_flag, item.finish)
-                holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
+//                holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
             }
         }.apply {
             setOnItemClickListener { adapter, view, position ->
