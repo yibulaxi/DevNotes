@@ -15,7 +15,7 @@ Android Studio 编译原生库的默认构建工具是 CMake. 现在很多项目
 
 #### 配置 CMake
 
-- 文档](https://developer.android.com/studio/projects/configure-cmake)
+- [文档](https://developer.android.com/studio/projects/configure-cmake)
 - [CMake 命令官方文档](https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html)
 
 #### 原生 API
