@@ -118,6 +118,7 @@
         <activity android:name=".activity.work.WebViewOperaLogsToClientActivity" />
         <activity android:name=".activity.work.SaveLogActivity" />
         <activity android:name=".activity.work.WebViewScrollCapActivity" />
+        <activity android:name=".activity.work.KeyboardStateActivity" android:configChanges="keyboard|keyboardHidden|screenSize"/>
 
         <!--arch-->
         <activity android:name=".activity.arch.MvcActivity"/>

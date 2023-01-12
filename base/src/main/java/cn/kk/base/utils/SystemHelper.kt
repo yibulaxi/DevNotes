@@ -5,6 +5,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Environment
 import android.os.Vibrator
 import android.provider.Settings
@@ -63,6 +64,14 @@ object SystemHelper {
      */
     fun setScreenOrientationLandscape(activity: Activity){
         activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+    }
+
+    /**
+     * 判断外接键盘连接状态
+     * 注意：网上都说用 BluetoothDevice, BluetoothProfile, BluetoothAdapter 复杂且不管用
+     */
+    fun getExternalKeyboardStatus(ctx: Context): Boolean{
+        return ctx.resources.configuration.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO
     }
 
 }

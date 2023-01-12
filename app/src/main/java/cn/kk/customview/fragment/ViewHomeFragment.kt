@@ -103,6 +103,7 @@ class ViewHomeFragment: BaseFragment() {
                 addItem("save log to internal storage tab view", true)
                 addItem("WebView 滚动截图", true)
                 addItem("打开系统通知设置", true)
+                addItem("蓝牙键盘状态", true)
             })
             // endregion
         })
