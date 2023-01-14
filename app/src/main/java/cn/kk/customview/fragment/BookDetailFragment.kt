@@ -89,8 +89,8 @@ class BookDetailFragment: BaseFragment() {
                 mItemSectionClickListener = object : BaseChapterAdapter.OnItemSectionClickListener {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
-                            // 大佬分享
-                            BaseItem.ACTION_BOOK_SOMEONE_SHARE -> {
+                            // 大佬分享,技术文章大杂烩
+                            BaseItem.ACTION_BOOK_SOMEONE_SHARE, BaseItem.ACTION_BOOK_SOME_ARTICLES -> {
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.webUrl, false)
                             }
                             // endregion

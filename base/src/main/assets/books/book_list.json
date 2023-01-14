@@ -93,6 +93,96 @@
     "bookImgRes": -1,
     "chapterModelList": [
       {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "花了2个月，终于传统ANR的一切",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/sxRGDvkgOx1sqdOeHF_Mbw"
+          },
+          {
+            "title": "App 黑白化实现探索，有一行代码实现的方案吗？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/8fTWLYaPhi0to47EUmFd7A"
+          },
+          {
+            "title": "WebView 经历的各种干货方案分享",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/lR09lszCULIvnsH30NzIjQ"
+          },
+          {
+            "title": "Android ANR？谁控制了触发时间？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/8w05AGpuKvpqPGpg0G08sA"
+          },
+          {
+            "title": "升级 Android 目标版本到 31(S) 这么多坑",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/HhtGV1AWTy2lJo2jwXPcGw"
+          },
+          {
+            "title": "一文搞懂 Gradle 配置，7.0之后有哪些变化？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/M48s9_i8WHO91LFQm-Gtkg"
+          }
+        ],
+        "title": "Android 相关"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "Java 序列化和反序列化，为什么要实现 Serializable 接口？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/ZIkJI1eYEPyw0I9nv-pi4g"
+          }
+        ],
+        "title": "Java 相关"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "Github今年最优质的算法自学项目，没有之一！！",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://www.bilibili.com/video/BV1te411A7Te/?p=1&share_medium=android_i&share_plat=android&share_source=WEIXIN&share_tag=s_i&timestamp=1671561056&unique_k=Z7J95vI"
+          }
+        ],
+        "title": "其他"
+      }
+    ],
+    "expandChapterIndex": 0,
+    "itemAction": 229,
+    "title": "技术文章大杂烩"
+  },
+  {
+    "bookImgRes": -1,
+    "chapterModelList": [
+      {
         "bookType": 218,
         "sections": [
           {
