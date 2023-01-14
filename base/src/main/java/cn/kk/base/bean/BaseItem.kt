@@ -8,6 +8,7 @@ abstract  class BaseItem: Serializable {
     var section_action = 0
     var webUrl = ""
     var finishTag = false
+    var htmlTag = false
     var appPkgName = ""
 
 

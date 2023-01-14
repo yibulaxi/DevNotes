@@ -12,6 +12,7 @@ import cn.kk.base.R
 import cn.kk.base.UIHelper
 import cn.kk.base.activity.BaseActivity
 import cn.kk.base.bean.ListItemAction
+import cn.kk.customview.bean.BaseItem
 import java.io.Serializable
 
 abstract class BaseFragment: Fragment() {
@@ -93,6 +94,25 @@ abstract class BaseFragment: Fragment() {
         (activity as BaseActivity).openNextUIWithMarkdown(targetActivity, title, markdownFilePath, localFile)
     }
 
+    open fun  openOnlineUI(item: BaseItem, title: String){
+        // html or markdown
+        if (item.htmlTag) {
+            try {
+                val clazz: Class<Activity> = Class.forName("cn.kk.customview.activity.NormalWebViewActivity") as Class<Activity>
+                startNextUI(clazz, title, -1, item.webUrl)
+            } catch (e: Exception) {
+                e.toString()
+            }
+        } else {
+            try {
+                val clazz: Class<Activity> = Class.forName("cn.kk.customview.activity.NormalMarkDownViewActivity") as Class<Activity>
+                startNextUI(clazz, title, -1, item.webUrl)
+            } catch (e: Exception) {
+                e.toString()
+            }
+        }
+
+    }
 
     open fun <T: Activity, K: Serializable> startNextUI(targetActivity: Class<T>, title: String, model: K){
         (activity as BaseActivity).openNextUI(targetActivity, title, model)

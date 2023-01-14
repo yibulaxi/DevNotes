@@ -30,7 +30,6 @@
             "title": "提高面试通过率",
             "chapter_action": 1,
             "finishTag": true,
-            "item_action": 0,
             "section_action": 4
           }
         ],
@@ -11559,6 +11558,69 @@
             "item_action": 0,
             "section_action": 1,
             "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio/readme.md"
+          }
+        ]
+      },
+      {
+        "bookType": 219,
+        "title": "VS Code",
+        "sections": [
+          {
+            "title": "总览",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/readme.md"
+          },
+          {
+            "title": "在线教程：极客教程",
+            "chapter_action": 1,
+            "finishTag": true,
+            "htmlTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html"
+          },
+          {
+            "title": "命令面板",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/command_palette.md"
+          },
+          {
+            "title": "从终端中使用`code`调用 vscode",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/start_from_shell.md"
+          },
+          {
+            "title": "预览方法参数",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/preview_params.md"
+          },
+          {
+            "title": "光标移动和选中",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/cursor_move.md"
+          },
+          {
+            "title": "行操作",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/ide/visual_studio_code/line_edit.md"
           }
         ]
       },
