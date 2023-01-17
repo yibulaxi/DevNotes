@@ -11620,6 +11620,14 @@
             "item_action": 0,
             "section_action": 2,
             "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/mac_wiki.md"
+          },
+          {
+            "title": "Parallels Desktop 上的 Ubuntu 密码忘记了，重置密码方法",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 3,
+            "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/mac/reset_pwd_ubuntu_on_parallels-desktop.md"
           }
         ]
       },
