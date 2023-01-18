@@ -43,9 +43,15 @@
 ### 1-14 ～ 1-15 日 周六+周日
 
 - FFmpeg 视频编码
+  - 编码器初始化 ✅
+  - 编码，yuv -> h264 ✅
 - C++ 课程继续
+  - simple input and output ✅
+  - struct enum union ✅
 - Shell 编程：B站
 - 皇叔android 训练营课程
 - 整理收藏的 android 类技术文章
+  - 整理到了 book 中 ✅
 - 学习 gitbook 使用
+  - 尝试搭建
   
