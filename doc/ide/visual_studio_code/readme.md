@@ -2,6 +2,8 @@
 
 [在线教程：极客教程](https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html)
 
+### 基本擦操作
+
 - [命令面板](./command_palette.md)
 - [查看快捷键](#查看快捷键)
 - [从终端中使用`code`调用 vscode](./start_from_shell.md)
@@ -14,3 +16,6 @@
 
 - `⌘ + k ⌘ + s`: command + keyboard command + shortcuts
 - 命令面板中输入: `open keyboard shortcuts`
+
+### [调试 C/C++](./debug_c_or_cpp/readme.md) 
+
