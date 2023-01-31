@@ -2,7 +2,7 @@
 
 [在线教程：极客教程](https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html)
 
-### 基本擦操作
+### 基本操作
 
 - [命令面板](./command_palette.md)
 - [查看快捷键](#查看快捷键)
