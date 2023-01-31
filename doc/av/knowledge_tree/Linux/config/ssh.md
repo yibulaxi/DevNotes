@@ -2,6 +2,8 @@
 
 使用场景：Mac 电脑连接远程的 Linux 服务器。
 
+首先远程的 Linux 服务器需要开启 ssh 服务,[具体配置参考](./ubuntu_config_ssh_server.md)
+
 
 #### step1 Mac 上要生成密钥（如果没有生成的话）
 
