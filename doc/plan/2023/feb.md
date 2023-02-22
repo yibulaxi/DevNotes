@@ -27,3 +27,11 @@
   - 7.5 recursive functions
 - 发现一个新大佬：[JsonChao](https://github.com/JsonChao) 
   - [那两年沉淀的时间增值心法](https://juejin.cn/post/7196741149343531045)
+
+#### 2-17 周五
+
+- C++ B站 于仕琪课程继续学习：
+  - 6.1 functions ✅
+  - 6.2 function parameters ✅
+- 整理 2 篇 stromzhang 知识星球的精华
+  - 第一期和第二期电子书精华，pdf 格式。存放位置：pixel5 手机 /sdcard/Documents 下，MacBook pro ～/Documents/Learning_resources/大佬分享下
