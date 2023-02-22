@@ -69,3 +69,31 @@
 #### 2-20 周一
 
 - 8.2 speedup your program ✅
+- 晚上捣鼓下载的 AOSP 代码
+  - 想办法 copy 到 windows 上，
+  - 由于占用空间太大没找到办法
+
+#### 2-21 周二
+
+- 晚上捣鼓下载的 AOSP 代码
+  - 占用太多时间，没有学习其他的
+  - 但是新买了 256G 的U盘
+  - 又捣鼓好久，最终是通过把 aosp 和 kenel 目录压缩 copy 到U盘中
+  
+#### 2-22 周三
+
+#### 捣鼓下载的 AOSP 代码
+
+- 上班的时间抽空，把 U盘里的 aosp 和 kernel 压缩包文件 copy 到公司的 mac 电脑
+- 然后解压缩到 Documents/android_source_code/
+- 打开虚拟机 Windows 系统，安装破解版的 Source Insight
+- 导入 aosp 源码(虚拟机可以访问到宿主机mac上的 Documents/android_source_code/ 目录)
+
+##### Source Insight
+
+- 轻量
+- 定位文件很强
+- 代码显示体验很好
+- 全局搜索厉害
+
+##### [FrameWork 学习路线](https://mp.weixin.qq.com/s/urwsKekLzvqhL8vwdb9s2Q)
