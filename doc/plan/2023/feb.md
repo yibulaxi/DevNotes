@@ -62,8 +62,8 @@
   - 9.2 constructors and destructors ✅
   - 9.3 this pointer ✅
   - 9.4 const and static members ✅
-  - 10.1 operators in opencv
-  - 10.2 operator overloading
+  - 10.1 operators in opencv ✅
+  - 10.2 operator overloading ✅
   - 10.3 friend-functions
   - 10.4 user defined type conversion
   - 10.5 increment and decrement operators
@@ -122,5 +122,7 @@
 #### 2-24 周五
 
 - [使用 copilot](https://github.com/features/copilot)
+- 10.1 operators in opencv ✅
+- 10.2 operator overloading ✅
 
 
