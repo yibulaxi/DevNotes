@@ -58,10 +58,10 @@
   - 8.2 speedup your program ✅
   - 8.3 an example with simd and openmp ✅
   - 8.4 avoid memory copy in opencv ✅
-  - 9.1 classes and objects
-  - 9.2 constructors and destructors
-  - 9.3 this pointer
-  - 9.4 const and static members
+  - 9.1 classes and objects ✅
+  - 9.2 constructors and destructors ✅
+  - 9.3 this pointer ✅
+  - 9.4 const and static members ✅
   - 10.1 operators in opencv
   - 10.2 operator overloading
   - 10.3 friend-functions
@@ -110,3 +110,17 @@
 - 全局搜索厉害
 
 ##### [FrameWork 学习路线](https://mp.weixin.qq.com/s/urwsKekLzvqhL8vwdb9s2Q)
+
+
+#### 2-23 周四
+
+- 9.1 classes and objects ✅
+- 9.2 constructors and destructors ✅
+- 9.3 this pointer ✅
+- 9.4 const and static members ✅
+
+#### 2-24 周五
+
+- [使用 copilot](https://github.com/features/copilot)
+
+
