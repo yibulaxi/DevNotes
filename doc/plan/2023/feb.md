@@ -7,6 +7,7 @@
 
 - [2-17 - 2-19]( #2-17-2-19)
 - [2-20 - 2-26]( #2-20-2-26)
+- [2-27 - 2-28]( #2-27-2-28)
 
 
 ### 2-17-2-19
@@ -51,9 +52,8 @@
   
 ### 2-20-2-26
 
-- 音视频FFmpeg 开发学习继续，完成音频编码的学习（上周未完成的）
-- 音视频FFmpeg 开发学习继续，完成音频解码的学习
-- 整理扔物线知识星球里的精华：2 篇（上周未完成的）
+- 音视频FFmpeg 开发学习继续，完成音频编码的学习（上周未完成的） ❌
+- 整理扔物线知识星球里的精华：2 篇（上周未完成的） ❌
 - C++ B站 于仕琪课程继续学习：
   - 8.2 speedup your program ✅
   - 8.3 an example with simd and openmp ✅
@@ -64,15 +64,20 @@
   - 9.4 const and static members ✅
   - 10.1 operators in opencv ✅
   - 10.2 operator overloading ✅
-  - 10.3 friend-functions
-  - 10.4 user defined type conversion
-  - 10.5 increment and decrement operators
-  - 11.1 some default operations
+  - 10.3 friend-functions ✅
+  - 10.4 user defined type conversion ✅
+  - 10.5 increment and decrement operators ✅
+  - 11.1 some default operations ✅
   - 11.2 an example with dynamic memory
   - 11.3 solution 1 hard copy
   - 11.4 solution 2 soft copy
   - 11.5 smart pointers
-- 皇书Android训练营学习，花钱买的课程别浪费了
+- 皇书Android训练营学习，花钱买的课程别浪费了 ❌
+
+#### 完成情况
+
+- C++ 还剩下 4 小节，如果周日不刷手机，不看电影的话是可以完成的
+- 其他的都没有完成
 
 #### 2-20 周一
 
@@ -125,4 +130,32 @@
 - 10.1 operators in opencv ✅
 - 10.2 operator overloading ✅
 
+#### 2-25 周六
+
+- 10.3 friend-functions ✅
+- 10.4 user defined type conversion ✅
+- 10.5 increment and decrement operators ✅
+
+#### 2-26 周日
+- 11.1 some default operations ✅
+
+
+### 2-27-2-28
+
+- [使用 copilot](https://github.com/features/copilot)
+- 音视频FFmpeg 开发学习继续，完成音频解码的学习 ❌
+- 整理扔物线知识星球里的精华：2 篇（上周未完成的） ❌
+- C++ B站 于仕琪课程继续学习：
+  - 11.2 an example with dynamic memory
+  - 11.3 solution 1 hard copy
+  - 11.4 solution 2 soft copy
+  - 11.5 smart pointers
+- - 皇书Android训练营学习，花钱买的课程别浪费了 ❌
+
+#### 2-27 周一
+
+- 11.2 an example with dynamic memory
+- 11.3 solution 1 hard copy
+- 11.4 solution 2 soft copy
+- 11.5 smart pointers
 
