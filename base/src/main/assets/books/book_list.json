@@ -96,7 +96,7 @@
         "bookType": 229,
         "sections": [
           {
-            "title": "花了2个月，终于传统ANR的一切",
+            "title": "花了2个月，终于串通ANR的一切",
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
@@ -145,6 +145,36 @@
           }
         ],
         "title": "Android 相关"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "如何深入学习 Android Framework",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://juejin.cn/post/7195770700106776636"
+          },
+          {
+            "title": "学得懂的 Android Framework 教程之 AOSP 急速上手",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://juejin.cn/post/7202634945171537977#heading-8"
+          },
+          {
+            "title": "学不会 Android Framework，是不是基础不牢固？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://juejin.cn/post/7202944248869797949"
+          }
+        ],
+        "title": "Android 系统开发"
       },
       {
         "bookType": 229,
