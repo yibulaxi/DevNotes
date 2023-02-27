@@ -913,6 +913,14 @@
             "item_action": 0,
             "section_action": 2,
             "webUrl": "https://cloud.tencent.com/developer/column/90404"
+          },
+          {
+            "title": "如何系统性学习音视频开发",
+            "chapter_action": 7,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 2,
+            "webUrl": "https://mp.weixin.qq.com/s/eIZtPRdU50-HKpqFDA3rvQ"
           }
         ],
         "title": "其他"
