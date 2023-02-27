@@ -154,8 +154,7 @@
 
 #### 2-27 周一
 
+- 整理了 Android 系统开发的文章Link，回去看 ✅
 - 11.2 an example with dynamic memory
 - 11.3 solution 1 hard copy
-- 11.4 solution 2 soft copy
-- 11.5 smart pointers
 
