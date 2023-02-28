@@ -2,6 +2,12 @@
 
 本月任务执行从 17日 开始，任务指定重新调整，简洁、明确，确保完成
 
+### 完成情况
+
+- C++ 计划完成 ✅
+- FFmpeg API 开发实战 ❌
+- 皇书Android训练营学习 进行了一点
+- 使用 copilot ❌
 
 ### 分周
 
@@ -150,11 +156,18 @@
   - 11.3 solution 1 hard copy
   - 11.4 solution 2 soft copy
   - 11.5 smart pointers
-- - 皇书Android训练营学习，花钱买的课程别浪费了 ❌
+- 皇书Android训练营学习，花钱买的课程别浪费了 ❌
 
 #### 2-27 周一
 
 - 整理了 Android 系统开发的文章Link，回去看 ✅
-- 11.2 an example with dynamic memory
-- 11.3 solution 1 hard copy
+- 11.2 an example with dynamic memory ✅
 
+#### 2-28 周二
+- 11.3 solution 1 hard copy ✅
+- 11.4 solution 2 soft copy ✅
+- 11.5 smart pointers ✅
+- 整理了「系统学习音视频」✅
+  - 声音和图像基础
+  - 音视频编码
+  - 音视频格式
