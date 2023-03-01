@@ -6,3 +6,4 @@
 - [ADB 使用](./adb/readme.md)
 - [GDB 使用](./gdb/readme.md)
 - [CMake 使用](./cmake/readme.md)
+- [GitHub Copilot](./copilot/readme.md)
