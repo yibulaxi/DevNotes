@@ -18,6 +18,7 @@
 - [音视频格式](./audio_video_format/readme.md)
 - [音视频协议](./audio_video_protocol/readme.md)
 - [OpenGL 渲染](./audio_video_render/readme.md)
+- [148个基础问题集锦](https://mp.weixin.qq.com/s?__biz=MjM5MTkxOTQyMQ==&mid=2257484830&idx=1&sn=c237e73e9555f9f1d72f722d75169e39&scene=21#wechat_redirect)
 
 ---
 
