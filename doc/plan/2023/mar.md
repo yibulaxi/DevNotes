@@ -3,7 +3,7 @@
 - C++
 - FFmpeg 开发实战
 - 皇书Android训练营学习
-- 使用 copilot
+- 使用 copilot ✅
 - 数据结构和算法
 - Android 其他
 - 程序员10x工作法
