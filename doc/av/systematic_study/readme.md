@@ -35,7 +35,7 @@
 ### 音视频工程示例
 
 - [音视频 Demo](./av_android_demo/readme.md)
-- [渲染 Demo](#渲染 Demo)
+- [渲染 Demo](./av_render/readme.md)
 - [平台能力](#平台能力)
 
 ---
