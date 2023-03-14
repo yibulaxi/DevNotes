@@ -90,7 +90,8 @@ class BookDetailFragment: BaseFragment() {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
                             // 大佬分享,技术文章大杂烩
-                            BaseItem.ACTION_BOOK_SOMEONE_SHARE, BaseItem.ACTION_BOOK_SOME_ARTICLES -> {
+                            BaseItem.ACTION_BOOK_SOMEONE_SHARE, BaseItem.ACTION_BOOK_SOME_ARTICLES, BaseItem.ACTION_BOOK_GRADLE -> {
+                                if (item.webUrl.isNullOrEmpty()) return
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.webUrl, false)
                             }
                             // endregion
