@@ -12059,9 +12059,9 @@
           {
             "title": "01 | 10x程序员是如何思考的？",
             "chapter_action": 1,
-            "finishTag": false,
+            "finishTag": true,
             "item_action": 0,
-            "section_action": 0
+            "section_action": 1
           }
         ],
         "title": "思考框架"
