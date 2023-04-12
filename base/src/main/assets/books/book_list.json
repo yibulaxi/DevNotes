@@ -96,6 +96,14 @@
         "bookType": 229,
         "sections": [
           {
+            "title": "Android 数据存储",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://developer.android.com/training/data-storage?hl=zh-cn"
+          },
+          {
             "title": "高效处理列表数据变化，你需要了解的 DiffUtil",
             "chapter_action": 1,
             "finishTag": true,
