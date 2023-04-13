@@ -11909,6 +11909,14 @@
             "item_action": 0,
             "section_action": 3,
             "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/mac/reset_pwd_ubuntu_on_parallels-desktop.md"
+          },
+          {
+            "title": "修复: Mac 上软件已损坏无法打开，你应该把它移到废纸篓",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 3,
+            "webUrl": "https://www.waodown.com/3217.html"
           }
         ]
       },
