@@ -32,7 +32,6 @@ abstract class NormalCardListActivity: BaseActivity() {
             override fun convert(holder: BaseViewHolder, item: ItemSimpleCard) {
                 holder.setText(R.id.tv_name, item.title)
                 holder.setVisible(R.id.iv_ok_flag, item.finish)
-                holder.getView<CardView>(R.id.rootView).setCardBackgroundColor(UIHelper.generaRandomColor())
             }
         }.apply {
             setOnItemClickListener { adapter, view, position ->
