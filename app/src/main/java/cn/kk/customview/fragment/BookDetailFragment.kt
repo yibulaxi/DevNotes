@@ -90,7 +90,8 @@ class BookDetailFragment: BaseFragment() {
                     override fun onSectionClick(bookType: Int, item: ItemSectionModel) {
                         when(bookType) {
                             // 大佬分享,技术文章大杂烩
-                            BaseItem.ACTION_BOOK_SOMEONE_SHARE, BaseItem.ACTION_BOOK_SOME_ARTICLES -> {
+                            BaseItem.ACTION_BOOK_SOMEONE_SHARE, BaseItem.ACTION_BOOK_SOME_ARTICLES, BaseItem.ACTION_BOOK_GRADLE -> {
+                                if (item.webUrl.isNullOrEmpty()) return
                                 openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, item.webUrl, false)
                             }
                             // endregion
@@ -211,8 +212,7 @@ class BookDetailFragment: BaseFragment() {
                             BaseItem.ACTION_10_works_method -> {
                                 // https://github.com/kamaihamaiha/DevNotes/tree/master/doc/geek_time/effective_work_method/c_2/section_5.md
                                 val markdownFileUrl = item.getMarkdownFileUrl(bookType)
-//                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownFileUrl, false)
-                                openOnlineUI(item, item.title)
+                                openNextUIWithMarkdown(NormalMarkDownViewActivity::class.java, item.title, markdownFileUrl, false)
                             }
                             // endregion
 

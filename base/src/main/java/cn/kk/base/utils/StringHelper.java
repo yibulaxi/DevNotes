@@ -1,5 +1,9 @@
 package cn.kk.base.utils;
 
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,7 +126,27 @@ public class StringHelper {
         return sb.toString();
     }
 
+    // get all activity info
+    public static String getAllActivityInfo(Context context) {
+        StringBuilder sb = new StringBuilder();
+        PackageManager pm = context.getPackageManager();
+        PackageInfo info = null;
+        try {
+            info = pm.getPackageInfo(context.getPackageName(), PackageManager.GET_ACTIVITIES);
+            ActivityInfo[] list = info.activities;
+            sb.append("start:\n");
+            for (ActivityInfo activityInfo : list) {
+                sb.append(activityInfo.name
+                        + "\n");
+            }
+            sb.append("------------------");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
+
+        return sb.toString();
+    }
     public static void main(String[] args) {
 
 

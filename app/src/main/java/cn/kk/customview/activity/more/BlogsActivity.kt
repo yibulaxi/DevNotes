@@ -24,6 +24,7 @@ class BlogsActivity: NormalCardListActivity() {
             add(ItemSimpleCard("Android教授", true).apply { web_url = "https://mp.weixin.qq.com/s/67hayepJ90TIh_CG0c9M2A" })
             add(ItemSimpleCard("小驰笔记", true).apply { web_url = "http://www.xiaochibiji.com/" })
             add(ItemSimpleCard("字节流动", true).apply { web_url = "https://mp.weixin.qq.com/s/vnK0oEGryaPQvljh4PkoxA" })
+            add(ItemSimpleCard("字节跳动技术团队", true).apply { web_url = "https://juejin.cn/user/1838039172387262" })
         }
     }
 

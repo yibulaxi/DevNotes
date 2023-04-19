@@ -96,12 +96,116 @@
         "bookType": 229,
         "sections": [
           {
-            "title": "花了2个月，终于串通ANR的一切",
+            "title": "史上最完美的Android沉浸式状态导航栏攻略",
             "chapter_action": 1,
             "finishTag": true,
             "item_action": 0,
             "section_action": 0,
-            "webUrl": "https://mp.weixin.qq.com/s/sxRGDvkgOx1sqdOeHF_Mbw"
+            "webUrl": "https://juejin.cn/post/7203563038301061181"
+          },
+          {
+            "title": "高性能图片优化方案",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://juejin.cn/post/7154949546882105374"
+          },
+          {
+            "title": "Android 数据存储",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://developer.android.com/training/data-storage?hl=zh-cn"
+          },
+          {
+            "title": "高效处理列表数据变化，你需要了解的 DiffUtil",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/zjp62kMP816GNcVklqHJ5w"
+          },
+          {
+            "title": "日活超3.6亿的快手告诉我们什么叫真正的性能优化天花板",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/uuRxDSH6DbJoUkCJssQOxQ"
+          },
+          {
+            "title": "为了讲清楚Android触摸事件，我“拆了部手机”",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/H07h84l2YbaU6kQAn6p94A"
+          },
+          {
+            "title": "CoordinatorLayout驾轻就熟，不怕UI任意需求",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/NayuXxmmQp7zDhtmmJNMUQ"
+          },
+          {
+            "title": "2023年插件化学习，从Activity开始",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/L_v4661gQXrZdFc0mA55Iw"
+          },
+          {
+            "title": "app隐私合规、安全漏洞，免费扫描",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/9gk4kUcDiImNeIUuHYiElg"
+          },
+          {
+            "title": "Android黑科技助力线程优化",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/ECYJmqMi7uMqvBb3gZD2Ng"
+          },
+          {
+            "title": "分享 4 个案例，一起玩一下 ASM",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/XLS_eK5eHJRRwPTy2HQz8g"
+          },
+          {
+            "title": "封神之作：极致包体优化，解决 17 个业务痛点",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/NiV51jOeCnTRgo-TLFsw7g"
+          },
+          {
+            "title": "祖传代码，业务代码参数透传满天飞？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/xNT7KLlgDhuHSTOebZbeZA"
+          },
+          {
+            "title": "分享两种方式：如何开启JNI的“大门”？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/vlukjn7ev3OQcboVTPlVYw"
           },
           {
             "title": "App 黑白化实现探索，有一行代码实现的方案吗？",
@@ -175,6 +279,118 @@
           }
         ],
         "title": "Android 系统开发"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "传说中的Native Crash，应用层开发者怎么应对？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/JkELHhcWZBd8Ar4aVONB2Q"
+          },
+          {
+            "title": "花了2个月，终于串通ANR的一切",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/sxRGDvkgOx1sqdOeHF_Mbw"
+          },
+          {
+            "title": "一个App的好坏，卡顿占一半？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/ipsxBqTI-aH4DC7fuC7YYw"
+          },
+          {
+            "title": "如何做好性能监控与异常崩溃管理？推荐两款神器！",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/EpNc4t1LBtMRvcdS_-FlBw"
+          },
+          {
+            "title": "Android ANR？谁控制了触发时间？",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/8w05AGpuKvpqPGpg0G08sA"
+          },
+          {
+            "title": "启动速度由8s 降到了2.5s，公司直接让我转正了",
+            "chapter_action": 1,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/oYepzt3Fl3eHpRJ3ZWgfpA"
+          }
+        ],
+        "title": "Android 崩溃/异常/卡顿/优化等处理"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "全网最优雅Android列表项可见性检测",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/Knp2ZtF5eoK5I8og3dkeGw"
+          }
+        ],
+        "title": "Android 列表"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "Android 日志打印还能这么玩？",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/wwWUssli-dZvf14rMNp43A"
+          }
+        ],
+        "title": "Android 调试"
+      },
+      {
+        "bookType": 229,
+        "sections": [
+          {
+            "title": "掌握这17张图，掌握RecyclerView中的“黑科技”预加载",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/zEpmDXBxfVqKB5fsndao5A"
+          },
+          {
+            "title": "画了10张图，带你搞定RecyclerView的缓存复用机制",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/ymdkjE8AFiYhiyj7Av2aVg"
+          },
+          {
+            "title": "RecyclerView刷新，分享两个更高效的小技巧！",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/3TJN6B_5OM32SKjXyn7C5Q"
+          }
+        ],
+        "title": "Android RecyclerView"
       },
       {
         "bookType": 229,
@@ -11591,6 +11807,49 @@
     "bookImgRes": -1,
     "chapterModelList": [
       {
+        "bookType": 230,
+        "sections": [
+          {
+            "title": "Gradle常用的几十个命令！",
+            "chapter_action": 0,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 1,
+            "webUrl": "https://mp.weixin.qq.com/s/oYQTl5bc8yC2xdjPjJAtRQ"
+          }
+        ],
+        "title": "命令"
+      },
+      {
+        "bookType": 230,
+        "sections": [
+          {
+            "title": "一文搞懂 Gradle 配置，7.0之后有哪些变化？",
+            "chapter_action": 7,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 0,
+            "webUrl": "https://mp.weixin.qq.com/s/M48s9_i8WHO91LFQm-Gtkg"
+          },
+          {
+            "title": "todo 2",
+            "chapter_action": 7,
+            "finishTag": false,
+            "item_action": 0,
+            "section_action": 4
+          }
+        ],
+        "title": "其他"
+      }
+    ],
+    "expandChapterIndex": 0,
+    "itemAction": 230,
+    "title": "Gradle"
+  },
+  {
+    "bookImgRes": -1,
+    "chapterModelList": [
+      {
         "bookType": 219,
         "sections": [
           {
@@ -11666,6 +11925,14 @@
             "item_action": 0,
             "section_action": 3,
             "webUrl": "https://github.com/kamaihamaiha/DevNotes/blob/master/doc/mac/reset_pwd_ubuntu_on_parallels-desktop.md"
+          },
+          {
+            "title": "修复: Mac 上软件已损坏无法打开，你应该把它移到废纸篓",
+            "chapter_action": 2,
+            "finishTag": true,
+            "item_action": 0,
+            "section_action": 3,
+            "webUrl": "https://www.waodown.com/3217.html"
           }
         ]
       },
@@ -11824,9 +12091,9 @@
           {
             "title": "01 | 10x程序员是如何思考的？",
             "chapter_action": 1,
-            "finishTag": false,
+            "finishTag": true,
             "item_action": 0,
-            "section_action": 0
+            "section_action": 1
           }
         ],
         "title": "思考框架"

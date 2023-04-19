@@ -45,6 +45,7 @@ abstract  class BaseItem: Serializable {
         val ACTION_BOOK_HEALTH = 227      // 健康
         val ACTION_BOOK_SOMEONE_SHARE = 228      // 大佬分享
         val ACTION_BOOK_SOME_ARTICLES = 229      // 技术文章大杂烩
+        val ACTION_BOOK_GRADLE = 230      // Gradle
         // endregion
 
         // region normal chapter and section
